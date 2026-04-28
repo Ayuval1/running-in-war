@@ -1,7 +1,0 @@
-node_modules/
-.env
-.env.local
-data/training-data.json
-*.pyc
-__pycache__/
-.DS_Store
