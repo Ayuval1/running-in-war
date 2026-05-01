@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: white; display: inline-block; }
+.code-block {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  display: inline-block;
+  min-width: 280px;
+}
+.prompt { color: #888; }
+.kw { color: #569cd6; }
+.fn { color: #dcdcaa; }
+.str { color: #ce9178; }
+.num { color: #b5cea8; }
+.neg { color: #f48771; }
+.out { color: #9cdcfe; }
+.plain { color: #d4d4d4; }
+</style>
+</head>
+<body>
+<div class="code-block">
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="plain">s</span> = <span class="str">"hello"</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s[</span><span class="num">0</span><span class="plain">])</span></div>
+<div><span class="out">h</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s[</span><span class="num">1</span><span class="plain">])</span></div>
+<div><span class="out">e</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s[</span><span class="neg">-1</span><span class="plain">])</span></div>
+<div><span class="out">o</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s[</span><span class="neg">-2</span><span class="plain">])</span></div>
+<div><span class="out">l</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: white; display: inline-block; }
+.code-block {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  display: inline-block;
+  min-width: 340px;
+}
+.prompt { color: #888; }
+.kw { color: #569cd6; }
+.fn { color: #dcdcaa; }
+.str { color: #ce9178; }
+.num { color: #b5cea8; }
+.out { color: #9cdcfe; }
+.cm { color: #6a9955; }
+.plain { color: #d4d4d4; }
+</style>
+</head>
+<body>
+<div class="code-block">
+<div><span class="cm"># range(n) — מ-0 עד n-1</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="kw">for</span> <span class="plain">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>)<span class="plain">:</span></div>
+<div><span class="prompt">...&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="fn">print</span>(<span class="plain">i</span>)</div>
+<div><span class="out">0  1  2  3  4</span></div>
+<br>
+<div><span class="cm"># range(a,b) — מ-a עד b-1</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="kw">for</span> <span class="plain">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, <span class="num">5</span>)<span class="plain">:</span></div>
+<div><span class="prompt">...&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="fn">print</span>(<span class="plain">i</span>)</div>
+<div><span class="out">2  3  4</span></div>
+<br>
+<div><span class="cm"># range(a,b,k) — קפיצות של k</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="kw">for</span> <span class="plain">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">0</span>, <span class="num">10</span>, <span class="num">3</span>)<span class="plain">:</span></div>
+<div><span class="prompt">...&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="fn">print</span>(<span class="plain">i</span>)</div>
+<div><span class="out">0  3  6  9</span></div>
+</div>
+</body>
+</html>

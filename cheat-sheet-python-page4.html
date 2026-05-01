@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<title>דף עזר פייתון — עמוד 4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', Arial, sans-serif;
+  background: #eee;
+  direction: rtl;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 15px auto;
+  padding: 10mm 10mm 8mm;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #111;
+  text-align: center;
+  border-bottom: 2.5px solid #111;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+.topic-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: #111;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.row  { display: flex; gap: 10px; }
+.col  { flex: 1; min-width: 0; }
+.col-6 { flex: 0 0 calc(50% - 5px); }
+
+.divider { border: none; border-top: 2px solid #ccc; margin: 6px 0; }
+
+/* ── SCREENSHOT placeholder ── */
+.screenshot {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+}
+.screenshot img {
+  width: 100%;
+  display: block;
+}
+.screenshot-placeholder {
+  background: #f5f5f5;
+  border: 2px dashed #bbb;
+  border-radius: 6px;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 9px;
+  color: #888;
+  margin-bottom: 5px;
+}
+.screenshot-placeholder .icon { font-size: 18px; display: block; margin-bottom: 3px; }
+.screenshot-placeholder .label { font-weight: 700; color: #555; font-size: 9.5px; }
+
+.code-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+/* ── טבלה — קוד בתוכה כ-monospace רגיל ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5px;
+  margin-bottom: 5px;
+}
+th {
+  background: #222;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  font-size: 9.5px;
+}
+td {
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  vertical-align: middle;
+  font-size: 9.5px;
+}
+td.mono {
+  font-family: 'Courier New', monospace;
+  font-size: 9.5px;
+  color: #111;
+  background: #f8f8f8;
+}
+tr:nth-child(even) td { background: #f5f5f5; }
+tr:nth-child(even) td.mono { background: #efefef; }
+
+/* ── קופסאות ── */
+.box {
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 9.5px;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+.box-red    { background: #fff0f0; border: 1.5px solid #e53935; }
+.box-yellow { background: #fffde7; border: 1.5px solid #f9a825; }
+.box-blue   { background: #e8f4fd; border: 1.5px solid #1e88e5; }
+.box-title  { font-weight: 900; font-size: 10.5px; display: block; margin-bottom: 2px; }
+
+/* inline code — רק בקופסאות/הסברים, לא בטבלאות */
+code {
+  background: #f0f0f0;
+  color: #c0392b;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  border: 1px solid #ddd;
+}
+
+/* ── ויזואל אינדקסים ── */
+.index-visual {
+  display: flex;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  margin-bottom: 5px;
+  direction: ltr;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.index-visual .cell { flex: 1; text-align: center; border-right: 1px solid #ccc; }
+.index-visual .cell:last-child { border-right: none; }
+.index-visual .char { background: #222; color: #ffd580; padding: 3px 0; font-weight: 700; font-size: 11px; }
+.index-visual .pos  { background: #e8f4fd; color: #1e88e5; padding: 2px 0; font-size: 8px; font-weight: 700; }
+.index-visual .neg  { background: #fff0f0; color: #e53935; padding: 2px 0; font-size: 8px; font-weight: 700; }
+
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; margin: 0; }
+  @page { size: A4; margin: 0; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-title">🔁 לולאות &nbsp;&nbsp;|&nbsp;&nbsp; 🔤 מחרוזות</div>
+
+  <!-- ═══ לולאות ═══ -->
+  <div class="row">
+
+    <!-- לולאת for -->
+    <div class="col-6">
+      <div class="topic-title">לולאת for:</div>
+
+      <div class="code-label">range — 3 גרסאות:</div>
+      <div class="screenshot">
+        <img src="screenshots/for-range.png" alt="לולאת for + range">
+      </div>
+
+      <div class="code-label">for על מחרוזת:</div>
+      <div class="screenshot">
+        <img src="screenshots/for-string.png" alt="for על מחרוזת">
+      </div>
+
+      <div class="box box-yellow">
+        <span class="box-title">⚡ range — סיכום:</span>
+        <code>range(n)</code> → 0 עד n-1<br>
+        <code>range(a,b)</code> → a עד b-1<br>
+        <code>range(a,b,k)</code> → קפיצות של k
+      </div>
+    </div>
+
+    <!-- לולאת while -->
+    <div class="col-6">
+      <div class="topic-title">לולאת while:</div>
+
+      <div class="code-label">מבנה:</div>
+      <div class="screenshot">
+        <img src="screenshots/while-loop.png" alt="לולאת while">
+      </div>
+
+      <div class="box box-red">
+        <span class="box-title">⚠️ לולאה אינסופית — סכנה!</span>
+        בלי <code>x += 1</code> — x נשאר 1 לנצח.<br>
+        הלולאה לא נגמרת לעולם ← קוד קורס!
+      </div>
+
+      <table>
+        <tr><th>for</th><th>while</th></tr>
+        <tr><td>יודעים כמה פעמים</td><td>לא יודעים כמה פעמים</td></tr>
+        <tr><td>range קובע את הכמות</td><td>תנאי קובע את העצירה</td></tr>
+        <tr class="mono-row">
+          <td class="mono">for i in range(5)</td>
+          <td class="mono">while x &lt;= 100</td>
+        </tr>
+      </table>
+
+      <div class="box box-blue">
+        <span class="box-title">💡 מתי while?</span>
+        כשלא יודעים מראש כמה סיבובים —<br>
+        למשל: "המשך עד שהמשתמש יכניס 0"
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══ מחרוזות ═══ -->
+  <div class="topic-title" style="text-align:center;font-size:15px">מחרוזות:</div>
+
+  <div class="row">
+
+    <!-- אינדקסים + חיתוך -->
+    <div class="col-6">
+      <div class="topic-title" style="font-size:11px">גישה לתווים:</div>
+
+      <div class="index-visual">
+        <div class="cell"><div class="char">h</div><div class="pos">0</div><div class="neg">-5</div></div>
+        <div class="cell"><div class="char">e</div><div class="pos">1</div><div class="neg">-4</div></div>
+        <div class="cell"><div class="char">l</div><div class="pos">2</div><div class="neg">-3</div></div>
+        <div class="cell"><div class="char">l</div><div class="pos">3</div><div class="neg">-2</div></div>
+        <div class="cell"><div class="char">o</div><div class="pos">4</div><div class="neg">-1</div></div>
+      </div>
+
+      <div class="screenshot">
+        <img src="screenshots/string-index.png" alt="גישה לתווים s[0], s[-1]">
+      </div>
+
+      <div class="topic-title" style="font-size:11px;margin-top:2px">חיתוך [start : stop : step]:</div>
+
+      <table>
+        <tr><th>קוד</th><th>תוצאה</th><th>הסבר</th></tr>
+        <tr><td class="mono">s[1:3]</td><td class="mono">'el'</td><td>אינדקס 1 עד 2</td></tr>
+        <tr><td class="mono">s[:2]</td><td class="mono">'he'</td><td>מהתחלה עד 1</td></tr>
+        <tr><td class="mono">s[2:]</td><td class="mono">'llo'</td><td>מ-2 עד הסוף</td></tr>
+        <tr><td class="mono">s[::-1]</td><td class="mono">'olleh'</td><td>הפוך! ⬅️</td></tr>
+        <tr><td class="mono">s[::2]</td><td class="mono">'hlo'</td><td>כל תו שני</td></tr>
+      </table>
+
+      <div class="box box-yellow">
+        <span class="box-title">🔮 טריק:</span>
+        <code>s[::-1]</code> הופך כל מחרוזת!
+      </div>
+    </div>
+
+    <!-- פונקציות -->
+    <div class="col-6">
+      <div class="topic-title" style="font-size:11px">פונקציות מחרוזת:</div>
+
+      <table>
+        <tr><th>פונקציה</th><th>מה עושה</th><th>תוצאה</th></tr>
+        <tr><td class="mono">len(s)</td><td>אורך</td><td class="mono">5</td></tr>
+        <tr><td class="mono">"l" in s</td><td>האם קיים?</td><td class="mono">True</td></tr>
+        <tr><td class="mono">s.find("l")</td><td>מיקום ראשון</td><td class="mono">2</td></tr>
+        <tr><td class="mono">s.count("l")</td><td>כמה פעמים?</td><td class="mono">2</td></tr>
+        <tr><td class="mono">s.replace("l","x")</td><td>החלפה</td><td class="mono">"hexxo"</td></tr>
+        <tr><td class="mono">"a,b".split(",")</td><td>פיצול</td><td class="mono">["a","b"]</td></tr>
+        <tr><td class="mono">",".join(["a","b"])</td><td>חיבור</td><td class="mono">"a,b"</td></tr>
+      </table>
+
+      <div class="screenshot">
+        <img src="screenshots/string-funcs.png" alt="פונקציות מחרוזת">
+      </div>
+
+      <div class="box box-red">
+        <span class="box-title">⚠️ שים לב!</span>
+        <code>s.find("x")</code> → מחזיר <code>-1</code> אם לא נמצא<br><br>
+        מחרוזות <strong>קבועות</strong> — לא ניתן לשנות תו:<br>
+        <code>s[0] = "H"</code> → שגיאה! ❌
+      </div>
+
+      <div class="box box-blue">
+        <span class="box-title">💡 for + מחרוזת:</span>
+        <code>for letter in "hello": print(letter)</code><br>
+        → מדפיס: h, e, l, l, o
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

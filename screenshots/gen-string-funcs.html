@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: white; display: inline-block; }
+.code-block {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  display: inline-block;
+  min-width: 360px;
+}
+.prompt { color: #888; }
+.kw { color: #569cd6; }
+.fn { color: #dcdcaa; }
+.str { color: #ce9178; }
+.num { color: #b5cea8; }
+.out { color: #9cdcfe; }
+.plain { color: #d4d4d4; }
+.bool { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="code-block">
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="plain">s</span> = <span class="str">"hello"</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="fn">len</span>(<span class="plain">s</span>))</div>
+<div><span class="out">5</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="str">"l"</span> <span class="kw">in</span> <span class="plain">s</span>)</div>
+<div><span class="bool">True</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s</span>.<span class="fn">find</span>(<span class="str">"l"</span>))</div>
+<div><span class="out">2</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s</span>.<span class="fn">count</span>(<span class="str">"l"</span>))</div>
+<div><span class="out">2</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="plain">s</span>.<span class="fn">replace</span>(<span class="str">"l"</span>, <span class="str">"x"</span>))</div>
+<div><span class="out">hexxo</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="str">"a,b"</span>.<span class="fn">split</span>(<span class="str">","</span>))</div>
+<div><span class="out">['a', 'b']</span></div>
+<div><span class="prompt">&gt;&gt;&gt; </span><span class="fn">print</span>(<span class="str">","</span>.<span class="fn">join</span>([<span class="str">"a"</span>, <span class="str">"b"</span>]))</div>
+<div><span class="out">a,b</span></div>
+</div>
+</body>
+</html>
