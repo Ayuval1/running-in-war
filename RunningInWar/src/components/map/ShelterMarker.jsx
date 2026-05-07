@@ -85,7 +85,7 @@ function ShelterMarker({ shelter, onEdit, onDelete, currentUserId }) {
           )}
 
           {/* Actions */}
-          {isOwner && !shelter.isImported && (
+          {((isOwner && !shelter.isImported) || shelter.isPublic) && onEdit && (
             <div style={{ display: 'flex', gap: 8, marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <button
                 onClick={() => onEdit(shelter)}
@@ -103,22 +103,24 @@ function ShelterMarker({ shelter, onEdit, onDelete, currentUserId }) {
               >
                 ערוך
               </button>
-              <button
-                onClick={() => onDelete(shelter.id)}
-                style={{
-                  flex: 1,
-                  fontSize: 12,
-                  fontWeight: 700,
-                  padding: '6px 0',
-                  borderRadius: 8,
-                  border: '1px solid rgba(255,65,84,0.4)',
-                  background: 'rgba(255,65,84,0.1)',
-                  color: '#FF4154',
-                  cursor: 'pointer',
-                }}
-              >
-                מחק
-              </button>
+              {!shelter.isPublic && onDelete && (
+                <button
+                  onClick={() => onDelete(shelter.id)}
+                  style={{
+                    flex: 1,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: '6px 0',
+                    borderRadius: 8,
+                    border: '1px solid rgba(255,65,84,0.4)',
+                    background: 'rgba(255,65,84,0.1)',
+                    color: '#FF4154',
+                    cursor: 'pointer',
+                  }}
+                >
+                  מחק
+                </button>
+              )}
             </div>
           )}
         </div>
