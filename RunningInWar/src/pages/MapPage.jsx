@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { Shield, MapPin, LocateFixed, Loader2, CheckCircle2, X, AlertTriangle, Building2, Search } from 'lucide-react'
+import { Shield, MapPin, LocateFixed, Loader2, CheckCircle2, X, AlertTriangle, Search } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useShelters } from '../hooks/useShelters'
 import { useLocation } from '../hooks/useLocation'
@@ -9,15 +9,15 @@ import { useAlerts } from '../hooks/useAlerts'
 import { addShelter, updateShelter, deleteShelter, saveHomeLocation, getUserProfile } from '../firebase/firestore'
 import { findNearestShelter } from '../lib/geo'
 import { useAddressAutocomplete, buildAddressLabel } from '../hooks/useAddressAutocomplete'
-import { fetchPublicShelters, SUPPORTED_CITIES, getCityWebsiteUrl, API_CITIES } from '../lib/publicShelters'
 import ShelterMarker       from '../components/map/ShelterMarker'
-import PublicShelterMarker from '../components/map/PublicShelterMarker'
 import UserMarker    from '../components/map/UserMarker'
 import SOSButton     from '../components/sos/SOSButton'
 import SOSOverlay    from '../components/sos/SOSOverlay'
 import Drawer        from '../components/ui/Drawer'
 import ShelterForm   from '../components/shelters/ShelterForm'
 import BottomNav     from '../components/ui/BottomNav'
+import { useKrayotShelters }  from '../hooks/useKrayotShelters'
+import KrayotCityPicker       from '../components/map/KrayotCityPicker'
 
 const ISRAEL_CENTER = [31.5, 34.9]
 
@@ -281,67 +281,6 @@ function PlacementModeSelector({ mode, onModeChange, onAddressSelect }) {
   )
 }
 
-function PublicSheltersForm({ onLoad, loading }) {
-  const [city, setCity] = useState(SUPPORTED_CITIES[0])
-  const isWebsiteCity = !API_CITIES.includes(city)
-  const websiteUrl = getCityWebsiteUrl(city)
-
-  return (
-    <div className="flex flex-col gap-4">
-      <p className="text-white/40 text-sm leading-relaxed">
-        חפש מקלטים ציבוריים לפי עיר.
-      </p>
-
-      <div className="flex flex-col gap-2">
-        <label className="text-sm text-white/60 font-semibold">בחר עיר</label>
-        <select
-          value={city}
-          onChange={e => setCity(e.target.value)}
-          className="w-full bg-[#0A1628] border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:border-purple-500 transition-colors"
-          style={{ fontSize: 16 }}
-        >
-          {SUPPORTED_CITIES.map(c => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-      </div>
-
-      {isWebsiteCity ? (
-        <>
-          <div className="bg-purple-900/20 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-purple-300">
-            עיר זו אינה זמינה כ-API — המקלטים מופיעים באתר העירייה.
-          </div>
-          <a
-            href={websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-purple-600/20 border border-purple-500/40 text-purple-400 font-bold py-3.5 rounded-xl active:scale-95 transition-transform cursor-pointer"
-          >
-            <Building2 size={16} strokeWidth={2} />
-            פתח רשימת מקלטים של {city}
-          </a>
-        </>
-      ) : (
-        <>
-          <button
-            onClick={() => onLoad(city)}
-            disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-purple-600/20 border border-purple-500/40 text-purple-400 font-bold py-3.5 rounded-xl active:scale-95 transition-transform disabled:opacity-40 cursor-pointer"
-          >
-            {loading
-              ? <><Loader2 size={16} strokeWidth={2} className="animate-spin" /> טוען...</>
-              : <><Building2 size={16} strokeWidth={2} /> טען מקלטים ציבוריים</>
-            }
-          </button>
-          <p className="text-xs text-white/25 text-center">
-            נתונים מ-data.gov.il · עשויים שלא להיות מעודכנים
-          </p>
-        </>
-      )}
-    </div>
-  )
-}
-
 export default function MapPage() {
   const { user }         = useAuth()
   const { shelters, offline } = useShelters()
@@ -361,11 +300,9 @@ export default function MapPage() {
   const [addMode, setAddMode]           = useState('pin')   // 'pin' | 'address'
   const [pendingAddress, setPendingAddress] = useState('')
 
-  // Public (municipal) shelters from data.gov.il
-  const [publicShelters, setPublicShelters]       = useState([])
-  const [showPublicShelters, setShowPublicShelters] = useState(true)
-  const [showPublicDrawer, setShowPublicDrawer]   = useState(false)
-  const [loadingPublic, setLoadingPublic]         = useState(false)
+  const [showKrayotPicker, setShowKrayotPicker]     = useState(false)
+  const [selectedKrayotCity, setSelectedKrayotCity] = useState(null)
+  const { shelters: krayotShelters, loading: krayotLoading, error: krayotError } = useKrayotShelters(selectedKrayotCity)
 
   useEffect(() => {
     if (!user) return
@@ -421,22 +358,20 @@ export default function MapPage() {
     setShowSOS(true)
   }
 
-  async function handleLoadPublic(city) {
-    setLoadingPublic(true)
+  async function handleSaveKrayotEdit(formData) {
+    if (!editingShelter || !user) return
+    setFormLoading(true)
     try {
-      const results = await fetchPublicShelters(city)
-      if (results.length === 0) {
-        alert(`לא נמצאו מקלטים ציבוריים עבור ${city}`)
-        return
-      }
-      setPublicShelters(results)
-      setShowPublicShelters(true)
-      setShowPublicDrawer(false)
-    } catch (err) {
-      alert(err.message || 'שגיאה בטעינת מקלטים ציבוריים')
-    } finally {
-      setLoadingPublic(false)
-    }
+      await addShelter(user.uid, user.displayName, {
+        name:    formData.name || editingShelter.name,
+        type:    'municipal',
+        lat:     editingShelter.lat,
+        lng:     editingShelter.lng,
+        notes:   formData.notes || null,
+        address: formData.address || null,
+      })
+      setEditing(null)
+    } finally { setFormLoading(false) }
   }
 
   function handleAddressSelect({ lat, lng, label }) {
@@ -499,34 +434,21 @@ export default function MapPage() {
               <span className="hidden sm:inline">בית</span>
             </button>
 
-            {/* Public shelters toggle / load button */}
-            {publicShelters.length > 0 ? (
-              <button
-                onClick={() => setShowPublicShelters(v => !v)}
-                title={showPublicShelters ? 'הסתר מקלטים ציבוריים' : 'הצג מקלטים ציבוריים'}
-                className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer ${
-                  showPublicShelters
-                    ? 'bg-purple-500/20 border border-purple-500/40 text-purple-400'
-                    : 'bg-white/10 text-white/40 hover:bg-white/15'
-                }`}
-              >
-                <Building2 size={14} strokeWidth={2} />
-                <span className="tabular-nums">{publicShelters.length}</span>
-              </button>
-            ) : (
-              <button
-                onClick={() => setShowPublicDrawer(true)}
-                disabled={loadingPublic}
-                title="טען מקלטים ציבוריים"
-                className="flex items-center gap-1.5 bg-white/10 text-brand-text text-sm font-bold px-3 py-1.5 rounded-lg active:scale-95 hover:bg-white/15 transition-all cursor-pointer disabled:opacity-40"
-              >
-                {loadingPublic
-                  ? <Loader2 size={14} strokeWidth={2} className="animate-spin" />
-                  : <Building2 size={14} strokeWidth={2} />
-                }
-                <span className="hidden sm:inline">ציבורי</span>
-              </button>
-            )}
+            {/* Krayot public shelters button */}
+            <button
+              onClick={() => setShowKrayotPicker(v => !v)}
+              title="מקלטים ציבוריים — קריות"
+              className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer ${
+                showKrayotPicker || selectedKrayotCity
+                  ? 'bg-green-500/20 border border-green-500/40 text-green-400'
+                  : 'bg-white/10 text-brand-text hover:bg-white/15'
+              }`}
+            >
+              <span>🏛️</span>
+              {krayotShelters.length > 0 && (
+                <span className="tabular-nums">{krayotShelters.length}</span>
+              )}
+            </button>
 
             <button
               onClick={() => setPlacingPin(true)}
@@ -571,8 +493,14 @@ export default function MapPage() {
             currentUserId={user?.uid}
           />
         ))}
-        {showPublicShelters && publicShelters.map(s => (
-          <PublicShelterMarker key={s.id} shelter={s} />
+        {krayotShelters.map(s => (
+          <ShelterMarker
+            key={s.id}
+            shelter={{ ...s, location: { latitude: s.lat, longitude: s.lng } }}
+            onEdit={setEditing}
+            onDelete={null}
+            currentUserId={null}
+          />
         ))}
       </MapContainer>
 
@@ -586,12 +514,12 @@ export default function MapPage() {
         />
       )}
 
-      {(shelters.length > 0 || (publicShelters.length > 0 && showPublicShelters)) && !placingPin && (
+      {(shelters.length > 0 || krayotShelters.length > 0) && !placingPin && (
         <div className="absolute top-14 right-4 z-30 bg-brand-card border border-white/10 rounded-full px-3 py-1 text-xs text-white/40">
           {shelters.length > 0 && <span>{shelters.length} מקלטים</span>}
-          {shelters.length > 0 && publicShelters.length > 0 && showPublicShelters && <span className="mx-1">·</span>}
-          {publicShelters.length > 0 && showPublicShelters && (
-            <span style={{ color: '#A855F7' }}>{publicShelters.length} ציבוריים</span>
+          {shelters.length > 0 && krayotShelters.length > 0 && <span className="mx-1">·</span>}
+          {krayotShelters.length > 0 && (
+            <span style={{ color: '#22C55E' }}>{krayotShelters.length} ציבוריים</span>
           )}
         </div>
       )}
@@ -623,7 +551,7 @@ export default function MapPage() {
         {editingShelter && (
           <ShelterForm
             initial={editingShelter}
-            onSave={handleSaveEdit}
+            onSave={editingShelter.isPublic ? handleSaveKrayotEdit : handleSaveEdit}
             onCancel={() => setEditing(null)}
             loading={formLoading}
           />
@@ -646,17 +574,15 @@ export default function MapPage() {
         )}
       </Drawer>
 
-      {/* Public shelters drawer */}
-      <Drawer
-        open={showPublicDrawer}
-        onClose={() => setShowPublicDrawer(false)}
-        title="מקלטים ציבוריים"
-      >
-        <PublicSheltersForm
-          onLoad={handleLoadPublic}
-          loading={loadingPublic}
+      {showKrayotPicker && (
+        <KrayotCityPicker
+          selectedCity={selectedKrayotCity}
+          onSelect={city => setSelectedKrayotCity(city)}
+          loading={krayotLoading}
+          error={krayotError}
+          onClose={() => setShowKrayotPicker(false)}
         />
-      </Drawer>
+      )}
 
       <BottomNav />
     </div>
