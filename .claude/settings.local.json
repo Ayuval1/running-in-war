@@ -5,7 +5,14 @@
       "Bash(git commit *)",
       "Bash(git remote *)",
       "Bash(git branch *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "mcp__ccd_session_mgmt__search_session_transcripts",
+      "Bash(dir /s /b \"C:\\\\Users\\\\user\\\\Documents\\\\ClaudeCode\\\\RunningInWar\\\\docs\")",
+      "mcp__4e67873a-a9c1-4c65-9028-c1c0c725a183__list_projects",
+      "mcp__4e67873a-a9c1-4c65-9028-c1c0c725a183__list_deployments",
+      "mcp__a8d5f54a-1e06-4386-8236-437f91d71d65__notion-search",
+      "mcp__a8d5f54a-1e06-4386-8236-437f91d71d65__notion-fetch",
+      "Bash(Remove-Item -Path \"src/lib/publicShelters.js\" -Force)"
     ]
   }
 }
