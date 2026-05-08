@@ -32,7 +32,8 @@ export default function ProfilePage() {
       setSaved(true)
       setAddress('')
       setTimeout(() => setSaved(false), 4000)
-    } catch {
+    } catch (err) {
+      console.error('saveHomeLocation error:', err)
       alert('שגיאה בשמירה')
     } finally {
       setSaving(false)

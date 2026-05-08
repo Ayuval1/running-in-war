@@ -48,7 +48,7 @@ function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
       setAddress('')
       onSaved({ lat: parseFloat(item.lat), lng: parseFloat(item.lon) })
       setTimeout(onClose, 1200)
-    } catch { alert('שגיאה בשמירה') }
+    } catch (err) { console.error('saveHomeLocation error:', err); alert('שגיאה בשמירה') }
     finally { setSaving(false) }
   }
 
@@ -69,7 +69,7 @@ function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
         onSaved(currentPosition)
         setTimeout(onClose, 1200)
       })
-      .catch(() => alert('שגיאה בשמירה'))
+      .catch((err) => { console.error('saveHomeLocation GPS error:', err); alert('שגיאה בשמירה') })
       .finally(() => setGpsLoading(false))
   }
 
