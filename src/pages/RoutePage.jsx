@@ -12,6 +12,7 @@ import { calcSafetyScore } from '../lib/safetyScore'
 import ShelterMarker  from '../components/map/ShelterMarker'
 import UserMarker     from '../components/map/UserMarker'
 import RoutePolyline  from '../components/map/RoutePolyline'
+import { streetRoute } from '../lib/osrmRouting'
 import SafetyScoreBar from '../components/route/SafetyScoreBar'
 import BottomNav      from '../components/ui/BottomNav'
 
@@ -38,6 +39,9 @@ export default function RoutePage() {
   const [score, setScore]           = useState(null)
   const [settingEnd, setSettingEnd] = useState(false)
   const [isPending, startTransition] = useTransition()
+  const [transportMode, setTransportMode] = useState('foot')
+  const [geometry, setGeometry]           = useState(null)
+  const [routeLoading, setRouteLoading]   = useState(false)
 
   const [endAddress, setEndAddress] = useState('')
   const { suggestions: endSuggestions, loading: loadingEndSug } =
@@ -56,18 +60,29 @@ export default function RoutePage() {
     setEndAddress('')
   }
 
-  function buildRoute() {
+  async function buildRoute() {
     if (!position) { alert('ממתין ל-GPS...'); return }
     if (!shelters.length) { alert('אין מקלטים. הוסף מקלטים במפה קודם.'); return }
     if (mode === 'point2point' && !endPoint) { alert('בחר נקודת יעד על המפה'); return }
 
+    let result
     startTransition(() => {
-      const result = mode === 'circular'
+      result = mode === 'circular'
         ? buildCircularRoute(position, shelters, distanceKm)
         : buildPointToPointRoute(position, endPoint, shelters)
       setRoute(result)
       setScore(calcSafetyScore(result.waypoints, shelters))
     })
+
+    setRouteLoading(true)
+    try {
+      const geo = await streetRoute(result.waypoints, transportMode)
+      setGeometry(geo)
+    } catch {
+      setGeometry(null)
+    } finally {
+      setRouteLoading(false)
+    }
   }
 
   const center  = position ? [position.lat, position.lng] : ISRAEL_CENTER
@@ -118,6 +133,31 @@ export default function RoutePage() {
           >
             <ChevronLeft size={14} strokeWidth={2} style={{ transform: 'rotate(180deg)' }} />
             א׳ → ב׳
+          </button>
+        </div>
+
+        {/* Transport mode toggle */}
+        <div
+          className="flex rounded-xl p-1 mb-3"
+          style={{ background: '#070D18' }}
+        >
+          <button
+            onClick={() => { setTransportMode('foot'); setGeometry(null) }}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer"
+            style={transportMode === 'foot'
+              ? { background: 'rgba(0,229,160,0.15)', color: '#00E5A0', border: '1px solid rgba(0,229,160,0.4)' }
+              : { color: '#3D7070' }}
+          >
+            🏃 ריצה
+          </button>
+          <button
+            onClick={() => { setTransportMode('car'); setGeometry(null) }}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer"
+            style={transportMode === 'car'
+              ? { background: 'rgba(59,158,255,0.15)', color: '#3B9EFF', border: '1px solid rgba(59,158,255,0.4)' }
+              : { color: '#3D7070' }}
+          >
+            🚗 רכב
           </button>
         </div>
 
@@ -244,8 +284,7 @@ export default function RoutePage() {
             boxShadow: '0 0 20px rgba(0,229,160,0.25)',
           }}
         >
-          <Route size={16} strokeWidth={2.5} />
-          חשב מסלול
+          {routeLoading ? <Loader2 size={16} className="animate-spin" /> : <><Route size={16} strokeWidth={2.5} />חשב מסלול</>}
         </button>
 
         {/* Route result */}
@@ -311,7 +350,7 @@ export default function RoutePage() {
           {shelters.map(s => (
             <ShelterMarker key={s.id} shelter={s} onEdit={() => {}} onDelete={() => {}} currentUserId={user?.uid} />
           ))}
-          {route && <RoutePolyline waypoints={route.waypoints} />}
+          {route && <RoutePolyline waypoints={route.waypoints} geometry={geometry} />}
         </MapContainer>
       </div>
 
