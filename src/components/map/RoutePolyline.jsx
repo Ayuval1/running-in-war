@@ -2,7 +2,7 @@ import { Polyline, CircleMarker } from 'react-leaflet'
 
 export default function RoutePolyline({ waypoints, geometry }) {
   if (!waypoints?.length) return null
-  const positions = geometry
+  const positions = geometry?.length
     ? geometry.map(p => [p.lat, p.lng])
     : waypoints.map(p => [p.lat, p.lng])
 
