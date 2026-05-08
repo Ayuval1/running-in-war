@@ -65,15 +65,16 @@ export default function RoutePage() {
     if (!shelters.length) { alert('אין מקלטים. הוסף מקלטים במפה קודם.'); return }
     if (mode === 'point2point' && !endPoint) { alert('בחר נקודת יעד על המפה'); return }
 
-    let result
+    const result = mode === 'circular'
+      ? buildCircularRoute(position, shelters, distanceKm)
+      : buildPointToPointRoute(position, endPoint, shelters)
+
     startTransition(() => {
-      result = mode === 'circular'
-        ? buildCircularRoute(position, shelters, distanceKm)
-        : buildPointToPointRoute(position, endPoint, shelters)
       setRoute(result)
       setScore(calcSafetyScore(result.waypoints, shelters))
     })
 
+    setGeometry(null)
     setRouteLoading(true)
     try {
       const geo = await streetRoute(result.waypoints, transportMode)
