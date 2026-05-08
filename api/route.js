@@ -1,13 +1,14 @@
 export default async function handler(req, res) {
   const { waypoints, mode = 'foot' } = req.query
   if (!waypoints) return res.status(400).json({ error: 'waypoints required' })
+  if (waypoints.length > 500) return res.status(400).json({ error: 'waypoints too long' })
   if (!/^[\d.,;-]+$/.test(waypoints)) return res.status(400).json({ error: 'invalid waypoints format' })
 
   const profile = mode === 'car' ? 'car' : 'foot'
   const url = `https://router.project-osrm.org/route/v1/${profile}/${waypoints}?overview=full&geometries=geojson`
 
   try {
-    const upstream = await fetch(url)
+    const upstream = await fetch(url, { signal: AbortSignal.timeout(8000) })
     if (!upstream.ok) return res.status(502).json({ error: 'osrm error' })
     const data = await upstream.json()
     res.setHeader('Cache-Control', 'no-store')

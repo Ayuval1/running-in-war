@@ -1,4 +1,4 @@
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useRef } from 'react'
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Route, RotateCcw, MapPin, Shield, AlertTriangle, CheckCircle2, ChevronLeft, Loader2, X, Search } from 'lucide-react'
@@ -42,6 +42,7 @@ export default function RoutePage() {
   const [transportMode, setTransportMode] = useState('foot')
   const [geometry, setGeometry]           = useState(null)
   const [routeLoading, setRouteLoading]   = useState(false)
+  const latestRouteReq = useRef(0)
 
   const [endAddress, setEndAddress] = useState('')
   const { suggestions: endSuggestions, loading: loadingEndSug } =
@@ -76,13 +77,15 @@ export default function RoutePage() {
 
     setGeometry(null)
     setRouteLoading(true)
+    const reqId = ++latestRouteReq.current
     try {
       const geo = await streetRoute(result.waypoints, transportMode)
-      setGeometry(geo)
-    } catch {
-      setGeometry(null)
+      if (reqId === latestRouteReq.current) setGeometry(geo)
+    } catch (err) {
+      console.warn('streetRoute failed, falling back to straight lines', err)
+      if (reqId === latestRouteReq.current) setGeometry(null)
     } finally {
-      setRouteLoading(false)
+      if (reqId === latestRouteReq.current) setRouteLoading(false)
     }
   }
 
@@ -116,7 +119,7 @@ export default function RoutePage() {
           style={{ background: '#070D18' }}
         >
           <button
-            onClick={() => { setMode('circular'); setRoute(null) }}
+            onClick={() => { setMode('circular'); setRoute(null); setGeometry(null) }}
             className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer"
             style={mode === 'circular'
               ? { background: '#00E5A0', color: '#070D18', boxShadow: '0 0 16px rgba(0,229,160,0.3)' }
@@ -126,7 +129,7 @@ export default function RoutePage() {
             ריצה מהבית
           </button>
           <button
-            onClick={() => { setMode('point2point'); setRoute(null) }}
+            onClick={() => { setMode('point2point'); setRoute(null); setGeometry(null) }}
             className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer"
             style={mode === 'point2point'
               ? { background: '#3B9EFF', color: '#070D18', boxShadow: '0 0 16px rgba(59,158,255,0.3)' }
