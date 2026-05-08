@@ -1,5 +1,5 @@
 import {
-  collection, doc, addDoc, updateDoc, deleteDoc,
+  collection, doc, addDoc, updateDoc, deleteDoc, setDoc,
   getDocs, getDoc, query, where, onSnapshot,
   serverTimestamp, GeoPoint, writeBatch,
 } from 'firebase/firestore'
@@ -45,13 +45,13 @@ export async function deleteShelter(shelterId) {
 // ── USER PROFILE ────────────────────────────────────────
 
 export async function saveHomeLocation(userId, lat, lng) {
-  return updateDoc(doc(db, 'users', userId), {
+  return setDoc(doc(db, 'users', userId), {
     homeLocation: new GeoPoint(lat, lng),
-  })
+  }, { merge: true })
 }
 
 export async function saveUserCity(userId, city) {
-  return updateDoc(doc(db, 'users', userId), { city })
+  return setDoc(doc(db, 'users', userId), { city }, { merge: true })
 }
 
 export async function getUserProfile(userId) {
