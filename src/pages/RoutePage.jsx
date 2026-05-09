@@ -18,10 +18,10 @@ import BottomNav      from '../components/ui/BottomNav'
 
 const ISRAEL_CENTER = [31.5, 34.9]
 
-function MapClickHandler({ active, onPick }) {
+function MapClickHandler({ picking, onPick }) {
   useMapEvents({
     click(e) {
-      if (active) onPick({ lat: e.latlng.lat, lng: e.latlng.lng })
+      if (picking) onPick({ lat: e.latlng.lat, lng: e.latlng.lng })
     },
   })
   return null
@@ -365,8 +365,18 @@ export default function RoutePage() {
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <MapClickHandler
-            active={settingEnd}
-            onPick={pos => { setEnd(pos); setEndAddress(`${pos.lat.toFixed(4)}, ${pos.lng.toFixed(4)}`); setSettingEnd(false) }}
+            picking={settingStart ? 'start' : settingEnd ? 'end' : null}
+            onPick={pos => {
+              if (settingStart) {
+                setStartPoint(pos)
+                setStartAddress(`${pos.lat.toFixed(4)}, ${pos.lng.toFixed(4)}`)
+                setSettingStart(false)
+              } else {
+                setEnd(pos)
+                setEndAddress(`${pos.lat.toFixed(4)}, ${pos.lng.toFixed(4)}`)
+                setSettingEnd(false)
+              }
+            }}
           />
           <UserMarker position={position} />
           {shelters.map(s => (
