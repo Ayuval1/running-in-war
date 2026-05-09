@@ -17,8 +17,6 @@ export function useLocation() {
       },
       (err) => {
         setError('לא ניתן לקבל מיקום: ' + err.message)
-        // Fall back to Tel Aviv center so the map still loads
-        setPosition({ lat: 32.0853, lng: 34.7818 })
       },
       { enableHighAccuracy: true, timeout: 10000 }
     )
