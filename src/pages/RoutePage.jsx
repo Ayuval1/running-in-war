@@ -80,13 +80,14 @@ export default function RoutePage() {
   }
 
   async function buildRoute() {
-    if (!position) { alert('ממתין ל-GPS...'); return }
+    const origin = startPoint || position
+    if (!origin) { alert('ממתין ל-GPS... או בחר נקודת התחלה'); return }
     if (!shelters.length) { alert('אין מקלטים. הוסף מקלטים במפה קודם.'); return }
     if (mode === 'point2point' && !endPoint) { alert('בחר נקודת יעד על המפה'); return }
 
     const result = mode === 'circular'
-      ? buildCircularRoute(position, shelters, distanceKm)
-      : buildPointToPointRoute(position, endPoint, shelters)
+      ? buildCircularRoute(origin, shelters, distanceKm)
+      : buildPointToPointRoute(origin, endPoint, shelters)
 
     startTransition(() => {
       setRoute(result)
