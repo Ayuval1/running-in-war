@@ -203,6 +203,105 @@ export default function RoutePage() {
           </div>
         )}
 
+        {/* Start point — address autocomplete + map click (point2point) */}
+        {mode === 'point2point' && (
+          <div className="mb-1">
+            {startPoint ? (
+              <div
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl"
+                style={{ background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.35)' }}
+              >
+                <CheckCircle2 size={15} strokeWidth={2} style={{ color: '#00E5A0', flexShrink: 0 }} />
+                <span className="flex-1 text-sm truncate" style={{ color: '#00E5A0' }}>
+                  {startAddress || `${startPoint.lat.toFixed(4)}, ${startPoint.lng.toFixed(4)}`}
+                </span>
+                <button type="button" onClick={clearStart} className="cursor-pointer" style={{ color: '#3D7070' }}>
+                  <X size={14} strokeWidth={2} />
+                </button>
+              </div>
+            ) : (
+              <div className="relative">
+                <div className="relative flex items-center">
+                  <input
+                    value={startAddress}
+                    onChange={e => setStartAddress(e.target.value)}
+                    placeholder='נקודת התחלה (ברירת מחדל: מיקומך)'
+                    className="w-full rounded-xl px-4 py-2.5 text-sm placeholder:text-white/20 focus:outline-none"
+                    style={{
+                      background: 'rgba(0,229,160,0.08)',
+                      border: '1px solid rgba(0,229,160,0.35)',
+                      color: '#E6F4F0',
+                      fontSize: 14,
+                      paddingLeft: 36,
+                      caretColor: '#00E5A0',
+                    }}
+                    autoComplete="off"
+                  />
+                  <span className="absolute left-3 pointer-events-none" style={{ color: '#00E5A0' }}>
+                    {loadingStartSug
+                      ? <Loader2 size={14} strokeWidth={2} className="animate-spin" />
+                      : <Search size={14} strokeWidth={2} />
+                    }
+                  </span>
+                </div>
+
+                {startSuggestions.length > 0 && (
+                  <div
+                    className="absolute top-full right-0 left-0 z-50 mt-1 overflow-hidden"
+                    style={{
+                      background: '#0F2035',
+                      border: '1px solid rgba(26,48,80,0.9)',
+                      borderRadius: 12,
+                      boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
+                      maxHeight: 200,
+                      overflowY: 'auto',
+                    }}
+                  >
+                    {startSuggestions.map((item, i) => {
+                      const a = item.address || {}
+                      const line1 = [a.road, a.house_number].filter(Boolean).join(' ') || item.display_name.split(',')[0]
+                      const line2 = [a.city || a.town || a.village, a.state].filter(Boolean).join(', ')
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onMouseDown={e => { e.preventDefault(); pickStartSuggestion(item) }}
+                          className="w-full text-right flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors"
+                          style={{ borderBottom: i < startSuggestions.length - 1 ? '1px solid rgba(26,48,80,0.5)' : 'none' }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)' }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
+                        >
+                          <MapPin size={13} strokeWidth={2} style={{ color: '#00E5A0', flexShrink: 0 }} />
+                          <div className="flex-1 min-w-0">
+                            <span className="block text-sm font-bold truncate" style={{ color: '#E6F4F0' }}>{line1}</span>
+                            <span className="block text-xs truncate" style={{ color: '#3D7070' }}>{line2}</span>
+                          </div>
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+
+                <button
+                  onClick={() => setSettingStart(true)}
+                  className="w-full mt-2 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold cursor-pointer transition-all"
+                  style={{ background: 'rgba(0,229,160,0.06)', border: '1px dashed rgba(0,229,160,0.3)', color: '#00E5A0' }}
+                >
+                  <MapPin size={13} strokeWidth={2} />
+                  או לחץ על המפה לבחירת נקודת התחלה
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Connector between א׳ and ב׳ */}
+        {mode === 'point2point' && (
+          <div className="flex items-center gap-2 mb-1 px-1">
+            <div style={{ width: 2, height: 12, background: 'rgba(26,48,80,0.8)', marginRight: 'auto', marginLeft: 19 }} />
+          </div>
+        )}
+
         {/* End point — address autocomplete + map click (point2point) */}
         {mode === 'point2point' && (
           <div className="mb-3">
@@ -345,16 +444,15 @@ export default function RoutePage() {
 
       {/* MAP */}
       <div className="flex-1 relative">
-        {settingEnd && (
+        {(settingStart || settingEnd) && (
           <div
             className="absolute top-3 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full text-sm font-semibold pointer-events-none"
-            style={{
-              background: 'rgba(59,158,255,0.15)',
-              border: '1px solid rgba(59,158,255,0.5)',
-              color: '#3B9EFF',
-            }}
+            style={settingStart
+              ? { background: 'rgba(0,229,160,0.15)', border: '1px solid rgba(0,229,160,0.5)', color: '#00E5A0' }
+              : { background: 'rgba(59,158,255,0.15)', border: '1px solid rgba(59,158,255,0.5)', color: '#3B9EFF' }
+            }
           >
-            לחץ על המפה לבחירת נקודת סיום
+            {settingStart ? '🟢 לחץ על המפה — נקודת התחלה (א׳)' : '🎯 לחץ על המפה — נקודת סיום (ב׳)'}
           </div>
         )}
         <MapContainer
