@@ -44,9 +44,27 @@ export default function RoutePage() {
   const [routeLoading, setRouteLoading]   = useState(false)
   const latestRouteReq = useRef(0)
 
+  const [startPoint, setStartPoint]     = useState(null)
+  const [startAddress, setStartAddress] = useState('')
+  const [settingStart, setSettingStart] = useState(false)
   const [endAddress, setEndAddress] = useState('')
   const { suggestions: endSuggestions, loading: loadingEndSug } =
     useAddressAutocomplete(endAddress, { enabled: !endPoint })
+  const { suggestions: startSuggestions, loading: loadingStartSug } =
+    useAddressAutocomplete(startAddress, { enabled: !startPoint && mode === 'point2point' })
+
+  function pickStartSuggestion(item) {
+    const a = item.address || {}
+    const label = [a.road, a.house_number, a.city || a.town || a.village]
+      .filter(Boolean).join(' ') || item.display_name.split(',')[0]
+    setStartPoint({ lat: parseFloat(item.lat), lng: parseFloat(item.lon) })
+    setStartAddress(label)
+  }
+
+  function clearStart() {
+    setStartPoint(null)
+    setStartAddress('')
+  }
 
   function pickEndSuggestion(item) {
     const a = item.address || {}
@@ -119,7 +137,7 @@ export default function RoutePage() {
           style={{ background: '#070D18' }}
         >
           <button
-            onClick={() => { setMode('circular'); setRoute(null); setGeometry(null) }}
+            onClick={() => { setMode('circular'); setRoute(null); setGeometry(null); setStartPoint(null); setStartAddress('') }}
             className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer"
             style={mode === 'circular'
               ? { background: '#00E5A0', color: '#070D18', boxShadow: '0 0 16px rgba(0,229,160,0.3)' }
