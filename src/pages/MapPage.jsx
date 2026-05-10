@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { Shield, MapPin, LocateFixed, Loader2, CheckCircle2, X, AlertTriangle, Search } from 'lucide-react'
+import { Shield, MapPin, LocateFixed, Loader2, CheckCircle2, X, AlertTriangle, Search, Pencil, Trash2 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useShelters } from '../hooks/useShelters'
 import { useLocation } from '../hooks/useLocation'
@@ -274,6 +274,136 @@ function PlacementModeSelector({ mode, onModeChange, onAddressSelect }) {
             )}
           </div>
         )}
+      </div>
+    </div>
+  )
+}
+
+function ShelterListOverlay({ shelters, onEdit, onDelete, onClose }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      onClick={onClose}
+    >
+      {/* Dim backdrop */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(4px)' }}
+      />
+
+      {/* Card */}
+      <div
+        className="relative w-[92%] flex flex-col"
+        style={{
+          maxWidth: 420,
+          maxHeight: '70vh',
+          background: 'rgba(15,32,53,0.85)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          border: '1px solid rgba(0,229,160,0.2)',
+          borderRadius: 20,
+          boxShadow: '0 24px 60px rgba(0,0,0,0.6)',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div
+          className="flex items-center justify-between px-[18px] py-4 flex-shrink-0"
+          style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-[15px] font-black text-[#E6F4F0]">🛡 המקלטים שלי</span>
+            <span
+              className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+              style={{
+                background: 'rgba(0,229,160,0.12)',
+                border: '1px solid rgba(0,229,160,0.3)',
+                color: '#00E5A0',
+              }}
+            >
+              {shelters.length}
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-7 h-7 rounded-full flex items-center justify-center cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}
+          >
+            <X size={14} strokeWidth={2.5} />
+          </button>
+        </div>
+
+        {/* List */}
+        <div className="overflow-y-auto flex-1" style={{ padding: '6px 0' }}>
+          {shelters.length === 0 ? (
+            <p className="text-center text-xs py-8" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              אין מקלטים עדיין — הוסף דרך כפתור + מקלט
+            </p>
+          ) : (
+            shelters.map((shelter, i) => {
+              const type = SHELTER_TYPES[shelter.type] || SHELTER_TYPES.building
+              return (
+                <div
+                  key={shelter.id}
+                  className="flex items-center gap-3 px-[18px] py-3"
+                  style={{
+                    borderBottom: i < shelters.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  }}
+                >
+                  {/* Type badge */}
+                  <span
+                    className="text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0"
+                    style={{
+                      background: `${type.color}18`,
+                      border: `1px solid ${type.color}44`,
+                      color: type.color,
+                    }}
+                  >
+                    {type.icon} {type.label}
+                  </span>
+
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[13px] font-bold truncate" style={{ color: '#E6F4F0' }}>
+                      {shelter.name || type.label}
+                    </p>
+                    {shelter.address && (
+                      <p className="text-[11px] truncate mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                        {shelter.address}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-1.5 flex-shrink-0">
+                    <button
+                      onClick={() => onEdit(shelter)}
+                      className="w-[30px] h-[30px] rounded-lg flex items-center justify-center cursor-pointer"
+                      style={{
+                        background: 'rgba(59,158,255,0.1)',
+                        border: '1px solid rgba(59,158,255,0.35)',
+                        color: '#3B9EFF',
+                      }}
+                    >
+                      <Pencil size={12} strokeWidth={2.5} />
+                    </button>
+                    <button
+                      onClick={() => onDelete(shelter.id)}
+                      className="w-[30px] h-[30px] rounded-lg flex items-center justify-center cursor-pointer"
+                      style={{
+                        background: 'rgba(255,65,84,0.08)',
+                        border: '1px solid rgba(255,65,84,0.35)',
+                        color: '#FF4154',
+                      }}
+                    >
+                      <Trash2 size={12} strokeWidth={2.5} />
+                    </button>
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div>
       </div>
     </div>
   )
