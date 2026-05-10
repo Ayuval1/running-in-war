@@ -424,6 +424,7 @@ export default function MapPage() {
   const [showSOS, setShowSOS]           = useState(false)
   const [showLocation, setShowLocation] = useState(false)
   const [manualPosition, setManualPosition] = useState(null)
+  const [showShelterList, setShowShelterList] = useState(false)
 
   // Placement mode for adding a new shelter
   const [addMode, setAddMode]           = useState('pin')   // 'pin' | 'address'
