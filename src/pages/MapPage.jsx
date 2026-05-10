@@ -654,6 +654,18 @@ export default function MapPage() {
         )}
       </Drawer>
 
+      {showShelterList && (
+        <ShelterListOverlay
+          shelters={shelters}
+          onClose={() => setShowShelterList(false)}
+          onEdit={(shelter) => {
+            setShowShelterList(false)
+            setEditing(shelter)
+          }}
+          onDelete={handleDelete}
+        />
+      )}
+
       <BottomNav />
     </div>
   )
