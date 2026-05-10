@@ -16,6 +16,7 @@ import SOSOverlay    from '../components/sos/SOSOverlay'
 import Drawer        from '../components/ui/Drawer'
 import ShelterForm   from '../components/shelters/ShelterForm'
 import BottomNav     from '../components/ui/BottomNav'
+import { SHELTER_TYPES } from '../constants/shelterTypes'
 
 const ISRAEL_CENTER = [31.5, 34.9]
 
