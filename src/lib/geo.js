@@ -86,6 +86,10 @@ export function geoPointToLatLng(location) {
   if (typeof location.lat === 'number' && typeof location.lng === 'number') {
     return { lat: location.lat, lng: location.lng }
   }
+  // GeoPoint serialized via IndexedDB structured-clone loses getters, exposes _lat/_long
+  if (typeof location._lat === 'number' && typeof location._long === 'number') {
+    return { lat: location._lat, lng: location._long }
+  }
   return null // פורמט לא מוכר — אל תקרוס
 }
 
