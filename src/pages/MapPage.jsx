@@ -600,9 +600,12 @@ export default function MapPage() {
       )}
 
       {shelters.length > 0 && !placingPin && (
-        <div className="absolute top-14 right-4 z-30 bg-brand-card border border-white/10 rounded-full px-3 py-1 text-xs text-white/40">
-          <span>{shelters.length} מקלטים</span>
-        </div>
+        <button
+          onClick={() => setShowShelterList(true)}
+          className="absolute top-14 right-4 z-30 bg-brand-card border border-white/10 rounded-full px-3 py-1 text-xs text-white/40 cursor-pointer hover:border-white/20 hover:text-white/60 transition-colors"
+        >
+          {shelters.length} מקלטים
+        </button>
       )}
 
       {/* Add shelter drawer */}
