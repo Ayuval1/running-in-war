@@ -97,8 +97,8 @@ body, #root {
 .text-glow-neon { text-shadow: 0 0 14px rgba(0,229,160,0.7); }
 .text-glow-red  { text-shadow: 0 0 14px rgba(255,23,68,0.7); }
 
-/* Monospace data readouts */
-.mono { font-family: 'Space Mono', monospace; }
+/* Data readouts */
+.mono { font-family: 'Rubik', sans-serif; }
 
 /* ── Safe areas ────────────────────────────────────────── */
 .pt-safe    { padding-top:    env(safe-area-inset-top,    0px); }

@@ -24,7 +24,7 @@ export default {
       },
       fontFamily: {
         sans: ['Rubik', 'sans-serif'],
-        mono: ['"Space Mono"', 'monospace'],
+        mono: ['Rubik', 'sans-serif'],
       },
       boxShadow: {
         'neon':    '0 0 0 1px rgba(0,229,160,0.25), 0 0 24px rgba(0,229,160,0.15)',
