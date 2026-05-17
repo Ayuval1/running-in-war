@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
 import LoadingSpinner from './components/ui/LoadingSpinner'
+import ErrorBoundary from './components/ui/ErrorBoundary'
 
 const AuthPage         = lazy(() => import('./pages/AuthPage'))
 const HomePage         = lazy(() => import('./pages/HomePage'))
@@ -24,6 +25,7 @@ export default function App() {
   if (loading) return <LoadingSpinner />
 
   return (
+    <ErrorBoundary>
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/auth" element={user ? <Navigate to="/" replace /> : <AuthPage />} />
@@ -57,5 +59,6 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
+    </ErrorBoundary>
   )
 }
