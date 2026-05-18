@@ -127,8 +127,7 @@ export default function HomePage() {
           return { ...s, distanceMeters: loc ? haversineDistance(position, loc) : Infinity }
         })
         .sort((a, b) => a.distanceMeters - b.distanceMeters)
-        .slice(0, 3)
-    : shelters.slice(0, 3)
+    : shelters
 
   const nearest = sorted[0] || null
 
