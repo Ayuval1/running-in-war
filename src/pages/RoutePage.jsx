@@ -1,5 +1,5 @@
 import { useState, useTransition, useRef } from 'react'
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Route, RotateCcw, MapPin, Shield, AlertTriangle, CheckCircle2, ChevronLeft, Loader2, X, Search } from 'lucide-react'
 import { useAuth }     from '../context/AuthContext'
@@ -14,6 +14,7 @@ import UserMarker     from '../components/map/UserMarker'
 import RoutePolyline  from '../components/map/RoutePolyline'
 import { streetRoute } from '../lib/osrmRouting'
 import SafetyScoreBar from '../components/route/SafetyScoreBar'
+import { startIcon, endIcon } from '../components/map/RoutePointMarker'
 import BottomNav      from '../components/ui/BottomNav'
 
 const ISRAEL_CENTER = [31.5, 34.9]
@@ -478,6 +479,12 @@ export default function RoutePage() {
             }}
           />
           <UserMarker position={position} />
+          {mode === 'point2point' && startPoint && !route && (
+            <Marker position={[startPoint.lat, startPoint.lng]} icon={startIcon} />
+          )}
+          {mode === 'point2point' && endPoint && !route && (
+            <Marker position={[endPoint.lat, endPoint.lng]} icon={endIcon} />
+          )}
           {shelters.map(s => (
             <ShelterMarker key={s.id} shelter={s} onEdit={() => {}} onDelete={() => {}} currentUserId={user?.uid} />
           ))}
