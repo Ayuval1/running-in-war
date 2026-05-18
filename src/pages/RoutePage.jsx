@@ -43,6 +43,7 @@ export default function RoutePage() {
   const [transportMode, setTransportMode] = useState('foot')
   const [geometry, setGeometry]           = useState(null)
   const [routeLoading, setRouteLoading]   = useState(false)
+  const [routeError, setRouteError]       = useState(null)
   const latestRouteReq = useRef(0)
 
   const [startPoint, setStartPoint]     = useState(null)
@@ -97,13 +98,23 @@ export default function RoutePage() {
 
     setGeometry(null)
     setRouteLoading(true)
+    setRouteError(null)
     const reqId = ++latestRouteReq.current
     try {
-      const geo = await streetRoute(result.waypoints, transportMode)
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 5000)
+      )
+      const geo = await Promise.race([streetRoute(result.waypoints, transportMode), timeoutPromise])
       if (reqId === latestRouteReq.current) setGeometry(geo)
     } catch (err) {
-      console.warn('streetRoute failed, falling back to straight lines', err)
-      if (reqId === latestRouteReq.current) setGeometry(null)
+      if (reqId === latestRouteReq.current) {
+        if (err.message === 'timeout') {
+          setRouteError('אין חיבור — נסה שוב')
+        } else {
+          console.warn('streetRoute failed, falling back to straight lines', err)
+        }
+        setGeometry(null)
+      }
     } finally {
       if (reqId === latestRouteReq.current) setRouteLoading(false)
     }
@@ -454,6 +465,23 @@ export default function RoutePage() {
             }
           >
             {settingStart ? '🟢 לחץ על המפה — נקודת התחלה (א׳)' : '🎯 לחץ על המפה — נקודת סיום (ב׳)'}
+          </div>
+        )}
+        {mode === 'point2point' && routeLoading && (
+          <div
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full text-sm font-semibold pointer-events-none"
+            style={{ background: 'rgba(0,229,160,0.12)', border: '1px solid rgba(0,229,160,0.4)', color: '#00E5A0' }}
+          >
+            מחשב מסלול...
+          </div>
+        )}
+        {routeError && (
+          <div
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full text-sm font-semibold cursor-pointer"
+            style={{ background: 'rgba(255,65,84,0.15)', border: '1px solid rgba(255,65,84,0.5)', color: '#FF4154' }}
+            onClick={() => setRouteError(null)}
+          >
+            {routeError}
           </div>
         )}
         <MapContainer
