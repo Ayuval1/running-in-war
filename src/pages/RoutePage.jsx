@@ -31,13 +31,13 @@ function MapClickHandler({ picking, onPick }) {
 function MapFlyTo({ startPoint, endPoint }) {
   const map = useMap()
   useEffect(() => {
-    if (startPoint && !endPoint) map.flyTo([startPoint.lat, startPoint.lng], 15, { duration: 0.8 })
+    if (startPoint && !endPoint) map.flyTo([startPoint.lat, startPoint.lng], 13, { duration: 0.8 })
   }, [startPoint])
   useEffect(() => {
     if (endPoint && startPoint) {
-      map.fitBounds([[startPoint.lat, startPoint.lng], [endPoint.lat, endPoint.lng]], { padding: [60, 60], maxZoom: 15, duration: 0.8 })
+      map.fitBounds([[startPoint.lat, startPoint.lng], [endPoint.lat, endPoint.lng]], { padding: [60, 60], maxZoom: 13, duration: 0.8 })
     } else if (endPoint) {
-      map.flyTo([endPoint.lat, endPoint.lng], 15, { duration: 0.8 })
+      map.flyTo([endPoint.lat, endPoint.lng], 13, { duration: 0.8 })
     }
   }, [endPoint])
   return null
