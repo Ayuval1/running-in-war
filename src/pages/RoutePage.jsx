@@ -1,5 +1,5 @@
-import { useState, useTransition, useRef } from 'react'
-import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
+import { useState, useTransition, useRef, useEffect } from 'react'
+import { MapContainer, TileLayer, useMapEvents, Marker, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Route, RotateCcw, MapPin, Shield, AlertTriangle, CheckCircle2, ChevronLeft, Loader2, X, Search } from 'lucide-react'
 import { useAuth }     from '../context/AuthContext'
@@ -25,6 +25,21 @@ function MapClickHandler({ picking, onPick }) {
       if (picking) onPick({ lat: e.latlng.lat, lng: e.latlng.lng })
     },
   })
+  return null
+}
+
+function MapFlyTo({ startPoint, endPoint }) {
+  const map = useMap()
+  useEffect(() => {
+    if (startPoint && !endPoint) map.flyTo([startPoint.lat, startPoint.lng], 15, { duration: 0.8 })
+  }, [startPoint])
+  useEffect(() => {
+    if (endPoint && startPoint) {
+      map.fitBounds([[startPoint.lat, startPoint.lng], [endPoint.lat, endPoint.lng]], { padding: [60, 60], maxZoom: 15, duration: 0.8 })
+    } else if (endPoint) {
+      map.flyTo([endPoint.lat, endPoint.lng], 15, { duration: 0.8 })
+    }
+  }, [endPoint])
   return null
 }
 
@@ -492,6 +507,7 @@ export default function RoutePage() {
           className="z-0"
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <MapFlyTo startPoint={startPoint} endPoint={endPoint} />
           <MapClickHandler
             picking={settingStart ? 'start' : settingEnd ? 'end' : null}
             onPick={pos => {
