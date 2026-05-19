@@ -28,7 +28,7 @@ function MapClickHandler({ picking, onPick }) {
   return null
 }
 
-function MapFlyTo({ startPoint, endPoint }) {
+function MapFlyTo({ startPoint, endPoint, geometry }) {
   const map = useMap()
   useEffect(() => {
     if (startPoint && !endPoint) map.flyTo([startPoint.lat, startPoint.lng], 13, { duration: 0.8 })
@@ -40,6 +40,11 @@ function MapFlyTo({ startPoint, endPoint }) {
       map.flyTo([endPoint.lat, endPoint.lng], 13, { duration: 0.8 })
     }
   }, [endPoint])
+  useEffect(() => {
+    if (!geometry?.length) return
+    const bounds = geometry.map(p => [p.lat, p.lng])
+    map.fitBounds(bounds, { padding: [40, 40], duration: 0.8 })
+  }, [geometry])
   return null
 }
 
@@ -507,7 +512,7 @@ export default function RoutePage() {
           className="z-0"
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <MapFlyTo startPoint={startPoint} endPoint={endPoint} />
+          <MapFlyTo startPoint={startPoint} endPoint={endPoint} geometry={geometry} />
           <MapClickHandler
             picking={settingStart ? 'start' : settingEnd ? 'end' : null}
             onPick={pos => {
