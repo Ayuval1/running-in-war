@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Shield, MapPin, LocateFixed, Loader2, CheckCircle2, X, AlertTriangle, Search, Pencil, Trash2 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
@@ -10,6 +11,8 @@ import { addShelter, updateShelter, deleteShelter, saveHomeLocation, getUserProf
 import { findNearestShelter } from '../lib/geo'
 import { useAddressAutocomplete, buildAddressLabel } from '../hooks/useAddressAutocomplete'
 import ShelterMarker       from '../components/map/ShelterMarker'
+import CityFilter          from '../components/map/CityFilter'
+import { useCityShelters } from '../hooks/useCityShelters'
 import UserMarker    from '../components/map/UserMarker'
 import SOSButton     from '../components/sos/SOSButton'
 import SOSOverlay    from '../components/sos/SOSOverlay'
@@ -19,6 +22,14 @@ import BottomNav     from '../components/ui/BottomNav'
 import { SHELTER_TYPES } from '../constants/shelterTypes'
 
 const ISRAEL_CENTER = [31.5, 34.9]
+
+const cityShelterIcon = L.divIcon({
+  className: '',
+  iconSize: [28, 28],
+  iconAnchor: [14, 28],
+  popupAnchor: [0, -30],
+  html: `<div style="width:28px;height:28px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#3B9EFF;border:2px solid rgba(255,255,255,0.6);box-shadow:0 0 0 3px rgba(59,158,255,0.2),0 2px 8px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:11px;line-height:1">🛡</span></div>`,
+})
 
 function MapClickHandler({ onMapClick, active }) {
   useMapEvents({
@@ -418,6 +429,8 @@ export default function MapPage() {
 
   const [pendingPin, setPendingPin]     = useState(null)
   const [placingPin, setPlacingPin]     = useState(false)
+  const [activeCity, setActiveCity]     = useState(null)
+  const { shelters: cityShelterList }   = useCityShelters(activeCity)
   const [editingShelter, setEditing]    = useState(null)
   const [formLoading, setFormLoading]   = useState(false)
   const [sosTarget, setSosTarget]       = useState(null)
@@ -587,6 +600,21 @@ export default function MapPage() {
             currentUserId={user?.uid}
           />
         ))}
+        {cityShelterList
+          .filter(s => s.lat && s.lng)
+          .map(shelter => (
+            <Marker key={shelter.id} position={[shelter.lat, shelter.lng]} icon={cityShelterIcon}>
+              <Popup>
+                <div dir="rtl" style={{ minWidth: 160, background: '#0F2035', color: '#E6F4F0', borderRadius: 12, padding: '10px 12px', fontFamily: 'Rubik, sans-serif' }}>
+                  <p style={{ fontWeight: 700, fontSize: 13, marginBottom: 4 }}>{shelter.address}</p>
+                  {shelter.notes && (
+                    <p style={{ fontSize: 11, color: '#3B9EFF', fontStyle: 'italic' }}>{shelter.notes}</p>
+                  )}
+                </div>
+              </Popup>
+            </Marker>
+          ))
+        }
       </MapContainer>
 
       {!placingPin && <SOSButton onClick={handleSOS} />}
@@ -606,6 +634,10 @@ export default function MapPage() {
         >
           {shelters.length} מקלטים
         </button>
+      )}
+
+      {!placingPin && (
+        <CityFilter activeCity={activeCity} onCityChange={setActiveCity} />
       )}
 
       {/* Add shelter drawer */}

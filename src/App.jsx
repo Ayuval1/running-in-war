@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
 import LoadingSpinner from './components/ui/LoadingSpinner'
 import ErrorBoundary from './components/ui/ErrorBoundary'
+import { CityNameProvider } from './context/CityNameContext'
 
 const AuthPage         = lazy(() => import('./pages/AuthPage'))
 const HomePage         = lazy(() => import('./pages/HomePage'))
@@ -25,6 +26,7 @@ export default function App() {
   if (loading) return <LoadingSpinner />
 
   return (
+    <CityNameProvider>
     <ErrorBoundary>
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
@@ -60,5 +62,6 @@ export default function App() {
       </Routes>
     </Suspense>
     </ErrorBoundary>
+    </CityNameProvider>
   )
 }

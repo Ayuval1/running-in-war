@@ -8,3 +8,4 @@ node_modules/
 dist/
 step*.png
 .superpowers/
+scripts/service-account*.json*

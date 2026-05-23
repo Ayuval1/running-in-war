@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { User, MapPin, LocateFixed, Loader2, CheckCircle2, Share2, LogOut, ChevronRight, Languages, Smartphone } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useLang } from '../context/LanguageContext'
+import { useCityName } from '../context/CityNameContext'
 import { logOut } from '../firebase/auth'
 import { saveHomeLocation } from '../firebase/firestore'
 import { useInstallPrompt } from '../hooks/useInstallPrompt'
@@ -12,6 +13,7 @@ import BottomNav from '../components/ui/BottomNav'
 export default function ProfilePage() {
   const { user }          = useAuth()
   const { lang, toggleLang } = useLang()
+  const { cityNameMode, toggle: toggleCityName } = useCityName()
   const navigate              = useNavigate()
 
   const [address, setAddress]     = useState('')
@@ -231,6 +233,30 @@ export default function ProfilePage() {
             </span>
             <span className="text-xs text-white/40 bg-white/8 px-2.5 py-1 rounded-full font-medium">
               {lang === 'he' ? 'Switch to English' : 'עבור לעברית'}
+            </span>
+          </button>
+        </div>
+
+        {/* City name format */}
+        <div className="bg-brand-card border border-white/8 rounded-2xl p-5">
+          <div className="flex items-center gap-2 mb-1">
+            <MapPin size={16} className="text-brand-neon" strokeWidth={2} />
+            <p className="font-bold text-base">{lang === 'he' ? 'שמות ערים' : 'City Names'}</p>
+          </div>
+          <p className="text-white/40 text-sm mb-4 pr-6">
+            {lang === 'he' ? 'כיצד יוצגו שמות ערים במסנן' : 'How city names appear in the filter'}
+          </p>
+          <button
+            onClick={toggleCityName}
+            className="w-full flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 active:scale-95 transition-all cursor-pointer"
+          >
+            <span className="font-semibold text-brand-text">
+              {cityNameMode === 'full' ? '🏙️ קרית...' : "🏙️ ק׳..."}
+            </span>
+            <span className="text-xs text-white/40 bg-white/8 px-2.5 py-1 rounded-full font-medium">
+              {cityNameMode === 'full'
+                ? (lang === 'he' ? 'שם מלא' : 'Full name')
+                : (lang === 'he' ? 'קיצור' : 'Short')}
             </span>
           </button>
         </div>
