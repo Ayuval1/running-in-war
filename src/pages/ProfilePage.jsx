@@ -244,21 +244,42 @@ export default function ProfilePage() {
             <p className="font-bold text-base">{lang === 'he' ? 'שמות ערים' : 'City Names'}</p>
           </div>
           <p className="text-white/40 text-sm mb-4 pr-6">
-            {lang === 'he' ? 'כיצד יוצגו שמות ערים במסנן' : 'How city names appear in the filter'}
+            {lang === 'he' ? 'כיצד יוצגו הערים במסנן המפה' : 'How city names appear in the map filter'}
           </p>
-          <button
-            onClick={toggleCityName}
-            className="w-full flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 active:scale-95 transition-all cursor-pointer"
-          >
-            <span className="font-semibold text-brand-text">
-              {cityNameMode === 'full' ? '🏙️ קרית...' : "🏙️ ק׳..."}
-            </span>
-            <span className="text-xs text-white/40 bg-white/8 px-2.5 py-1 rounded-full font-medium">
-              {cityNameMode === 'full'
-                ? (lang === 'he' ? 'שם מלא' : 'Full name')
-                : (lang === 'he' ? 'קיצור' : 'Short')}
-            </span>
-          </button>
+          <div className="flex flex-col gap-2">
+            {[
+              { value: 'full',  label: lang === 'he' ? 'שם מלא' : 'Full name',  example: lang === 'he' ? 'קרית ביאליק, קרית ים...' : 'Kiryat Bialik, Kiryat Yam...' },
+              { value: 'short', label: lang === 'he' ? 'קיצור'  : 'Short',       example: lang === 'he' ? "ק׳ ביאליק, ק׳ ים..."       : "K' Bialik, K' Yam..." },
+            ].map(opt => (
+              <button
+                key={opt.value}
+                onClick={() => cityNameMode !== opt.value && toggleCityName()}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all cursor-pointer text-right ${
+                  cityNameMode === opt.value
+                    ? 'bg-brand-blue/8 border-brand-blue/35'
+                    : 'bg-white/4 border-white/6 hover:border-white/15'
+                }`}
+              >
+                <div className={`w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all ${
+                  cityNameMode === opt.value
+                    ? 'border-brand-blue shadow-[0_0_8px_rgba(59,158,255,0.4)]'
+                    : 'border-white/20'
+                }`}>
+                  {cityNameMode === opt.value && (
+                    <div className="w-2 h-2 rounded-full bg-brand-blue" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <p className={`font-semibold text-sm ${cityNameMode === opt.value ? 'text-brand-text' : 'text-white/40'}`}>
+                    {opt.label}
+                  </p>
+                  <p className={`text-xs mt-0.5 ${cityNameMode === opt.value ? 'text-brand-blue/65' : 'text-white/25'}`}>
+                    {opt.example}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Logout */}
