@@ -111,6 +111,21 @@ body, #root {
 .leaflet-bottom.leaflet-left  { left:  auto; right: 10px; }
 .leaflet-bottom.leaflet-right { right: auto; left:  10px; }
 
+/* ── Leaflet popup — remove default white frame ────────── */
+.leaflet-popup-content-wrapper {
+  background:    transparent !important;
+  box-shadow:    none        !important;
+  padding:       0           !important;
+  border-radius: 0           !important;
+}
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+.leaflet-popup-tip {
+  background: #0F2035 !important;
+  box-shadow: none    !important;
+}
+
 /* ── Shelter markers ───────────────────────────────────── */
 .shelter-marker {
   display: flex;
