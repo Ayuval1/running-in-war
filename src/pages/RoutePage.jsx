@@ -57,7 +57,10 @@ export default function RoutePage() {
   const { user }     = useAuth()
   const { shelters } = useShelters()
   const { cityShelterList } = useCitySheltersContext()
-  const allShelters = [...shelters, ...cityShelterList]
+  const allShelters = [
+    ...shelters,
+    ...cityShelterList.map(s => ({ ...s, location: { lat: s.lat, lng: s.lng } })),
+  ]
   const { position } = useLocation()
 
   const [mode, setMode]             = useState('circular')
