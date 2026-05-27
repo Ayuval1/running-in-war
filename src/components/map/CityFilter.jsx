@@ -38,7 +38,7 @@ export default function CityFilter({ activeCities, onCityChange }) {
   }, [open])
 
   return (
-    <div ref={ref} className="absolute top-20 right-3 z-[1000]" dir="rtl">
+    <div ref={ref} className="absolute top-28 right-3 z-[1000]" dir="rtl">
       {/* Toggle pill button */}
       <button
         onClick={() => setOpen(o => !o)}
@@ -83,7 +83,7 @@ export default function CityFilter({ activeCities, onCityChange }) {
       {/* Dropdown panel */}
       {open && (
         <div
-          className="absolute top-[52px] right-0 w-48 rounded-2xl"
+          className="absolute top-0 right-[52px] w-48 rounded-2xl"
           style={{
             background: 'rgba(11,22,40,0.96)',
             border: '1px solid rgba(59,158,255,0.2)',
