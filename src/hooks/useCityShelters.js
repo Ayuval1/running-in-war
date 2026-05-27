@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react'
 import { collection, query, where, getDocs, getCountFromServer } from 'firebase/firestore'
 import { db } from '../firebase/config'
 
-export function useCityShelters(cityId) {
+export function useCityShelters(cityIds) {
   const [shelters, setShelters] = useState([])
   const [loading, setLoading] = useState(false)
 
+  const key = JSON.stringify(cityIds)
+
   useEffect(() => {
-    if (!cityId) { setShelters([]); return }
+    if (!cityIds || cityIds.length === 0) { setShelters([]); return }
     setLoading(true)
-    const q = query(collection(db, 'city_shelters'), where('city', '==', cityId))
+    const q = query(collection(db, 'city_shelters'), where('city', 'in', cityIds))
     getDocs(q)
       .then(snap => setShelters(snap.docs.map(d => ({ id: d.id, ...d.data() }))))
       .catch(err => console.error('useCityShelters error:', err))
       .finally(() => setLoading(false))
-  }, [cityId])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key])
 
   return { shelters, loading }
 }

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { SlidersHorizontal, Check } from 'lucide-react'
 import { useCityName } from '../../context/CityNameContext'
 import { getCityShelterCounts } from '../../hooks/useCityShelters'
 
@@ -10,39 +11,79 @@ const CITIES = [
   { id: 'kiryat_ata',     full: 'קרית אתא',    short: "ק׳ אתא"    },
 ]
 
-export default function CityFilter({ activeCity, onCityChange }) {
+export default function CityFilter({ activeCities, onCityChange }) {
   const [open, setOpen] = useState(false)
   const [counts, setCounts] = useState({})
   const { cityNameMode } = useCityName()
-  const highlighted = open || !!activeCity
+  const ref = useRef(null)
+
+  const hasActive = activeCities.length > 0
 
   useEffect(() => {
     getCityShelterCounts().then(setCounts).catch(() => {})
   }, [])
 
+  // Close panel on outside click
+  useEffect(() => {
+    if (!open) return
+    function handleOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleOutside)
+    document.addEventListener('touchstart', handleOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleOutside)
+      document.removeEventListener('touchstart', handleOutside)
+    }
+  }, [open])
+
   return (
-    <div className="absolute top-20 right-3 z-[1000]" dir="rtl">
+    <div ref={ref} className="absolute top-20 right-3 z-[1000]" dir="rtl">
+      {/* Toggle pill button */}
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+        className="flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
         style={{
-          background: highlighted ? 'rgba(59,158,255,0.15)' : 'rgba(11,25,47,0.92)',
-          border: `1px solid ${highlighted ? 'rgba(59,158,255,0.5)' : 'rgba(59,158,255,0.25)'}`,
-          boxShadow: highlighted
-            ? '0 0 0 3px rgba(59,158,255,0.12), 0 0 20px rgba(59,158,255,0.25)'
+          height: 44,
+          background: hasActive ? 'rgba(59,158,255,0.15)' : 'rgba(11,25,47,0.92)',
+          border: `1px solid ${hasActive ? 'rgba(59,158,255,0.55)' : 'rgba(59,158,255,0.25)'}`,
+          boxShadow: hasActive
+            ? '0 0 0 3px rgba(59,158,255,0.12), 0 0 24px rgba(59,158,255,0.35), 0 2px 12px rgba(0,0,0,0.5)'
             : '0 2px 12px rgba(0,0,0,0.5)',
-          transition: 'all 0.15s ease',
+          transition: 'background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease',
         }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke={highlighted ? '#3B9EFF' : '#6A9CC0'} strokeWidth="2.5" strokeLinecap="round">
-          <path d="M3 6h18M6 12h12M9 18h6"/>
-        </svg>
+        <SlidersHorizontal
+          size={15}
+          strokeWidth={2.2}
+          color={hasActive ? '#3B9EFF' : '#3D7070'}
+        />
+        <span
+          className="text-xs font-semibold"
+          style={{ color: hasActive ? '#3B9EFF' : '#3D7070' }}
+        >
+          ערים
+        </span>
+        {hasActive && (
+          <span
+            className="flex items-center justify-center rounded-full text-[10px] font-bold tabular-nums"
+            style={{
+              background: '#3B9EFF',
+              color: '#070D18',
+              minWidth: 18,
+              height: 18,
+              padding: '0 5px',
+            }}
+          >
+            {activeCities.length}
+          </span>
+        )}
       </button>
 
+      {/* Dropdown panel */}
       {open && (
         <div
-          className="absolute top-12 right-0 w-44 rounded-2xl"
+          className="absolute top-[52px] right-0 w-48 rounded-2xl"
           style={{
             background: 'rgba(11,22,40,0.96)',
             border: '1px solid rgba(59,158,255,0.2)',
@@ -50,42 +91,52 @@ export default function CityFilter({ activeCity, onCityChange }) {
             padding: '6px',
           }}
         >
+          <div
+            className="text-[10px] font-bold tracking-widest uppercase px-3 pt-2 pb-1.5"
+            style={{ color: '#3D7070' }}
+          >
+            הצג מקלטי עיר
+          </div>
           {CITIES.map(city => {
-            const isActive = activeCity === city.id
+            const isActive = activeCities.includes(city.id)
             const count = counts[city.id] ?? '…'
             return (
               <button
                 key={city.id}
-                onClick={() => { onCityChange(isActive ? null : city.id); setOpen(false) }}
-                className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl cursor-pointer"
+                onClick={() => onCityChange(city.id)}
+                className="w-full flex items-center gap-2.5 px-3 rounded-xl cursor-pointer active:scale-[0.98] transition-transform"
                 style={{
+                  minHeight: 44,
                   background: isActive ? 'rgba(59,158,255,0.1)' : 'transparent',
+                  borderRight: isActive ? '3px solid #3B9EFF' : '3px solid transparent',
                   transition: 'background 0.12s ease',
                 }}
               >
+                {/* Checkbox circle */}
                 <div
-                  className="w-3.5 h-3.5 rounded-full flex-shrink-0"
+                  className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center"
                   style={{
                     background: isActive ? '#3B9EFF' : 'transparent',
                     border: `2px solid ${isActive ? '#3B9EFF' : 'rgba(59,158,255,0.3)'}`,
-                    boxShadow: isActive
-                      ? '0 0 0 3px rgba(59,158,255,0.2), 0 0 12px rgba(59,158,255,0.5)'
-                      : 'none',
+                    boxShadow: isActive ? '0 0 8px rgba(59,158,255,0.5)' : 'none',
                     transition: 'all 0.15s ease',
                   }}
-                />
+                >
+                  {isActive && (
+                    <Check size={10} strokeWidth={3} color="#070D18" />
+                  )}
+                </div>
+                {/* City name */}
                 <span
                   className="flex-1 text-xs font-semibold text-right"
-                  style={{ color: isActive ? '#3B9EFF' : '#7AA8C8' }}
+                  style={{ color: isActive ? '#E6F4F0' : '#3D7070' }}
                 >
                   {cityNameMode === 'full' ? city.full : city.short}
                 </span>
+                {/* Count */}
                 <span
-                  className="text-xs"
-                  style={{
-                    color: isActive ? 'rgba(59,158,255,0.6)' : 'rgba(122,168,200,0.35)',
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
+                  className="text-xs tabular-nums"
+                  style={{ color: isActive ? 'rgba(59,158,255,0.7)' : 'rgba(61,112,112,0.5)' }}
                 >
                   {count}
                 </span>

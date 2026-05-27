@@ -429,8 +429,14 @@ export default function MapPage() {
 
   const [pendingPin, setPendingPin]     = useState(null)
   const [placingPin, setPlacingPin]     = useState(false)
-  const [activeCity, setActiveCity]     = useState(null)
-  const { shelters: cityShelterList }   = useCityShelters(activeCity)
+  const [activeCities, setActiveCities] = useState([])
+  const { shelters: cityShelterList }   = useCityShelters(activeCities)
+
+  function toggleCity(id) {
+    setActiveCities(prev =>
+      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+    )
+  }
   const [editingShelter, setEditing]    = useState(null)
   const [formLoading, setFormLoading]   = useState(false)
   const [sosTarget, setSosTarget]       = useState(null)
@@ -637,7 +643,7 @@ export default function MapPage() {
       )}
 
       {!placingPin && (
-        <CityFilter activeCity={activeCity} onCityChange={setActiveCity} />
+        <CityFilter activeCities={activeCities} onCityChange={toggleCity} />
       )}
 
       {/* Add shelter drawer */}
