@@ -12,7 +12,7 @@ import { findNearestShelter } from '../lib/geo'
 import { useAddressAutocomplete, buildAddressLabel } from '../hooks/useAddressAutocomplete'
 import ShelterMarker       from '../components/map/ShelterMarker'
 import CityFilter          from '../components/map/CityFilter'
-import { useCityShelters } from '../hooks/useCityShelters'
+import { useCitySheltersContext } from '../context/CitySheltersContext'
 import UserMarker    from '../components/map/UserMarker'
 import SOSButton     from '../components/sos/SOSButton'
 import SOSOverlay    from '../components/sos/SOSOverlay'
@@ -429,14 +429,7 @@ export default function MapPage() {
 
   const [pendingPin, setPendingPin]     = useState(null)
   const [placingPin, setPlacingPin]     = useState(false)
-  const [activeCities, setActiveCities] = useState([])
-  const { shelters: cityShelterList }   = useCityShelters(activeCities)
-
-  function toggleCity(id) {
-    setActiveCities(prev =>
-      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
-    )
-  }
+  const { activeCities, toggleCity, cityShelterList } = useCitySheltersContext()
   const [editingShelter, setEditing]    = useState(null)
   const [formLoading, setFormLoading]   = useState(false)
   const [sosTarget, setSosTarget]       = useState(null)

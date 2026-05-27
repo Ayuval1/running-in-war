@@ -4,6 +4,7 @@ import { useAuth } from './context/AuthContext'
 import LoadingSpinner from './components/ui/LoadingSpinner'
 import ErrorBoundary from './components/ui/ErrorBoundary'
 import { CityNameProvider } from './context/CityNameContext'
+import { CitySheltersProvider } from './context/CitySheltersContext'
 
 const AuthPage         = lazy(() => import('./pages/AuthPage'))
 const HomePage         = lazy(() => import('./pages/HomePage'))
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <CityNameProvider>
+    <CitySheltersProvider>
     <ErrorBoundary>
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
@@ -62,6 +64,7 @@ export default function App() {
       </Routes>
     </Suspense>
     </ErrorBoundary>
+    </CitySheltersProvider>
     </CityNameProvider>
   )
 }

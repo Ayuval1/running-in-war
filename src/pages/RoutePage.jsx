@@ -16,6 +16,7 @@ import { streetRoute } from '../lib/osrmRouting'
 import SafetyScoreBar from '../components/route/SafetyScoreBar'
 import { startIcon, endIcon } from '../components/map/RoutePointMarker'
 import BottomNav      from '../components/ui/BottomNav'
+import { useCitySheltersContext } from '../context/CitySheltersContext'
 
 const ISRAEL_CENTER = [31.5, 34.9]
 
@@ -55,6 +56,8 @@ function MapFlyTo({ startPoint, endPoint, geometry, waypoints }) {
 export default function RoutePage() {
   const { user }     = useAuth()
   const { shelters } = useShelters()
+  const { cityShelterList } = useCitySheltersContext()
+  const allShelters = [...shelters, ...cityShelterList]
   const { position } = useLocation()
 
   const [mode, setMode]             = useState('circular')
@@ -108,16 +111,16 @@ export default function RoutePage() {
   async function buildRoute() {
     const origin = startPoint || position
     if (!origin) { alert('ממתין ל-GPS... או בחר נקודת התחלה'); return }
-    if (!shelters.length) { alert('אין מקלטים. הוסף מקלטים במפה קודם.'); return }
+    if (!allShelters.length) { alert('אין מקלטים. הוסף מקלטים במפה או בחר עיר.'); return }
     if (mode === 'point2point' && !endPoint) { alert('בחר נקודת יעד על המפה'); return }
 
     const result = mode === 'circular'
-      ? buildCircularRoute(origin, shelters, distanceKm)
-      : buildPointToPointRoute(origin, endPoint, shelters)
+      ? buildCircularRoute(origin, allShelters, distanceKm)
+      : buildPointToPointRoute(origin, endPoint, allShelters)
 
     startTransition(() => {
       setRoute(result)
-      setScore(calcSafetyScore(result.waypoints, shelters))
+      setScore(calcSafetyScore(result.waypoints, allShelters))
     })
 
     setGeometry(null)
@@ -538,7 +541,7 @@ export default function RoutePage() {
           {mode === 'point2point' && endPoint && !route && (
             <Marker position={[endPoint.lat, endPoint.lng]} icon={endIcon} />
           )}
-          {shelters.map(s => (
+          {allShelters.map(s => (
             <ShelterMarker key={s.id} shelter={s} onEdit={() => {}} onDelete={() => {}} currentUserId={user?.uid} />
           ))}
           {route && <RoutePolyline waypoints={route.waypoints} geometry={geometry} />}
