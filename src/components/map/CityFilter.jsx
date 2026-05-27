@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { SlidersHorizontal, Check } from 'lucide-react'
 import { useCityName } from '../../context/CityNameContext'
 import { getCityShelterCounts } from '../../hooks/useCityShelters'
+import Drawer from '../ui/Drawer'
 
 const CITIES = [
   { id: 'kiryat_bialik', full: 'קרית ביאליק', short: "ק׳ ביאליק" },
@@ -15,42 +16,25 @@ export default function CityFilter({ activeCities, onCityChange }) {
   const [open, setOpen] = useState(false)
   const [counts, setCounts] = useState({})
   const { cityNameMode } = useCityName()
-  const ref = useRef(null)
-
   const hasActive = activeCities.length > 0
 
   useEffect(() => {
     getCityShelterCounts().then(setCounts).catch(() => {})
   }, [])
 
-  // Close panel on outside click
-  useEffect(() => {
-    if (!open) return
-    function handleOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handleOutside)
-    document.addEventListener('touchstart', handleOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleOutside)
-      document.removeEventListener('touchstart', handleOutside)
-    }
-  }, [open])
-
   return (
-    <div ref={ref} className="absolute top-28 right-3 z-[1000]" dir="rtl">
-      {/* Toggle pill button */}
+    <>
       <button
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
+        className="absolute top-24 right-3 z-[1000] flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
+        dir="rtl"
         style={{
           height: 44,
-          background: hasActive ? 'rgba(59,158,255,0.15)' : 'rgba(11,25,47,0.92)',
-          border: `1px solid ${hasActive ? 'rgba(59,158,255,0.55)' : 'rgba(59,158,255,0.25)'}`,
+          background: 'rgba(11,25,47,0.92)',
+          border: `1px solid ${hasActive ? 'rgba(59,158,255,0.65)' : 'rgba(59,158,255,0.25)'}`,
           boxShadow: hasActive
-            ? '0 0 0 3px rgba(59,158,255,0.12), 0 0 24px rgba(59,158,255,0.35), 0 2px 12px rgba(0,0,0,0.5)'
+            ? '0 0 0 2px rgba(59,158,255,0.12), 0 0 20px rgba(59,158,255,0.3), 0 2px 12px rgba(0,0,0,0.5)'
             : '0 2px 12px rgba(0,0,0,0.5)',
-          transition: 'background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease',
         }}
       >
         <SlidersHorizontal
@@ -80,23 +64,8 @@ export default function CityFilter({ activeCities, onCityChange }) {
         )}
       </button>
 
-      {/* Dropdown panel */}
-      {open && (
-        <div
-          className="absolute top-0 right-[52px] w-48 rounded-2xl"
-          style={{
-            background: 'rgba(11,22,40,0.96)',
-            border: '1px solid rgba(59,158,255,0.2)',
-            boxShadow: '0 12px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,158,255,0.06)',
-            padding: '6px',
-          }}
-        >
-          <div
-            className="text-[10px] font-bold tracking-widest uppercase px-3 pt-2 pb-1.5"
-            style={{ color: '#3D7070' }}
-          >
-            הצג מקלטי עיר
-          </div>
+      <Drawer open={open} onClose={() => setOpen(false)} title="הצג מקלטי עיר">
+        <div className="flex flex-col gap-2" dir="rtl">
           {CITIES.map(city => {
             const isActive = activeCities.includes(city.id)
             const count = counts[city.id] ?? '…'
@@ -104,38 +73,32 @@ export default function CityFilter({ activeCities, onCityChange }) {
               <button
                 key={city.id}
                 onClick={() => onCityChange(city.id)}
-                className="w-full flex items-center gap-2.5 px-3 rounded-xl cursor-pointer active:scale-[0.98] transition-transform"
+                className="w-full flex items-center gap-3 px-4 rounded-xl cursor-pointer active:scale-[0.98] transition-transform"
                 style={{
-                  minHeight: 44,
-                  background: isActive ? 'rgba(59,158,255,0.1)' : 'transparent',
+                  minHeight: 52,
+                  background: isActive ? 'rgba(59,158,255,0.1)' : 'rgba(15,32,53,0.5)',
+                  border: `1px solid ${isActive ? 'rgba(59,158,255,0.3)' : 'rgba(26,48,80,0.6)'}`,
                   borderRight: isActive ? '3px solid #3B9EFF' : '3px solid transparent',
-                  transition: 'background 0.12s ease',
                 }}
               >
-                {/* Checkbox circle */}
                 <div
-                  className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center"
+                  className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center"
                   style={{
                     background: isActive ? '#3B9EFF' : 'transparent',
                     border: `2px solid ${isActive ? '#3B9EFF' : 'rgba(59,158,255,0.3)'}`,
                     boxShadow: isActive ? '0 0 8px rgba(59,158,255,0.5)' : 'none',
-                    transition: 'all 0.15s ease',
                   }}
                 >
-                  {isActive && (
-                    <Check size={10} strokeWidth={3} color="#070D18" />
-                  )}
+                  {isActive && <Check size={11} strokeWidth={3} color="#070D18" />}
                 </div>
-                {/* City name */}
                 <span
-                  className="flex-1 text-xs font-semibold text-right"
+                  className="flex-1 text-sm font-semibold text-right"
                   style={{ color: isActive ? '#E6F4F0' : '#3D7070' }}
                 >
                   {cityNameMode === 'full' ? city.full : city.short}
                 </span>
-                {/* Count */}
                 <span
-                  className="text-xs tabular-nums"
+                  className="text-sm tabular-nums font-medium"
                   style={{ color: isActive ? 'rgba(59,158,255,0.7)' : 'rgba(61,112,112,0.5)' }}
                 >
                   {count}
@@ -144,7 +107,7 @@ export default function CityFilter({ activeCities, onCityChange }) {
             )
           })}
         </div>
-      )}
-    </div>
+      </Drawer>
+    </>
   )
 }
