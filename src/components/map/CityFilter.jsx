@@ -26,7 +26,7 @@ export default function CityFilter({ activeCities, onCityChange }) {
       {/* Trigger button */}
       <button
         onClick={() => setOpen(true)}
-        className="absolute top-20 right-3 z-[1000] flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
+        className="absolute top-24 right-3 z-[1000] flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
         dir="rtl"
         style={{
           height: 44,
