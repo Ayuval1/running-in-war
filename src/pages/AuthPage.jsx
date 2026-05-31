@@ -2,56 +2,6 @@ import { useState } from 'react'
 import LoginForm  from '../components/auth/LoginForm'
 import SignupForm from '../components/auth/SignupForm'
 
-/** Animated tactical hexagon shield logo */
-function TacticalLogo() {
-  return (
-    <div className="relative flex items-center justify-center mb-8" style={{ height: 96 }}>
-      {/* Outer ring — slow rotate */}
-      <div
-        className="absolute w-24 h-24 rounded-full"
-        style={{
-          border: '1px solid rgba(0,229,160,0.2)',
-          animation: 'spin 12s linear infinite',
-        }}
-      />
-      {/* Middle ring */}
-      <div
-        className="absolute w-20 h-20 rounded-full"
-        style={{
-          border: '1px dashed rgba(0,229,160,0.12)',
-          animation: 'spin 8s linear infinite reverse',
-        }}
-      />
-      {/* Core badge */}
-      <div
-        className="relative w-16 h-16 rounded-2xl flex items-center justify-center"
-        style={{
-          background: 'linear-gradient(135deg, rgba(0,229,160,0.15) 0%, rgba(0,229,160,0.05) 100%)',
-          border: '1.5px solid rgba(0,229,160,0.4)',
-          boxShadow: '0 0 30px rgba(0,229,160,0.15), inset 0 1px 0 rgba(0,229,160,0.2)',
-        }}
-      >
-        {/* Shield SVG */}
-        <svg width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M14 2L3 6.5V15C3 21.6 7.8 27.7 14 30C20.2 27.7 25 21.6 25 15V6.5L14 2Z"
-            fill="rgba(0,229,160,0.15)"
-            stroke="#00E5A0"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M9.5 15.5L12.5 18.5L18.5 12.5"
-            stroke="#00E5A0"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-    </div>
-  )
-}
 
 export default function AuthPage() {
   const [mode, setMode] = useState('login')
@@ -65,7 +15,7 @@ export default function AuthPage() {
       }}
     >
       {/* Logo */}
-      <TacticalLogo />
+      <img src="/logo/full/logo-dark.png" alt="RunningINWar" className="h-32 mb-2" />
 
       {/* Title */}
       <div className="text-center mb-8">
@@ -136,10 +86,6 @@ export default function AuthPage() {
         אפליקציה ישראלית · פרטיות ואבטחה
       </p>
 
-      {/* CSS for spin animation */}
-      <style>{`
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      `}</style>
     </div>
   )
 }
