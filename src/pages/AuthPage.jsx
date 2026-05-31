@@ -15,7 +15,7 @@ export default function AuthPage() {
       }}
     >
       {/* Logo */}
-      <img src="/logo/full/logo-dark.png" alt="RunningINWar" className="h-32 mb-2" />
+      <img src="/logo/full/image.png" alt="RunningINWar" className="h-44 mb-2" />
 
       {/* Title */}
       <div className="text-center mb-8">
