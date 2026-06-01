@@ -18,7 +18,7 @@ export default function AuthPage() {
       <img
         src="/logo/full/image.png"
         alt="RunningINWar"
-        className="h-56 mb-2"
+        className="h-60 mb-2"
         style={{ filter: 'drop-shadow(0 0 10px rgba(0,229,160,0.55))' }}
       />
 
