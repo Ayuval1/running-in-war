@@ -54,7 +54,10 @@ export default function SharingPage() {
   return (
     <div className="fixed inset-0 bg-brand-bg flex flex-col">
       <div className="flex-1 overflow-y-auto px-4 pt-safe pt-4 pb-24">
-        <h1 className="text-2xl font-black mb-1">🔗 שיתוף מקלטים</h1>
+        <h1 className="text-2xl font-black mb-1 flex items-center gap-2 justify-end">
+          שיתוף מקלטים
+          <img src="/logo/icon/icon-dark.png" alt="" className="h-7 w-7 object-contain" />
+        </h1>
         <p className="text-brand-dim text-sm mb-6">
           שלח את המקלטים שלך לחברים — הם יתווספו למפה שלהם אוטומטית
         </p>
