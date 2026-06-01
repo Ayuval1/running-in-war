@@ -164,7 +164,7 @@ export default function HomePage() {
         <img
           src="/logo/full/image2.png"
           alt="RunningINWar"
-          className="h-8"
+          className="h-10"
           style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
         />
         <GpsIndicator active={!!position} />
