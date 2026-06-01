@@ -15,7 +15,12 @@ export default function AuthPage() {
       }}
     >
       {/* Logo */}
-      <img src="/logo/full/image.png" alt="RunningINWar" className="h-44 mb-2" />
+      <img
+        src="/logo/full/image.png"
+        alt="RunningINWar"
+        className="h-56 mb-2"
+        style={{ filter: 'drop-shadow(0 0 10px rgba(0,229,160,0.55))' }}
+      />
 
       {/* Title */}
       <div className="text-center mb-8">
