@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Shield, AlertOctagon, MapPin, Route, Map, Building2, ChevronLeft, Trash2 } from 'lucide-react'
+import { AlertOctagon, MapPin, Route, Map, Building2, ChevronLeft, Trash2 } from 'lucide-react'
 import { useShelters } from '../hooks/useShelters'
 import { useLocation } from '../hooks/useLocation'
 import { useAlerts } from '../hooks/useAlerts'
@@ -161,12 +161,12 @@ export default function HomePage() {
         className="flex items-center justify-between px-4 py-3"
         style={{ borderBottom: '1px solid rgba(26,48,80,0.8)' }}
       >
-        <div className="flex items-center gap-2">
-          <Shield size={20} strokeWidth={2.5} style={{ color: '#00E5A0' }} />
-          <span className="text-base font-black tracking-tight" style={{ color: '#E6F4F0' }}>
-            ריצה בזמן מלחמה
-          </span>
-        </div>
+        <img
+          src="/logo/full/image2.png"
+          alt="RunningINWar"
+          className="h-8"
+          style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
+        />
         <GpsIndicator active={!!position} />
       </div>
 
