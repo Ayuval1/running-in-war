@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import { useShelters } from '../hooks/useShelters'
 import { useLocation } from '../hooks/useLocation'
 import { useAlerts } from '../hooks/useAlerts'
-import { addShelter, updateShelter, deleteShelter, saveHomeLocation, getUserProfile } from '../firebase/firestore'
+import { addShelter, updateShelter, deleteShelter } from '../firebase/firestore'
 import { findNearestShelter } from '../lib/geo'
 import { useAddressAutocomplete, buildAddressLabel } from '../hooks/useAddressAutocomplete'
 import ShelterMarker       from '../components/map/ShelterMarker'
@@ -41,48 +41,36 @@ function MapClickHandler({ onMapClick, active }) {
 }
 
 /** Home-location drawer content with GPS + autocomplete */
-function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
+function SetPositionForm({ currentPosition, onSaved, onClose }) {
   const [address, setAddress]       = useState('')
-  const [saving, setSaving]         = useState(false)
   const [saved, setSaved]           = useState(false)
   const [savedLabel, setSavedLabel] = useState('')
   const [gpsLoading, setGpsLoading] = useState(false)
 
   const { suggestions, loading: loadingSug } = useAddressAutocomplete(address, { enabled: !saved })
 
-  async function pickSuggestion(item) {
-    setAddress(item.display_name)
-    setSaving(true)
-    try {
-      await saveHomeLocation(userId, parseFloat(item.lat), parseFloat(item.lon))
-      setSavedLabel(buildAddressLabel(item, address))
-      setSaved(true)
-      setAddress('')
-      onSaved({ lat: parseFloat(item.lat), lng: parseFloat(item.lon) })
-      setTimeout(onClose, 1200)
-    } catch (err) { console.error('saveHomeLocation error:', err); alert('שגיאה בשמירה') }
-    finally { setSaving(false) }
+  function pickSuggestion(item) {
+    setSavedLabel(buildAddressLabel(item, address))
+    setSaved(true)
+    onSaved({ lat: parseFloat(item.lat), lng: parseFloat(item.lon) })
+    setTimeout(onClose, 1200)
   }
 
-  function handleGPS() {
+  async function handleGPS() {
     if (!currentPosition) { alert('ממתין ל-GPS, נסה שוב בעוד שנייה'); return }
     setGpsLoading(true)
-    saveHomeLocation(userId, currentPosition.lat, currentPosition.lng)
-      .then(async () => {
-        try {
-          const res  = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${currentPosition.lat}&lon=${currentPosition.lng}&format=json`,
-            { headers: { 'Accept-Language': 'he' } }
-          )
-          const data = await res.json()
-          setSavedLabel((data.display_name || '').split(',').slice(0, 2).join(','))
-        } catch {}
-        setSaved(true)
-        onSaved(currentPosition)
-        setTimeout(onClose, 1200)
-      })
-      .catch((err) => { console.error('saveHomeLocation GPS error:', err); alert('שגיאה בשמירה') })
-      .finally(() => setGpsLoading(false))
+    onSaved(currentPosition)
+    try {
+      const res  = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${currentPosition.lat}&lon=${currentPosition.lng}&format=json`,
+        { headers: { 'Accept-Language': 'he' } }
+      )
+      const data = await res.json()
+      setSavedLabel((data.display_name || '').split(',').slice(0, 2).join(','))
+    } catch {}
+    setSaved(true)
+    setGpsLoading(false)
+    setTimeout(onClose, 1200)
   }
 
   if (saved) {
@@ -91,7 +79,7 @@ function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
         <div className="w-16 h-16 rounded-full bg-green-900/30 flex items-center justify-center">
           <CheckCircle2 size={36} className="text-brand-neon" strokeWidth={2} />
         </div>
-        <p className="font-black text-lg">נשמר!</p>
+        <p className="font-black text-lg">הוגדר!</p>
         {savedLabel && <p className="text-white/40 text-sm text-center max-w-xs">{savedLabel}</p>}
       </div>
     )
@@ -100,7 +88,7 @@ function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-white/40 text-sm leading-relaxed">
-        מיקום הבית ישמש כנקודת התחלה במסלולי ריצה.
+        המיקום שתגדיר ישמש לסשן הנוכחי בלבד.
       </p>
 
       {/* GPS button */}
@@ -110,8 +98,8 @@ function HomeLocationForm({ userId, currentPosition, onSaved, onClose }) {
         className="w-full flex items-center justify-center gap-2 bg-brand-neon/10 border border-brand-neon/40 text-brand-neon font-bold py-3.5 rounded-xl active:scale-95 transition-transform disabled:opacity-40 cursor-pointer"
       >
         {gpsLoading
-          ? <><Loader2 size={16} strokeWidth={2} className="animate-spin" /> שומר...</>
-          : <><LocateFixed size={16} strokeWidth={2} /> השתמש במיקום הנוכחי (GPS)</>
+          ? <><Loader2 size={16} strokeWidth={2} className="animate-spin" /> מגדיר...</>
+          : <><LocateFixed size={16} strokeWidth={2} /> השתמש במיקום הנוכחי</>
         }
       </button>
       {!currentPosition && (
@@ -442,16 +430,6 @@ export default function MapPage() {
   const [addMode, setAddMode]           = useState('pin')   // 'pin' | 'address'
   const [pendingAddress, setPendingAddress] = useState('')
 
-  useEffect(() => {
-    if (!user) return
-    getUserProfile(user.uid).then(profile => {
-      if (profile?.homeLocation) {
-        const { latitude, longitude } = profile.homeLocation
-        setManualPosition({ lat: latitude, lng: longitude })
-      }
-    })
-  }, [user])
-
   const handleMapClick = useCallback((latlng) => {
     setPendingPin(latlng)
     setPlacingPin(true)
@@ -509,7 +487,7 @@ export default function MapPage() {
     setAddMode('pin')
   }
 
-  const activePosition = position || manualPosition
+  const activePosition = manualPosition || position
   const center = activePosition ? [activePosition.lat, activePosition.lng] : ISRAEL_CENTER
 
   return (
@@ -526,10 +504,12 @@ export default function MapPage() {
         className="absolute left-0 right-0 z-30 bg-brand-bg/90 backdrop-blur-sm px-4 pb-2 flex items-center justify-between border-b border-white/8"
         style={{ top: 0, paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)' }}
       >
-        <div className="flex items-center gap-2">
-          <Shield size={18} className="text-brand-neon" strokeWidth={2.5} />
-          <h1 className="text-lg font-black">ריצה בזמן מלחמה</h1>
-        </div>
+        <img
+          src="/logo/full/image2.png"
+          alt="RunningINWar"
+          className="h-12"
+          style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
+        />
 
         {placingPin ? (
           <button
@@ -543,11 +523,11 @@ export default function MapPage() {
           <div className="flex gap-2">
             <button
               onClick={() => setShowLocation(true)}
-              title="הגדר מיקום בית"
+              title="הגדר מיקום"
               className="flex items-center gap-1.5 bg-white/10 text-brand-text text-sm font-bold px-3 py-1.5 rounded-lg active:scale-95 hover:bg-white/15 transition-all cursor-pointer"
             >
               <LocateFixed size={14} strokeWidth={2} />
-              <span className="hidden sm:inline">בית</span>
+              <span className="hidden sm:inline">מיקום</span>
             </button>
 
             <button
@@ -667,15 +647,14 @@ export default function MapPage() {
         )}
       </Drawer>
 
-      {/* Home location drawer */}
+      {/* Set position drawer */}
       <Drawer
         open={showLocation}
         onClose={() => setShowLocation(false)}
-        title="הגדרת מיקום בית"
+        title="הגדרת המיקום שלי"
       >
         {showLocation && (
-          <HomeLocationForm
-            userId={user?.uid}
+          <SetPositionForm
             currentPosition={position}
             onSaved={setManualPosition}
             onClose={() => setShowLocation(false)}
