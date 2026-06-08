@@ -520,12 +520,6 @@ export default function MapPage() {
           מצב לא מקוון — מציג נתונים שמורים
         </div>
       )}
-      {gpsError && !position && (
-        <div className="absolute top-0 left-0 right-0 z-50 bg-orange-700/90 text-white text-center text-xs py-1 flex items-center justify-center gap-2">
-          <AlertTriangle size={12} strokeWidth={2} />
-          GPS לא זמין — מציג מרכז ישראל
-        </div>
-      )}
 
       {/* Top bar */}
       <div
