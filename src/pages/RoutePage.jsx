@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, useMapEvents, Marker, useMap } from 'react-lea
 import 'leaflet/dist/leaflet.css'
 import { Route, RotateCcw, MapPin, Shield, AlertTriangle, CheckCircle2, ChevronLeft, Loader2, X, Search } from 'lucide-react'
 import { useAuth }     from '../context/AuthContext'
+import { getUserProfile } from '../firebase/firestore'
 import { useShelters } from '../hooks/useShelters'
 import { useLocation } from '../hooks/useLocation'
 import { buildCircularRoute, buildPointToPointRoute, routeDistanceKm } from '../lib/routeAlgorithm'
@@ -78,6 +79,17 @@ export default function RoutePage() {
 
   const [startPoint, setStartPoint]     = useState(null)
   const [startAddress, setStartAddress] = useState('')
+
+  useEffect(() => {
+    if (!user) return
+    getUserProfile(user.uid).then(profile => {
+      if (profile?.homeLocation) {
+        const { latitude, longitude } = profile.homeLocation
+        setStartPoint({ lat: latitude, lng: longitude })
+        setStartAddress('בית 🏠')
+      }
+    })
+  }, [user?.uid])
   const [settingStart, setSettingStart] = useState(false)
   const [endAddress, setEndAddress] = useState('')
   const { suggestions: endSuggestions, loading: loadingEndSug } =
