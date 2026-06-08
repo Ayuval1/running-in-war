@@ -158,13 +158,13 @@ export default function HomePage() {
 
       {/* Top bar */}
       <div
-        className="flex items-center justify-between px-4 py-3"
+        className="flex items-center justify-between px-4 py-1"
         style={{ borderBottom: '1px solid rgba(26,48,80,0.8)' }}
       >
         <img
           src="/logo/full/image2.png"
           alt="RunningINWar"
-          className="h-24"
+          className="h-16"
           style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
         />
         <GpsIndicator active={!!position} />
