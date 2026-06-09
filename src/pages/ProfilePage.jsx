@@ -78,9 +78,16 @@ export default function ProfilePage() {
 
   return (
     <div className="fixed inset-0 bg-brand-bg flex flex-col" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-      <div className="flex items-center px-4 py-3 border-b border-white/8">
-        <User size={20} className="text-brand-neon ml-2" strokeWidth={2} />
-        <h1 className="text-xl font-black">פרופיל</h1>
+      <div
+        className="flex items-center justify-between px-4 py-1"
+        style={{ borderBottom: '1px solid rgba(26,48,80,0.8)' }}
+      >
+        <img
+          src="/logo/full/image2.png"
+          alt="RunningINWar"
+          className="h-16"
+          style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
+        />
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-6 pb-24 flex flex-col gap-4">

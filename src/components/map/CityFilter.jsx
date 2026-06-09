@@ -26,9 +26,10 @@ export default function CityFilter({ activeCities, onCityChange }) {
       {/* Trigger button */}
       <button
         onClick={() => setOpen(true)}
-        className="absolute top-24 right-3 z-[1000] flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
+        className="absolute right-3 z-[1000] flex items-center gap-2 px-4 rounded-full cursor-pointer active:scale-95 transition-transform"
         dir="rtl"
         style={{
+          top: 'calc(env(safe-area-inset-top, 0px) + 120px)',
           height: 44,
           background: 'rgba(11,25,47,0.92)',
           border: `1px solid ${hasActive ? 'rgba(59,158,255,0.65)' : 'rgba(59,158,255,0.25)'}`,

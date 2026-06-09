@@ -176,14 +176,18 @@ export default function RoutePage() {
         style={{
           paddingTop: 'calc(env(safe-area-inset-top, 0px) + 12px)',
           background: 'rgba(7,13,24,0.95)',
-          backdropFilter: 'blur(12px)',
+          backdropFilter: 'blur(4px)',
           borderBottom: '1px solid rgba(26,48,80,0.8)',
         }}
       >
-        {/* Title */}
-        <div className="flex items-center gap-2 mb-3">
-          <Route size={18} strokeWidth={2.5} style={{ color: '#00E5A0' }} />
-          <h1 className="text-base font-black" style={{ color: '#E6F4F0' }}>תכנון מסלול</h1>
+        {/* Logo */}
+        <div className="mb-3">
+          <img
+            src="/logo/full/image2.png"
+            alt="RunningINWar"
+            className="h-16"
+            style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
+          />
         </div>
 
         {/* Mode selector */}

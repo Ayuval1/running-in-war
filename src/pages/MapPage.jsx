@@ -501,13 +501,13 @@ export default function MapPage() {
 
       {/* Top bar */}
       <div
-        className="absolute left-0 right-0 z-30 bg-brand-bg/90 backdrop-blur-sm px-4 pb-2 flex items-center justify-between border-b border-white/8"
-        style={{ top: 0, paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)' }}
+        className="absolute left-0 right-0 z-30 bg-brand-bg/95 backdrop-blur-sm px-4 pb-2 flex items-center justify-between"
+        style={{ top: 0, paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)', borderBottom: '1px solid rgba(26,48,80,0.8)' }}
       >
         <img
           src="/logo/full/image2.png"
           alt="RunningINWar"
-          className="h-12"
+          className="h-16"
           style={{ filter: 'drop-shadow(0 0 6px rgba(0,229,160,0.35))' }}
         />
 
@@ -603,7 +603,8 @@ export default function MapPage() {
       {shelters.length > 0 && !placingPin && (
         <button
           onClick={() => setShowShelterList(true)}
-          className="absolute top-14 right-4 z-30 bg-brand-card border border-white/10 rounded-full px-3 py-1 text-xs text-white/40 cursor-pointer hover:border-white/20 hover:text-white/60 transition-colors"
+          className="absolute right-4 z-30 bg-brand-card border border-white/10 rounded-full px-3 py-1 text-xs text-white/40 cursor-pointer hover:border-white/20 hover:text-white/60 transition-colors"
+          style={{ top: 'calc(env(safe-area-inset-top, 0px) + 96px)' }}
         >
           {shelters.length} מקלטים
         </button>
