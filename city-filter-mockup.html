@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Filter — Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f172a; font-family: 'Segoe UI', sans-serif; color: white; padding: 24px; }
+  h1 { text-align: center; margin-bottom: 8px; font-size: 18px; color: #94a3b8; }
+  .subtitle { text-align: center; margin-bottom: 32px; font-size: 13px; color: #475569; }
+  .options { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .option { width: 280px; }
+  .option-label { text-align: center; margin-bottom: 12px; }
+  .option-label .num { background: #3b82f6; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; margin-left: 8px; }
+  .option-label .name { font-size: 15px; font-weight: 600; }
+  .option-label .desc { font-size: 12px; color: #64748b; display: block; margin-top: 4px; }
+
+  /* Phone frame */
+  .phone { background: #1e293b; border-radius: 20px; overflow: hidden; border: 2px solid #334155; height: 520px; position: relative; display: flex; flex-direction: column; }
+
+  /* Header */
+  .header { background: #0f172a; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 10; border-bottom: 1px solid #1e293b; flex-shrink: 0; }
+  .btn { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 6px 10px; font-size: 12px; color: #e2e8f0; cursor: pointer; white-space: nowrap; }
+  .btn.primary { background: #3b82f6; border-color: #3b82f6; }
+  .btn.active { background: #2563eb; border-color: #60a5fa; box-shadow: 0 0 0 2px #3b82f640; }
+
+  /* City strip */
+  .city-strip { background: #0f172a; padding: 6px 12px; display: flex; gap: 6px; overflow-x: auto; border-bottom: 1px solid #1e293b; flex-shrink: 0; }
+  .city-strip::-webkit-scrollbar { display: none; }
+  .city-chip { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 4px 10px; font-size: 11px; white-space: nowrap; color: #94a3b8; cursor: pointer; flex-shrink: 0; }
+  .city-chip.on { background: #1d4ed8; border-color: #3b82f6; color: white; }
+
+  /* Map */
+  .map { flex: 1; position: relative; background: #1a2744; overflow: hidden; }
+  .map-bg { position: absolute; inset: 0; background:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px; }
+  .map-road { position: absolute; background: #263352; }
+  .road-h1 { top: 40%; left: 0; right: 0; height: 6px; }
+  .road-h2 { top: 65%; left: 0; right: 0; height: 4px; }
+  .road-v1 { top: 0; bottom: 0; left: 35%; width: 5px; }
+  .road-v2 { top: 0; bottom: 0; left: 65%; width: 4px; }
+
+  /* Shelter markers */
+  .marker { position: absolute; width: 28px; height: 28px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+  .marker span { transform: rotate(45deg); }
+  .marker.user { background: #22c55e; }
+  .marker.city { background: #3b82f6; }
+  .marker.dim { opacity: 0.25; }
+
+  /* Floating buttons */
+  .fab { position: absolute; border-radius: 12px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.4); border: none; }
+  .fab-shelter-count { top: 10px; right: 10px; background: #1e293b; border: 1px solid #334155; color: white; padding: 6px 10px; }
+  .fab-cities { top: 50px; right: 10px; background: #1d4ed8; color: white; padding: 6px 10px; }
+  .fab-sos { bottom: 16px; right: 10px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle, #dc2626, #991b1b); color: white; flex-direction: column; font-size: 10px; gap: 2px; align-items: center; justify-content: center; }
+
+  /* City dropdown (option A) */
+  .city-dropdown { position: absolute; top: 88px; right: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 8px; z-index: 20; width: 140px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+  .city-dropdown .city-row { padding: 6px 8px; border-radius: 8px; font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .city-dropdown .city-row.on { background: #1d4ed8; color: white; }
+  .city-dropdown .city-row .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Legend */
+  .legend { position: absolute; bottom: 88px; left: 10px; background: rgba(15,23,42,0.85); border: 1px solid #334155; border-radius: 8px; padding: 6px 8px; font-size: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .legend-row { display: flex; align-items: center; gap: 5px; color: #94a3b8; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Bottom nav */
+  .bottom-nav { background: #0f172a; border-top: 1px solid #1e293b; padding: 8px; display: flex; justify-content: space-around; flex-shrink: 0; }
+  .nav-item { font-size: 10px; color: #475569; text-align: center; display: flex; flex-direction: column; gap: 2px; align-items: center; }
+  .nav-item.active { color: #3b82f6; }
+  .nav-icon { font-size: 16px; }
+
+  .chosen { outline: 2px solid #22c55e; outline-offset: 4px; }
+</style>
+</head>
+<body>
+
+<h1>כפתור עיר — היכן ישב?</h1>
+<p class="subtitle">בחר אפשרות שתרצה לבנות</p>
+
+<div class="options">
+
+  <!-- OPTION A: Floating button on map -->
+  <div class="option">
+    <div class="option-label">
+      <span class="num">א</span>
+      <span class="name">כפתור על המפה</span>
+      <span class="desc">לחיצה → רשימה נפתחת</span>
+    </div>
+    <div class="phone">
+      <div class="header">
+        <button class="btn">🏠 בית</button>
+        <button class="btn primary">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="map-bg"></div>
+        <div class="map-road road-h1"></div>
+        <div class="map-road road-h2"></div>
+        <div class="map-road road-v1"></div>
+        <div class="map-road road-v2"></div>
+        <div class="marker user" style="top:35%;left:30%"><span>🛡</span></div>
+        <div class="marker city" style="top:50%;left:55%"><span>🛡</span></div>
+        <div class="marker city" style="top:25%;left:60%"><span>🛡</span></div>
+        <div class="marker city" style="top:62%;left:25%"><span>🛡</span></div>
+        <button class="fab fab-shelter-count">4 מקלטים</button>
+        <button class="fab fab-cities">🏙️ ערים</button>
+        <div class="city-dropdown">
+          <div class="city-row on"><div class="dot" style="background:#3b82f6"></div> ק׳ ביאליק</div>
+          <div class="city-row"><div class="dot" style="background:#475569"></div> ק׳ ים</div>
+          <div class="city-row"><div class="dot" style="background:#475569"></div> ק׳ מוצקין</div>
+          <div class="city-row"><div class="dot" style="background:#475569"></div> ק׳ חיים</div>
+          <div class="city-row"><div class="dot" style="background:#475569"></div> ק׳ אתא</div>
+        </div>
+        <button class="fab fab-sos">⚠️<span>SOS</span></button>
+        <div class="legend">
+          <div class="legend-row"><div class="legend-dot" style="background:#22c55e"></div> מקלט שלי</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div> מקלט עיר</div>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: Header button -->
+  <div class="option">
+    <div class="option-label">
+      <span class="num">ב</span>
+      <span class="name">בתוך ה-header</span>
+      <span class="desc">ליד כפתורי בית ו+ מקלט</span>
+    </div>
+    <div class="phone">
+      <div class="header">
+        <button class="btn">🏠 בית</button>
+        <button class="btn active">🏙️ ערים</button>
+        <button class="btn primary">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="map-bg"></div>
+        <div class="map-road road-h1"></div>
+        <div class="map-road road-h2"></div>
+        <div class="map-road road-v1"></div>
+        <div class="map-road road-v2"></div>
+        <div class="marker user" style="top:35%;left:30%"><span>🛡</span></div>
+        <div class="marker city" style="top:50%;left:55%"><span>🛡</span></div>
+        <div class="marker city" style="top:25%;left:60%"><span>🛡</span></div>
+        <div class="marker city dim" style="top:62%;left:25%"><span>🛡</span></div>
+        <button class="fab fab-shelter-count">4 מקלטים</button>
+        <button class="fab fab-sos">⚠️<span>SOS</span></button>
+        <div class="legend">
+          <div class="legend-row"><div class="legend-dot" style="background:#22c55e"></div> מקלט שלי</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div> מקלט עיר</div>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C: City strip below header -->
+  <div class="option">
+    <div class="option-label">
+      <span class="num">ג</span>
+      <span class="name">שורת ערים מתחת ל-header</span>
+      <span class="desc">תמיד גלוי, לחיצה מדליקה/מכבה</span>
+    </div>
+    <div class="phone">
+      <div class="header">
+        <button class="btn">🏠 בית</button>
+        <button class="btn primary">+ מקלט</button>
+      </div>
+      <div class="city-strip">
+        <div class="city-chip on">✓ ק׳ ביאליק</div>
+        <div class="city-chip">ק׳ ים</div>
+        <div class="city-chip">ק׳ מוצקין</div>
+        <div class="city-chip">ק׳ חיים</div>
+        <div class="city-chip">ק׳ אתא</div>
+      </div>
+      <div class="map">
+        <div class="map-bg"></div>
+        <div class="map-road road-h1"></div>
+        <div class="map-road road-h2"></div>
+        <div class="map-road road-v1"></div>
+        <div class="map-road road-v2"></div>
+        <div class="marker user" style="top:35%;left:30%"><span>🛡</span></div>
+        <div class="marker city" style="top:50%;left:55%"><span>🛡</span></div>
+        <div class="marker city" style="top:25%;left:60%"><span>🛡</span></div>
+        <div class="marker city dim" style="top:62%;left:25%"><span>🛡</span></div>
+        <button class="fab fab-shelter-count">4 מקלטים</button>
+        <button class="fab fab-sos">⚠️<span>SOS</span></button>
+        <div class="legend">
+          <div class="legend-row"><div class="legend-dot" style="background:#22c55e"></div> מקלט שלי</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div> מקלט עיר</div>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

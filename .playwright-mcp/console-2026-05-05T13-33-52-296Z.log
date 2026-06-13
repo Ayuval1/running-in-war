@@ -1,0 +1,34 @@
+[     611ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     677ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     678ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/auth:0
+[     744ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     784ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://running-in-war.vercel.app/auth:0
+[   13584ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   18590ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   23599ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   25656ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   30661ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   35655ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   40660ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   45658ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   50703ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   55654ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   60663ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   65654ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   70659ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   75654ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   80658ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   85658ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   90672ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[   95664ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  100663ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  105658ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  110659ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  115658ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  120656ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  125657ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  130679ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  135659ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  140656ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/oref/WarningMessages/alert/alerts.json:0
+[  145108ms] [ERROR] Access to fetch at 'https://data.gov.il/api/3/action/datastore_search?resource_id=23650a0e-43eb-4937-b3c4-7d161779e30f&limit=2000' from origin 'https://running-in-war.vercel.app' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://running-in-war.vercel.app/map:0
+[  145108ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://data.gov.il/api/3/action/datastore_search?resource_id=23650a0e-43eb-4937-b3c4-7d161779e30f&limit=2000:0

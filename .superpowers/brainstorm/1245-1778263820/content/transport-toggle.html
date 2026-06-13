@@ -1,0 +1,63 @@
+<h2>איפה לשים את כפתור ריצה/רכב?</h2>
+<p class="subtitle">בחר את המיקום שנראה הכי טבעי</p>
+
+<div class="options">
+  <div class="option" data-choice="below" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>שורה נפרדת מתחת</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-body" style="background:#070D18;padding:10px;border-radius:8px;font-size:12px">
+          <div style="display:flex;background:#0a1422;border-radius:8px;padding:4px;margin-bottom:6px">
+            <div style="flex:1;text-align:center;background:#00E5A0;color:#070D18;padding:5px;border-radius:6px;font-weight:bold">🔄 ריצה מהבית</div>
+            <div style="flex:1;text-align:center;color:#3D7070;padding:5px">א׳ → ב׳</div>
+          </div>
+          <div style="display:flex;background:#0a1422;border-radius:8px;padding:4px;gap:4px">
+            <div style="flex:1;text-align:center;background:rgba(0,229,160,0.15);color:#00E5A0;padding:5px;border-radius:6px;border:1px solid rgba(0,229,160,0.4);font-weight:bold">🏃 ריצה</div>
+            <div style="flex:1;text-align:center;color:#3D7070;padding:5px">🚗 רכב</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:8px">שתי שורות ברורות — אחת לסוג מסלול, אחת לאמצעי תחבורה</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="inline" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>סמלים קטנים בתוך כל כפתור</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-body" style="background:#070D18;padding:10px;border-radius:8px;font-size:12px">
+          <div style="display:flex;background:#0a1422;border-radius:8px;padding:4px;gap:4px;margin-bottom:6px">
+            <div style="flex:1;text-align:center;background:#00E5A0;color:#070D18;padding:5px;border-radius:6px;font-weight:bold">🔄 ריצה מהבית 🏃</div>
+            <div style="flex:1;text-align:center;color:#3D7070;padding:5px">א׳ → ב׳</div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:12px;font-size:11px;color:#3D7070">
+            <span style="color:#00E5A0">🏃 ריצה</span>
+            <span>🚗 רכב</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:8px">הכל בשורה אחת — פחות מקום, יותר קומפקטי</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="icon-only" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>כפתור icon בלבד מצד ימין</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-body" style="background:#070D18;padding:10px;border-radius:8px;font-size:12px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <div style="flex:1;display:flex;background:#0a1422;border-radius:8px;padding:4px">
+              <div style="flex:1;text-align:center;background:#00E5A0;color:#070D18;padding:5px;border-radius:6px;font-weight:bold">🔄 ריצה מהבית</div>
+              <div style="flex:1;text-align:center;color:#3D7070;padding:5px">א׳ → ב׳</div>
+            </div>
+            <div style="background:rgba(0,229,160,0.15);border:1px solid rgba(0,229,160,0.4);border-radius:8px;padding:6px 10px;color:#00E5A0;font-size:16px">🏃</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:8px">לחיצה על האייקון מחליפה בין ריצה/רכב — ממוזער, ולא לוקח מקום</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+- generic [ref=e7]:
+  - img [ref=e12]
+  - generic [ref=e15]:
+    - heading "ריצה בזמן מלחמה" [level=1] [ref=e16]
+    - paragraph [ref=e17]: הרץ בביטחון · תמיד קרוב למקלט
+  - generic [ref=e18]:
+    - tablist [ref=e19]:
+      - tab "כניסה" [selected] [ref=e20] [cursor=pointer]
+      - tab "הרשמה" [ref=e21] [cursor=pointer]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: אימייל
+        - textbox "your@email.com" [ref=e25]: riw.test.playwright@gmail.com
+      - generic [ref=e26]:
+        - generic [ref=e27]: סיסמה
+        - textbox "••••••••" [ref=e28]: PlaywrightTest2026!.
+      - generic [ref=e33]: אימייל או סיסמה שגויים
+      - button "כניסה" [ref=e29] [cursor=pointer]
+      - paragraph [ref=e30]:
+        - text: עדיין אין חשבון?
+        - button "הרשמה" [ref=e31] [cursor=pointer]
+  - paragraph [ref=e32]: אפליקציה ישראלית · פרטיות ואבטחה

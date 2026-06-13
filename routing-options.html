@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; color: #e0e0e0; font-family: Rubik, sans-serif; padding: 24px; }
+  h1 { color: #00E5A0; text-align: center; margin-bottom: 6px; font-size: 1.2rem; }
+  p.sub { color: #8899aa; text-align: center; font-size: 0.83rem; margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .card { background: #1a2530; border-radius: 14px; padding: 18px; border: 2px solid transparent; }
+  .card.winner { border-color: #00E5A0; }
+  .card.ok { border-color: rgba(59,158,255,0.4); }
+  .card.bad { border-color: rgba(255,65,84,0.2); opacity: 0.7; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .logo { font-size: 1.6rem; }
+  .name { font-size: 1rem; font-weight: 900; color: #fff; }
+  .tagline { font-size: 0.75rem; color: #8899aa; }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.82rem; }
+  .row:last-of-type { border-bottom: none; }
+  .key { color: #8899aa; }
+  .val { font-weight: 700; }
+  .green { color: #00E5A0; }
+  .blue { color: #3B9EFF; }
+  .red { color: #FF4154; }
+  .yellow { color: #FFB800; }
+  .tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; margin-top: 12px; }
+  .tag-winner { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .tag-ok { background: rgba(59,158,255,0.12); color: #3B9EFF; border: 1px solid rgba(59,158,255,0.3); }
+  .tag-bad { background: rgba(255,65,84,0.12); color: #FF4154; border: 1px solid rgba(255,65,84,0.3); }
+  .tag-current { background: rgba(255,184,0,0.12); color: #FFB800; border: 1px solid rgba(255,184,0,0.3); }
+  .verdict { background: #1a2530; border-radius: 14px; padding: 20px; border: 2px solid rgba(0,229,160,0.3); }
+  .verdict h2 { color: #00E5A0; margin-bottom: 10px; font-size: 1rem; }
+  .verdict p { font-size: 0.85rem; color: #aabbcc; line-height: 1.7; }
+  .verdict strong { color: #fff; }
+  .verdict code { background: #0f1923; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #00E5A0; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<h1>🗺️ Routing APIs — השוואה לישראל</h1>
+<p class="sub">הבעיה: OSRM demo משתמש בנתוני OSM ישנים + ישראל לא מכוסה מספיק</p>
+
+<div class="grid">
+
+  <!-- OSRM current -->
+  <div class="card bad">
+    <div class="card-header">
+      <div class="logo">🔧</div>
+      <div>
+        <div class="name">OSRM Demo</div>
+        <div class="tagline">router.project-osrm.org</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val red">OSM ישן</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val red">חלקי ❌</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val red">לא אמין</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val green">חינם</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val green">אין</span></div>
+    <span class="tag tag-current">⚠️ נוכחי — לא עובד</span>
+  </div>
+
+  <!-- HERE -->
+  <div class="card winner">
+    <div class="card-header">
+      <div class="logo">📍</div>
+      <div>
+        <div class="name">HERE Routing</div>
+        <div class="tagline">developer.here.com</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val green">קנייני — מעולה</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val green">מלא ✅</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val green">מדויק ✅</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val green">חינם</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val green">250K/חודש</span></div>
+    <span class="tag tag-winner">⭐ מומלץ #1</span>
+  </div>
+
+  <!-- TomTom -->
+  <div class="card ok">
+    <div class="card-header">
+      <div class="logo">🧭</div>
+      <div>
+        <div class="name">TomTom Routing</div>
+        <div class="tagline">developer.tomtom.com</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val green">קנייני — טוב</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val green">טוב ✅</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val green">מדויק ✅</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val green">חינם</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val yellow">2,500/יום</span></div>
+    <span class="tag tag-ok">✅ מומלץ #2</span>
+  </div>
+
+  <!-- Mapbox -->
+  <div class="card ok">
+    <div class="card-header">
+      <div class="logo">🗾</div>
+      <div>
+        <div class="name">Mapbox Directions</div>
+        <div class="tagline">docs.mapbox.com</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val yellow">OSM מעודכן</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val yellow">בינוני</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val yellow">לרוב כן</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val green">חינם</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val green">100K/חודש</span></div>
+    <span class="tag tag-ok">🟡 אופציה</span>
+  </div>
+
+  <!-- GraphHopper -->
+  <div class="card bad">
+    <div class="card-header">
+      <div class="logo">🦘</div>
+      <div>
+        <div class="name">GraphHopper</div>
+        <div class="tagline">graphhopper.com</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val yellow">OSM</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val yellow">בינוני</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val yellow">לרוב כן</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val green">חינם</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val red">500/יום בלבד</span></div>
+    <span class="tag tag-bad">❌ מגבלה נמוכה</span>
+  </div>
+
+  <!-- Google -->
+  <div class="card bad">
+    <div class="card-header">
+      <div class="logo">🌍</div>
+      <div>
+        <div class="name">Google Directions</div>
+        <div class="tagline">maps.googleapis.com</div>
+      </div>
+    </div>
+    <div class="row"><span class="key">נתונים</span><span class="val green">הכי טוב</span></div>
+    <div class="row"><span class="key">ישראל</span><span class="val green">מושלם ✅</span></div>
+    <div class="row"><span class="key">חד-סטרי</span><span class="val green">מושלם ✅</span></div>
+    <div class="row"><span class="key">מחיר</span><span class="val red">💰 עולה כסף</span></div>
+    <div class="row"><span class="key">מגבלה</span><span class="val yellow">$5/1000 בקשות</span></div>
+    <span class="tag tag-bad">💸 יקר</span>
+  </div>
+
+</div>
+
+<div class="verdict">
+  <h2>🏆 המלצה: HERE Routing API</h2>
+  <p>
+    <strong>נתונים קנייניים</strong> (לא OSM) — מפות מקצועיות עם כל כיוונויות הנסיעה.<br>
+    <strong>250,000 בקשות/חודש חינם</strong> — לאפליקציה בגודל שלך זה מספיק לשנים.<br>
+    הרישום לוקח 5 דקות ב-<code>developer.here.com</code> → מקבלים API Key מיידית.<br><br>
+    שינוי בקוד: <strong>רק api/route.js</strong> — מחליפים את ה-URL של OSRM ל-HERE. שאר הקוד נשאר זהה.
+  </p>
+</div>
+
+</body>
+</html>

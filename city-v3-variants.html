@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Panel — Style 3 Variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #070D18;
+    --surface: #0C1929;
+    --card:    #0F2035;
+    --border:  #1A3050;
+    --neon:    #00E5A0;
+    --blue:    #3B9EFF;
+    --text:    #E6F4F0;
+    --dim:     #3D7070;
+    --red:     #FF1744;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #030810;
+    font-family: 'Rubik', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 60px;
+    gap: 44px;
+  }
+  h1 { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); font-weight: 500; }
+  .toggle-wrap { display:flex; gap:0; background:var(--card); border:1px solid var(--border); border-radius:50px; padding:4px; }
+  .tbtn { padding:7px 22px; border-radius:50px; font:600 13px/1 'Rubik',sans-serif; cursor:pointer; border:none; color:var(--dim); background:transparent; transition:all .2s; }
+  .tbtn.active { background:var(--blue); color:#fff; box-shadow:0 0 0 1px rgba(59,158,255,.4),0 0 18px rgba(59,158,255,.25); }
+  .cn-short { display:none; }
+  .cn-full  { display:inline; }
+  body.abbrev .cn-short { display:inline; }
+  body.abbrev .cn-full  { display:none; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .label { font-size: 10px; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+
+  /* ── phone shell ── */
+  .phone {
+    width: 256px; height: 530px;
+    background: var(--bg); border-radius: 28px;
+    border: 1.5px solid var(--border); overflow: hidden;
+    position: relative; display: flex; flex-direction: column;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.75);
+  }
+  .hdr {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: 9px 12px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+  }
+  .hb { background: var(--surface); border: 1px solid var(--border); border-radius: 50px; padding: 5px 10px; font: 500 11px/1 'Rubik',sans-serif; color: var(--text); display: flex; align-items: center; gap: 4px; }
+  .hb.add { background: var(--neon); border-color: var(--neon); color: #060C16; font-weight: 700; box-shadow: 0 0 0 1px rgba(0,229,160,0.3),0 0 18px rgba(0,229,160,0.18); }
+  .map { flex: 1; position: relative; background: var(--surface); overflow: hidden; }
+  .map::before { content:''; position:absolute; inset:0; background: linear-gradient(rgba(26,48,80,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(26,48,80,.3) 1px,transparent 1px); background-size:36px 36px; }
+  .rd { position: absolute; background: #070E1C; }
+  .rh1{top:37%;left:0;right:0;height:6px;} .rh2{top:63%;left:0;right:0;height:4px;}
+  .rv1{top:0;bottom:0;left:32%;width:5px;} .rv2{top:0;bottom:0;left:64%;width:4px;}
+  .mk { position:absolute; width:28px; height:28px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .mk span { transform:rotate(45deg); display:block; }
+  .mk.u { background:var(--neon); box-shadow:0 0 0 1px rgba(0,229,160,.4),0 2px 12px rgba(0,229,160,.4); }
+  .mk.c { background:var(--blue); box-shadow:0 0 0 1px rgba(59,158,255,.4),0 2px 12px rgba(59,158,255,.3); }
+  .badge { position:absolute; top:10px; right:10px; background:var(--card); border:1px solid var(--border); border-radius:50px; padding:5px 10px; font-size:11px; font-weight:500; color:var(--text); display:flex; align-items:center; gap:5px; }
+  .bd { width:6px;height:6px;border-radius:50%;background:var(--neon);box-shadow:0 0 6px var(--neon); }
+  .cbtn { position:absolute; top:46px; right:10px; background:rgba(59,158,255,.1); border:1px solid var(--blue); border-radius:50px; padding:5px 11px; font:600 11px/1 'Rubik',sans-serif; color:var(--blue); display:flex; align-items:center; gap:5px; box-shadow:0 0 0 1px rgba(59,158,255,.2),0 0 18px rgba(59,158,255,.12); }
+  .sos { position:absolute; bottom:14px; right:10px; width:56px; height:56px; border-radius:50%; background:radial-gradient(circle at 35% 35%,#FF4060,#FF1744); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; box-shadow:0 0 0 2px rgba(255,23,68,.3),0 0 30px rgba(255,23,68,.4); }
+  .sos-i{font-size:17px;} .sos-l{font-size:8px;font-weight:700;letter-spacing:.1em;font-family:monospace;}
+  .ring{position:absolute;width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(255,23,68,.4);animation:radar 2s infinite ease-out;}
+  .ring:nth-child(2){animation-delay:.65s;} .ring:nth-child(3){animation-delay:1.3s;}
+  @keyframes radar{0%{transform:scale(1);opacity:.5;}100%{transform:scale(2.6);opacity:0;}}
+  .nav { background:var(--bg); border-top:1px solid var(--border); padding:7px 0 10px; display:flex; justify-content:space-around; flex-shrink:0; }
+  .ni { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:9px; color:var(--dim); }
+  .ni.on{color:var(--neon);}
+  .ni-i{font-size:15px;}
+
+  /* ── PULSE animation ── */
+  @keyframes pulse {
+    0%  { transform:scale(1); opacity:.6; }
+    100%{ transform:scale(1.7); opacity:0; }
+  }
+
+  /* ════════════════════════════════
+     3A — Left accent bar + count badge
+     ════════════════════════════════ */
+  .p3a {
+    position:absolute; top:82px; right:10px;
+    background:#0B1A2C; border:1px solid var(--border);
+    border-radius:16px; width:172px;
+    overflow:hidden;
+    box-shadow:0 16px 48px rgba(0,0,0,.75);
+    z-index:20;
+  }
+  .p3a-head {
+    padding:8px 12px; font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+    color:rgba(59,158,255,.7); font-weight:700;
+    background:rgba(59,158,255,.06); border-bottom:1px solid rgba(59,158,255,.12);
+  }
+  .p3a-row {
+    display:flex; align-items:center; gap:9px;
+    padding:8px 10px 8px 0;
+    border-bottom:1px solid rgba(26,48,80,.5);
+    position:relative; cursor:pointer;
+  }
+  .p3a-row:last-child { border-bottom:none; }
+  .p3a-bar {
+    width:3px; align-self:stretch; flex-shrink:0;
+    background:var(--border); border-radius:0 3px 3px 0;
+  }
+  .p3a-row.on .p3a-bar { background:var(--blue); box-shadow:0 0 8px rgba(59,158,255,.5); }
+  .p3a-dot {
+    width:22px; height:22px; border-radius:50%;
+    background:var(--border); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; position:relative;
+  }
+  .p3a-row.on .p3a-dot {
+    background:var(--blue); box-shadow:0 0 0 2px rgba(59,158,255,.25),0 0 12px rgba(59,158,255,.4);
+  }
+  .p3a-row.on .p3a-dot::after {
+    content:''; position:absolute; inset:-4px; border-radius:50%;
+    border:1px solid rgba(59,158,255,.35); animation:pulse 1.6s infinite;
+  }
+  .p3a-info { flex:1; min-width:0; }
+  .p3a-name { font-size:12px; font-weight:600; color:var(--dim); }
+  .p3a-row.on .p3a-name { color:var(--text); }
+  .p3a-cnt {
+    background:var(--border); border-radius:50px;
+    padding:2px 7px; font-size:10px; font-weight:600;
+    color:var(--dim); flex-shrink:0;
+  }
+  .p3a-row.on .p3a-cnt { background:rgba(59,158,255,.2); color:var(--blue); }
+
+  /* ════════════════════════════════
+     3B — Full glowing row card
+     ════════════════════════════════ */
+  .p3b {
+    position:absolute; top:82px; right:10px;
+    background:rgba(10,18,32,.97); border:1px solid rgba(59,158,255,.18);
+    border-radius:18px; width:168px; padding:5px;
+    box-shadow:0 16px 48px rgba(0,0,0,.75),0 0 40px rgba(59,158,255,.04);
+    z-index:20;
+  }
+  .p3b-head {
+    padding:6px 10px 8px; font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--dim); border-bottom:1px solid var(--border); margin-bottom:4px;
+  }
+  .p3b-row {
+    display:flex; align-items:center; gap:8px;
+    padding:7px 8px; border-radius:12px; cursor:pointer; margin-bottom:2px;
+    border:1px solid transparent;
+  }
+  .p3b-row.on {
+    background:rgba(59,158,255,.08);
+    border-color:rgba(59,158,255,.25);
+    box-shadow:0 0 0 1px rgba(59,158,255,.08),inset 0 0 20px rgba(59,158,255,.03);
+  }
+  .p3b-shield {
+    width:26px; height:26px; border-radius:50%;
+    background:var(--border); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; position:relative;
+  }
+  .p3b-row.on .p3b-shield {
+    background:rgba(59,158,255,.15);
+    border:1px solid rgba(59,158,255,.4);
+    box-shadow:0 0 0 3px rgba(59,158,255,.12),0 0 16px rgba(59,158,255,.35);
+  }
+  .p3b-row.on .p3b-shield::after {
+    content:''; position:absolute; inset:-5px; border-radius:50%;
+    border:1px solid rgba(59,158,255,.3); animation:pulse 1.6s infinite;
+  }
+  .p3b-body { flex:1; }
+  .p3b-name { font-size:12px; font-weight:600; color:var(--dim); }
+  .p3b-row.on .p3b-name { color:var(--text); }
+  .p3b-sub { font-size:10px; color:var(--dim); margin-top:1px; font-weight:400; }
+  .p3b-row.on .p3b-sub { color:rgba(59,158,255,.65); }
+
+  /* ════════════════════════════════
+     3C — Number bubble (count inside dot)
+     ════════════════════════════════ */
+  .p3c {
+    position:absolute; top:82px; right:10px;
+    background:var(--card); border:1px solid var(--border);
+    border-radius:18px; width:172px;
+    box-shadow:0 16px 48px rgba(0,0,0,.8);
+    overflow:hidden; z-index:20;
+  }
+  .p3c-head {
+    padding:8px 12px; font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+    color:rgba(59,158,255,.7); font-weight:700;
+    background:rgba(59,158,255,.07); border-bottom:1px solid rgba(59,158,255,.12);
+    display:flex; align-items:center; gap:6px;
+  }
+  .p3c-list { padding:5px; }
+  .p3c-row {
+    display:flex; align-items:center; gap:9px;
+    padding:7px 8px; border-radius:12px; cursor:pointer; margin-bottom:2px;
+  }
+  .p3c-row.on { background:rgba(59,158,255,.1); }
+  .p3c-bubble {
+    width:32px; height:32px; border-radius:50%;
+    background:var(--border); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .p3c-bubble .num {
+    font-size:9px; font-weight:700;
+    color:var(--dim); letter-spacing:-.02em; line-height:1;
+    text-align:center;
+  }
+  .p3c-row.on .p3c-bubble {
+    background:var(--blue);
+    box-shadow:0 0 0 2px rgba(59,158,255,.25),0 0 16px rgba(59,158,255,.45);
+  }
+  .p3c-row.on .p3c-bubble .num { color:#fff; }
+  .p3c-row.on .p3c-bubble::after {
+    content:''; position:absolute; inset:-5px; border-radius:50%;
+    border:1.5px solid rgba(59,158,255,.3); animation:pulse 1.6s infinite;
+  }
+  .p3c-info { flex:1; }
+  .p3c-name { font-size:12px; font-weight:600; color:var(--dim); }
+  .p3c-row.on .p3c-name { color:var(--text); }
+  .p3c-label { font-size:10px; color:var(--dim); margin-top:1px; }
+  .p3c-row.on .p3c-label { color:rgba(59,158,255,.6); }
+</style>
+</head>
+<body>
+
+<h1>סגנון 3 — 3 וריאציות</h1>
+
+<div class="toggle-wrap">
+  <button class="tbtn active" onclick="setMode('full')">קרית שם מלא</button>
+  <button class="tbtn" onclick="setMode('abbrev')">ק׳ קיצור</button>
+</div>
+
+<div class="row">
+
+  <!-- 3A -->
+  <div class="col">
+    <div class="label">3A<br>פס צד + badge</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:43%;left:28%"><span>🛡</span></div>
+        <div class="mk c" style="top:26%;left:56%"><span>🛡</span></div>
+        <div class="mk c" style="top:56%;left:48%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="p3a">
+          <div class="p3a-head">🏙 מקלטי ערים</div>
+          <div class="p3a-row on">
+            <div class="p3a-bar"></div>
+            <div class="p3a-dot">✓</div>
+            <div class="p3a-info"><div class="p3a-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</div></div>
+            <div class="p3a-cnt">30</div>
+          </div>
+          <div class="p3a-row">
+            <div class="p3a-bar"></div>
+            <div class="p3a-dot"></div>
+            <div class="p3a-info"><div class="p3a-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</div></div>
+            <div class="p3a-cnt">26</div>
+          </div>
+          <div class="p3a-row">
+            <div class="p3a-bar"></div>
+            <div class="p3a-dot"></div>
+            <div class="p3a-info"><div class="p3a-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</div></div>
+            <div class="p3a-cnt">40</div>
+          </div>
+          <div class="p3a-row">
+            <div class="p3a-bar"></div>
+            <div class="p3a-dot"></div>
+            <div class="p3a-info"><div class="p3a-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</div></div>
+            <div class="p3a-cnt">20</div>
+          </div>
+          <div class="p3a-row">
+            <div class="p3a-bar"></div>
+            <div class="p3a-dot"></div>
+            <div class="p3a-info"><div class="p3a-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</div></div>
+            <div class="p3a-cnt">75</div>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-i">⚠️</span><span class="sos-l">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni on"><span class="ni-i">🗺️</span>מפה</div>
+        <div class="ni"><span class="ni-i">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-i">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3B -->
+  <div class="col">
+    <div class="label">3B<br>שורה זוהרת + מגן</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:43%;left:28%"><span>🛡</span></div>
+        <div class="mk c" style="top:26%;left:56%"><span>🛡</span></div>
+        <div class="mk c" style="top:56%;left:48%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="p3b">
+          <div class="p3b-head">הצג מקלטי עיר</div>
+          <div class="p3b-row on">
+            <div class="p3b-shield">🛡</div>
+            <div class="p3b-body">
+              <div class="p3b-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</div>
+              <div class="p3b-sub">30 מקלטים פעילים</div>
+            </div>
+          </div>
+          <div class="p3b-row">
+            <div class="p3b-shield">🛡</div>
+            <div class="p3b-body">
+              <div class="p3b-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</div>
+              <div class="p3b-sub">26 מקלטים</div>
+            </div>
+          </div>
+          <div class="p3b-row">
+            <div class="p3b-shield">🛡</div>
+            <div class="p3b-body">
+              <div class="p3b-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</div>
+              <div class="p3b-sub">40 מקלטים</div>
+            </div>
+          </div>
+          <div class="p3b-row">
+            <div class="p3b-shield">🛡</div>
+            <div class="p3b-body">
+              <div class="p3b-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</div>
+              <div class="p3b-sub">20 מקלטים</div>
+            </div>
+          </div>
+          <div class="p3b-row">
+            <div class="p3b-shield">🛡</div>
+            <div class="p3b-body">
+              <div class="p3b-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</div>
+              <div class="p3b-sub">75 מקלטים</div>
+            </div>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-i">⚠️</span><span class="sos-l">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni on"><span class="ni-i">🗺️</span>מפה</div>
+        <div class="ni"><span class="ni-i">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-i">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3C -->
+  <div class="col">
+    <div class="label">3C<br>מספר בתוך הבועה</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:43%;left:28%"><span>🛡</span></div>
+        <div class="mk c" style="top:26%;left:56%"><span>🛡</span></div>
+        <div class="mk c" style="top:56%;left:48%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="p3c">
+          <div class="p3c-head">🏙 מקלטי ערים</div>
+          <div class="p3c-list">
+            <div class="p3c-row on">
+              <div class="p3c-bubble"><span class="num">30</span></div>
+              <div class="p3c-info">
+                <div class="p3c-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</div>
+                <div class="p3c-label">מקלטים פעילים</div>
+              </div>
+            </div>
+            <div class="p3c-row">
+              <div class="p3c-bubble"><span class="num">26</span></div>
+              <div class="p3c-info">
+                <div class="p3c-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</div>
+                <div class="p3c-label">מקלטים</div>
+              </div>
+            </div>
+            <div class="p3c-row">
+              <div class="p3c-bubble"><span class="num">40</span></div>
+              <div class="p3c-info">
+                <div class="p3c-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</div>
+                <div class="p3c-label">מקלטים</div>
+              </div>
+            </div>
+            <div class="p3c-row">
+              <div class="p3c-bubble"><span class="num">20</span></div>
+              <div class="p3c-info">
+                <div class="p3c-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</div>
+                <div class="p3c-label">מקלטים</div>
+              </div>
+            </div>
+            <div class="p3c-row">
+              <div class="p3c-bubble"><span class="num">75</span></div>
+              <div class="p3c-info">
+                <div class="p3c-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</div>
+                <div class="p3c-label">מקלטים</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-i">⚠️</span><span class="sos-l">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni on"><span class="ni-i">🗺️</span>מפה</div>
+        <div class="ni"><span class="ni-i">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-i">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function setMode(mode) {
+    document.body.classList.toggle('abbrev', mode === 'abbrev');
+    document.querySelectorAll('.tbtn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.includes(mode === 'abbrev' ? 'ק׳' : 'קרית'));
+    });
+  }
+</script>
+</body>
+</html>

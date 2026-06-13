@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>CityFilter — 3 אייקונים להשוואה</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(180deg, #070D18 0%, #0A1220 100%);
+    background-image:
+      radial-gradient(circle, rgba(0,229,160,0.055) 1px, transparent 1px),
+      linear-gradient(180deg, #070D18 0%, #0A1220 100%);
+    background-size: 28px 28px, 100% 100%;
+    color: #E6F4F0;
+    min-height: 100vh;
+  }
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #E6F4F0;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #3D7070;
+    margin-bottom: 48px;
+    letter-spacing: 0.08em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .variant {
+    background: linear-gradient(135deg, #0F2035 0%, #0C1929 100%);
+    border: 1px solid rgba(26,48,80,0.9);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .variant-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3D7070;
+    margin-bottom: 24px;
+  }
+  .state-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .state-row:last-child { margin-bottom: 0; }
+  .state-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #3D7070;
+    letter-spacing: 0.05em;
+  }
+
+  /* Pill button base */
+  .city-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(0.32,0.72,0,1);
+  }
+  .city-pill:active { transform: scale(0.96); }
+
+  /* Inactive state */
+  .city-pill.inactive {
+    background: rgba(11,25,47,0.92);
+    border: 1px solid rgba(59,158,255,0.25);
+    color: #6A9CC0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  /* Active state */
+  .city-pill.active {
+    background: rgba(59,158,255,0.15);
+    border: 1px solid rgba(59,158,255,0.55);
+    color: #3B9EFF;
+    box-shadow:
+      0 0 0 3px rgba(59,158,255,0.12),
+      0 0 24px rgba(59,158,255,0.35),
+      0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  .city-pill svg {
+    flex-shrink: 0;
+  }
+
+  .pill-text {
+    line-height: 1;
+  }
+
+  .pill-count {
+    background: #3B9EFF;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 9999px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #3D7070;
+  }
+  .note strong { color: #E6F4F0; }
+</style>
+</head>
+<body>
+
+<h1>CityFilter — 3 אופציות אייקון</h1>
+<div class="subtitle">בחר אייקון. בכל כרטיס: סגור (אין בחירה) + פעיל (3 ערים נבחרו)</div>
+
+<div class="grid">
+
+  <!-- ===== A: Layers ===== -->
+  <div class="variant">
+    <div class="variant-label">A — Layers (שכבות)</div>
+
+    <div class="state-row">
+      <button class="city-pill inactive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 2 7l10 5 10-5-10-5Z"/>
+          <path d="m2 17 10 5 10-5"/>
+          <path d="m2 12 10 5 10-5"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+      </button>
+      <span class="state-label">סגור · אין בחירה</span>
+    </div>
+
+    <div class="state-row">
+      <button class="city-pill active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 2 7l10 5 10-5-10-5Z"/>
+          <path d="m2 17 10 5 10-5"/>
+          <path d="m2 12 10 5 10-5"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+        <span class="pill-count">3</span>
+      </button>
+      <span class="state-label">פעיל · 3 ערים נבחרו</span>
+    </div>
+  </div>
+
+  <!-- ===== B: SlidersHorizontal ===== -->
+  <div class="variant">
+    <div class="variant-label">B — Sliders (סינון)</div>
+
+    <div class="state-row">
+      <button class="city-pill inactive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="21" x2="14" y1="4" y2="4"/>
+          <line x1="10" x2="3" y1="4" y2="4"/>
+          <line x1="21" x2="12" y1="12" y2="12"/>
+          <line x1="8" x2="3" y1="12" y2="12"/>
+          <line x1="21" x2="16" y1="20" y2="20"/>
+          <line x1="12" x2="3" y1="20" y2="20"/>
+          <line x1="14" x2="14" y1="2" y2="6"/>
+          <line x1="8" x2="8" y1="10" y2="14"/>
+          <line x1="16" x2="16" y1="18" y2="22"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+      </button>
+      <span class="state-label">סגור · אין בחירה</span>
+    </div>
+
+    <div class="state-row">
+      <button class="city-pill active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="21" x2="14" y1="4" y2="4"/>
+          <line x1="10" x2="3" y1="4" y2="4"/>
+          <line x1="21" x2="12" y1="12" y2="12"/>
+          <line x1="8" x2="3" y1="12" y2="12"/>
+          <line x1="21" x2="16" y1="20" y2="20"/>
+          <line x1="12" x2="3" y1="20" y2="20"/>
+          <line x1="14" x2="14" y1="2" y2="6"/>
+          <line x1="8" x2="8" y1="10" y2="14"/>
+          <line x1="16" x2="16" y1="18" y2="22"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+        <span class="pill-count">3</span>
+      </button>
+      <span class="state-label">פעיל · 3 ערים נבחרו</span>
+    </div>
+  </div>
+
+  <!-- ===== C: Building2 ===== -->
+  <div class="variant">
+    <div class="variant-label">C — Building2 (בניינים)</div>
+
+    <div class="state-row">
+      <button class="city-pill inactive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+          <path d="M10 6h4"/>
+          <path d="M10 10h4"/>
+          <path d="M10 14h4"/>
+          <path d="M10 18h4"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+      </button>
+      <span class="state-label">סגור · אין בחירה</span>
+    </div>
+
+    <div class="state-row">
+      <button class="city-pill active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+          <path d="M10 6h4"/>
+          <path d="M10 10h4"/>
+          <path d="M10 14h4"/>
+          <path d="M10 18h4"/>
+        </svg>
+        <span class="pill-text">ערים</span>
+        <span class="pill-count">3</span>
+      </button>
+      <span class="state-label">פעיל · 3 ערים נבחרו</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <strong>A</strong> — שכבות מפה · tactical/cyber. &nbsp;&nbsp;
+  <strong>B</strong> — סינון מהיר · functional. &nbsp;&nbsp;
+  <strong>C</strong> — מבנים · literal/urban.
+</div>
+
+</body>
+</html>

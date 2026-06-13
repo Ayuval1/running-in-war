@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Logo Compare</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #050A10; font-family: 'Rubik', sans-serif; display: flex; min-height: 100vh; }
+
+  .option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 40px 20px;
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .label {
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  /* Auth card mockup */
+  .auth-card {
+    width: 320px;
+    background: linear-gradient(180deg, #070D18 0%, #0A1220 100%);
+    border-radius: 24px;
+    padding: 40px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(26,48,80,0.6);
+  }
+
+  /* === OPTION A — white card === */
+  .logo-card-wrapper {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+  .logo-card-wrapper img {
+    height: 100px;
+    display: block;
+  }
+
+  /* === OPTION B — TacticalLogo SVG === */
+  .tactical-logo {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0,229,160,0.2);
+    animation: spin 12s linear infinite;
+  }
+  .ring-2 {
+    border: 1px dashed rgba(0,229,160,0.12);
+    animation: spin 8s linear infinite reverse;
+  }
+  .core-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0,229,160,0.15) 0%, rgba(0,229,160,0.05) 100%);
+    border: 1.5px solid rgba(0,229,160,0.4);
+    box-shadow: 0 0 30px rgba(0,229,160,0.15), inset 0 1px 0 rgba(0,229,160,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* Shared auth content */
+  .app-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #E6F4F0;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .app-sub {
+    font-size: 12px;
+    color: #3D7070;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: monospace;
+  }
+  .tab-bar {
+    width: 100%;
+    background: #040810;
+    border-radius: 12px;
+    padding: 4px;
+    display: flex;
+    margin-bottom: 16px;
+  }
+  .tab {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    color: #3D7070;
+  }
+  .tab.active {
+    background: #00E5A0;
+    color: #070D18;
+    box-shadow: 0 0 16px rgba(0,229,160,0.3);
+  }
+  .input-mock {
+    width: 100%;
+    height: 44px;
+    background: #0C1929;
+    border-radius: 10px;
+    border: 1px solid rgba(26,48,80,0.9);
+    margin-bottom: 10px;
+  }
+  .btn {
+    width: 100%;
+    height: 48px;
+    background: #00E5A0;
+    border-radius: 12px;
+    color: #070D18;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    box-shadow: 0 0 20px rgba(0,229,160,0.25);
+  }
+
+  /* verdict row */
+  .verdict {
+    margin-top: 24px;
+    width: 320px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.6;
+  }
+  .verdict strong { color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+
+<!-- OPTION A -->
+<div class="option">
+  <div class="label">אפשרות A — לוגו על כרטיס לבן</div>
+  <div class="auth-card">
+    <div class="logo-card-wrapper">
+      <img src="/logo/full/logo-dark.png" alt="RunningINWar" />
+    </div>
+    <div class="app-title">ריצה בזמן מלחמה</div>
+    <div class="app-sub">הרץ בביטחון · תמיד קרוב למקלט</div>
+    <div class="tab-bar">
+      <div class="tab active">כניסה</div>
+      <div class="tab">הרשמה</div>
+    </div>
+    <div class="input-mock"></div>
+    <div class="input-mock"></div>
+    <div class="btn">כניסה</div>
+  </div>
+  <div class="verdict">הלוגו על כרטיס לבן — <strong>רקע לבן נראה מכוון</strong><br>מקצועי, אבל מרגיש קצת כמו sticker על dark UI</div>
+</div>
+
+<!-- OPTION B -->
+<div class="option">
+  <div class="label">אפשרות B — TacticalLogo SVG</div>
+  <div class="auth-card">
+    <div class="tactical-logo">
+      <div class="ring" style="width:96px;height:96px;"></div>
+      <div class="ring ring-2" style="width:80px;height:80px;"></div>
+      <div class="core-badge">
+        <svg width="28" height="32" viewBox="0 0 28 32" fill="none">
+          <path d="M14 2L3 6.5V15C3 21.6 7.8 27.7 14 30C20.2 27.7 25 21.6 25 15V6.5L14 2Z"
+            fill="rgba(0,229,160,0.15)" stroke="#00E5A0" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9.5 15.5L12.5 18.5L18.5 12.5"
+            stroke="#00E5A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="app-title">ריצה בזמן מלחמה</div>
+    <div class="app-sub">הרץ בביטחון · תמיד קרוב למקלט</div>
+    <div class="tab-bar">
+      <div class="tab active">כניסה</div>
+      <div class="tab">הרשמה</div>
+    </div>
+    <div class="input-mock"></div>
+    <div class="input-mock"></div>
+    <div class="btn">כניסה</div>
+  </div>
+  <div class="verdict">TacticalLogo SVG — <strong>מתאים לחלוטין לדארק</strong><br>אנימציה, glow, אין בעיית רקע. אבל לא מזהה את שם האפליקציה ויזואלית</div>
+</div>
+
+</body>
+</html>

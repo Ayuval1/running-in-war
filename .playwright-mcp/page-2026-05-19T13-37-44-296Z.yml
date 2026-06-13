@@ -1,0 +1,35 @@
+- generic [active] [ref=e1]:
+  - heading "🗺️ למה marker א׳ לא נראה?" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: ❌ מצב נוכחי
+      - heading "משתמש בחר \"דיזנגוף 1 ת\"א\"" [level=2] [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: 🌲🌲🌲🌲
+        - generic [ref=e9]: "מפה מוצגת: יער אמציה"
+        - generic [ref=e11]: א
+        - generic [ref=e12]: →
+        - generic [ref=e13]: marker א׳ מחוץ למסך →
+      - paragraph [ref=e14]:
+        - text: ✅
+        - strong [ref=e15]: startPoint
+        - text: מוגדר לתל אביב
+        - text: ✅ <Marker> ממוקם בקואורדינטות הנכונות
+        - text: ❌
+        - strong [ref=e16]: המפה לא זזה
+        - text: — נשארת איפה שהייתה
+    - generic [ref=e17]:
+      - generic [ref=e18]: ✅ אחרי התיקון
+      - heading "המפה עושה flyTo אוטומטית" [level=2] [ref=e19]
+      - generic [ref=e20]:
+        - generic [ref=e26]: "מפה מוצגת: תל אביב"
+        - generic [ref=e28]: א
+      - paragraph [ref=e29]:
+        - text: ✅ startPoint מוגדר לתל אביב
+        - text: ✅ <Marker> ממוקם בקואורדינטות הנכונות
+        - text: ✅
+        - strong [ref=e30]: map.flyTo(startPoint)
+        - text: — המפה זזה לנקודה
+  - generic [ref=e31]:
+    - generic [ref=e32]: הפתרון — קוד
+    - generic [ref=e33]: "// קומפוננט פנימי בתוך <MapContainer> function MapFlyTo({ startPoint, endPoint }) { const map = useMap() // hook מ-react-leaflet useEffect(() => { if (startPoint) map.flyTo([startPoint.lat, startPoint.lng], 15) }, [startPoint]) useEffect(() => { if (endPoint) map.flyTo([endPoint.lat, endPoint.lng], 15) }, [endPoint]) return null }"

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<title>City Names — 6 Variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#070D18; --surface:#0C1929; --card:#0F2035; --border:#1A3050;
+    --neon:#00E5A0; --blue:#3B9EFF; --text:#E6F4F0; --dim:#3D7070; --red:#FF1744;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#030810; font-family:'Rubik',sans-serif; color:var(--text); padding:36px 20px 60px; display:flex; flex-direction:column; align-items:center; gap:36px; }
+  h1 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim); }
+
+  .section-title { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); text-align:center; padding:4px 16px; border:1px solid var(--border); border-radius:50px; }
+
+  .row { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+  .col { display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .label { font-size:10px; color:var(--dim); text-align:center; letter-spacing:.06em; }
+
+  /* phone */
+  .phone { width:220px; height:460px; background:var(--bg); border-radius:24px; border:1.5px solid var(--border); overflow:hidden; position:relative; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,.75); }
+  .hdr { background:var(--bg); border-bottom:1px solid var(--border); padding:8px 10px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .hb { background:var(--surface); border:1px solid var(--border); border-radius:50px; padding:4px 9px; font:500 10px/1 'Rubik'; color:var(--text); }
+  .hb.add { background:var(--neon); border-color:var(--neon); color:#060C16; font-weight:700; box-shadow:0 0 0 1px rgba(0,229,160,.3),0 0 14px rgba(0,229,160,.18); }
+  .map { flex:1; position:relative; background:var(--surface); overflow:hidden; }
+  .map::before { content:''; position:absolute; inset:0; background:linear-gradient(rgba(26,48,80,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(26,48,80,.3) 1px,transparent 1px); background-size:32px 32px; }
+  .rd { position:absolute; background:#070E1C; }
+  .rh1{top:36%;left:0;right:0;height:5px;} .rh2{top:62%;left:0;right:0;height:4px;}
+  .rv1{top:0;bottom:0;left:31%;width:4px;} .rv2{top:0;bottom:0;left:63%;width:4px;}
+  .mk { position:absolute; width:24px; height:24px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; font-size:10px; }
+  .mk span { transform:rotate(45deg); }
+  .mk.u { background:var(--neon); box-shadow:0 0 0 1px rgba(0,229,160,.4),0 2px 10px rgba(0,229,160,.4); }
+  .mk.c { background:var(--blue); box-shadow:0 0 0 1px rgba(59,158,255,.4),0 2px 10px rgba(59,158,255,.3); }
+  .badge { position:absolute; top:8px; right:8px; background:var(--card); border:1px solid var(--border); border-radius:50px; padding:4px 9px; font-size:10px; font-weight:500; display:flex; align-items:center; gap:4px; }
+  .bd { width:5px;height:5px;border-radius:50%;background:var(--neon);box-shadow:0 0 5px var(--neon); }
+  .cbtn { position:absolute; top:38px; right:8px; background:rgba(59,158,255,.1); border:1px solid var(--blue); border-radius:50px; padding:4px 9px; font:600 10px/1 'Rubik'; color:var(--blue); display:flex; align-items:center; gap:4px; box-shadow:0 0 0 1px rgba(59,158,255,.15),0 0 16px rgba(59,158,255,.1); }
+  .sos { position:absolute; bottom:12px; right:8px; width:48px; height:48px; border-radius:50%; background:radial-gradient(circle at 35% 35%,#FF4060,#FF1744); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; box-shadow:0 0 0 2px rgba(255,23,68,.3),0 0 24px rgba(255,23,68,.4); }
+  .sos-i{font-size:14px;} .sos-l{font-size:7px;font-weight:700;letter-spacing:.1em;font-family:monospace;}
+  .ring{position:absolute;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,23,68,.4);animation:radar 2s infinite ease-out;}
+  .ring:nth-child(2){animation-delay:.65s;} .ring:nth-child(3){animation-delay:1.3s;}
+  @keyframes radar{0%{transform:scale(1);opacity:.5;}100%{transform:scale(2.6);opacity:0;}}
+  @keyframes pulse{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.7);opacity:0;}}
+  .nav { background:var(--bg); border-top:1px solid var(--border); padding:6px 0 8px; display:flex; justify-content:space-around; flex-shrink:0; }
+  .ni { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:8px; color:var(--dim); }
+  .ni.on{color:var(--neon);}
+  .ni-i{font-size:13px;}
+
+  /* ── PANEL A: פס צד + badge ── */
+  .pA { position:absolute; top:70px; right:8px; background:#0B1A2C; border:1px solid var(--border); border-radius:14px; width:148px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,.75); z-index:20; }
+  .pA-hd { padding:6px 10px; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:rgba(59,158,255,.7); font-weight:700; background:rgba(59,158,255,.06); border-bottom:1px solid rgba(59,158,255,.12); }
+  .pA-row { display:flex; align-items:center; gap:7px; padding:6px 8px 6px 0; border-bottom:1px solid rgba(26,48,80,.5); position:relative; cursor:pointer; }
+  .pA-row:last-child{border-bottom:none;}
+  .pA-bar { width:3px; align-self:stretch; flex-shrink:0; background:var(--border); border-radius:0 2px 2px 0; }
+  .pA-row.on .pA-bar { background:var(--blue); box-shadow:0 0 6px rgba(59,158,255,.5); }
+  .pA-dot { width:18px; height:18px; border-radius:50%; background:var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:8px; position:relative; }
+  .pA-row.on .pA-dot { background:var(--blue); box-shadow:0 0 0 2px rgba(59,158,255,.2),0 0 10px rgba(59,158,255,.4); }
+  .pA-row.on .pA-dot::after { content:''; position:absolute; inset:-4px; border-radius:50%; border:1px solid rgba(59,158,255,.3); animation:pulse 1.6s infinite; }
+  .pA-name { font-size:11px; font-weight:600; color:var(--dim); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pA-row.on .pA-name { color:var(--text); }
+  .pA-cnt { background:var(--border); border-radius:50px; padding:1px 6px; font-size:9px; font-weight:600; color:var(--dim); flex-shrink:0; }
+  .pA-row.on .pA-cnt { background:rgba(59,158,255,.2); color:var(--blue); }
+
+  /* ── PANEL B: שורה זוהרת + מגן ── */
+  .pB { position:absolute; top:70px; right:8px; background:rgba(10,18,32,.97); border:1px solid rgba(59,158,255,.18); border-radius:14px; width:148px; padding:4px; box-shadow:0 12px 36px rgba(0,0,0,.75); z-index:20; }
+  .pB-hd { padding:5px 8px 6px; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); border-bottom:1px solid var(--border); margin-bottom:3px; }
+  .pB-row { display:flex; align-items:center; gap:7px; padding:6px 7px; border-radius:10px; cursor:pointer; margin-bottom:2px; border:1px solid transparent; }
+  .pB-row.on { background:rgba(59,158,255,.08); border-color:rgba(59,158,255,.25); box-shadow:0 0 0 1px rgba(59,158,255,.06); }
+  .pB-shield { width:22px; height:22px; border-radius:50%; background:var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; position:relative; }
+  .pB-row.on .pB-shield { background:rgba(59,158,255,.15); border:1px solid rgba(59,158,255,.4); box-shadow:0 0 0 3px rgba(59,158,255,.1),0 0 12px rgba(59,158,255,.3); }
+  .pB-row.on .pB-shield::after { content:''; position:absolute; inset:-4px; border-radius:50%; border:1px solid rgba(59,158,255,.25); animation:pulse 1.6s infinite; }
+  .pB-body{flex:1;min-width:0;}
+  .pB-name { font-size:11px; font-weight:600; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pB-row.on .pB-name { color:var(--text); }
+  .pB-sub { font-size:9px; color:var(--dim); margin-top:1px; }
+  .pB-row.on .pB-sub { color:rgba(59,158,255,.65); }
+
+  /* ── PANEL C: מספר בבועה ── */
+  .pC { position:absolute; top:70px; right:8px; background:var(--card); border:1px solid var(--border); border-radius:14px; width:148px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,.8); z-index:20; }
+  .pC-hd { padding:6px 10px; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:rgba(59,158,255,.7); font-weight:700; background:rgba(59,158,255,.07); border-bottom:1px solid rgba(59,158,255,.12); }
+  .pC-list{padding:4px;}
+  .pC-row { display:flex; align-items:center; gap:7px; padding:5px 7px; border-radius:10px; cursor:pointer; margin-bottom:2px; }
+  .pC-row.on { background:rgba(59,158,255,.1); }
+  .pC-bub { width:28px; height:28px; border-radius:50%; background:var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; position:relative; }
+  .pC-bub .num { font-size:8px; font-weight:700; color:var(--dim); }
+  .pC-row.on .pC-bub { background:var(--blue); box-shadow:0 0 0 2px rgba(59,158,255,.2),0 0 12px rgba(59,158,255,.4); }
+  .pC-row.on .pC-bub .num { color:#fff; }
+  .pC-row.on .pC-bub::after { content:''; position:absolute; inset:-4px; border-radius:50%; border:1.5px solid rgba(59,158,255,.25); animation:pulse 1.6s infinite; }
+  .pC-info{flex:1;min-width:0;}
+  .pC-name { font-size:11px; font-weight:600; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pC-row.on .pC-name { color:var(--text); }
+  .pC-lbl { font-size:9px; color:var(--dim); margin-top:1px; }
+  .pC-row.on .pC-lbl { color:rgba(59,158,255,.6); }
+
+  .divider { width:100%; max-width:800px; height:1px; background:var(--border); }
+</style>
+</head>
+<body>
+
+<h1>כתיב שמות — 6 וריאציות</h1>
+
+<!-- ROW 1: ק' abbreviation -->
+<div class="section-title">ק׳ ביאליק — קיצור</div>
+<div class="row">
+
+  <!-- A + ק' -->
+  <div class="col">
+    <div class="label">עיצוב A</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pA">
+          <div class="pA-hd">🏙 מקלטי ערים</div>
+          <div class="pA-row on"><div class="pA-bar"></div><div class="pA-dot">✓</div><div class="pA-name">ק׳ ביאליק</div><div class="pA-cnt">30</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">ק׳ ים</div><div class="pA-cnt">26</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">ק׳ מוצקין</div><div class="pA-cnt">40</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">ק׳ חיים</div><div class="pA-cnt">20</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">ק׳ אתא</div><div class="pA-cnt">75</div></div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+  <!-- B + ק' -->
+  <div class="col">
+    <div class="label">עיצוב B</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pB">
+          <div class="pB-hd">הצג מקלטי עיר</div>
+          <div class="pB-row on"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">ק׳ ביאליק</div><div class="pB-sub">30 מקלטים פעילים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">ק׳ ים</div><div class="pB-sub">26 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">ק׳ מוצקין</div><div class="pB-sub">40 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">ק׳ חיים</div><div class="pB-sub">20 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">ק׳ אתא</div><div class="pB-sub">75 מקלטים</div></div></div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+  <!-- C + ק' -->
+  <div class="col">
+    <div class="label">עיצוב C</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pC">
+          <div class="pC-hd">🏙 מקלטי ערים</div>
+          <div class="pC-list">
+            <div class="pC-row on"><div class="pC-bub"><span class="num">30</span></div><div class="pC-info"><div class="pC-name">ק׳ ביאליק</div><div class="pC-lbl">מקלטים פעילים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">26</span></div><div class="pC-info"><div class="pC-name">ק׳ ים</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">40</span></div><div class="pC-info"><div class="pC-name">ק׳ מוצקין</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">20</span></div><div class="pC-info"><div class="pC-name">ק׳ חיים</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">75</span></div><div class="pC-info"><div class="pC-name">ק׳ אתא</div><div class="pC-lbl">מקלטים</div></div></div>
+          </div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ROW 2: קרית full name -->
+<div class="section-title">קרית ביאליק — שם מלא</div>
+<div class="row">
+
+  <!-- A + קרית -->
+  <div class="col">
+    <div class="label">עיצוב A</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pA">
+          <div class="pA-hd">🏙 מקלטי ערים</div>
+          <div class="pA-row on"><div class="pA-bar"></div><div class="pA-dot">✓</div><div class="pA-name">קרית ביאליק</div><div class="pA-cnt">30</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">קרית ים</div><div class="pA-cnt">26</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">קרית מוצקין</div><div class="pA-cnt">40</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">קרית חיים</div><div class="pA-cnt">20</div></div>
+          <div class="pA-row"><div class="pA-bar"></div><div class="pA-dot"></div><div class="pA-name">קרית אתא</div><div class="pA-cnt">75</div></div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+  <!-- B + קרית -->
+  <div class="col">
+    <div class="label">עיצוב B</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pB">
+          <div class="pB-hd">הצג מקלטי עיר</div>
+          <div class="pB-row on"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">קרית ביאליק</div><div class="pB-sub">30 מקלטים פעילים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">קרית ים</div><div class="pB-sub">26 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">קרית מוצקין</div><div class="pB-sub">40 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">קרית חיים</div><div class="pB-sub">20 מקלטים</div></div></div>
+          <div class="pB-row"><div class="pB-shield">🛡</div><div class="pB-body"><div class="pB-name">קרית אתא</div><div class="pB-sub">75 מקלטים</div></div></div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+  <!-- C + קרית -->
+  <div class="col">
+    <div class="label">עיצוב C</div>
+    <div class="phone">
+      <div class="hdr"><button class="hb">🏠 בית</button><button class="hb add">+ מקלט</button></div>
+      <div class="map">
+        <div class="rd rh1"></div><div class="rd rh2"></div><div class="rd rv1"></div><div class="rd rv2"></div>
+        <div class="mk u" style="top:42%;left:26%"><span>🛡</span></div>
+        <div class="mk c" style="top:25%;left:54%"><span>🛡</span></div>
+        <div class="mk c" style="top:55%;left:46%"><span>🛡</span></div>
+        <div class="badge"><div class="bd"></div>3 מקלטים</div>
+        <button class="cbtn">🏙 ערים ▴</button>
+        <div class="pC">
+          <div class="pC-hd">🏙 מקלטי ערים</div>
+          <div class="pC-list">
+            <div class="pC-row on"><div class="pC-bub"><span class="num">30</span></div><div class="pC-info"><div class="pC-name">קרית ביאליק</div><div class="pC-lbl">מקלטים פעילים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">26</span></div><div class="pC-info"><div class="pC-name">קרית ים</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">40</span></div><div class="pC-info"><div class="pC-name">קרית מוצקין</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">20</span></div><div class="pC-info"><div class="pC-name">קרית חיים</div><div class="pC-lbl">מקלטים</div></div></div>
+            <div class="pC-row"><div class="pC-bub"><span class="num">75</span></div><div class="pC-info"><div class="pC-name">קרית אתא</div><div class="pC-lbl">מקלטים</div></div></div>
+          </div>
+        </div>
+        <div class="sos"><div class="ring"></div><div class="ring"></div><div class="ring"></div><span class="sos-i">⚠️</span><span class="sos-l">SOS</span></div>
+      </div>
+      <div class="nav"><div class="ni on"><span class="ni-i">🗺️</span>מפה</div><div class="ni"><span class="ni-i">🏃</span>מסלול</div><div class="ni"><span class="ni-i">👤</span>פרופיל</div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

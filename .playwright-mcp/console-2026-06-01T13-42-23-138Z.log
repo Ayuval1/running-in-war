@@ -1,0 +1,19 @@
+[     300ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://running-in-war.vercel.app/auth:0
+[     422ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     489ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     489ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/auth:0
+[     686ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[   19250ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ https://running-in-war.vercel.app/:0
+[   19838ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   24482ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   29470ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   34448ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   39479ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   44468ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   49450ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   54472ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   59462ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   61486ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ https://running-in-war.vercel.app/map:0
+[   61728ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   66862ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   71680ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0

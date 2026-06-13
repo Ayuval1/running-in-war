@@ -1,0 +1,80 @@
+- generic [ref=e7] [box=0,0,929,865]:
+  - generic [ref=e8] [box=0,0,929,73]:
+    - img "RunningINWar" [ref=e9] [box=796,4,117,64]
+    - generic [ref=e13] [box=16,28,36,16]: GPS...
+  - generic [ref=e14] [box=0,73,929,792]:
+    - generic [ref=e15] [box=31,89,882,69]:
+      - generic [ref=e16] [box=863,108,33,32]: ✅
+      - generic [ref=e17] [box=48,102,803,43]:
+        - generic [ref=e18] [box=48,102,803,16]:
+          - generic [ref=e19] [box=785,102,66,16]: מוכן לחלוטין!
+          - generic [ref=e20] [box=48,102,34,16]: 100%
+        - generic [ref=e23] [box=48,130,803,15]: 6 מקלטים סומנו
+    - button "SOS — מצא מקלט קרוב ממתין למיקום..." [disabled] [ref=e24] [cursor=pointer] [box=31,174,882,100]:
+      - generic [ref=e25] [box=351,197,241,54]:
+        - generic [ref=e26] [box=351,197,241,28]:
+          - img [ref=e27] [box=571,200,22,22]
+          - generic [ref=e29] [box=351,197,209,28]: SOS — מצא מקלט קרוב
+        - generic [ref=e30] [box=428,231,87,20]: ממתין למיקום...
+    - generic [ref=e31] [box=31,290,882,483]:
+      - generic [ref=e33] [box=830,290,79,15]: מקלטים קרובים
+      - generic [ref=e35] [box=31,313,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e36] [cursor=pointer] [box=87,326,807,44]:
+          - paragraph [ref=e37] [box=87,326,807,20]: מקלט בניין
+          - generic [ref=e38] [box=820,351,74,19]: 🏢 מקלט בניין
+        - button [ref=e39] [cursor=pointer] [box=48,335,27,27]:
+          - img [ref=e40] [box=54,341,15,15]
+      - generic [ref=e43] [box=31,391,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e44] [cursor=pointer] [box=87,404,807,44]:
+          - paragraph [ref=e45] [box=87,404,807,20]: מקלט בניין
+          - generic [ref=e46] [box=820,429,74,19]: 🏢 מקלט בניין
+        - button [ref=e47] [cursor=pointer] [box=48,413,27,27]:
+          - img [ref=e48] [box=54,419,15,15]
+      - generic [ref=e51] [box=31,469,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e52] [cursor=pointer] [box=87,482,807,44]:
+          - paragraph [ref=e53] [box=87,482,807,20]: מקלט בניין
+          - generic [ref=e54] [box=820,507,74,19]: 🏢 מקלט בניין
+        - button [ref=e55] [cursor=pointer] [box=48,491,27,27]:
+          - img [ref=e56] [box=54,497,15,15]
+      - generic [ref=e59] [box=31,547,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e60] [cursor=pointer] [box=87,560,807,44]:
+          - paragraph [ref=e61] [box=87,560,807,20]: מקלט בניין
+          - generic [ref=e62] [box=820,585,74,19]: 🏢 מקלט בניין
+        - button [ref=e63] [cursor=pointer] [box=48,569,27,27]:
+          - img [ref=e64] [box=54,575,15,15]
+      - generic [ref=e67] [box=31,625,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e68] [cursor=pointer] [box=87,638,807,44]:
+          - paragraph [ref=e69] [box=87,638,807,20]: מקלט בניין
+          - generic [ref=e70] [box=820,663,74,19]: 🏢 מקלט בניין
+        - button [ref=e71] [cursor=pointer] [box=48,647,27,27]:
+          - img [ref=e72] [box=54,653,15,15]
+      - generic [ref=e75] [box=31,703,882,70]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e76] [cursor=pointer] [box=87,716,807,44]:
+          - paragraph [ref=e77] [box=87,716,807,20]: מקלט בניין
+          - generic [ref=e78] [box=820,741,74,19]: 🏢 מקלט בניין
+        - button [ref=e79] [cursor=pointer] [box=48,725,27,27]:
+          - img [ref=e80] [box=54,731,15,15]
+    - generic [ref=e83] [box=31,789,882,46]:
+      - button "מפה" [ref=e84] [cursor=pointer] [box=478,789,435,46]:
+        - img [ref=e85] [box=705,805,15,15]
+        - text: מפה
+      - button "מסלול" [ref=e87] [cursor=pointer] [box=31,789,435,46]:
+        - img [ref=e88] [box=264,805,15,15]
+        - text: מסלול
+  - navigation "ניווט ראשי" [ref=e92] [box=0,788,929,77]:
+    - link "בית" [ref=e93] [cursor=pointer] [box=697,789,232,76]:
+      - /url: /
+      - img [ref=e96] [box=802,807,21,21]
+      - generic [ref=e99] [box=805,838,16,15]: בית
+    - link "מפה" [ref=e100] [cursor=pointer] [box=465,789,232,76]:
+      - /url: /map
+      - img [ref=e102] [box=570,807,21,21]
+      - generic [ref=e104] [box=571,838,20,15]: מפה
+    - link "מסלול" [ref=e105] [cursor=pointer] [box=232,789,232,76]:
+      - /url: /route
+      - img [ref=e107] [box=338,807,21,21]
+      - generic [ref=e111] [box=335,838,28,15]: מסלול
+    - link "פרופיל" [ref=e112] [cursor=pointer] [box=0,789,232,76]:
+      - /url: /profile
+      - img [ref=e114] [box=106,807,21,21]
+      - generic [ref=e117] [box=101,838,29,15]: פרופיל

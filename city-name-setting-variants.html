@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שמות ערים — 3 וריאציות</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #070D18;
+    --card:    #0C1929;
+    --border:  rgba(255,255,255,0.08);
+    --neon:    #00E5A0;
+    --blue:    #3B9EFF;
+    --text:    #E6F4F0;
+    --dim:     rgba(255,255,255,0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #030810;
+    font-family: 'Rubik', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 60px;
+    gap: 48px;
+  }
+  h1 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); font-weight: 500; }
+  .row { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .label { font-size: 10px; color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; }
+
+  /* ── phone shell ── */
+  .phone {
+    width: 260px;
+    background: var(--bg); border-radius: 28px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    overflow: hidden; padding: 18px 14px;
+    display: flex; flex-direction: column; gap: 12px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+  }
+
+  /* shared card base */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+  }
+  .card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .card-icon { color: var(--neon); font-size: 15px; }
+  .card-title { font-size: 15px; font-weight: 700; }
+  .card-sub { font-size: 12px; color: var(--dim); margin-bottom: 14px; padding-right: 23px; }
+
+  /* ══════════════════════════════
+     A — Segmented pill toggle
+     ══════════════════════════════ */
+  .seg {
+    display: flex; gap: 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 4px; width: 100%;
+  }
+  .seg-btn {
+    flex: 1; padding: 9px 6px; border-radius: 9px;
+    font: 600 13px/1 'Rubik',sans-serif;
+    cursor: pointer; border: none;
+    background: transparent;
+    color: var(--dim); transition: all .2s;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .seg-btn .example { font-size: 10px; font-weight: 400; opacity: 0.7; }
+  .seg-btn.active {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(59,158,255,.4), 0 0 18px rgba(59,158,255,.22);
+  }
+  .seg-btn.active .example { opacity: 0.85; }
+
+  /* ══════════════════════════════
+     B — Live preview comparison
+     ══════════════════════════════ */
+  .preview-wrap {
+    display: flex; gap: 8px; width: 100%;
+  }
+  .preview-option {
+    flex: 1; background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 10px 8px;
+    display: flex; flex-direction: column; gap: 4px;
+    cursor: pointer; transition: all .2s;
+    align-items: center;
+  }
+  .preview-option.active {
+    border-color: var(--blue);
+    background: rgba(59,158,255,.08);
+    box-shadow: 0 0 0 1px rgba(59,158,255,.2), 0 0 16px rgba(59,158,255,.12);
+  }
+  .preview-option .badge {
+    font-size: 9px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 50px;
+    background: rgba(255,255,255,0.07); color: var(--dim);
+    margin-bottom: 6px;
+  }
+  .preview-option.active .badge {
+    background: rgba(59,158,255,.2); color: var(--blue);
+  }
+  .preview-option .city-name {
+    font-size: 13px; font-weight: 600; color: var(--dim);
+    text-align: center; line-height: 1.5;
+  }
+  .preview-option.active .city-name { color: var(--text); }
+  .preview-option .check {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    margin-top: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+  .preview-option.active .check {
+    background: var(--blue); border-color: var(--blue);
+    box-shadow: 0 0 10px rgba(59,158,255,.4);
+  }
+
+  /* ══════════════════════════════
+     C — Row list with radio dot
+     ══════════════════════════════ */
+  .radio-list { display: flex; flex-direction: column; gap: 6px; }
+  .radio-row {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 11px 14px;
+    cursor: pointer; transition: all .2s;
+  }
+  .radio-row.active {
+    border-color: rgba(59,158,255,.35);
+    background: rgba(59,158,255,.07);
+  }
+  .radio-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    transition: all .2s;
+  }
+  .radio-dot::after {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; transition: all .2s;
+  }
+  .radio-row.active .radio-dot {
+    border-color: var(--blue);
+    box-shadow: 0 0 8px rgba(59,158,255,.35);
+  }
+  .radio-row.active .radio-dot::after { background: var(--blue); }
+  .radio-text { flex: 1; }
+  .radio-main { font-size: 14px; font-weight: 600; color: var(--dim); }
+  .radio-row.active .radio-main { color: var(--text); }
+  .radio-example { font-size: 11px; color: var(--dim); margin-top: 1px; font-weight: 400; }
+  .radio-row.active .radio-example { color: rgba(59,158,255,.65); }
+</style>
+</head>
+<body>
+
+<h1>שמות ערים בפרופיל — 3 וריאציות</h1>
+
+<div class="row">
+
+  <!-- A: Segmented pill -->
+  <div class="col">
+    <div class="label">A<br>פיל כפול</div>
+    <div class="phone">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-icon">🗺️</span>
+          <span class="card-title">שמות ערים</span>
+        </div>
+        <p class="card-sub">כיצד יוצגו הערים במסנן</p>
+        <div class="seg">
+          <button class="seg-btn active" onclick="setA('full')">
+            קרית שם מלא
+            <span class="example">קרית ביאליק</span>
+          </button>
+          <button class="seg-btn" onclick="setA('short')">
+            ק׳ קיצור
+            <span class="example">ק׳ ביאליק</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Live preview -->
+  <div class="col">
+    <div class="label">B<br>תצוגה מקדימה</div>
+    <div class="phone">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-icon">🗺️</span>
+          <span class="card-title">שמות ערים</span>
+        </div>
+        <p class="card-sub">בחר איך הערים יוצגו</p>
+        <div class="preview-wrap">
+          <div class="preview-option active" onclick="setB('full')">
+            <div class="badge">שם מלא</div>
+            <div class="city-name">קרית ביאליק<br>קרית ים<br>קרית אתא</div>
+            <div class="check">✓</div>
+          </div>
+          <div class="preview-option" onclick="setB('short')">
+            <div class="badge">קיצור</div>
+            <div class="city-name">ק׳ ביאליק<br>ק׳ ים<br>ק׳ אתא</div>
+            <div class="check"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Radio rows -->
+  <div class="col">
+    <div class="label">C<br>שורות בחירה</div>
+    <div class="phone">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-icon">🗺️</span>
+          <span class="card-title">שמות ערים</span>
+        </div>
+        <p class="card-sub">כיצד יוצגו הערים במסנן</p>
+        <div class="radio-list">
+          <div class="radio-row active" onclick="setC('full')">
+            <div class="radio-dot"></div>
+            <div class="radio-text">
+              <div class="radio-main">שם מלא</div>
+              <div class="radio-example">קרית ביאליק, קרית ים...</div>
+            </div>
+          </div>
+          <div class="radio-row" onclick="setC('short')">
+            <div class="radio-dot"></div>
+            <div class="radio-text">
+              <div class="radio-main">קיצור</div>
+              <div class="radio-example">ק׳ ביאליק, ק׳ ים...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function setA(mode) {
+  const btns = document.querySelectorAll('.seg-btn');
+  btns[0].classList.toggle('active', mode === 'full');
+  btns[1].classList.toggle('active', mode === 'short');
+}
+function setB(mode) {
+  const opts = document.querySelectorAll('.preview-option');
+  opts[0].classList.toggle('active', mode === 'full');
+  opts[1].classList.toggle('active', mode === 'short');
+  opts[0].querySelector('.check').textContent = mode === 'full' ? '✓' : '';
+  opts[1].querySelector('.check').textContent = mode === 'short' ? '✓' : '';
+}
+function setC(mode) {
+  const rows = document.querySelectorAll('.radio-row');
+  rows[0].classList.toggle('active', mode === 'full');
+  rows[1].classList.toggle('active', mode === 'short');
+}
+</script>
+</body>
+</html>

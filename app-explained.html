@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ריצה בזמן מלחמה — איך האפליקציה עובדת</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #070D18;
+      color: #E6F4F0;
+      font-family: 'Rubik', sans-serif;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+    }
+    .header .shield {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 22px;
+      font-weight: 900;
+      color: #E6F4F0;
+      margin-bottom: 6px;
+    }
+    .header p {
+      font-size: 13px;
+      color: #3D7070;
+    }
+
+    /* Question block */
+    .q-block {
+      background: #0F2035;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .q-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .q-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0,229,160,0.12);
+      border: 1px solid rgba(0,229,160,0.3);
+      color: #00E5A0;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .q-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #E6F4F0;
+    }
+
+    .q-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Storage boxes */
+    .storage-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .storage-box {
+      flex: 1;
+      min-width: 220px;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .storage-box.cloud {
+      background: rgba(59,158,255,0.08);
+      border: 1px solid rgba(59,158,255,0.25);
+    }
+    .storage-box.local {
+      background: rgba(255,184,0,0.08);
+      border: 1px solid rgba(255,184,0,0.25);
+    }
+    .storage-box .box-title {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .storage-box.cloud .box-title { color: #3B9EFF; }
+    .storage-box.local .box-title { color: #FFB800; }
+    .storage-box p {
+      font-size: 12px;
+      color: rgba(230,244,240,0.55);
+      line-height: 1.5;
+    }
+
+    /* Layer table */
+    .layers {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .layer-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 1fr;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .layer-name {
+      font-size: 12px;
+      font-weight: 800;
+      color: #00E5A0;
+    }
+    .layer-what {
+      font-size: 12px;
+      color: #E6F4F0;
+    }
+    .layer-analogy {
+      font-size: 12px;
+      color: #3D7070;
+    }
+    .layers-header {
+      display: grid;
+      grid-template-columns: 110px 1fr 1fr;
+      gap: 12px;
+      padding: 0 14px 4px;
+    }
+    .layers-header span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #3D7070;
+    }
+
+    /* Deploy flow */
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      min-width: 80px;
+    }
+    .flow-icon {
+      font-size: 22px;
+    }
+    .flow-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #E6F4F0;
+      text-align: center;
+    }
+    .flow-sub {
+      font-size: 10px;
+      color: #3D7070;
+      text-align: center;
+    }
+    .flow-arrow {
+      color: #1A3050;
+      font-size: 18px;
+      flex-shrink: 0;
+      padding: 0 4px;
+      margin-bottom: 20px;
+    }
+
+    .highlight-box {
+      background: rgba(0,229,160,0.07);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00E5A0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="shield">🛡</div>
+    <h1>ריצה בזמן מלחמה — איך האפליקציה עובדת</h1>
+    <p>הסבר רעיוני, בלי קוד</p>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-block">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <div class="q-title">איפה המקלטים שמורים?</div>
+    </div>
+    <div class="q-body">
+      <div class="storage-row">
+        <div class="storage-box cloud">
+          <div class="box-title">☁️ Firestore (ענן)</div>
+          <p>מסד הנתונים של Google. כל מקלט שמוסיפים נשמר כאן. גם 159 המקלטים הציבוריים של הקריות. נגיש מכל מכשיר, בכל זמן.</p>
+        </div>
+        <div class="storage-box local">
+          <div class="box-title">📱 IndexedDB (טלפון)</div>
+          <p>זיכרון מקומי על הטלפון עצמו. גיבוי למצב שאין אינטרנט — האפליקציה עדיין עובדת.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-block">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <div class="q-title">איך האפליקציה בנויה ברעיון?</div>
+    </div>
+    <div class="q-body">
+      <div class="layers">
+        <div class="layers-header">
+          <span>שכבה</span>
+          <span>מה זה עושה</span>
+          <span>אנלוגיה</span>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">Vercel</div>
+          <div class="layer-what">איפה האפליקציה "גרה" באינטרנט</div>
+          <div class="layer-analogy">השכירות</div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">React</div>
+          <div class="layer-what">בונה את המסכים — מה שאתה רואה</div>
+          <div class="layer-analogy">הקירות והחדרים</div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">Tailwind</div>
+          <div class="layer-what">עיצוב — צבעים, גודל, מרווחים</div>
+          <div class="layer-analogy">הצבע על הקירות</div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">Leaflet</div>
+          <div class="layer-what">המפה עצמה</div>
+          <div class="layer-analogy">חלון הפנורמה</div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">Firebase</div>
+          <div class="layer-what">בסיס נתונים + כניסה עם חשבון</div>
+          <div class="layer-analogy">הארכיב + שומר הסף</div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-name">OSRM</div>
+          <div class="layer-what">מחשב מסלולים (שרת חיצוני)</div>
+          <div class="layer-analogy">Waze מאחורי הקלעים</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-block">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <div class="q-title">מה קורה כשתרצה לשנות משהו?</div>
+    </div>
+    <div class="q-body">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-icon">💬</div>
+          <div class="flow-label">אתה אומר לי</div>
+          <div class="flow-sub">מה לשנות</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="flow-icon">✏️</div>
+          <div class="flow-label">אני משנה</div>
+          <div class="flow-sub">בקובץ הנכון</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="flow-icon">📤</div>
+          <div class="flow-label">GitHub</div>
+          <div class="flow-sub">גיבוי + היסטוריה</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="flow-icon">🚀</div>
+          <div class="flow-label">Vercel</div>
+          <div class="flow-sub">מעלה גרסה חדשה</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="flow-icon">✅</div>
+          <div class="flow-label">חי!</div>
+          <div class="flow-sub">באפליקציה</div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        שינוי קטן = ~2 דקות מרגע הבקשה עד שזה חי
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

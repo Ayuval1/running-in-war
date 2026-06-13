@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; color: #e0e0e0; font-family: Rubik, sans-serif; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  h1 { color: #00E5A0; font-size: 1.1rem; }
+  p.sub { color: #8899aa; font-size: 0.82rem; }
+  .row { display: flex; gap: 20px; }
+  .card { background: #1a2530; border-radius: 14px; overflow: hidden; width: 340px; }
+  .card.after { border: 2px solid #00E5A0; }
+  .card.before { border: 2px solid rgba(255,65,84,0.4); }
+  .map-box { height: 320px; position: relative; }
+  .map-box > div { height: 100%; width: 100%; }
+  .label { padding: 12px 16px; }
+  .label h2 { font-size: 0.95rem; margin-bottom: 4px; }
+  .label p { font-size: 0.78rem; color: #8899aa; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; margin-bottom: 6px; }
+  .tag-bad { background: rgba(255,65,84,0.15); color: #FF4154; border: 1px solid rgba(255,65,84,0.3); }
+  .tag-good { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .info { background: #1a2530; border-radius: 12px; padding: 14px 20px; width: 700px; max-width: 95vw; font-size: 0.83rem; color: #aabbcc; line-height: 1.7; border: 1px solid rgba(0,229,160,0.2); }
+  .info strong { color: #00E5A0; }
+</style>
+</head>
+<body>
+
+<h1>מרכוז מסלול — לפני ואחרי</h1>
+<p class="sub">מדפנה 54 קרית ביאליק → שדרות צה"ל 13 קרית ים</p>
+
+<div class="row">
+  <div class="card before">
+    <div class="map-box"><div id="map-before"></div></div>
+    <div class="label">
+      <span class="tag tag-bad">❌ עכשיו</span>
+      <h2>מפה לא זזה אחרי חישוב</h2>
+      <p>המסלול חושב — אבל המפה נשארת ממורכזת על נקודת ב׳ (zoom 13). חלק מהמסלול מחוץ למסך.</p>
+    </div>
+  </div>
+  <div class="card after">
+    <div class="map-box"><div id="map-after"></div></div>
+    <div class="label">
+      <span class="tag tag-good">✅ אחרי תיקון</span>
+      <h2>fitBounds — כל המסלול נראה</h2>
+      <p>המפה מתכווננת אוטומטית להציג את כל המסלול עם padding נוח.</p>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <strong>מה משתנה בקוד:</strong> רק הוספת useEffect ל-MapFlyTo שמחשב bounds מכל נקודות ה-geometry ועושה fitBounds.<br>
+  <strong>שינוי:</strong> src/pages/RoutePage.jsx — 5 שורות בלבד.
+</div>
+
+<script>
+// Approximate coordinates
+const START = [32.8275, 35.0812] // מדפנה 54, קרית ביאליק
+const END   = [32.8510, 35.0698] // שדרות צה"ל 13, קרית ים
+
+// Simulated route waypoints (rough path between the two)
+const ROUTE = [
+  START,
+  [32.8295, 35.0800],
+  [32.8330, 35.0780],
+  [32.8370, 35.0760],
+  [32.8410, 35.0740],
+  [32.8450, 35.0720],
+  [32.8480, 35.0708],
+  END,
+]
+
+const TILE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+function startIcon() {
+  return L.divIcon({
+    className: '',
+    iconSize: [36,36], iconAnchor: [18,18],
+    html: `<div style="width:36px;height:36px;border-radius:50%;background:rgba(0,229,160,0.18);border:3px solid #00E5A0;box-shadow:0 0 0 5px rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#00E5A0;font-family:Rubik,sans-serif;">א</div>`
+  })
+}
+
+function endIcon() {
+  return L.divIcon({
+    className: '',
+    iconSize: [28,40], iconAnchor: [14,40],
+    html: `<div style="position:relative;width:28px;height:40px"><svg width="28" height="40" viewBox="0 0 28 40" fill="none"><path d="M14 0C6.268 0 0 6.268 0 14C0 24 14 40 14 40C14 40 28 24 28 14C28 6.268 21.732 0 14 0Z" fill="#3B9EFF"/></svg><div style="position:absolute;top:6px;left:0;right:0;text-align:center;font-size:12px;font-weight:900;color:#0f1923;font-family:Rubik,sans-serif;">ב</div></div>`
+  })
+}
+
+function addRoute(map) {
+  L.polyline(ROUTE, { color: '#00E5A0', weight: 4, opacity: 0.85 }).addTo(map)
+  L.marker(START, { icon: startIcon() }).addTo(map)
+  L.marker(END,   { icon: endIcon()   }).addTo(map)
+}
+
+// BEFORE: map centered on END point at zoom 13 (simulating current state after flyTo)
+const mapBefore = L.map('map-before', { zoomControl: false, attributionControl: false })
+mapBefore.setView(END, 13)
+L.tileLayer(TILE).addTo(mapBefore)
+addRoute(mapBefore)
+
+// AFTER: fitBounds on full route
+const mapAfter = L.map('map-after', { zoomControl: false, attributionControl: false })
+L.tileLayer(TILE).addTo(mapAfter)
+addRoute(mapAfter)
+mapAfter.fitBounds(ROUTE, { padding: [40, 40] })
+</script>
+</body>
+</html>

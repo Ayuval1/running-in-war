@@ -1,0 +1,57 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - img "RunningINWar" [ref=e5]
+    - generic [ref=e6]:
+      - button "מיקום" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+        - generic [ref=e11]: מיקום
+      - button "+ מקלט" [ref=e12] [cursor=pointer]:
+        - img [ref=e13]
+        - text: + מקלט
+  - generic [ref=e16]:
+    - generic:
+      - generic:
+        - button "🏢" [ref=e17] [cursor=pointer]:
+          - generic [ref=e19]: 🏢
+        - button "🏢" [ref=e20] [cursor=pointer]:
+          - generic [ref=e22]: 🏢
+        - button "🏢" [ref=e23] [cursor=pointer]:
+          - generic [ref=e25]: 🏢
+        - button "🏢" [ref=e26] [cursor=pointer]:
+          - generic [ref=e28]: 🏢
+        - button "🏢" [ref=e29] [cursor=pointer]:
+          - generic [ref=e31]: 🏢
+        - button "🏢" [ref=e32] [cursor=pointer]:
+          - generic [ref=e34]: 🏢
+    - generic [ref=e35]:
+      - link "Leaflet" [ref=e36] [cursor=pointer]:
+        - /url: https://leafletjs.com
+        - img [ref=e37]
+        - text: Leaflet
+      - text: "| ©"
+      - link "OpenStreetMap" [ref=e41] [cursor=pointer]:
+        - /url: https://www.openstreetmap.org/copyright
+  - button "כפתור SOS — מצא מקלט קרוב" [ref=e42] [cursor=pointer]:
+    - img [ref=e43]
+    - generic [ref=e45]: SOS
+  - button "6 מקלטים" [ref=e46] [cursor=pointer]
+  - button "ערים" [ref=e47] [cursor=pointer]:
+    - img [ref=e48]
+    - generic [ref=e49]: ערים
+  - navigation "ניווט ראשי" [ref=e50]:
+    - link "בית" [ref=e51] [cursor=pointer]:
+      - /url: /
+      - img [ref=e53]
+      - generic [ref=e56]: בית
+    - link "מפה" [ref=e57] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e60]
+      - generic [ref=e62]: מפה
+    - link "מסלול" [ref=e63] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e65]
+      - generic [ref=e69]: מסלול
+    - link "פרופיל" [ref=e70] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e72]
+      - generic [ref=e75]: פרופיל

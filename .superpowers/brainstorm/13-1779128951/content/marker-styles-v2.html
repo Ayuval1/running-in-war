@@ -1,0 +1,211 @@
+<h2>סגנונות מעודכנים — התחלה + סיום</h2>
+<p class="subtitle">סיום קבוע = פין (כמו B). שינוי: וריאציות על עיגול ההתחלה.</p>
+
+<style>
+  .map-preview {
+    background: #0f1923;
+    border-radius: 12px;
+    padding: 28px 20px 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    min-height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .map-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(30,50,70,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,50,70,0.4) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .marker-pair {
+    display: flex;
+    gap: 56px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+  .marker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+  }
+  .marker-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── FIXED: Teardrop pin for END (B) ── */
+  .pin-end {
+    width: 30px; height: 40px;
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .pin-end svg { display: block; }
+
+  /* ── START variants ── */
+
+  /* V1: Thick border circle, solid fill center, double ring glow */
+  .start-v1 {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 3px solid #00E5A0;
+    background: rgba(0,229,160,0.18);
+    box-shadow: 0 0 0 6px rgba(0,229,160,0.15), 0 0 0 12px rgba(0,229,160,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; color: #00E5A0;
+  }
+
+  /* V2: Solid filled circle, white letter, strong glow */
+  .start-v2 {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #00E5A0;
+    box-shadow: 0 0 0 5px rgba(0,229,160,0.25), 0 0 16px rgba(0,229,160,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; color: #0f1923;
+  }
+
+  /* V3: Two rings — like GPS location dot but bigger, letter inside */
+  .start-v3-outer {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(0,229,160,0.12);
+    border: 1.5px solid rgba(0,229,160,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .start-v3-inner {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #00E5A0;
+    box-shadow: 0 0 10px rgba(0,229,160,0.6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900; color: #0f1923;
+  }
+
+  /* V4: Hexagon */
+  .start-v4 {
+    width: 38px; height: 38px;
+    background: #00E5A0;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; color: #0f1923;
+    filter: drop-shadow(0 0 8px rgba(0,229,160,0.6));
+  }
+</style>
+
+<div class="cards">
+
+  <!-- V1: Border + glow rings -->
+  <div class="card" data-choice="v1" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item">
+            <div class="start-v1">א</div>
+            <span class="marker-label" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:-2px">
+            <svg width="30" height="42" viewBox="0 0 30 42" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 26 15 42 15 42C15 42 30 26 30 15C30 6.716 23.284 0 15 0Z" fill="#3B9EFF"/>
+              <circle cx="15" cy="15" r="6" fill="#0f1923"/>
+            </svg>
+            <span class="marker-label" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>1 — Border + Rings</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">עיגול עם border ירוק, 2 טבעות glow שקופות. עדין, clean.</p>
+    </div>
+  </div>
+
+  <!-- V2: Solid + strong glow -->
+  <div class="card" data-choice="v2" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item">
+            <div class="start-v2">א</div>
+            <span class="marker-label" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:-2px">
+            <svg width="30" height="42" viewBox="0 0 30 42" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 26 15 42 15 42C15 42 30 26 30 15C30 6.716 23.284 0 15 0Z" fill="#3B9EFF"/>
+              <circle cx="15" cy="15" r="6" fill="#0f1923"/>
+            </svg>
+            <span class="marker-label" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>2 — Solid Fill + Glow</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">עיגול מלא ירוק, אות כהה בפנים, glow חזק. מנוגד לפין הכחול.</p>
+    </div>
+  </div>
+
+  <!-- V3: Double ring GPS style -->
+  <div class="card" data-choice="v3" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:center">
+          <div class="marker-item">
+            <div class="start-v3-outer">
+              <div class="start-v3-inner">א</div>
+            </div>
+            <span class="marker-label" style="color:#00E5A0;margin-top:2px">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:6px">
+            <svg width="30" height="42" viewBox="0 0 30 42" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 26 15 42 15 42C15 42 30 26 30 15C30 6.716 23.284 0 15 0Z" fill="#3B9EFF"/>
+              <circle cx="15" cy="15" r="6" fill="#0f1923"/>
+            </svg>
+            <span class="marker-label" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>3 — Double Ring GPS</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">טבעת חיצונית שקופה + עיגול פנימי מלא. כמו dot של GPS אבל עם אות.</p>
+    </div>
+  </div>
+
+  <!-- V4: Hexagon -->
+  <div class="card" data-choice="v4" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:center">
+          <div class="marker-item">
+            <div class="start-v4">א</div>
+            <span class="marker-label" style="color:#00E5A0;margin-top:6px">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:6px">
+            <svg width="30" height="42" viewBox="0 0 30 42" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 26 15 42 15 42C15 42 30 26 30 15C30 6.716 23.284 0 15 0Z" fill="#3B9EFF"/>
+              <circle cx="15" cy="15" r="6" fill="#0f1923"/>
+            </svg>
+            <span class="marker-label" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>4 — Hexagon</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">שישצלע — ייחודי, בולט, שונה מכל marker רגיל במפה.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center">סיום = פין כחול קבוע בכולם. בחר סגנון התחלה.</p>

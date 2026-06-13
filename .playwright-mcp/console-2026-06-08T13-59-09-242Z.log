@@ -1,0 +1,811 @@
+[     253ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[     253ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/:0
+[     410ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ https://running-in-war.vercel.app/:0
+[     602ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[    5612ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   10618ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   14544ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/assets/MapPage-DXpVmy-5.js:0
+[   14554ms] [ERROR] TypeError: Failed to fetch dynamically imported module: https://running-in-war.vercel.app/assets/MapPage-DXpVmy-5.js @ https://running-in-war.vercel.app/assets/index-BV2dIfCt.js:40
+[   14555ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/assets/locate-fixed-Bx7LGtiU.js:0
+[   14555ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/assets/useAddressAutocomplete-DiyrN9x6.js:0
+[   14556ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/assets/UserMarker-C89b1cGI.js:0
+[   14568ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/assets/leaflet-D7rV9mZG.js:0
+[   14712ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
+[   14712ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/map:0
+[   14908ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ https://running-in-war.vercel.app/map:0
+[   15251ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   20092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   25099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   30114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   35179ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   40085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   45107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   50107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   55143ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   60152ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   65105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   70097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   75098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   80096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   85141ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   90098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[   95094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  100090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  105115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  110106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  115108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  120126ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  125103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  130104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  135111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  140102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  145115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  150094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  155103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  160086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  165119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  170123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  175109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  180120ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  185111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  190095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  195113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  200121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  205114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  210119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  215121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  220110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  225107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  230112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  235132ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  240109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  245134ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  250120ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  255103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  260099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  265111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  270098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  275102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  280098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  285113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  290143ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  295108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  300109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  305104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  310123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  315129ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  320105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  325096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  330096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  335096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  340262ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  345096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  350102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  355118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  360135ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  365127ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  370121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  375108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  380111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  385099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  390099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  395107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  400095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  405095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  410100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  415122ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  420161ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  425091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  430103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  435124ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  440135ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  445260ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  450105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  455101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  460110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  465106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  470105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  475153ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  480113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  485106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  490099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  495123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  500092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  505159ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  510098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  515129ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  520099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  525105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  530102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  535116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  540105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  545135ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  550095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  555089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  560137ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  565107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  570106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  575105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  580132ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  585094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  590105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  595141ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  600108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  605089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  610101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  615119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  620108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  625090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  630096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  635098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  640095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  645092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  650117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  655106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  660103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  665091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  670108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  675193ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  680110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  685115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  690116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  695103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  700096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  705092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  710103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  715105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  720110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  725109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  730104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  735105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  740109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  745097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  750108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  755108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  760094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  765104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  770113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  775099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  780111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  785103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  790115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  795092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  800097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  805132ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  810101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  815102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  820084ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  825100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  830102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  835099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  840117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  845099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  850116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  855102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  860091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  865118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  870089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  875109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  880104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  885134ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  890103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  895094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  900126ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  905109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  910110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  915106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  920102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  925153ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  930098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  935101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  940098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  945097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  950296ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  955107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  960109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  965099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  970114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  975123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  980116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  985112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  990105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[  995099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1000087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1005107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1010095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1015106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1020107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1025099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1030097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1035098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1040095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1045105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1050099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1055096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1060193ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1065094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1070104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1075151ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1080119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1085096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1090093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1095103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1100093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1105117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1110124ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1115097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1120101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1125104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1130103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1135111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1140106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1145097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1150110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1155112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1160103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1165116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1170108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1175109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1180110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1185175ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1190103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1195103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1200112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1205099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1210106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1215101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1220102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1225164ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1230110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1235099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1240091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1245101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1250098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1255114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1260134ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1265106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1270096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1275102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1280341ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1285095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1290099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1295100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1300102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1305105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1310100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1315146ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1320274ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1325108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1330095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1335092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1340105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1345103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1350104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1355337ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1360087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1365093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1370094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1375096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1380472ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1388786ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1390112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1395099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1400096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1405102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1410094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1415096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1420104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1425100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1430105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1435107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1440098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1445110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1450092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1455102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1460130ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1465117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1470093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1475104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1480134ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1485101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1490109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1495099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1500138ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1505102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1510105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1515108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1520246ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1525121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1530095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1535115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1540091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1545098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1550097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1555108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1560118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1565099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1570129ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1575102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1580100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1585126ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1590100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1595106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1600082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1605098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1610096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1615119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1620116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1625113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1630119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1635091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1640107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1645091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1650092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1655101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1660085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1665127ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1670113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1675101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1680118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1685107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1690125ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1695102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1700123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1705144ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1710107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1715102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1720101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1725121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1730131ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1735123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1740115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1745104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1750114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1755092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1760117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1765104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1770120ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1775115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1780089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1785107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1790107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1795097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1800107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1805099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1810096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1815096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1820136ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1825102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1830127ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1835099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1840098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1845095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1850095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1855099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1860148ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1865095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1870194ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1875114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1880104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1885103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1890102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1895149ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1900089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1905099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1910103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1915107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1920115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1925105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1930100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1935089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1940128ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1945111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1950108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1955111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1960101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1965105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1970125ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1975160ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1980131ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1985128ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1990117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 1995115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2000111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2005103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2010098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2015104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2020099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2025098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2030103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2035099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2040121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2045102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2050102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2055088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2060097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2065102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2070095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2075093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2080101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2085100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2090154ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2095099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2100111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2105109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2110097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2115105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2120143ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2125114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2130102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2135100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2140088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2145099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2150163ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2155103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2160102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2165109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2170112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2175098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2180112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2185121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2190142ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2195113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2200094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2205151ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2210101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2215118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2220125ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2225122ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2230119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2235109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2240117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2245105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2250142ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2255100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2260168ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2265107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2270100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2275091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2280096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2285096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2290113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2295096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2300098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2305117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2310105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2315098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2320090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2325104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2330106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2335117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2340109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2345115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2350123ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2355127ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2360114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2365119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2370102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2375101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2380101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2385091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2390103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2395110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2400117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2405143ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2410103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2415101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2420105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2425100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2430101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2435104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2440091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2445119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2450125ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2455130ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2460124ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2465130ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2470099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2475100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2480155ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2485103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2490100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2495117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2500089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2505097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2510166ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2515098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2520107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2525105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2530097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2535090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2540100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2545103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2550112ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2555106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2560087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2565087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2570165ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2575104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2580152ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2585110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2590092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2595091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2600096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2605126ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2610212ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2615100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2620103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2625114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2630109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2635108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2640133ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2645113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2650128ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2655124ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2660101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2665122ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2670105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2675113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2680089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2685115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2690113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2695118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2700109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2705098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2710098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2715108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2720111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2725109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2730133ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2735100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2740098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2745117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2750104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2755114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2760119ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2765104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2770105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2775096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2780104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2785104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2790109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2795203ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2800103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2805118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2810105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2815092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2820113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2825102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2830102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2835104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2840092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2845110ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2850106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2855097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2860096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2865094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2870107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2875121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2880172ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2885120ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2890103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2895093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2900111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2905155ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2910113ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2915107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2920081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2925094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2930118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2935117ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2940109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2945098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2950100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2955096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2960109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2965106ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2970094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2975111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2980087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2985101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2990099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 2995187ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3000115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3005089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3010135ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3015101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3020104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3025109ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3030093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3035089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3040096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3045108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3050103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3055159ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3060114ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[ 3065107ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16907772ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?VER=8&database=projects%2Frunning-in-war%2Fdatabases%2F(default)&gsessionid=9aWMAZNMTubrMJuDfZW7FpagjzzTfcDyPxhYOV8KPF7n3xkSR5KXbg&SID=N3VxG4iSVGnQiqbgWXJzwA&RID=72280&TYPE=terminate&zx=86hozd47ok61:0
+[16907772ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://running-in-war.vercel.app/api/alerts:0
+[16907773ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16907775ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=9aWMAZNMTubrMJuDfZW7FpagjzzTfcDyPxhYOV8KPF7n3xkSR5KXbg&VER=8&database=projects%2Frunning-in-war%2Fdatabases%2F(default)&RID=rpc&SID=N3VxG4iSVGnQiqbgWXJzwA&AID=186&CI=0&TYPE=xmlhttp&zx=447ru6maas7v&t=2:0
+[16907778ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16907782ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16908477ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16909666ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16910895ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://running-in-war.vercel.app/api/alerts:0
+[16911545ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16911548ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16912357ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16913343ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16914876ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://running-in-war.vercel.app/api/alerts:0
+[16915157ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://securetoken.googleapis.com/v1/token?key=AIzaSyD87zvSBmw8u331oq6gWvxv9Jp_MG5UcEk:0
+[16925723ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16925858ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16931257ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16935099ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16940104ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16945122ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16950083ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16955108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16960078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16965083ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16970091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16975116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16980076ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16985089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16990098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[16995086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17000094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17005082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17010082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17015095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17020091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17025101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17030097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17035093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17040086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17045103ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17050074ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17055089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17060085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17065088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17070080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17075090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17080090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17085102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17090095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17095101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17100101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17105085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17110098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17115108ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17120101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17125251ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17130092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17135097ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17140201ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17145081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17150082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17155090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17160121ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17165078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17170080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17175144ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17180115ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17185078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17190087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17195079ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17200075ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17205085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17210079ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17215087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17220101ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17225091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17230089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17235098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17240093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17245098ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17250093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17255085ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17260075ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17265086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17270095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17275080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17280111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17285091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17290082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17295096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17300086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17305262ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17310092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17315081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17320072ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17325088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17330077ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17335089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17340087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17345084ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17350079ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17355096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17360091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17365088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17370100ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17375088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17380060ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17385073ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17390105ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17395072ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17400093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17405082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17410083ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17415095ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17420096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17425096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17430091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17435086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17440089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17445094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17450096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17455094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17460094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17465087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17470078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17475081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17480096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17485086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17490081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17495076ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17500071ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17505120ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17510161ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17515077ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17520084ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17525096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17530093ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17535096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17540088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17545087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17550079ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17555073ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17560074ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17565077ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17570111ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17575081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17580078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17585092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17590084ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17595081ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17600077ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17605090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17610077ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17615080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17620090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17625078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17630078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17635083ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17640102ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17645080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17650091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17655076ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17660116ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17665090ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17670091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17675086ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17680089ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17685118ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17690096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17695096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17700078ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17705088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17710087ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17715082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17720096ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17725088ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17730094ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17735076ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17740351ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17745082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17750092ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17755082ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17760091ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
+[17765080ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0

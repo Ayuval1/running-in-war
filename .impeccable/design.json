@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-20T12:00:00.000Z",
+  "title": "Design System: ריצה בזמן מלחמה",
+  "extensions": {
+    "colorMeta": {
+      "depth-ink":        { "role": "neutral",   "displayName": "Depth Ink",        "canonical": "#070D18", "tonalRamp": ["#070D18","#0A1220","#0C1929","#0F2035","#1A3050","#2A4870","#3D7070","#7AAEAE","#B5D8D8","#E6F4F0"] },
+      "surface-elevated": { "role": "neutral",   "displayName": "Surface Elevated", "canonical": "#0C1929", "tonalRamp": ["#070D18","#0A1220","#0C1929","#0F2035","#1A3050","#2A4870","#3D7070","#7AAEAE","#B5D8D8","#E6F4F0"] },
+      "surface-card":     { "role": "neutral",   "displayName": "Surface Card",     "canonical": "#0F2035", "tonalRamp": ["#070D18","#0A1220","#0C1929","#0F2035","#1A3050","#2A4870","#3D7070","#7AAEAE","#B5D8D8","#E6F4F0"] },
+      "border-dim":       { "role": "neutral",   "displayName": "Border Dim",       "canonical": "#1A3050", "tonalRamp": ["#0A1828","#1A3050","#2A4870","#3A6090","#4A78A8","#6A98C8","#8AB8E0","#AAD0F0","#C8E4F8","#E6F4FF"] },
+      "live-pulse":       { "role": "primary",   "displayName": "Live Pulse",       "canonical": "#00E5A0", "tonalRamp": ["#003D2B","#005A40","#007A58","#009A70","#00C088","#00E5A0","#33EDB5","#66F2C8","#99F7DA","#CCFBEC"] },
+      "alert-red":        { "role": "secondary", "displayName": "Alert Red",        "canonical": "#FF1744", "tonalRamp": ["#4D0014","#800022","#B0002F","#D0003A","#FF1744","#FF4466","#FF7799","#FFAABB","#FFCCDD","#FFEEEE"] },
+      "data-amber":       { "role": "tertiary",  "displayName": "Data Amber",       "canonical": "#FFB800", "tonalRamp": ["#4D3600","#805A00","#B07800","#D09200","#FFB800","#FFC633","#FFD466","#FFE299","#FFEEBB","#FFF7DD"] },
+      "route-blue":       { "role": "tertiary",  "displayName": "Route Blue",       "canonical": "#3B9EFF", "tonalRamp": ["#001A4D","#002F80","#0044B0","#005CD0","#3B9EFF","#66B2FF","#88C4FF","#AADADF","#CCE8FF","#EEF6FF"] },
+      "text-primary":     { "role": "neutral",   "displayName": "Text Primary",     "canonical": "#E6F4F0", "tonalRamp": ["#3D7070","#557E7E","#6E9090","#88ABAB","#A0C0C0","#B8D5D5","#CADFDF","#DCE8E8","#EDF4F4","#E6F4F0"] },
+      "text-muted":       { "role": "neutral",   "displayName": "Text Muted",       "canonical": "#3D7070", "tonalRamp": ["#1A3838","#2A5050","#3D7070","#508888","#6AA0A0","#84B8B8","#9ECCCC","#B8DEDE","#D2EEEE","#EAF8F8"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Emergency state headlines, SOS callouts only." },
+      "headline": { "displayName": "Headline", "purpose": "Page titles, section headers." },
+      "title":    { "displayName": "Title",    "purpose": "Card titles, shelter names, labeled data." },
+      "body":     { "displayName": "Body",     "purpose": "Addresses, instructions, secondary copy." },
+      "label":    { "displayName": "Label",    "purpose": "Nav labels, badges, type chips. All-caps." }
+    },
+    "shadows": [
+      { "name": "neon-ambient", "value": "0 0 0 1px rgba(0,229,160,0.25), 0 0 24px rgba(0,229,160,0.15)", "purpose": "Default active-state glow: GPS lock, primary CTA." },
+      { "name": "neon-strong",  "value": "0 0 0 1px rgba(0,229,160,0.35), 0 0 40px rgba(0,229,160,0.25)", "purpose": "Hover/focus amplification on primary button." },
+      { "name": "alert-ambient","value": "0 0 0 1px rgba(255,23,68,0.35),  0 0 32px rgba(255,23,68,0.25)", "purpose": "SOS button and alert state indicators." },
+      { "name": "alert-strong", "value": "0 0 0 4px rgba(255,23,68,0.2),   0 8px 40px rgba(255,23,68,0.35)", "purpose": "Full alert state, radar ring context." }
+    ],
+    "motion": [
+      { "name": "ease-drawer",     "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Drawer slide-up. Aggressive deceleration — feels intentional." },
+      { "name": "ease-radar",      "value": "cubic-bezier(0.3, 0, 0.7, 1)",  "purpose": "SOS radar ring expansion. Pulses outward with urgency." },
+      { "name": "ease-state",      "value": "ease-out",                       "purpose": "Default state transition (opacity, glow, color)." },
+      { "name": "duration-fast",   "value": "150ms",                          "purpose": "Color/opacity state changes." },
+      { "name": "duration-medium", "value": "300ms",                          "purpose": "Drawer, panel transitions." },
+      { "name": "duration-pulse",  "value": "2000ms",                         "purpose": "Radar rings, GPS ping, user location pulse." }
+    ],
+    "breakpoints": [
+      { "name": "mobile-only", "value": "max-width: 640px", "note": "App is mobile-first; no desktop breakpoints. PWA full-screen." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA: תכנן מסלול, הוסף מקלט, confirm actions.",
+      "html": "<button class=\"ds-btn-primary\">תכנן מסלול</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #00E5A0; color: #070D18; font-family: 'Rubik', sans-serif; font-size: 0.875rem; font-weight: 700; padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer; transition: box-shadow 150ms ease-out; min-height: 44px; } .ds-btn-primary:hover { box-shadow: 0 0 0 1px rgba(0,229,160,0.35), 0 0 40px rgba(0,229,160,0.25); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 1px rgba(0,229,160,0.35), 0 0 40px rgba(0,229,160,0.25); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Cancel, secondary actions.",
+      "html": "<button class=\"ds-btn-ghost\">ביטול</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: #3D7070; font-family: 'Rubik', sans-serif; font-size: 0.875rem; font-weight: 600; padding: 10px 16px; border-radius: 12px; border: 1px solid #1A3050; cursor: pointer; transition: color 150ms ease-out, border-color 150ms ease-out; min-height: 44px; } .ds-btn-ghost:hover { color: #E6F4F0; border-color: #2A4870; } .ds-btn-ghost:focus-visible { outline: none; border-color: rgba(0,229,160,0.5); color: #E6F4F0; }"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "SOS activation, destructive actions in emergency context only.",
+      "html": "<button class=\"ds-btn-danger\">SOS — מצא מקלט</button>",
+      "css": ".ds-btn-danger { display: inline-flex; align-items: center; justify-content: center; background: #FF1744; color: #E6F4F0; font-family: 'Rubik', sans-serif; font-size: 0.875rem; font-weight: 800; padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer; transition: box-shadow 150ms ease-out; min-height: 44px; position: relative; } .ds-btn-danger:hover { box-shadow: 0 0 0 1px rgba(255,23,68,0.35), 0 0 32px rgba(255,23,68,0.25); } .ds-btn-danger:focus-visible { outline: none; box-shadow: 0 0 0 1px rgba(255,23,68,0.35), 0 0 32px rgba(255,23,68,0.25); }"
+    },
+    {
+      "name": "Mode Toggle",
+      "kind": "chip",
+      "description": "Pill selector for circular vs point-to-point routing mode.",
+      "html": "<div class=\"ds-mode-toggle\"><button class=\"ds-mode-tab ds-mode-tab--active\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8\"/><path d=\"M21 3v5h-5\"/></svg>ריצה מהבית</button><button class=\"ds-mode-tab\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"9 18 15 12 9 6\"/></svg>א׳ → ב׳</button></div>",
+      "css": ".ds-mode-toggle { display: flex; background: #070D18; border-radius: 12px; padding: 4px; gap: 0; } .ds-mode-tab { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 12px; border-radius: 8px; border: none; background: transparent; color: #3D7070; font-family: 'Rubik', sans-serif; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: background 150ms ease-out, color 150ms ease-out, box-shadow 150ms ease-out; min-height: 36px; } .ds-mode-tab--active { background: #00E5A0; color: #070D18; box-shadow: 0 0 16px rgba(0,229,160,0.3); }"
+    },
+    {
+      "name": "Bottom Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Fixed 4-tab navigation. Always visible. RTL-native.",
+      "html": "<nav class=\"ds-bottom-nav\"><a class=\"ds-nav-item ds-nav-item--active\" href=\"/\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg><span>בית</span></a><a class=\"ds-nav-item\" href=\"/map\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><polygon points=\"3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21\"/></svg><span>מפה</span></a><a class=\"ds-nav-item\" href=\"/route\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"6\" cy=\"19\" r=\"3\"/><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"/><circle cx=\"18\" cy=\"5\" r=\"3\"/></svg><span>מסלול</span></a><a class=\"ds-nav-item\" href=\"/profile\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg><span>פרופיל</span></a></nav>",
+      "css": ".ds-bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(7,13,24,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(26,48,80,0.8); padding-bottom: env(safe-area-inset-bottom, 0px); direction: rtl; } .ds-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 8px; text-decoration: none; color: #3D7070; font-family: 'Rubik', sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.05em; position: relative; transition: color 150ms ease-out; } .ds-nav-item--active { color: #00E5A0; } .ds-nav-item--active::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 24px; height: 2px; background: #00E5A0; border-radius: 0 0 4px 4px; box-shadow: 0 0 8px rgba(0,229,160,0.8); } .ds-nav-item--active svg { padding: 6px; background: rgba(0,229,160,0.08); border-radius: 12px; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Info card for shelters, stats, panels. No side-stripe borders.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-title\">מקלט קרוב</div><div class=\"ds-card-body\">רחוב הרצל 12, תל אביב</div></div>",
+      "css": ".ds-card { background: linear-gradient(135deg, #0F2035 0%, #0C1929 100%); border: 1px solid rgba(26,48,80,0.9); border-radius: 12px; padding: 12px 16px; } .ds-card-title { font-family: 'Rubik', sans-serif; font-size: 0.875rem; font-weight: 700; color: #E6F4F0; margin-bottom: 4px; } .ds-card-body { font-family: 'Rubik', sans-serif; font-size: 0.8125rem; font-weight: 400; color: #3D7070; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "description": "Address search, used on Map and Route pages.",
+      "html": "<div class=\"ds-input-wrap\"><svg class=\"ds-input-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.35-4.35\"/></svg><input class=\"ds-input\" type=\"text\" placeholder=\"חפש כתובת...\" dir=\"rtl\"/></div>",
+      "css": ".ds-input-wrap { position: relative; display: flex; align-items: center; } .ds-input-icon { position: absolute; right: 12px; color: #3D7070; pointer-events: none; } .ds-input { width: 100%; background: #0C1929; border: 1px solid #1A3050; border-radius: 12px; padding: 10px 40px 10px 12px; font-family: 'Rubik', sans-serif; font-size: 0.875rem; color: #E6F4F0; direction: rtl; min-height: 44px; transition: box-shadow 150ms ease-out, border-color 150ms ease-out; } .ds-input::placeholder { color: #3D7070; } .ds-input:focus { outline: none; border-color: rgba(0,229,160,0.3); box-shadow: 0 0 0 1px rgba(0,229,160,0.4); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Urban Vigil",
+    "overview": "This system is watchful but not alarmed. It carries the awareness of a runner who knows every shelter on their route — not because they are afraid, but because knowing frees them to run. The interface is the calm hand that guides rather than the siren that shouts.\n\nThe aesthetic is built on a simple tension: deep night navy as the canvas of urban night running, punctuated by a live-pulse green that signals readiness rather than danger. Nothing decorates for decoration's sake. Every visual element has a function — distance, direction, status, safety. The rhythm is Israeli: direct, practical, warm despite the dark palette.\n\nThis system explicitly rejects the military simulation aesthetic, gaming excess, and SaaS defaults. The Urban Vigil is used outdoors, in motion, under real sky — it should feel like that.",
+    "keyCharacteristics": [
+      "Night-running dark palette: three tonal surface levels, no pure black",
+      "Single live-signal accent (Live Pulse green) for all active states",
+      "Alert vocabulary (red) reserved strictly for genuine danger",
+      "Hebrew-first typography: Rubik at all weights, RTL-native",
+      "Glow as the language of depth, not shadow",
+      "Touch-first: minimum 44px targets, generous safe-area padding"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Live Pulse appears on active states only. Its presence means the system is live and tracking. Its absence means the system is waiting.", "section": "colors" },
+      { "name": "The Red-as-Danger Rule", "body": "Alert Red is reserved for physical emergency contexts only. Form validation uses Text Muted.", "section": "colors" },
+      { "name": "The Single-Family Rule", "body": "One typeface, all weights. Hierarchy expressed through weight contrast alone — minimum 1.25 ratio between adjacent levels.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Glow appears only as a state response. A surface with permanent glow is abusing the vocabulary.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Live Pulse exclusively for active, live, confirmed states.",
+      "Do use Alert Red exclusively for physical-danger contexts.",
+      "Do express depth through tonal surface stepping before reaching for glow.",
+      "Do ensure every touch target is minimum 44px in height.",
+      "Do use Rubik at weight contrast ≥1.25 between hierarchy levels.",
+      "Do keep the map visible through panels using blur and translucency.",
+      "Do write copy in Hebrew first, short and imperative."
+    ],
+    "donts": [
+      "Don't use military/tactical visual language: no khaki greens, no crosshairs, no tactical type treatments.",
+      "Don't use gaming excess: no neon overload, no particle effects, no gamification.",
+      "Don't use SaaS defaults: no white surfaces, no blue-primary, no identical card grids.",
+      "Don't use border-left or border-right greater than 1px as a colored stripe accent.",
+      "Don't use gradient text (background-clip: text + gradient).",
+      "Don't add permanent glow to any element at rest.",
+      "Don't open modals as a first response — use drawers or inline expansion.",
+      "Don't animate layout properties. Animate transform and opacity only.",
+      "Don't use bounce or elastic easing."
+    ]
+  }
+}

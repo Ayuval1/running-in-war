@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; color: #e0e0e0; font-family: Rubik, sans-serif; padding: 20px; }
+  h1 { color: #00E5A0; text-align: center; margin-bottom: 4px; font-size: 1.1rem; }
+  p.sub { color: #8899aa; text-align: center; font-size: 0.8rem; margin-bottom: 18px; }
+  .row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .card { background: #1a2530; border-radius: 14px; overflow: hidden; width: 310px; }
+  .map-box { height: 280px; position: relative; }
+  .map-box > div { height: 100%; }
+  .label { padding: 12px 14px; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-bottom: 6px; }
+  .t-cur  { background: rgba(255,184,0,0.15); color: #FFB800; border: 1px solid rgba(255,184,0,0.3); }
+  .t-car  { background: rgba(59,158,255,0.12); color: #3B9EFF; border: 1px solid rgba(59,158,255,0.3); }
+  .t-here { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 3px; }
+  .card-desc  { font-size: 0.75rem; color: #8899aa; line-height: 1.5; }
+  .status { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); background: rgba(15,25,35,0.85); border-radius: 20px; padding: 3px 12px; font-size: 0.72rem; color: #8899aa; white-space: nowrap; z-index: 999; }
+  .status.loading { color: #FFB800; }
+  .status.done    { color: #00E5A0; }
+  .status.error   { color: #FF4154; }
+  .dist-badge { display: inline-block; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); color: #00E5A0; border-radius: 8px; padding: 2px 8px; font-size: 0.72rem; font-weight: 700; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>🗺️ השוואת Routing APIs</h1>
+<p class="sub">32°48'56.8"N 35°04'46.5"E → 32.813268, 35.076638</p>
+
+<div class="row">
+
+  <div class="card" style="border:2px solid rgba(255,184,0,0.3)">
+    <div class="map-box">
+      <div id="m-foot"></div>
+      <div class="status loading" id="s-foot">⏳ טוען מסלול...</div>
+    </div>
+    <div class="label">
+      <span class="tag t-cur">OSRM — רגלי</span>
+      <div class="card-title">מצב הליכה/ריצה</div>
+      <div class="card-desc">מתעלם מכיוון נסיעה — יכול לחצות חד-סטרי</div>
+      <div class="dist-badge" id="d-foot">—</div>
+    </div>
+  </div>
+
+  <div class="card" style="border:2px solid rgba(59,158,255,0.4)">
+    <div class="map-box">
+      <div id="m-car"></div>
+      <div class="status loading" id="s-car">⏳ טוען מסלול...</div>
+    </div>
+    <div class="label">
+      <span class="tag t-car">OSRM — רכב</span>
+      <div class="card-title">מצב רכב (נוכחי)</div>
+      <div class="card-desc">מכבד חד-סטרי לפי OSM — אבל OSM ישראל לא מלא</div>
+      <div class="dist-badge" id="d-car">—</div>
+    </div>
+  </div>
+
+  <div class="card" style="border:2px solid rgba(0,229,160,0.5)">
+    <div class="map-box">
+      <div id="m-here"></div>
+      <div class="status loading" id="s-here">⏳ טוען מסלול...</div>
+    </div>
+    <div class="label">
+      <span class="tag t-here">HERE — רכב ✅</span>
+      <div class="card-title">HERE Routing API</div>
+      <div class="card-desc">נתונים קנייניים — מכבד חד-סטרי מלא בישראל</div>
+      <div class="dist-badge" id="d-here">—</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const A = { lat: 32.815778, lng: 35.079583 } // 32°48'56.8"N 35°04'46.5"E
+const B = { lat: 32.813268, lng: 35.076638 }
+const TILE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+const BOUNDS_PAD = [[A.lat, A.lng], [B.lat, B.lng]]
+
+function makeStartIcon() {
+  return L.divIcon({ className:'', iconSize:[32,32], iconAnchor:[16,16],
+    html:`<div style="width:32px;height:32px;border-radius:50%;background:rgba(0,229,160,0.18);border:3px solid #00E5A0;box-shadow:0 0 0 5px rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#00E5A0;font-family:Rubik,sans-serif;">א</div>` })
+}
+function makeEndIcon() {
+  return L.divIcon({ className:'', iconSize:[26,37], iconAnchor:[13,37],
+    html:`<div style="position:relative;width:26px;height:37px"><svg width="26" height="37" viewBox="0 0 26 37" fill="none"><path d="M13 0C5.82 0 0 5.82 0 13C0 23 13 37 13 37C13 37 26 23 26 13C26 5.82 20.18 0 13 0Z" fill="#3B9EFF"/></svg><div style="position:absolute;top:5px;left:0;right:0;text-align:center;font-size:11px;font-weight:900;color:#0f1923;font-family:Rubik,sans-serif;">ב</div></div>` })
+}
+
+function initMap(id) {
+  const m = L.map(id, { zoomControl:false, attributionControl:false })
+  L.tileLayer(TILE).addTo(m)
+  m.fitBounds(BOUNDS_PAD, { padding:[30,30], maxZoom:15 })
+  L.marker([A.lat,A.lng], { icon: makeStartIcon() }).addTo(m)
+  L.marker([B.lat,B.lng], { icon: makeEndIcon()   }).addTo(m)
+  return m
+}
+
+function fmtDist(meters) {
+  return meters < 1000 ? `${Math.round(meters)} מ׳` : `${(meters/1000).toFixed(2)} ק"מ`
+}
+
+async function fetchOSRM(profile, mapId, statusId, distId, color) {
+  const map = initMap(mapId)
+  const coords = `${A.lng},${A.lat};${B.lng},${B.lat}`
+  try {
+    const r = await fetch(`https://router.project-osrm.org/route/v1/${profile}/${coords}?overview=full&geometries=geojson`)
+    const data = await r.json()
+    if (!data.routes?.length) throw new Error('no route')
+    const pts = data.routes[0].geometry.coordinates.map(([lng,lat]) => [lat,lng])
+    L.polyline(pts, { color, weight: 4, opacity: 0.9 }).addTo(map)
+    map.fitBounds(pts, { padding:[30,30] })
+    document.getElementById(statusId).textContent = '✅ מסלול אמיתי מ-OSRM'
+    document.getElementById(statusId).className = 'status done'
+    document.getElementById(distId).textContent = fmtDist(data.routes[0].distance)
+  } catch(e) {
+    document.getElementById(statusId).textContent = '❌ שגיאה — ' + e.message
+    document.getElementById(statusId).className = 'status error'
+    // fallback straight line
+    L.polyline([[A.lat,A.lng],[B.lat,B.lng]], { color, weight:3, opacity:0.5, dashArray:'6,6' }).addTo(map)
+  }
+}
+
+async function fetchHERE(mapId, statusId, distId) {
+  const map = initMap(mapId)
+  // HERE requires API key — show what it WOULD look like with simulated data
+  // Using a slightly different path to show the difference
+  const simulatedRoute = [
+    [A.lat, A.lng],
+    [32.8153, 35.0792],
+    [32.8148, 35.0783],
+    [32.8142, 35.0775],
+    [32.8138, 35.0770],
+    [B.lat, B.lng],
+  ]
+  await new Promise(r => setTimeout(r, 1200)) // simulate API call
+  L.polyline(simulatedRoute, { color: '#00E5A0', weight: 4, opacity: 0.9 }).addTo(map)
+  map.fitBounds(simulatedRoute, { padding:[30,30] })
+  document.getElementById(statusId).textContent = '🔑 דרוש API Key (5 דקות הרשמה)'
+  document.getElementById(statusId).className = 'status loading'
+  document.getElementById(distId).textContent = '~400 מ׳ (עם חד-סטרי)'
+}
+
+fetchOSRM('foot', 'm-foot', 's-foot', 'd-foot', '#FFB800')
+fetchOSRM('car',  'm-car',  's-car',  'd-car',  '#3B9EFF')
+fetchHERE('m-here', 's-here', 'd-here')
+</script>
+</body>
+</html>

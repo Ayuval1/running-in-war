@@ -1,0 +1,29 @@
+- generic [active] [ref=e1]:
+  - heading "כרטיס מקלט — לפני ואחרי" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: לפני — עם מסגרת לבנה
+      - generic [ref=e7]:
+        - generic [ref=e9]: 🏢 מחסן
+        - paragraph [ref=e10]: מקלט שכונת הכרמל
+        - paragraph [ref=e11]: רחוב הנביאים 12, חיפה
+        - paragraph [ref=e12]: פתוח 24/7, קיבולת 40 איש
+        - generic [ref=e13]:
+          - button "ערוך" [ref=e14] [cursor=pointer]
+          - button "מחק" [ref=e15] [cursor=pointer]
+      - paragraph [ref=e16]:
+        - text: Leaflet מוסיף רקע לבן + padding + צל
+        - text: מסביב לכרטיס
+    - generic [ref=e18]:
+      - generic [ref=e19]: אחרי — ללא מסגרת
+      - generic [ref=e21]:
+        - generic [ref=e23]: 🏢 מחסן
+        - paragraph [ref=e24]: מקלט שכונת הכרמל
+        - paragraph [ref=e25]: רחוב הנביאים 12, חיפה
+        - paragraph [ref=e26]: פתוח 24/7, קיבולת 40 איש
+        - generic [ref=e27]:
+          - button "ערוך" [ref=e28] [cursor=pointer]
+          - button "מחק" [ref=e29] [cursor=pointer]
+      - paragraph [ref=e30]:
+        - text: הכרטיס הכהה ישירות,
+        - text: עיצוב הכרטיס עצמו לא משתנה

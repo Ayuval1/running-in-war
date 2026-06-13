@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - link [ref=e10] [cursor=pointer]:
+        - /url: tel:048356356
+        - generic [ref=e11]: 
+      - link [ref=e15] [cursor=pointer]:
+        - /url: https://api.whatsapp.com/send?phone=97248357106
+        - generic [ref=e16]: 
+      - generic [ref=e17]:
+        - link "LOGO-Haifa-23" [ref=e20] [cursor=pointer]:
+          - /url: https://www.haifa-during-emergency.co.il/
+        - link "LOGO-Haifa-2" [ref=e22] [cursor=pointer]:
+          - /url: https://www.haifa-during-emergency.co.il/
+      - paragraph [ref=e26]:
+        - link "عربيه" [ref=e27] [cursor=pointer]:
+          - /url: https://www.haifa-during-emergency.co.il/ar/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9/
+      - paragraph [ref=e30]:
+        - link "Русский" [ref=e31] [cursor=pointer]:
+          - /url: https://www.haifa-during-emergency.co.il/ru/
+    - generic [ref=e46]:
+      - generic [ref=e51] [cursor=pointer]: 
+      - navigation [ref=e54]:
+        - list [ref=e55]
+  - main [ref=e70]:
+    - generic [ref=e72]:
+      - heading "רשימת מקלטים" [level=2] [ref=e78]
+      - generic [ref=e81]:
+        - heading "רשימת מקלטים" [level=2] [ref=e105]
+        - table [ref=e108]
+      - link "חזור לדף הבית" [ref=e87] [cursor=pointer]:
+        - /url: https://www.haifa-during-emergency.co.il
+        - generic [ref=e88]
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - generic:
+        - generic
+    - generic [ref=e102]: © כל הזכויות שמורות לעיריית חיפה
+  - generic [ref=e1024]: tablet
+  - generic:
+    - generic:
+      - dialog
+      - generic [ref=e1025]:
+        - note [ref=e1026]: ניתן להשתמש בחצי המקלדת בכדי לנווט בין כפתורי הרכיב
+        - button "סרגל נגישות" [ref=e1027] [cursor=pointer]
+        - toolbar [ref=e1037]
+        - generic [ref=e1074]
+      - alert

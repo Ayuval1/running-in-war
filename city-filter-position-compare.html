@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>CityFilter — השוואת מיקומים</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(180deg, #050C18 0%, #080F1E 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #E6F4F0;
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #3D7070;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+  .problem-note {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,180,0,0.7);
+    background: rgba(255,180,0,0.07);
+    border: 1px solid rgba(255,180,0,0.2);
+    border-radius: 8px;
+    padding: 7px 18px;
+    display: inline-block;
+    margin: 0 auto 36px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto 36px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .variant-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3D7070;
+  }
+  .variant-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #E6F4F0;
+    text-align: center;
+  }
+  .variant-desc {
+    font-size: 11px;
+    color: #3D7070;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 200px;
+  }
+
+  /* Phone frame */
+  .phone {
+    width: 260px;
+    height: 520px;
+    border-radius: 36px;
+    border: 2px solid rgba(26,48,80,0.9);
+    overflow: hidden;
+    position: relative;
+    background: #070D18;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  /* Map background */
+  .map-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle, rgba(0,229,160,0.04) 1px, transparent 1px),
+      linear-gradient(180deg, #0D1E35 0%, #0A1828 100%);
+    background-size: 22px 22px, 100% 100%;
+  }
+
+  /* Fake roads */
+  .map-road {
+    position: absolute;
+    background: rgba(30,55,90,0.7);
+  }
+
+  /* Top bar (where header would be) */
+  .topbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 52px;
+    background: rgba(7,13,24,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,48,80,0.6);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 8px;
+    z-index: 20;
+  }
+  .topbar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #E6F4F0;
+    flex: 1;
+    text-align: right;
+  }
+
+  /* "מקלטים" existing badge at top-right */
+  .shelters-badge {
+    position: absolute;
+    top: 62px;
+    right: 10px;
+    z-index: 30;
+    background: rgba(11,25,47,0.92);
+    border: 1px solid rgba(0,229,160,0.3);
+    border-radius: 9999px;
+    height: 30px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #00E5A0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .shelters-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #00E5A0;
+    box-shadow: 0 0 6px rgba(0,229,160,0.6);
+  }
+
+  /* Bottom nav */
+  .bottom-nav {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(7,13,24,0.95);
+    border-top: 1px solid rgba(26,48,80,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+    z-index: 20;
+  }
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+  }
+  .nav-icon {
+    width: 20px; height: 20px;
+    border-radius: 3px;
+    background: #3D7070;
+    opacity: 0.5;
+  }
+  .nav-icon.active {
+    background: #00E5A0;
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0,229,160,0.4);
+  }
+  .nav-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #00E5A0;
+  }
+
+  /* SOS button */
+  .sos-btn {
+    position: absolute;
+    bottom: 72px;
+    right: 10px;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FF4060, #FF1744);
+    box-shadow: 0 0 0 2px rgba(255,23,68,0.3), 0 0 20px rgba(255,23,68,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 0.15em;
+    z-index: 25;
+  }
+
+  /* User marker */
+  .user-marker {
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #00E5A0;
+    box-shadow: 0 0 0 4px rgba(0,229,160,0.25), 0 0 16px rgba(0,229,160,0.4);
+    z-index: 15;
+  }
+
+  /* Shelter markers */
+  .shelter-marker {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    z-index: 12;
+  }
+  .shelter-marker.blue { background: #3B9EFF; box-shadow: 0 0 8px rgba(59,158,255,0.5); }
+  .shelter-marker.neon { background: #00E5A0; box-shadow: 0 0 8px rgba(0,229,160,0.5); }
+
+  /* ===================== */
+  /* CITY FILTER VARIANTS  */
+  /* ===================== */
+
+  /* A: Icon-only circle, top-right, dropdown opens LEFT */
+  .cf-a-btn {
+    position: absolute;
+    top: 62px;
+    right: 10px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(11,25,47,0.92);
+    border: 1px solid rgba(59,158,255,0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 31;
+  }
+  .cf-a-btn.active {
+    background: rgba(59,158,255,0.15);
+    border: 1px solid rgba(59,158,255,0.55);
+    box-shadow: 0 0 0 3px rgba(59,158,255,0.12), 0 0 16px rgba(59,158,255,0.35);
+  }
+  .cf-a-badge {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #3B9EFF;
+    font-size: 9px;
+    font-weight: 800;
+    color: #070D18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cf-a-dropdown {
+    position: absolute;
+    top: 62px;
+    right: 50px; /* opens LEFT */
+    width: 160px;
+    border-radius: 14px;
+    background: rgba(11,22,40,0.97);
+    border: 1px solid rgba(59,158,255,0.2);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+    padding: 5px;
+    z-index: 32;
+  }
+
+  /* B: Pill, top-LEFT (away from מקלטים), dropdown opens down-left */
+  .cf-b-btn {
+    position: absolute;
+    top: 62px;
+    left: 10px; /* LEFT side */
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 9999px;
+    background: rgba(11,25,47,0.92);
+    border: 1px solid rgba(59,158,255,0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 31;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3D7070;
+  }
+  .cf-b-btn.active {
+    background: rgba(59,158,255,0.15);
+    border: 1px solid rgba(59,158,255,0.55);
+    box-shadow: 0 0 0 3px rgba(59,158,255,0.12), 0 0 16px rgba(59,158,255,0.35);
+    color: #3B9EFF;
+  }
+  .cf-b-dropdown {
+    position: absolute;
+    top: 102px;
+    left: 10px; /* aligns with button */
+    width: 160px;
+    border-radius: 14px;
+    background: rgba(11,22,40,0.97);
+    border: 1px solid rgba(59,158,255,0.2);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+    padding: 5px;
+    z-index: 32;
+  }
+
+  /* C: Pill, bottom-LEFT, above nav */
+  .cf-c-btn {
+    position: absolute;
+    bottom: 70px;
+    left: 10px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 9999px;
+    background: rgba(11,25,47,0.92);
+    border: 1px solid rgba(59,158,255,0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 31;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3D7070;
+  }
+  .cf-c-btn.active {
+    background: rgba(59,158,255,0.15);
+    border: 1px solid rgba(59,158,255,0.55);
+    box-shadow: 0 0 0 3px rgba(59,158,255,0.12), 0 0 16px rgba(59,158,255,0.35);
+    color: #3B9EFF;
+  }
+  .cf-c-dropdown {
+    position: absolute;
+    bottom: 110px;
+    left: 10px;
+    width: 160px;
+    border-radius: 14px;
+    background: rgba(11,22,40,0.97);
+    border: 1px solid rgba(59,158,255,0.2);
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.6);
+    padding: 5px;
+    z-index: 32;
+  }
+
+  /* Dropdown rows (shared) */
+  .dd-header {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3D7070;
+    padding: 6px 10px 4px;
+  }
+  .dd-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 8px;
+    height: 34px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3D7070;
+  }
+  .dd-row.active-row {
+    background: rgba(59,158,255,0.1);
+    border-right: 2px solid #3B9EFF;
+    color: #E6F4F0;
+  }
+  .dd-check {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(59,158,255,0.3);
+    flex-shrink: 0;
+  }
+  .dd-check.checked {
+    background: #3B9EFF;
+    border-color: #3B9EFF;
+    box-shadow: 0 0 5px rgba(59,158,255,0.5);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dd-check.checked::after {
+    content: '✓';
+    font-size: 8px;
+    color: #070D18;
+    font-weight: 900;
+  }
+  .dd-count {
+    margin-right: auto;
+    font-size: 10px;
+    color: rgba(61,112,112,0.5);
+  }
+  .dd-count.active-count { color: rgba(59,158,255,0.7); }
+
+  /* Icons (inline SVG placeholders) */
+  .icon-sliders {
+    width: 13px; height: 13px;
+    flex-shrink: 0;
+  }
+
+  /* Annotation arrows */
+  .annotation {
+    position: absolute;
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255,180,0,0.8);
+    background: rgba(255,180,0,0.1);
+    border: 1px solid rgba(255,180,0,0.3);
+    border-radius: 5px;
+    padding: 2px 6px;
+    z-index: 50;
+    white-space: nowrap;
+  }
+
+  /* Bottom note */
+  .bottom-note {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 11px;
+    color: #3D7070;
+    line-height: 1.7;
+  }
+  .bottom-note strong { color: #E6F4F0; }
+  .rec { color: #00E5A0; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>CityFilter — השוואת מיקומים על המפה</h1>
+<div class="subtitle">עיצוב הכפתור זהה בכל הוריאציות — ההבדל רק איפה הוא יושב</div>
+<div class="problem-note">⚠ בעיה נוכחית: הכפתור בצד ימין-עליון — צפוף מול "מקלטים", הדרופדאון חוסם את הכפתור</div>
+
+<div class="grid">
+
+  <!-- ===== A ===== -->
+  <div class="variant">
+    <div class="variant-label">A</div>
+    <div class="variant-title">עיגול, ימין-עליון<br>דרופדאון נפתח שמאלה</div>
+    <div class="phone">
+      <div class="map-bg"></div>
+
+      <!-- Roads -->
+      <div class="map-road" style="top:120px;left:0;right:0;height:3px;opacity:0.5"></div>
+      <div class="map-road" style="top:220px;left:0;right:0;height:2px;opacity:0.35"></div>
+      <div class="map-road" style="top:0;bottom:0;left:100px;width:3px;opacity:0.45"></div>
+      <div class="map-road" style="top:0;bottom:0;left:180px;width:2px;opacity:0.3"></div>
+
+      <div class="topbar">
+        <div class="topbar-title">מפת מקלטים</div>
+      </div>
+
+      <!-- מקלטים badge - existing -->
+      <div class="shelters-badge" style="top:62px;right:52px;">
+        <div class="shelters-badge-dot"></div>
+        מקלטים
+      </div>
+
+      <!-- A: icon-only circle -->
+      <div class="cf-a-btn active">
+        <svg class="icon-sliders" viewBox="0 0 24 24" fill="none" stroke="#3B9EFF" stroke-width="2.2" stroke-linecap="round">
+          <line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/>
+          <line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/>
+          <line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/>
+          <line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/>
+        </svg>
+        <div class="cf-a-badge">2</div>
+      </div>
+
+      <!-- Dropdown opens LEFT -->
+      <div class="cf-a-dropdown">
+        <div class="dd-header">הצג מקלטי עיר</div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ביאליק</span>
+          <span class="dd-count active-count">32</span>
+        </div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ים</span>
+          <span class="dd-count active-count">18</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ מוצקין</span>
+          <span class="dd-count">27</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ חיים</span>
+          <span class="dd-count">…</span>
+        </div>
+      </div>
+
+      <!-- Markers -->
+      <div class="shelter-marker blue" style="top:160px;left:90px;"></div>
+      <div class="shelter-marker blue" style="top:200px;left:140px;"></div>
+      <div class="shelter-marker neon" style="top:280px;left:70px;"></div>
+      <div class="user-marker" style="top:250px;left:110px;"></div>
+
+      <div class="sos-btn">SOS</div>
+      <div class="bottom-nav">
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon active"></div><div class="nav-dot"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+      </div>
+    </div>
+    <div class="variant-desc">
+      ✅ לא מתנגש עם "מקלטים"<br>
+      ✅ דרופדאון נפתח שמאלה → לא חוסם<br>
+      ⚠ קטן — קשה ללחוץ (36px)<br>
+      ⚠ badge מספר גדל מעל העיגול
+    </div>
+  </div>
+
+  <!-- ===== B ===== -->
+  <div class="variant">
+    <div class="variant-label">B — <span class="rec">המלצה</span></div>
+    <div class="variant-title">פיל, שמאל-עליון<br>דרופדאון נפתח למטה</div>
+    <div class="phone">
+      <div class="map-bg"></div>
+
+      <div class="map-road" style="top:120px;left:0;right:0;height:3px;opacity:0.5"></div>
+      <div class="map-road" style="top:220px;left:0;right:0;height:2px;opacity:0.35"></div>
+      <div class="map-road" style="top:0;bottom:0;left:100px;width:3px;opacity:0.45"></div>
+      <div class="map-road" style="top:0;bottom:0;left:180px;width:2px;opacity:0.3"></div>
+
+      <div class="topbar">
+        <div class="topbar-title">מפת מקלטים</div>
+      </div>
+
+      <!-- מקלטים badge stays right — no collision -->
+      <div class="shelters-badge">
+        <div class="shelters-badge-dot"></div>
+        מקלטים
+      </div>
+
+      <!-- B: pill on LEFT -->
+      <div class="cf-b-btn active">
+        <svg class="icon-sliders" viewBox="0 0 24 24" fill="none" stroke="#3B9EFF" stroke-width="2.2" stroke-linecap="round">
+          <line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/>
+          <line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/>
+          <line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/>
+          <line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/>
+        </svg>
+        ערים
+        <span style="background:#3B9EFF;color:#070D18;font-size:9px;font-weight:800;padding:1px 5px;border-radius:9999px;min-width:16px;text-align:center;">2</span>
+      </div>
+
+      <!-- Dropdown aligns with button, opens down -->
+      <div class="cf-b-dropdown">
+        <div class="dd-header">הצג מקלטי עיר</div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ביאליק</span>
+          <span class="dd-count active-count">32</span>
+        </div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ים</span>
+          <span class="dd-count active-count">18</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ מוצקין</span>
+          <span class="dd-count">27</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ חיים</span>
+          <span class="dd-count">…</span>
+        </div>
+      </div>
+
+      <!-- Markers -->
+      <div class="shelter-marker blue" style="top:160px;left:90px;"></div>
+      <div class="shelter-marker blue" style="top:200px;left:140px;"></div>
+      <div class="shelter-marker neon" style="top:280px;left:70px;"></div>
+      <div class="user-marker" style="top:250px;left:110px;"></div>
+
+      <div class="sos-btn">SOS</div>
+      <div class="bottom-nav">
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon active"></div><div class="nav-dot"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+      </div>
+    </div>
+    <div class="variant-desc">
+      ✅ לא מתנגש עם "מקלטים"<br>
+      ✅ עיצוב הפיל נשמר כמו שהוא<br>
+      ✅ שינוי קוד מינימלי — רק <code>left-3</code> במקום <code>right-3</code><br>
+      ✅ דרופדאון לא חוסם את הכפתור
+    </div>
+  </div>
+
+  <!-- ===== C ===== -->
+  <div class="variant">
+    <div class="variant-label">C</div>
+    <div class="variant-title">פיל, שמאל-תחתון<br>דרופדאון נפתח למעלה</div>
+    <div class="phone">
+      <div class="map-bg"></div>
+
+      <div class="map-road" style="top:120px;left:0;right:0;height:3px;opacity:0.5"></div>
+      <div class="map-road" style="top:220px;left:0;right:0;height:2px;opacity:0.35"></div>
+      <div class="map-road" style="top:0;bottom:0;left:100px;width:3px;opacity:0.45"></div>
+      <div class="map-road" style="top:0;bottom:0;left:180px;width:2px;opacity:0.3"></div>
+
+      <div class="topbar">
+        <div class="topbar-title">מפת מקלטים</div>
+      </div>
+
+      <!-- מקלטים badge — no collision, top-right alone -->
+      <div class="shelters-badge">
+        <div class="shelters-badge-dot"></div>
+        מקלטים
+      </div>
+
+      <!-- Markers -->
+      <div class="shelter-marker blue" style="top:160px;left:90px;"></div>
+      <div class="shelter-marker blue" style="top:200px;left:140px;"></div>
+      <div class="shelter-marker neon" style="top:280px;left:70px;"></div>
+      <div class="user-marker" style="top:250px;left:110px;"></div>
+
+      <!-- C: pill bottom-left -->
+      <div class="cf-c-btn active">
+        <svg class="icon-sliders" viewBox="0 0 24 24" fill="none" stroke="#3B9EFF" stroke-width="2.2" stroke-linecap="round">
+          <line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/>
+          <line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/>
+          <line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/>
+          <line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/>
+        </svg>
+        ערים
+        <span style="background:#3B9EFF;color:#070D18;font-size:9px;font-weight:800;padding:1px 5px;border-radius:9999px;min-width:16px;text-align:center;">2</span>
+      </div>
+
+      <!-- Dropdown opens UPWARD -->
+      <div class="cf-c-dropdown">
+        <div class="dd-header">הצג מקלטי עיר</div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ביאליק</span>
+          <span class="dd-count active-count">32</span>
+        </div>
+        <div class="dd-row active-row">
+          <div class="dd-check checked"></div>
+          <span>ק׳ ים</span>
+          <span class="dd-count active-count">18</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ מוצקין</span>
+          <span class="dd-count">27</span>
+        </div>
+        <div class="dd-row">
+          <div class="dd-check"></div>
+          <span>ק׳ חיים</span>
+          <span class="dd-count">…</span>
+        </div>
+      </div>
+
+      <div class="sos-btn">SOS</div>
+      <div class="bottom-nav">
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon active"></div><div class="nav-dot"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+        <div class="nav-item"><div class="nav-icon"></div></div>
+      </div>
+    </div>
+    <div class="variant-desc">
+      ✅ אף אחד לא מתנגש עם אף אחד<br>
+      ✅ ה-SOS ימין, ערים שמאל — סדר<br>
+      ⚠ קצת רחוק מאזור הפעולה (top)<br>
+      ⚠ קרוב לSOS — יכול להרגיש צפוף
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-note">
+  <strong>המלצה: B</strong> — שינוי כפתור אחד בקוד: <code style="background:rgba(59,158,255,0.1);padding:1px 6px;border-radius:4px;">right-3</code> → <code style="background:rgba(59,158,255,0.1);padding:1px 6px;border-radius:4px;">left-3</code> + הדרופדאון מ-<code style="background:rgba(59,158,255,0.1);padding:1px 6px;border-radius:4px;">right-0</code> → <code style="background:rgba(59,158,255,0.1);padding:1px 6px;border-radius:4px;">left-0</code>.<br>
+  עיצוב הפיל לא משתנה כלל — רק המיקום על המסך.
+</div>
+
+</body>
+</html>

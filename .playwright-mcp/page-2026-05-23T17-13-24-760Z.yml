@@ -1,0 +1,355 @@
+- generic [active] [ref=e1]:
+  - link "דלג לתוכן" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - text:                                      
+    - generic [ref=e5]:
+      - checkbox [ref=e12] [cursor=pointer]
+      - link "לוגו קרית ביאליק" [ref=e17] [cursor=pointer]:
+        - /url: https://qbialik.org.il/?csrt=476428600610767138
+        - img "לוגו קרית ביאליק" [ref=e18]
+      - search [ref=e21]:
+        - generic [ref=e22]:
+          - button "חיפוש" [ref=e23] [cursor=pointer]:
+            - img [ref=e25]
+          - generic:
+            - generic: חיפוש
+            - searchbox "חיפוש"
+  - text:  
+  - main [ref=e31]:
+    - generic [ref=e33]:
+      - generic [ref=e39]:
+        - heading "רשימת מקלטים ציבוריים" [level=2] [ref=e42]
+        - navigation "Breadcrumb" [ref=e45]:
+          - link "עמוד הבית" [ref=e46] [cursor=pointer]:
+            - /url: https://qbialik.org.il?csrt=476428600610767138
+          - text: /
+          - link "אתר חירום" [ref=e47] [cursor=pointer]:
+            - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/?csrt=476428600610767138
+          - text: / רשימת מקלטים ציבוריים
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - heading "חירום" [level=2] [ref=e53]
+          - navigation "תפריט" [ref=e58]:
+            - list [ref=e59]:
+              - listitem [ref=e60]:
+                - link "אתר חירום" [ref=e61] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/?csrt=476428600610767138
+              - listitem [ref=e62]:
+                - link "רשימת מקלטים ציבוריים" [ref=e63] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%9e%d7%a7%d7%9c%d7%98%d7%99%d7%9d-%d7%a6%d7%99%d7%91%d7%95%d7%a8%d7%99%d7%99%d7%9d-2/?csrt=476428600610767138
+              - listitem [ref=e64]:
+                - link "הכנת ציוד לחירום" [ref=e65] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%9b%d7%a0%d7%aa-%d7%a6%d7%99%d7%95%d7%93-%d7%9c%d7%97%d7%99%d7%a8%d7%95%d7%9d/?csrt=476428600610767138
+              - listitem [ref=e66]:
+                - link "נגיף קורונה" [ref=e67] [cursor=pointer]:
+                  - /url: https://corona.health.gov.il/
+              - listitem [ref=e68]:
+                - link "קווי סיוע ותמיכה" [ref=e69] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%a7%d7%95%d7%95%d7%99-%d7%a1%d7%99%d7%95%d7%a2-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/?csrt=476428600610767138
+              - listitem [ref=e70]:
+                - link "גל שקט בשבת" [ref=e71] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%92%d7%9c-%d7%a9%d7%a7%d7%98-%d7%91%d7%a9%d7%91%d7%aa/?csrt=476428600610767138
+              - listitem [ref=e72]:
+                - link "המידע שיציל אתכם בשעת חרום" [ref=e73] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%9e%d7%99%d7%93%d7%a2-%d7%a9%d7%99%d7%a6%d7%99%d7%9c-%d7%90%d7%aa%d7%9b%d7%9d-%d7%91%d7%a9%d7%a2%d7%aa-%d7%97%d7%a8%d7%95%d7%9d/?csrt=476428600610767138
+              - listitem [ref=e74]:
+                - link "ירי רקטות וטילים – הנחיות מצילות חיים" [ref=e75] [cursor=pointer]:
+                  - /url: https://www.oref.org.il/12761-he/pakar.aspx
+              - listitem [ref=e76]:
+                - link "רשימת מפעלים חיוניים בחרום" [ref=e77] [cursor=pointer]:
+                  - /url: https://city-multisite.milgam.co.il/qbialik/wp-content/uploads/sites/57/2024/04/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA-%D7%9E%D7%A4%D7%A2%D7%9C%D7%99%D7%9D-%D7%97%D7%99%D7%95%D7%A0%D7%99%D7%99%D7%9D-%D7%91%D7%A8%D7%A9%D7%95%D7%AA-2022.pdf?csrt=476428600610767138
+              - listitem [ref=e78]:
+                - link "הערכות לרעידת אדמה" [ref=e79] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%9c%d7%a8%d7%a2%d7%99%d7%93%d7%aa-%d7%90%d7%93%d7%9e%d7%94/?csrt=476428600610767138
+              - listitem [ref=e80]:
+                - link "היערכות לטיפול בבעלי חיים משוטטים ועזובים במצבי חירום" [ref=e81] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%99%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%9c%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%91%d7%a2%d7%9c%d7%99-%d7%97%d7%99%d7%99%d7%9d-%d7%9e%d7%a9%d7%95%d7%98%d7%98%d7%99%d7%9d-%d7%95%d7%a2%d7%96/?csrt=476428600610767138
+              - listitem [ref=e82]:
+                - link "תאגיד המים בחירום" [ref=e83] [cursor=pointer]:
+                  - /url: https://www.ma-a.org.il/0-1671022113-%D7%94%D7%A2%D7%A8%D7%9B%D7%95%D7%AA-%D7%91%D7%A2%D7%AA%D7%95%D7%AA-%D7%97%D7%99%D7%A8%D7%95%D7%9D/
+              - listitem [ref=e84]:
+                - link "התנדבות לשעת חירום" [ref=e85] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%aa%d7%a0%d7%93%d7%91%d7%95%d7%aa-%d7%9c%d7%a9%d7%a2%d7%aa-%d7%97%d7%99%d7%a8%d7%95%d7%9d/?csrt=476428600610767138
+              - listitem [ref=e86]:
+                - link "הנחיות התגוננות לבעלי צרכים מיוחדים" [ref=e87] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%94%d7%a0%d7%97%d7%99%d7%95%d7%aa-%d7%94%d7%aa%d7%92%d7%95%d7%a0%d7%a0%d7%95%d7%aa-%d7%9c%d7%91%d7%a2%d7%9c%d7%99-%d7%a6%d7%a8%d7%9b%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d/?csrt=476428600610767138
+              - listitem [ref=e88]:
+                - link "ועדת מל”ח" [ref=e89] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%97%d7%99%d7%a8%d7%95%d7%9d/%d7%95%d7%a2%d7%93%d7%aa-%d7%9e%d7%9c%d7%97/?csrt=476428600610767138
+        - generic [ref=e90]:
+          - heading "חירום" [level=3] [ref=e93]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "לחץ כאן לפתיחת מפה עם כל המקלטים הציבוריים לפי אזור" [ref=e98] [cursor=pointer]:
+                - /url: https://www.google.com/maps/d/u/2/viewer?mid=1BTnHuPfdu4catVzp__t6OgrIQIQiP9o&ll=32.835219779640354%2C35.086050699999994&z=13
+                - generic [ref=e100]: 
+                - generic [ref=e101]: לחץ כאן לפתיחת מפה עם כל המקלטים הציבוריים לפי אזור
+            - listitem [ref=e102]:
+              - link "מפת המקלטים בקריית ביאליק להורדה" [ref=e103] [cursor=pointer]:
+                - /url: /wp-content/uploads/sites/57/2024/04/מפת-המקלטים-בקריית-ביאליק.pdf?csrt=476428600610767138
+                - generic [ref=e105]: 
+                - generic [ref=e106]: מפת המקלטים בקריית ביאליק להורדה
+            - listitem [ref=e107]:
+              - link "רשימת מיגוניות ומקלטים לרשות הציבור" [ref=e108] [cursor=pointer]:
+                - /url: https://qbialik.org.il/wp-content/uploads/sites/57/2024/11/מקלטים-ומיגוניות-לרשות-התושבים-1.pdf?csrt=476428600610767138
+                - generic [ref=e110]: 
+                - generic [ref=e111]: רשימת מיגוניות ומקלטים לרשות הציבור
+            - listitem [ref=e112]:
+              - link "לחץ כאן לפתיחת מפה עם כלל המרחבים המוגנים בעיר" [ref=e113] [cursor=pointer]:
+                - /url: https://www.google.com/maps/d/u/0/embed?mid=1_fvgIC2BcYBVngTl4CPUuOOLV2oH78o&ehbc=2E312F&noprof=1&ll=32.83550277097675%2C35.0869125&z=14
+                - generic [ref=e115]: 
+                - generic [ref=e116]: לחץ כאן לפתיחת מפה עם כלל המרחבים המוגנים בעיר
+          - generic [ref=e119]:
+            - searchbox "חיפוש" [ref=e121]
+            - table [ref=e123]:
+              - rowgroup [ref=e124]:
+                - row "מס' מקלט כתובת אזור מפה" [ref=e125]:
+                  - columnheader "מס' מקלט" [ref=e126] [cursor=pointer]:
+                    - paragraph [ref=e127]: מס' מקלט
+                  - columnheader "כתובת" [ref=e128] [cursor=pointer]:
+                    - paragraph [ref=e129]: כתובת
+                  - columnheader "אזור" [ref=e130] [cursor=pointer]:
+                    - paragraph [ref=e131]: אזור
+                  - columnheader "מפה" [ref=e132] [cursor=pointer]
+              - rowgroup [ref=e133]:
+                - row "1 הגליל 26 ביאליק דרום למפה" [ref=e134]:
+                  - cell "1" [ref=e135]
+                  - cell "הגליל 26" [ref=e136]:
+                    - paragraph [ref=e137]: הגליל 26
+                  - cell "ביאליק דרום" [ref=e138]:
+                    - paragraph [ref=e139]: ביאליק דרום
+                  - cell "למפה" [ref=e140]:
+                    - paragraph [ref=e141]:
+                      - link "למפה" [ref=e142] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/HaGalil+St+26,+Kiryat+Bialik/@32.8145967,35.07352,17z/data=!3m1!4b1!4m5!3m4!1s0x151db72cf5caf265:0x654559b6ca58e1c9!8m2!3d32.8145922!4d35.075714
+                - row "2 סמטת כרמל/חרמון ביאליק דרום למפה" [ref=e143]:
+                  - cell "2" [ref=e144]
+                  - cell "סמטת כרמל/חרמון" [ref=e145]:
+                    - paragraph [ref=e146]: סמטת כרמל/חרמון
+                  - cell "ביאליק דרום" [ref=e147]:
+                    - paragraph [ref=e148]: ביאליק דרום
+                  - cell "למפה" [ref=e149]:
+                    - paragraph [ref=e150]:
+                      - link "למפה" [ref=e151] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/CHn9XC2hrRJF5XQ9A
+                - row "3 ההגנה 12 ביאליק דרום למפה" [ref=e152]:
+                  - cell "3" [ref=e153]
+                  - cell "ההגנה 12" [ref=e154]:
+                    - paragraph [ref=e155]: ההגנה 12
+                  - cell "ביאליק דרום" [ref=e156]:
+                    - paragraph [ref=e157]: ביאליק דרום
+                  - cell "למפה" [ref=e158]:
+                    - paragraph [ref=e159]:
+                      - link "למפה" [ref=e160] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Ha-Hagana+St+12,+Kiryat+Bialik/@32.8143536,35.0757842,17z/data=!3m1!4b1!4m5!3m4!1s0x151db72b81e0319d:0x812c442c1481393d!8m2!3d32.8143491!4d35.0779782
+                - row "4 חרמון 1 ביאליק דרום למפה" [ref=e161]:
+                  - cell "4" [ref=e162]
+                  - cell "חרמון 1" [ref=e163]:
+                    - paragraph [ref=e164]: חרמון 1
+                  - cell "ביאליק דרום" [ref=e165]:
+                    - paragraph [ref=e166]: ביאליק דרום
+                  - cell "למפה" [ref=e167]:
+                    - paragraph [ref=e168]:
+                      - link "למפה" [ref=e169] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/KMaV2rdmhxGaeVTz8
+                - row "5 תבור 7 ביאליק הותיקה למפה" [ref=e170]:
+                  - cell "5" [ref=e171]:
+                    - paragraph [ref=e172]: "5"
+                  - cell "תבור 7" [ref=e173]:
+                    - paragraph [ref=e174]: תבור 7
+                  - cell "ביאליק הותיקה" [ref=e175]:
+                    - paragraph [ref=e176]: ביאליק הותיקה
+                  - cell "למפה" [ref=e177]:
+                    - paragraph [ref=e178]:
+                      - link "למפה" [ref=e179] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Tavor+St+7,+Kiryat+Bialik/@32.8170529,35.0783303,17z/data=!4m5!3m4!1s0x151db729a0c3cc5f:0xc2ce2887dd4cb05!8m2!3d32.8170033!4d35.080578
+                - row "6 ציפורי 18 ביאליק הותיקה למפה" [ref=e180]:
+                  - cell "6" [ref=e181]:
+                    - paragraph [ref=e182]: "6"
+                  - cell "ציפורי 18" [ref=e183]:
+                    - paragraph [ref=e184]: ציפורי 18
+                  - cell "ביאליק הותיקה" [ref=e185]:
+                    - paragraph [ref=e186]: ביאליק הותיקה
+                  - cell "למפה" [ref=e187]:
+                    - paragraph [ref=e188]:
+                      - link "למפה" [ref=e189] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Tsipori+St+18,+Kiryat+Bialik/@32.8181996,35.0795804,17z/data=!3m1!4b1!4m5!3m4!1s0x151db7283773dac7:0x8c1bf17b847c4c2f!8m2!3d32.8181951!4d35.0817744
+                - row "7 קישון 14 ביאליק הותיקה למפה" [ref=e190]:
+                  - cell "7" [ref=e191]:
+                    - paragraph [ref=e192]: "7"
+                  - cell "קישון 14" [ref=e193]:
+                    - paragraph [ref=e194]: קישון 14
+                  - cell "ביאליק הותיקה" [ref=e195]:
+                    - paragraph [ref=e196]: ביאליק הותיקה
+                  - cell "למפה" [ref=e197]:
+                    - paragraph [ref=e198]:
+                      - link "למפה" [ref=e199] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/%D7%A7%D7%99%D7%A9%D7%95%D7%9F+14,+%D7%A7%D7%A8%D7%99%D7%99%D7%AA+%D7%91%D7%99%D7%90%D7%9C%D7%99%D7%A7,+%D7%99%D7%A9%D7%A8%D7%90%D7%9C%E2%80%AD/@32.8188642,35.0824812,18.5z/data=!4m5!3m4!1s0x151db7283773dac7:0xcfd46ab68f675661!8m2!3d32.8182375!4d35.0817382?entry=ttu
+                - row "8 קק\"ל 75 ביאליק דרום למפה" [ref=e200]:
+                  - cell "8" [ref=e201]:
+                    - paragraph [ref=e202]: "8"
+                  - cell "קק\"ל 75" [ref=e203]:
+                    - paragraph [ref=e204]: קק"ל 75
+                  - cell "ביאליק דרום" [ref=e205]:
+                    - paragraph [ref=e206]: ביאליק דרום
+                  - cell "למפה" [ref=e207]:
+                    - paragraph [ref=e208]:
+                      - link "למפה" [ref=e209] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Keren+Kayemet+le-Yisra'el+St+75,+Kiryat+Bialik/@32.8195325,35.077932,17z/data=!3m1!4b1!4m5!3m4!1s0x151db72862c85469:0x4f3f1963e3a2756!8m2!3d32.819528!4d35.080126
+                - row "9 אפרים 28-30 ביאליק הותיקה למפה" [ref=e210]:
+                  - cell "9" [ref=e211]:
+                    - paragraph [ref=e212]: "9"
+                  - cell "אפרים 28-30" [ref=e213]:
+                    - paragraph [ref=e214]: אפרים 28-30
+                  - cell "ביאליק הותיקה" [ref=e215]:
+                    - paragraph [ref=e216]: ביאליק הותיקה
+                  - cell "למפה" [ref=e217]:
+                    - paragraph [ref=e218]:
+                      - link "למפה" [ref=e219] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Efrayim+St+28,+Kiryat+Bialik/@32.8277922,35.0816292,17z/data=!3m1!4b1!4m5!3m4!1s0x151db6dfbcf88383:0xe2d45025e167bd90!8m2!3d32.8277877!4d35.0838232
+                - row "10 גן מרים - רחוב הפלמח 4 מרכז העיר למפה" [ref=e220]:
+                  - cell "10" [ref=e221]:
+                    - paragraph [ref=e222]: "10"
+                  - cell "גן מרים - רחוב הפלמח 4" [ref=e223]:
+                    - paragraph [ref=e224]: גן מרים - רחוב הפלמח 4
+                  - cell "מרכז העיר" [ref=e225]:
+                    - paragraph [ref=e226]: מרכז העיר
+                  - cell "למפה" [ref=e227]:
+                    - paragraph [ref=e228]:
+                      - link "למפה" [ref=e229] [cursor=pointer]:
+                        - /url: https://www.google.co.il/maps/place/Miriam+Garden,+Kiryat+Bialik/@32.8349662,35.0845031,17z/data=!3m1!4b1!4m5!3m4!1s0x151db6e3bda60f9b:0x2145a40367bdd50b!8m2!3d32.8350526!4d35.0868146
+            - generic [ref=e230]:
+              - link "«" [ref=e231] [cursor=pointer]:
+                - /url: "#"
+              - link "1" [ref=e232] [cursor=pointer]:
+                - /url: "#"
+              - link "2" [ref=e233] [cursor=pointer]:
+                - /url: "#"
+              - link "3" [ref=e234] [cursor=pointer]:
+                - /url: "#"
+              - link "»" [ref=e235] [cursor=pointer]:
+                - /url: "#"
+          - generic [ref=e237]:
+            - paragraph [ref=e238]: בברכה,
+            - paragraph [ref=e239]:
+              - text: עופר יקוטי
+              - text: קב"ט עירוני
+              - text: עיריית קריית ביאליק
+              - text: "טלפון:"
+              - link "04-8780829" [ref=e240] [cursor=pointer]:
+                - /url: tel:048780829?csrt=476428600610767138
+              - text: "פקס: 04-8780856"
+              - text: "נייד:"
+              - link "052-6004981" [ref=e241] [cursor=pointer]:
+                - /url: tel:052-6004981?csrt=476428600610767138
+              - text: "דוא\"ל:"
+              - link "שלח מייל" [ref=e242] [cursor=pointer]:
+                - /url: mailto:Richard.a@qbialik.org.il
+                - text: Ofer_yakuti@qbialik.org.il
+  - contentinfo [ref=e243]:
+    - link "arrow" [ref=e251] [cursor=pointer]:
+      - /url: "#"
+      - img "arrow" [ref=e254]
+    - generic [ref=e257]:
+      - generic:
+        - generic:
+          - generic: "|"
+      - form "New Form" [ref=e260]:
+        - generic [ref=e261]:
+          - textbox "אי-מייל" [ref=e263]
+          - button "הרשמה" [ref=e265] [cursor=pointer]:
+            - generic [ref=e267]: הרשמה
+    - generic [ref=e269]:
+      - img [ref=e271]
+      - generic:
+        - img
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - heading "שירות לתושב" [level=4] [ref=e278]
+          - paragraph [ref=e281]:
+            - link "מוקד עירוני" [ref=e284] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%90%d7%92%d7%a4%d7%99%d7%9d-%d7%95%d7%9e%d7%97%d7%9c%d7%a7%d7%95%d7%aa/%d7%90%d7%92%d7%a3-%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%9c%d7%aa%d7%95%d7%a9%d7%91/%d7%9e%d7%95%d7%a7%d7%93-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99/?csrt=476428600610767138
+            - link "תשלומים" [ref=e287] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%aa%d7%a9%d7%9c%d7%95%d7%9e%d7%99%d7%9d/?csrt=476428600610767138
+            - link "חניה" [ref=e290] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%98%d7%a4%d7%a1%d7%99-%d7%97%d7%a0%d7%99%d7%94-%d7%95%d7%a4%d7%99%d7%a7%d7%95%d7%97-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99/?csrt=476428600610767138
+            - link "ארנונה" [ref=e293] [cursor=pointer]:
+              - /url: https://www.paybill.co.il/Payment/WaterPayment?p=113
+            - link "טפסים" [ref=e296] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d/?csrt=476428600610767138
+        - generic [ref=e297]:
+          - heading "תרבות וקהילה" [level=4] [ref=e300]
+          - paragraph [ref=e303]:
+            - link "אירועים" [ref=e305] [cursor=pointer]:
+              - /url: https://qbialik.org.il-shop/
+            - link "ספורט" [ref=e307] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%90%d7%92%d7%a4%d7%99%d7%9d-%d7%95%d7%9e%d7%97%d7%9c%d7%a7%d7%95%d7%aa/%d7%90%d7%92%d7%a3-%d7%97%d7%91%d7%a8%d7%94-%d7%95%d7%a7%d7%94%d7%99%d7%9c%d7%94/%d7%a1%d7%a4%d7%95%d7%a8%d7%98/?csrt=476428600610767138
+            - link "מרכז צעירים" [ref=e309] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%90%d7%92%d7%a4%d7%99%d7%9d-%d7%95%d7%9e%d7%97%d7%9c%d7%a7%d7%95%d7%aa/%d7%90%d7%92%d7%a3-%d7%97%d7%91%d7%a8%d7%94-%d7%95%d7%a7%d7%94%d7%99%d7%9c%d7%94/%d7%9e%d7%a8%d7%9b%d7%96-%d7%a6%d7%a2%d7%99%d7%a8%d7%99%d7%9d/?csrt=476428600610767138
+            - link "רשת המתנסים" [ref=e311] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%90%d7%92%d7%a4%d7%99%d7%9d-%d7%95%d7%9e%d7%97%d7%9c%d7%a7%d7%95%d7%aa/%d7%90%d7%92%d7%a3-%d7%a4%d7%a0%d7%90%d7%99-%d7%95%d7%90%d7%99%d7%92%d7%95%d7%9d-%d7%9e%d7%a9%d7%90%d7%91%d7%99%d7%9d/%d7%a8%d7%a9%d7%aa-%d7%94%d7%9e%d7%aa%d7%a0%d7%a1%d7%99%d7%9d/?csrt=476428600610767138
+            - link "התנדבות" [ref=e313] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%94%d7%a2%d7%99%d7%a8-%d7%a9%d7%9c%d7%99-%d7%a7%d7%95%d7%91%d7%99%d7%95%d7%aa/%d7%90%d7%a8%d7%92%d7%95%d7%a0%d7%99-%d7%9e%d7%aa%d7%a0%d7%93%d7%91%d7%99%d7%9d/?csrt=476428600610767138
+        - generic [ref=e314]:
+          - heading "שקיפות" [level=4] [ref=e317]
+          - paragraph [ref=e320]:
+            - link "הממונה על חופש המידע" [ref=e322] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%97%d7%95%d7%a4%d7%a9-%d7%94%d7%9e%d7%99%d7%93%d7%a2/?csrt=476428600610767138
+            - link "מבקר העירייה" [ref=e324] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%9e%d7%91%d7%a7%d7%a8-%d7%94%d7%a2%d7%99%d7%a8%d7%99%d7%99%d7%94/?csrt=476428600610767138
+            - link "דוחות" [ref=e326] [cursor=pointer]:
+              - /url: https://qbialik.org.il/%d7%93%d7%95%d7%97%d7%95%d7%aa/?csrt=476428600610767138
+            - generic [ref=e327]:
+              - generic [ref=e328]:
+                - link "תקציב" [ref=e329] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%aa%d7%a7%d7%a6%d7%99%d7%91-%d7%94%d7%a2%d7%99%d7%a8%d7%99%d7%99%d7%94/?csrt=476428600610767138
+                  - text: תקציב
+                - link "ספר טלפונים" [ref=e330] [cursor=pointer]:
+                  - /url: https://qbialik.org.il/%d7%a1%d7%a4%d7%a8-%d7%98%d7%9c%d7%a4%d7%95%d7%a0%d7%99%d7%9d/?csrt=476428600610767138
+                  - text: ספר טלפונים
+              - link "הצהרת נגישות" [ref=e331] [cursor=pointer]:
+                - /url: https://qbialik.org.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/?csrt=476428600610767138
+          - generic [ref=e333]:
+            - paragraph [ref=e334]:
+              - link "עיריית קרית ביאליק, שד' ירושלים 16" [ref=e336] [cursor=pointer]:
+                - /url: https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%A8%D7%99%D7%99%D7%AA-%D7%A7%D7%A8%D7%99%D7%99%D7%AA-%D7%91%D7%99%D7%90%D7%9C%D7%99%D7%A7-%D7%A9%D7%93-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D-16?to=place.w.23003464.229903570.9202
+            - paragraph [ref=e337]: מיקוד 2703203
+      - list [ref=e342]:
+        - listitem [ref=e343]:
+          - link "Facebook" [ref=e344] [cursor=pointer]:
+            - /url: https://www.facebook.com/qbialik?locale=he_IL
+            - generic [ref=e345]: Facebook
+            - img [ref=e346]
+        - listitem [ref=e348]:
+          - link "Instagram" [ref=e349] [cursor=pointer]:
+            - /url: https://www.instagram.com/kiryatbialik.city/
+            - generic [ref=e350]: Instagram
+            - img [ref=e351]
+        - listitem [ref=e353]:
+          - link "Whatsapp" [ref=e354] [cursor=pointer]:
+            - /url: https://wa.me/528899899?text=%D7%A9%D7%9C%D7%95%D7%9D,+%D7%90%D7%A0%D7%99+%D7%A8%D7%95%D7%A6%D7%94+%D7%9C%D7%A4%D7%AA%D7%95%D7%97+%D7%A4%D7%A0%D7%99%D7%99%D7%94+%D7%91%D7%9E%D7%95%D7%A7%D7%93+%D7%94%D7%A2%D7%99%D7%A8%D7%95%D7%A0%D7%99+
+            - generic [ref=e355]: Whatsapp
+            - img [ref=e356]
+        - listitem [ref=e358]:
+          - link "Phone-alt" [ref=e359] [cursor=pointer]:
+            - /url: tel:048780888?csrt=476428600610767138
+            - generic [ref=e360]: Phone-alt
+            - img [ref=e361]
+        - listitem [ref=e363]:
+          - link "Envelope-open-text" [ref=e364] [cursor=pointer]:
+            - /url: https://pcrmcapi.moked-crmc.com/angular/KiriatBialik.html
+            - generic [ref=e365]: Envelope-open-text
+            - img [ref=e366]
+        - listitem [ref=e368]:
+          - link "Waze" [ref=e369] [cursor=pointer]:
+            - /url: https://www.waze.com/he/live-map/directions/%D7%A2%D7%99%D7%A8%D7%99%D7%99%D7%AA-%D7%A7%D7%A8%D7%99%D7%99%D7%AA-%D7%91%D7%99%D7%90%D7%9C%D7%99%D7%A7-%D7%A9%D7%93-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D-16?to=place.w.23003464.229903570.9202
+            - generic [ref=e370]: Waze
+            - img [ref=e371]
+    - paragraph [ref=e377]:
+      - text: נבנה ע"י חטיבת הדיגיטל והחדשנות מבית
+      - link [ref=e378] [cursor=pointer]:
+        - /url: https://qbialik.org.il/wp-content/uploads/sites/57/2024/11/img-001.png?csrt=476428600610767138
+  - contentinfo
+  - generic [ref=e379]: tablet
+  - status [ref=e382]

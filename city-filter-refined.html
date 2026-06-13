@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Filter — Refined Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-bg:      #070D18;
+    --brand-surface: #0C1929;
+    --brand-card:    #0F2035;
+    --brand-border:  #1A3050;
+    --brand-red:     #FF1744;
+    --brand-neon:    #00E5A0;
+    --brand-gold:    #FFB800;
+    --brand-blue:    #3B9EFF;
+    --brand-text:    #E6F4F0;
+    --brand-dim:     #3D7070;
+    --glow-neon: 0 0 0 1px rgba(0,229,160,0.25), 0 0 24px rgba(0,229,160,0.15);
+    --glow-blue: 0 0 0 1px rgba(59,158,255,0.3), 0 0 24px rgba(59,158,255,0.2);
+    --glow-red:  0 0 0 1px rgba(255,23,68,0.35), 0 0 32px rgba(255,23,68,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #040810;
+    font-family: 'Rubik', sans-serif;
+    color: var(--brand-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    gap: 48px;
+  }
+
+  h1 {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-dim);
+    font-weight: 500;
+  }
+
+  .row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .variant { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .variant-label {
+    font-size: 11px;
+    color: var(--brand-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ─── PHONE ─── */
+  .phone {
+    width: 280px;
+    height: 560px;
+    background: var(--brand-bg);
+    border-radius: 28px;
+    border: 1.5px solid var(--brand-border);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    background: var(--brand-bg);
+    border-bottom: 1px solid var(--brand-border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    z-index: 5;
+  }
+  .header-btn {
+    background: var(--brand-surface);
+    border: 1px solid var(--brand-border);
+    border-radius: 50px;
+    padding: 6px 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brand-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .header-btn.add {
+    background: var(--brand-neon);
+    border-color: var(--brand-neon);
+    color: #070D18;
+    box-shadow: var(--glow-neon);
+  }
+
+  /* ─── MAP ─── */
+  .map {
+    flex: 1;
+    position: relative;
+    background: var(--brand-surface);
+    overflow: hidden;
+  }
+  /* Street grid */
+  .map::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(26,48,80,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,48,80,0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .road {
+    position: absolute;
+    background: #0A1828;
+  }
+  .road-h1 { top: 38%; left: 0; right: 0; height: 7px; }
+  .road-h2 { top: 62%; left: 0; right: 0; height: 5px; }
+  .road-v1 { top: 0; bottom: 0; left: 33%; width: 6px; }
+  .road-v2 { top: 0; bottom: 0; left: 65%; width: 5px; }
+
+  /* ─── MARKERS ─── */
+  .marker {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.6);
+  }
+  .marker span { transform: rotate(45deg); display: block; }
+  .marker.user {
+    background: var(--brand-neon);
+    box-shadow: 0 0 0 1px rgba(0,229,160,0.4), 0 3px 16px rgba(0,229,160,0.35);
+  }
+  .marker.city {
+    background: var(--brand-blue);
+    box-shadow: 0 0 0 1px rgba(59,158,255,0.4), 0 3px 16px rgba(59,158,255,0.3);
+  }
+  .marker.city.dim { opacity: 0.3; }
+
+  /* ─── FLOATING COUNT BADGE ─── */
+  .badge-shelters {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    border-radius: 50px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brand-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--brand-neon);
+    box-shadow: 0 0 6px var(--brand-neon);
+  }
+
+  /* ─── CITY BUTTON ─── */
+  .btn-cities {
+    position: absolute;
+    top: 52px;
+    right: 12px;
+    background: var(--brand-card);
+    border: 1px solid var(--brand-blue);
+    border-radius: 50px;
+    padding: 6px 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    box-shadow: var(--glow-blue);
+    letter-spacing: 0.02em;
+  }
+  .btn-cities.active {
+    background: rgba(59,158,255,0.12);
+    border-color: var(--brand-blue);
+  }
+
+  /* ─── CITY DROPDOWN ─── */
+  .city-panel {
+    position: absolute;
+    top: 96px;
+    right: 12px;
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    border-radius: 16px;
+    padding: 6px;
+    z-index: 20;
+    width: 156px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(59,158,255,0.1);
+    overflow: hidden;
+  }
+  .city-panel-header {
+    padding: 6px 10px 8px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-dim);
+    border-bottom: 1px solid var(--brand-border);
+    margin-bottom: 4px;
+  }
+  .city-row {
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brand-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .city-row.on {
+    background: rgba(59,158,255,0.12);
+    color: var(--brand-blue);
+  }
+  .city-row .check {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--brand-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px;
+    flex-shrink: 0;
+  }
+  .city-row.on .check {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+    color: white;
+    box-shadow: 0 0 8px rgba(59,158,255,0.5);
+  }
+  .city-count {
+    margin-right: auto;
+    font-size: 10px;
+    color: var(--brand-dim);
+    font-weight: 400;
+  }
+
+  /* ─── LEGEND ─── */
+  .legend {
+    position: absolute;
+    bottom: 90px;
+    left: 12px;
+    background: rgba(12,25,41,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--brand-border);
+    border-radius: 10px;
+    padding: 7px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    color: var(--brand-dim);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ─── SOS ─── */
+  .sos-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 12px;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FF4060, #FF1744);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1px;
+    box-shadow: 0 0 0 2px rgba(255,23,68,0.3), 0 0 40px rgba(255,23,68,0.4), 0 4px 16px rgba(0,0,0,0.6);
+    cursor: pointer;
+  }
+  .sos-icon { font-size: 20px; }
+  .sos-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; color: white; font-family: monospace; }
+
+  /* Radar rings */
+  .radar-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,23,68,0.45);
+    animation: radar 2s infinite ease-out;
+    pointer-events: none;
+    width: 64px; height: 64px;
+  }
+  .radar-ring:nth-child(1) { animation-delay: 0s; }
+  .radar-ring:nth-child(2) { animation-delay: 0.65s; }
+  .radar-ring:nth-child(3) { animation-delay: 1.3s; }
+  @keyframes radar {
+    0%  { transform: scale(1); opacity: 0.55; }
+    100%{ transform: scale(2.8); opacity: 0; }
+  }
+
+  /* ─── BOTTOM NAV ─── */
+  .bottom-nav {
+    background: var(--brand-bg);
+    border-top: 1px solid var(--brand-border);
+    padding: 8px 0 12px;
+    display: flex;
+    justify-content: space-around;
+    flex-shrink: 0;
+  }
+  .nav-item {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    font-size: 10px; color: var(--brand-dim); letter-spacing: 0.04em;
+  }
+  .nav-item.active { color: var(--brand-neon); }
+  .nav-icon { font-size: 17px; }
+
+  /* ─── ZOOM CONTROLS ─── */
+  .zoom {
+    position: absolute;
+    bottom: 90px;
+    right: 12px;
+    background: var(--brand-card);
+    border: 1px solid var(--brand-border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .zoom-btn {
+    width: 32px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--brand-dim); cursor: pointer;
+  }
+  .zoom-divider { height: 1px; background: var(--brand-border); }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(59,158,255,0.12);
+    border: 1px solid rgba(59,158,255,0.3);
+    border-radius: 50px;
+    padding: 5px 12px;
+    font-size: 11px;
+    color: var(--brand-blue);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<h1>אפשרות א — כפתור ערים על המפה</h1>
+
+<div class="row">
+
+  <!-- STATE 1: Button closed -->
+  <div class="variant">
+    <div class="variant-label">מצב רגיל</div>
+    <div class="phone">
+      <div class="header">
+        <button class="header-btn">🏠 בית</button>
+        <button class="header-btn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road road-h1"></div>
+        <div class="road road-h2"></div>
+        <div class="road road-v1"></div>
+        <div class="road road-v2"></div>
+        <div class="marker user" style="top:36%;left:28%"><span>🛡</span></div>
+        <div class="badge-shelters">
+          <div class="badge-dot"></div>
+          1 מקלט
+        </div>
+        <button class="btn-cities">🏙 ערים</button>
+        <div class="legend">
+          <div class="legend-row"><div class="legend-dot" style="background:var(--brand-neon)"></div> מקלט שלי</div>
+        </div>
+        <div class="sos-btn">
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-label">SOS</span>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATE 2: Dropdown open -->
+  <div class="variant">
+    <div class="variant-label">רשימת ערים פתוחה</div>
+    <div class="phone">
+      <div class="header">
+        <button class="header-btn">🏠 בית</button>
+        <button class="header-btn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road road-h1"></div>
+        <div class="road road-h2"></div>
+        <div class="road road-v1"></div>
+        <div class="road road-v2"></div>
+        <div class="marker user" style="top:36%;left:28%"><span>🛡</span></div>
+        <div class="badge-shelters">
+          <div class="badge-dot"></div>
+          1 מקלט
+        </div>
+        <button class="btn-cities active">🏙 ערים ▴</button>
+        <div class="city-panel">
+          <div class="city-panel-header">בחר עיר להצגה</div>
+          <div class="city-row">
+            <div class="check"></div>
+            ק׳ ביאליק
+            <span class="city-count">~30</span>
+          </div>
+          <div class="city-row">
+            <div class="check"></div>
+            ק׳ ים
+            <span class="city-count">26</span>
+          </div>
+          <div class="city-row">
+            <div class="check"></div>
+            ק׳ מוצקין
+            <span class="city-count">~40</span>
+          </div>
+          <div class="city-row">
+            <div class="check"></div>
+            ק׳ חיים
+            <span class="city-count">~20</span>
+          </div>
+          <div class="city-row">
+            <div class="check"></div>
+            ק׳ אתא
+            <span class="city-count">~75</span>
+          </div>
+        </div>
+        <div class="sos-btn">
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-label">SOS</span>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATE 3: City selected, shelters visible -->
+  <div class="variant">
+    <div class="variant-label">ק׳ ביאליק — פעיל</div>
+    <div class="phone">
+      <div class="header">
+        <button class="header-btn">🏠 בית</button>
+        <button class="header-btn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road road-h1"></div>
+        <div class="road road-h2"></div>
+        <div class="road road-v1"></div>
+        <div class="road road-v2"></div>
+        <!-- user shelter -->
+        <div class="marker user" style="top:36%;left:28%"><span>🛡</span></div>
+        <!-- city shelters -->
+        <div class="marker city" style="top:22%;left:55%"><span>🛡</span></div>
+        <div class="marker city" style="top:45%;left:62%"><span>🛡</span></div>
+        <div class="marker city" style="top:58%;left:40%"><span>🛡</span></div>
+        <div class="marker city" style="top:30%;left:18%"><span>🛡</span></div>
+        <div class="marker city" style="top:68%;left:72%"><span>🛡</span></div>
+        <div class="badge-shelters">
+          <div class="badge-dot"></div>
+          31 מקלטים
+        </div>
+        <button class="btn-cities active">🏙 ק׳ ביאליק ✓</button>
+        <div class="legend">
+          <div class="legend-row"><div class="legend-dot" style="background:var(--brand-neon)"></div> מקלט שלי</div>
+          <div class="legend-row"><div class="legend-dot" style="background:var(--brand-blue)"></div> מקלטי העיר</div>
+        </div>
+        <div class="callout">30 מקלטים חדשים הוצגו</div>
+        <div class="sos-btn">
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <div class="radar-ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-label">SOS</span>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="nav-icon">🗺️</span>מפה</div>
+        <div class="nav-item"><span class="nav-icon">🏃</span>מסלול</div>
+        <div class="nav-item"><span class="nav-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSRM Demo</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0D1B2A; color: #E6F4F0; font-family: 'Segoe UI', sans-serif; padding: 20px; }
+  h2 { font-size: 20px; margin-bottom: 6px; color: #E6F4F0; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 16px; }
+  .split { display: flex; gap: 16px; }
+  .panel { flex: 1; }
+  .panel h3 { font-size: 14px; margin-bottom: 8px; padding: 8px 12px; border-radius: 8px; text-align: center; }
+  .bad { background: rgba(230,57,70,0.15); color: #E63946; border: 1px solid rgba(230,57,70,0.3); }
+  .good { background: rgba(0,229,160,0.15); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .map { height: 320px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.08); }
+  .info { margin-top: 10px; font-size: 12px; color: #888; text-align: center; padding: 8px; background: rgba(255,255,255,0.04); border-radius: 8px; }
+  .info span { color: #00E5A0; font-weight: bold; }
+</style>
+</head>
+<body>
+<h2>OSRM — הוכחה שזה עובד</h2>
+<p class="subtitle">אותן שתי נקודות בתל אביב — שתי דרכים לחבר אותן</p>
+
+<div class="split">
+  <div class="panel">
+    <h3 class="bad">❌ עכשיו — קו ישר</h3>
+    <div id="map-straight" class="map"></div>
+    <div class="info">2 נקודות בלבד · עובר דרך בניינים</div>
+  </div>
+  <div class="panel">
+    <h3 class="good">✅ אחרי OSRM — רחובות אמיתיים</h3>
+    <div id="map-osrm" class="map"></div>
+    <div class="info"><span>53 נקודות</span> · 1.7ק"מ · ~3.6 דקות · ברחובות בפועל</div>
+  </div>
+</div>
+
+<script>
+const start = [32.0853, 34.7818]
+const end   = [32.0800, 34.7900]
+
+const osrmCoords = [[34.781812,32.085339],[34.781741,32.085355],[34.781717,32.085237],[34.781692,32.085119],[34.781571,32.084534],[34.781327,32.083308],[34.781311,32.083194],[34.781302,32.08309],[34.781295,32.082953],[34.781253,32.082222],[34.781263,32.081967],[34.781273,32.081723],[34.781274,32.081546],[34.781275,32.0815],[34.781315,32.081404],[34.781343,32.081352],[34.781346,32.080925],[34.78132,32.080325],[34.781367,32.080324],[34.781419,32.080319],[34.781992,32.08028],[34.782051,32.080276],[34.783391,32.080172],[34.783456,32.080167],[34.785177,32.080033],[34.785656,32.079995],[34.785731,32.07999],[34.786788,32.079908],[34.786959,32.079892],[34.787018,32.079887],[34.788571,32.079767],[34.788685,32.079759],[34.788709,32.07994],[34.788886,32.081047],[34.788894,32.081095],[34.789102,32.081089],[34.789246,32.081084],[34.789324,32.08108],[34.789559,32.081063],[34.79052,32.08099],[34.790532,32.080969],[34.790551,32.080953],[34.790576,32.080942],[34.790603,32.080938],[34.79063,32.080941],[34.790666,32.080789],[34.790686,32.080634],[34.790667,32.080451],[34.790681,32.080384],[34.790706,32.080269],[34.790721,32.08016],[34.790597,32.080102],[34.790591,32.07998]]
+  .map(([lng, lat]) => [lat, lng])
+
+const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+const tileOpts = { attribution: '© OSM', maxZoom: 17 }
+
+// Map 1 — straight line
+const m1 = L.map('map-straight').setView([32.0826, 34.786], 14)
+L.tileLayer(tileUrl, tileOpts).addTo(m1)
+L.polyline([start, end], { color: '#E63946', weight: 4, dashArray: '8,5' }).addTo(m1)
+L.circleMarker(start, { radius: 8, fillColor: '#00E5A0', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(m1)
+L.circleMarker(end,   { radius: 8, fillColor: '#E63946', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(m1)
+
+// Map 2 — OSRM
+const m2 = L.map('map-osrm').setView([32.0826, 34.786], 14)
+L.tileLayer(tileUrl, tileOpts).addTo(m2)
+L.polyline(osrmCoords, { color: '#000', weight: 6, opacity: 0.3 }).addTo(m2)
+L.polyline(osrmCoords, { color: '#00E5A0', weight: 4, dashArray: '8,4' }).addTo(m2)
+L.circleMarker(osrmCoords[0],                    { radius: 8, fillColor: '#00E5A0', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(m2)
+L.circleMarker(osrmCoords[osrmCoords.length - 1], { radius: 8, fillColor: '#E63946', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(m2)
+</script>
+</body>
+</html>

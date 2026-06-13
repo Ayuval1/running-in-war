@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - heading "מרכוז מסלול — לפני ואחרי" [level=1] [ref=e2]
+  - paragraph [ref=e3]: מדפנה 54 קרית ביאליק → שדרות צה"ל 13 קרית ים
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e7]:
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - button "א" [ref=e9] [cursor=pointer]:
+              - generic [ref=e10]: א
+            - button "ב" [ref=e11] [cursor=pointer]:
+              - generic [ref=e12]:
+                - img [ref=e13]
+                - generic [ref=e15]: ב
+      - generic [ref=e16]:
+        - generic [ref=e17]: ❌ עכשיו
+        - heading "מפה לא זזה אחרי חישוב" [level=2] [ref=e18]
+        - paragraph [ref=e19]: המסלול חושב — אבל המפה נשארת ממורכזת על נקודת ב׳ (zoom 13). חלק מהמסלול מחוץ למסך.
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - button "א" [ref=e24] [cursor=pointer]:
+              - generic [ref=e25]: א
+            - button "ב" [ref=e26] [cursor=pointer]:
+              - generic [ref=e27]:
+                - img [ref=e28]
+                - generic [ref=e30]: ב
+      - generic [ref=e31]:
+        - generic [ref=e32]: ✅ אחרי תיקון
+        - heading "fitBounds — כל המסלול נראה" [level=2] [ref=e33]
+        - paragraph [ref=e34]: המפה מתכווננת אוטומטית להציג את כל המסלול עם padding נוח.
+  - generic [ref=e35]:
+    - strong [ref=e36]: "מה משתנה בקוד:"
+    - text: רק הוספת useEffect ל-MapFlyTo שמחשב bounds מכל נקודות ה-geometry ועושה fitBounds.
+    - strong [ref=e37]: "שינוי:"
+    - text: src/pages/RoutePage.jsx — 5 שורות בלבד.

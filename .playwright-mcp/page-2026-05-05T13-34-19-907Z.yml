@@ -1,0 +1,46 @@
+- generic [ref=e123]:
+  - generic [ref=e124]:
+    - generic [ref=e125]:
+      - img [ref=e126]
+      - heading "ריצה בזמן מלחמה" [level=1] [ref=e128]
+    - generic [ref=e129]:
+      - button "בית" [ref=e130] [cursor=pointer]:
+        - img [ref=e131]
+        - generic [ref=e134]: בית
+      - button "ציבורי" [ref=e135] [cursor=pointer]:
+        - img [ref=e136]
+        - generic [ref=e140]: ציבורי
+      - button "+ מקלט" [ref=e141] [cursor=pointer]:
+        - img [ref=e142]
+        - text: + מקלט
+  - generic [ref=e145]:
+    - button [ref=e146] [cursor=pointer]
+    - generic [ref=e150]:
+      - link "Leaflet" [ref=e151] [cursor=pointer]:
+        - /url: https://leafletjs.com
+        - img [ref=e152]
+        - text: Leaflet
+      - text: "| ©"
+      - link "OpenStreetMap" [ref=e156] [cursor=pointer]:
+        - /url: https://www.openstreetmap.org/copyright
+  - button "כפתור SOS — מצא מקלט קרוב" [ref=e157] [cursor=pointer]:
+    - img [ref=e158]
+    - generic [ref=e160]: SOS
+  - generic [ref=e162]: 6 מקלטים
+  - navigation "ניווט ראשי" [ref=e163]:
+    - link "בית" [ref=e164] [cursor=pointer]:
+      - /url: /
+      - img [ref=e166]
+      - generic [ref=e169]: בית
+    - link "מפה" [ref=e170] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e173]
+      - generic [ref=e175]: מפה
+    - link "מסלול" [ref=e176] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e178]
+      - generic [ref=e182]: מסלול
+    - link "פרופיל" [ref=e183] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e185]
+      - generic [ref=e188]: פרופיל

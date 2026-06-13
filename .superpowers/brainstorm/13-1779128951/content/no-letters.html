@@ -1,0 +1,163 @@
+<h2>ללא אותיות — צורה + צבע בלבד</h2>
+<p class="subtitle">כל זוג: התחלה (ירוק) + סיום (כחול). ללא טקסט בתוך ה-marker.</p>
+
+<style>
+  .map-preview {
+    background: #0f1923;
+    border-radius: 12px;
+    padding: 28px 20px 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    min-height: 160px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .map-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(30,50,70,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,50,70,0.4) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .marker-pair {
+    display: flex;
+    gap: 56px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+  .marker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+  }
+  .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+</style>
+
+<div class="cards">
+
+  <!-- P1: Hollow ring + teardrop pin -->
+  <div class="card" data-choice="p1" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+              <circle cx="19" cy="19" r="11" stroke="#00E5A0" stroke-width="3" fill="rgba(0,229,160,0.12)"/>
+              <circle cx="19" cy="19" r="5" fill="#00E5A0"/>
+            </svg>
+            <span class="lbl" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:-2px">
+            <svg width="30" height="43" viewBox="0 0 30 43" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 27 15 43 15 43C15 43 30 27 30 15C30 6.716 23.284 0 15 0Z" fill="#3B9EFF"/>
+              <circle cx="15" cy="15" r="5.5" fill="#0f1923"/>
+            </svg>
+            <span class="lbl" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>1 — Ring + Pin</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">עיגול עם נקודה פנימית להתחלה. פין קלאסי לסיום.</p>
+    </div>
+  </div>
+
+  <!-- P2: Pulse dot + arrow -->
+  <div class="card" data-choice="p2" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:center">
+          <div class="marker-item">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <circle cx="22" cy="22" r="20" fill="rgba(0,229,160,0.08)" stroke="rgba(0,229,160,0.2)" stroke-width="1"/>
+              <circle cx="22" cy="22" r="13" fill="rgba(0,229,160,0.18)" stroke="rgba(0,229,160,0.35)" stroke-width="1.5"/>
+              <circle cx="22" cy="22" r="7" fill="#00E5A0"/>
+            </svg>
+            <span class="lbl" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item">
+            <svg width="34" height="40" viewBox="0 0 34 40" fill="none">
+              <rect x="12" y="0" width="10" height="22" rx="5" fill="#3B9EFF"/>
+              <polygon points="17,40 1,18 33,18" fill="#3B9EFF"/>
+            </svg>
+            <span class="lbl" style="color:#3B9EFF;margin-top:4px">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>2 — Pulse + Arrow</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">3 טבעות GPS להתחלה. חץ מוצק כלפי מטה לסיום.</p>
+    </div>
+  </div>
+
+  <!-- P3: Solid circle + outline teardrop -->
+  <div class="card" data-choice="p3" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+              <circle cx="19" cy="19" r="14" fill="#00E5A0" filter="url(#g1)"/>
+              <defs><filter id="g1" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter></defs>
+            </svg>
+            <span class="lbl" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:-2px">
+            <svg width="30" height="43" viewBox="0 0 30 43" fill="none">
+              <path d="M15 0C6.716 0 0 6.716 0 15C0 27 15 43 15 43C15 43 30 27 30 15C30 6.716 23.284 0 15 0Z"
+                fill="rgba(59,158,255,0.15)" stroke="#3B9EFF" stroke-width="2.5"/>
+              <circle cx="15" cy="15" r="4" fill="#3B9EFF"/>
+            </svg>
+            <span class="lbl" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>3 — Glow Circle + Outline Pin</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">עיגול ירוק מלא עם glow. פין שקוף עם border לסיום.</p>
+    </div>
+  </div>
+
+  <!-- P4: Border circle + flag -->
+  <div class="card" data-choice="p4" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:flex-end">
+          <div class="marker-item">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+              <circle cx="19" cy="19" r="12" stroke="#00E5A0" stroke-width="3" fill="rgba(0,229,160,0.15)"
+                stroke-dasharray="4 2"/>
+            </svg>
+            <span class="lbl" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item">
+            <svg width="32" height="50" viewBox="0 0 32 50" fill="none">
+              <rect x="5" y="0" width="3" height="50" rx="1.5" fill="#3B9EFF" opacity="0.6"/>
+              <path d="M8 3 L32 11 L8 20 Z" fill="#3B9EFF"/>
+              <circle cx="6.5" cy="48" r="3.5" fill="#3B9EFF" opacity="0.4"/>
+            </svg>
+            <span class="lbl" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>4 — Dashed Ring + Flag</h3>
+      <p style="font-size:12px;color:#8899aa;margin-top:4px">עיגול מקווקו להתחלה. דגל סיום ספורטיבי.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center">ללא אותיות — צורה וצבע בלבד</p>

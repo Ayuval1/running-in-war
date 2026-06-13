@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>כרטיס מקלט — לפני ואחרי</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #070D18;
+      font-family: 'Rubik', sans-serif;
+      color: #E6F4F0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 48px 24px;
+    }
+
+    h1 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #3D7070;
+      text-transform: uppercase;
+    }
+
+    .row {
+      display: flex;
+      gap: 64px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .col-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .label-before { color: #FF4154; }
+    .label-after  { color: #00E5A0; }
+
+    /* ── Leaflet-like white wrapper (BEFORE) ── */
+    .leaflet-frame {
+      background: white;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    .leaflet-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid white;
+    }
+
+    /* ── Clean popup (AFTER) ── */
+    .clean-frame {
+      position: relative;
+    }
+    .clean-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #0F2035;
+    }
+
+    /* ── Card content (same in both) ── */
+    .card {
+      direction: rtl;
+      width: 220px;
+      background: #0F2035;
+      color: #E6F4F0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-family: 'Rubik', sans-serif;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 99px;
+      margin-bottom: 9px;
+      background: rgba(59,158,255,0.13);
+      color: #3B9EFF;
+      border: 1px solid rgba(59,158,255,0.35);
+    }
+
+    .shelter-name {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .shelter-address {
+      font-size: 12px;
+      color: #3D7070;
+      margin-bottom: 4px;
+    }
+    .shelter-notes {
+      font-size: 12px;
+      color: #8aa0b0;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .btn-edit {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-radius: 8px;
+      border: 1px solid rgba(59,158,255,0.4);
+      background: rgba(59,158,255,0.1);
+      color: #3B9EFF;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+    }
+    .btn-delete {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-radius: 8px;
+      border: 1px solid rgba(255,65,84,0.4);
+      background: rgba(255,65,84,0.1);
+      color: #FF4154;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    /* divider */
+    .divider {
+      width: 1px;
+      height: 200px;
+      background: rgba(255,255,255,0.06);
+      align-self: center;
+    }
+
+    /* annotation */
+    .annotation {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      max-width: 200px;
+      line-height: 1.5;
+    }
+    .annotation b { color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+
+  <h1>כרטיס מקלט — לפני ואחרי</h1>
+
+  <div class="row">
+
+    <!-- BEFORE -->
+    <div class="col">
+      <div class="col-label label-before">לפני — עם מסגרת לבנה</div>
+
+      <div class="leaflet-frame">
+        <div class="card">
+          <div><span class="badge">🏢 מחסן</span></div>
+          <p class="shelter-name">מקלט שכונת הכרמל</p>
+          <p class="shelter-address">רחוב הנביאים 12, חיפה</p>
+          <p class="shelter-notes">פתוח 24/7, קיבולת 40 איש</p>
+          <div class="actions">
+            <button class="btn-edit">ערוך</button>
+            <button class="btn-delete">מחק</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="annotation">
+        Leaflet מוסיף <b>רקע לבן + padding + צל</b><br>
+        מסביב לכרטיס
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- AFTER -->
+    <div class="col">
+      <div class="col-label label-after">אחרי — ללא מסגרת</div>
+
+      <div class="clean-frame">
+        <div class="card">
+          <div><span class="badge">🏢 מחסן</span></div>
+          <p class="shelter-name">מקלט שכונת הכרמל</p>
+          <p class="shelter-address">רחוב הנביאים 12, חיפה</p>
+          <p class="shelter-notes">פתוח 24/7, קיבולת 40 איש</p>
+          <div class="actions">
+            <button class="btn-edit">ערוך</button>
+            <button class="btn-delete">מחק</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="annotation">
+        הכרטיס הכהה ישירות,<br>
+        <b>עיצוב הכרטיס עצמו לא משתנה</b>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

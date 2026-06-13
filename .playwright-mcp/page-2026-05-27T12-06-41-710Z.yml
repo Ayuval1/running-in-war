@@ -1,0 +1,68 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - img [ref=e5]
+    - text: GPS לא זמין — מציג מרכז ישראל
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img [ref=e9]
+      - heading "ריצה בזמן מלחמה" [level=1] [ref=e11]
+    - generic [ref=e12]:
+      - button "הגדר מיקום בית" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+      - button "+ מקלט" [ref=e17] [cursor=pointer]:
+        - img [ref=e18]
+        - text: + מקלט
+  - generic [ref=e21]:
+    - generic:
+      - generic:
+        - button "🏢" [active] [ref=e22] [cursor=pointer]:
+          - generic [ref=e24]: 🏢
+        - button "🏢" [ref=e25] [cursor=pointer]:
+          - generic [ref=e27]: 🏢
+        - button "🏢" [ref=e28] [cursor=pointer]:
+          - generic [ref=e30]: 🏢
+        - button "🏢" [ref=e31] [cursor=pointer]:
+          - generic [ref=e33]: 🏢
+        - button "🏢" [ref=e34] [cursor=pointer]:
+          - generic [ref=e36]: 🏢
+        - button "🏢" [ref=e37] [cursor=pointer]:
+          - generic [ref=e39]: 🏢
+      - generic [ref=e82]:
+        - generic [ref=e85]:
+          - generic [ref=e87]: מקלט בניין
+          - generic [ref=e88]:
+            - button "ערוך" [ref=e89] [cursor=pointer]
+            - button "מחק" [ref=e90] [cursor=pointer]
+        - button "Close popup" [ref=e92] [cursor=pointer]: ×
+    - generic [ref=e40]:
+      - link "Leaflet" [ref=e41] [cursor=pointer]:
+        - /url: https://leafletjs.com
+        - img [ref=e42]
+        - text: Leaflet
+      - text: "| ©"
+      - link "OpenStreetMap" [ref=e46] [cursor=pointer]:
+        - /url: https://www.openstreetmap.org/copyright
+  - button "כפתור SOS — מצא מקלט קרוב" [ref=e47] [cursor=pointer]:
+    - img [ref=e48]
+    - generic [ref=e50]: SOS
+  - button "6 מקלטים" [ref=e51] [cursor=pointer]
+  - button "ערים" [ref=e53] [cursor=pointer]:
+    - img [ref=e54]
+    - generic [ref=e55]: ערים
+  - navigation "ניווט ראשי" [ref=e56]:
+    - link "בית" [ref=e57] [cursor=pointer]:
+      - /url: /
+      - img [ref=e59]
+      - generic [ref=e62]: בית
+    - link "מפה" [ref=e63] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e66]
+      - generic [ref=e68]: מפה
+    - link "מסלול" [ref=e69] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e71]
+      - generic [ref=e75]: מסלול
+    - link "פרופיל" [ref=e76] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e78]
+      - generic [ref=e81]: פרופיל

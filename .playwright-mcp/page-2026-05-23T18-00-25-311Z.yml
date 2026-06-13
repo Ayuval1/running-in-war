@@ -1,0 +1,70 @@
+- generic "מפות ‪Google‬‏" [ref=e2]:
+  - generic [ref=e3]:
+    - application "תצוגה ראשית" [ref=e8]
+    - search [ref=e13]:
+      - button "תפריט" [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: 
+      - generic [ref=e17]:
+        - combobox [ref=e19]: שביל רקפת 7
+        - button "חיפוש" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 
+        - button "סגירה" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 
+    - generic [ref=e26]:
+      - main [ref=e32]:
+        - button [active] [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+        - heading "שביל רקפת 7" [level=1] [ref=e41]: שביל רקפת 7
+        - region "פעולות לגבי שביל רקפת 7" [ref=e43]:
+          - button "מסלול" [ref=e45] [cursor=pointer]:
+            - generic [ref=e47]: 
+            - generic [ref=e48]: מסלול
+          - button "שמירה" [ref=e50] [cursor=pointer]:
+            - generic [ref=e52]: 
+            - generic [ref=e53]: שמירה
+          - button "בקרבת מקום" [ref=e55] [cursor=pointer]:
+            - generic [ref=e57]: 
+            - generic [ref=e58]: בקרבת מקום
+          - button "שליחה לטלפון" [ref=e60] [cursor=pointer]:
+            - generic [ref=e62]: 
+            - generic [ref=e63]: שליחה לטלפון
+          - button "שיתוף" [ref=e65] [cursor=pointer]:
+            - generic [ref=e67]: 
+            - generic [ref=e68]: שיתוף
+        - button "כתובת שביל רקפת 7, קרית מוצקין העתקת כתובת" [ref=e72]:
+          - generic [ref=e73]:
+            - img "כתובת" [ref=e74]: 
+            - generic [ref=e75]: שביל רקפת 7, קרית מוצקין
+            - button "העתקת כתובת" [ref=e77] [cursor=pointer]:
+              - generic [ref=e78]: 
+              - textbox [ref=e79]
+        - button "יש לאשר או לתקן את המיקום הזה המיקום שמוצג לא מדויק" [ref=e81] [cursor=pointer]:
+          - generic [ref=e82]:
+            - generic [ref=e84]: 
+            - generic [ref=e85]:
+              - generic [ref=e86]: יש לאשר או לתקן את המיקום הזה
+              - generic [ref=e87]: המיקום שמוצג לא מדויק
+        - button "שליחת הצעה לעריכה לגבי שביל רקפת 7" [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: 
+            - generic [ref=e92]: שליחת הצעה לעריכה לגבי שביל רקפת 7
+        - button "הוספת מקום חסר" [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]: 
+            - generic [ref=e97]: הוספת מקום חסר
+        - link "הוספת העסק שלך" [ref=e99] [cursor=pointer]:
+          - /url: https://business.google.com/create?service=plus&hl=iw&authuser=0&gmbsrc=il-iw-et-ip-z-gmb-s-z-l~mrc%7Cayb%7Cpg&skiplp=1
+          - generic [ref=e100]:
+            - generic [ref=e101]: 
+            - generic [ref=e102]: הוספת העסק שלך
+        - heading "תמונות" [level=2] [ref=e104]
+        - button "Street View" [ref=e107] [cursor=pointer]:
+          - img [ref=e109]
+        - heading "רוצה ליהנות מכל היתרונות של מפות Google? כניסה" [level=2] [ref=e117]:
+          - generic [ref=e118]: רוצה ליהנות מכל היתרונות של מפות Google?
+          - button "כניסה" [ref=e121] [cursor=pointer]:
+            - generic [ref=e123]: כניסה
+      - generic [ref=e124]:
+        - button "כיווץ של חלונית הצד" [ref=e125] [cursor=pointer]:
+          - generic [ref=e126]: 
+        - generic [ref=e127]: כיווץ של חלונית הצד

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #070D18; color: #e0e0e0; font-family: Rubik, sans-serif; padding: 20px; display: flex; flex-direction: column; gap: 32px; }
+  h1 { color: #00E5A0; font-size: 1.1rem; text-align: center; }
+
+  /* BUG SECTIONS */
+  .bug { background: #0F2035; border-radius: 16px; padding: 20px; border: 1px solid rgba(255,65,84,0.2); }
+  .bug-title { font-size: 1rem; font-weight: 900; color: #FF4154; margin-bottom: 4px; }
+  .bug-desc { font-size: 0.8rem; color: #8899aa; margin-bottom: 16px; line-height: 1.6; }
+  .fix-title { font-size: 0.85rem; font-weight: 700; color: #00E5A0; margin-bottom: 12px; }
+
+  .row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .card { flex: 1; min-width: 280px; background: #1a2530; border-radius: 12px; overflow: hidden; }
+  .card.bad  { border: 2px solid rgba(255,65,84,0.5); }
+  .card.good { border: 2px solid rgba(0,229,160,0.5); }
+  .map-box { height: 220px; position: relative; }
+  .map-box > div { height: 100%; width: 100%; }
+  .label { padding: 10px 14px; }
+  .label-tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-bottom: 5px; }
+  .tag-bad  { background: rgba(255,65,84,0.15);  color: #FF4154;  border: 1px solid rgba(255,65,84,0.3); }
+  .tag-good { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .label-text { font-size: 0.8rem; color: #8899aa; line-height: 1.5; }
+
+  .divider { height: 1px; background: rgba(255,255,255,0.05); margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<h1>🐛 שני הבאגים — ויזואלי</h1>
+
+<!-- BUG 1 -->
+<div class="bug">
+  <div class="bug-title">באג #1 — ריצה מהבית: מפה לא מרכזת</div>
+  <div class="bug-desc">
+    במצב "ריצה מהבית" — אחרי שלוחצים חשב מסלול — OSRM מחשב את המסלול האמיתי.<br>
+    אם OSRM <strong>נכשל</strong> (timeout / אין אינטרנט) → geometry = null → המפה לא זזה בכלל.<br>
+    גם כשמצליח: geometry מגיע אחרי כמה שניות, המשתמש רואה מסלול לא ממורכז.
+  </div>
+  <div class="row">
+    <div class="card bad">
+      <div class="map-box"><div id="m1-bad"></div></div>
+      <div class="label">
+        <span class="label-tag tag-bad">❌ עכשיו — OSRM נכשל</span>
+        <div class="label-text">לחצת "חשב מסלול", OSRM timeout — המפה נשארת איפה שהיתה. המסלול מצוייר אבל לא נראה במסך.</div>
+      </div>
+    </div>
+    <div class="card good">
+      <div class="map-box"><div id="m1-good"></div></div>
+      <div class="label">
+        <span class="label-tag tag-good">✅ אחרי תיקון</span>
+        <div class="label-text">גם בלי OSRM — MapFlyTo עושה fitBounds על waypoints של המסלול הישיר. תמיד רואים את כל המסלול.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUG 2 -->
+<div class="bug">
+  <div class="bug-title">באג #2 — markers א׳/ב׳ נעלמים אחרי חישוב</div>
+  <div class="bug-desc">
+    הקוד: <code style="background:#0a1628;padding:2px 6px;border-radius:4px;color:#3B9EFF">startPoint && !route</code> — כשיש route, markers נמחקים.<br>
+    המשתמש לא יודע איפה ב׳ (היעד) על המפה לאחר שהמסלול מוצג.
+  </div>
+  <div class="row">
+    <div class="card bad">
+      <div class="map-box"><div id="m2-bad"></div></div>
+      <div class="label">
+        <span class="label-tag tag-bad">❌ עכשיו — markers נעלמים</span>
+        <div class="label-text">יש מסלול ירוק — אבל לא ברור איפה נקודה א׳ ואיפה ב׳. המשתמש צריך לנחש.</div>
+      </div>
+    </div>
+    <div class="card good">
+      <div class="map-box"><div id="m2-good"></div></div>
+      <div class="label">
+        <span class="label-tag tag-good">✅ אחרי תיקון</span>
+        <div class="label-text">markers א׳ ו-ב׳ תמיד נראים — גם כשהמסלול מצוייר. ברור לאן הולכים.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TILE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+// Simulated circular route (home run) — 3km loop in Haifa area
+const HOME = [32.8155, 35.0795]
+const LOOP = [
+  [32.8155, 35.0795],
+  [32.8170, 35.0820],
+  [32.8190, 35.0835],
+  [32.8210, 35.0810],
+  [32.8200, 35.0780],
+  [32.8175, 35.0755],
+  [32.8155, 35.0795],
+]
+
+// Point-to-point route
+const A = [32.8155, 35.0795]
+const B = [32.8132, 35.0766]
+const ROUTE_AB = [
+  A,
+  [32.8148, 35.0788],
+  [32.8141, 35.0779],
+  [32.8137, 35.0773],
+  B,
+]
+
+function makeStartIcon() {
+  return L.divIcon({ className:'', iconSize:[32,32], iconAnchor:[16,16],
+    html:`<div style="width:32px;height:32px;border-radius:50%;background:rgba(0,229,160,0.18);border:3px solid #00E5A0;box-shadow:0 0 0 5px rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#00E5A0;font-family:Rubik,sans-serif;">א</div>` })
+}
+function makeEndIcon() {
+  return L.divIcon({ className:'', iconSize:[26,37], iconAnchor:[13,37],
+    html:`<div style="position:relative;width:26px;height:37px"><svg width="26" height="37" viewBox="0 0 26 37" fill="none"><path d="M13 0C5.82 0 0 5.82 0 13C0 23 13 37 13 37C13 37 26 23 26 13C26 5.82 20.18 0 13 0Z" fill="#3B9EFF"/></svg><div style="position:absolute;top:5px;left:0;right:0;text-align:center;font-size:11px;font-weight:900;color:#0f1923;font-family:Rubik,sans-serif;">ב</div></div>` })
+}
+
+// --- Bug 1 BAD: map stays at HOME zoom, route not visible ---
+const m1bad = L.map('m1-bad', { zoomControl:false, attributionControl:false })
+L.tileLayer(TILE).addTo(m1bad)
+m1bad.setView(HOME, 15) // zoom too tight, won't show the loop
+L.polyline(LOOP, { color:'#00E5A0', weight:4, opacity:0.85 }).addTo(m1bad)
+L.marker(HOME, { icon: makeStartIcon() }).addTo(m1bad)
+// route extends but map stays at zoom 15 on start point — loop not visible
+
+// --- Bug 1 GOOD: fitBounds on waypoints ---
+const m1good = L.map('m1-good', { zoomControl:false, attributionControl:false })
+L.tileLayer(TILE).addTo(m1good)
+L.polyline(LOOP, { color:'#00E5A0', weight:4, opacity:0.85 }).addTo(m1good)
+L.marker(HOME, { icon: makeStartIcon() }).addTo(m1good)
+m1good.fitBounds(LOOP, { padding:[30,30] }) // always shows full route
+
+// --- Bug 2 BAD: markers hidden after route ---
+const m2bad = L.map('m2-bad', { zoomControl:false, attributionControl:false })
+L.tileLayer(TILE).addTo(m2bad)
+L.polyline(ROUTE_AB, { color:'#00E5A0', weight:4, opacity:0.85 }).addTo(m2bad)
+// No markers! (simulating !route condition removing them)
+m2bad.fitBounds(ROUTE_AB, { padding:[30,30] })
+
+// --- Bug 2 GOOD: markers stay ---
+const m2good = L.map('m2-good', { zoomControl:false, attributionControl:false })
+L.tileLayer(TILE).addTo(m2good)
+L.polyline(ROUTE_AB, { color:'#00E5A0', weight:4, opacity:0.85 }).addTo(m2good)
+L.marker(A, { icon: makeStartIcon() }).addTo(m2good)
+L.marker(B, { icon: makeEndIcon()   }).addTo(m2good)
+m2good.fitBounds(ROUTE_AB, { padding:[30,30] })
+</script>
+</body>
+</html>

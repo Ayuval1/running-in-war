@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #0f1923; color: #e0e0e0; font-family: Rubik, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; gap: 40px; padding: 20px; }
+  h1 { color: #00E5A0; font-size: 1.3rem; margin: 0; }
+  .row { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+  .card { background: #1a2530; border-radius: 16px; padding: 20px; width: 300px; }
+  .card h2 { font-size: 1rem; margin: 0 0 12px; }
+  .bad h2 { color: #FF4154; }
+  .good h2 { color: #00E5A0; }
+  .map { border-radius: 10px; overflow: hidden; position: relative; height: 200px; background: #2d4a2d; border: 2px solid #333; }
+  .map-label { position: absolute; top: 8px; right: 8px; font-size: 11px; background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 6px; color: #aaa; }
+  .trees { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; opacity: 0.4; letter-spacing: 6px; }
+  .marker-start { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .ring { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,229,160,0.18); border: 3px solid #00E5A0; box-shadow: 0 0 0 6px rgba(0,229,160,0.2), 0 0 0 12px rgba(0,229,160,0.08); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #00E5A0; }
+  .pin { position: relative; }
+  .pin svg { display: block; }
+  .pin-letter { position: absolute; top: 7px; left: 0; right: 0; text-align: center; font-size: 13px; font-weight: 900; color: #0f1923; }
+
+  /* Bad state: marker off screen */
+  .bad .map { overflow: hidden; }
+  .bad .marker-off { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); opacity: 0.4; }
+  .bad .arrow-off { position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; }
+
+  /* Good state: map panned */
+  .good-map { background: #8db0d0; }
+  .good-map .trees { display: none; }
+  .telaviv-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #6a9ab8 0%, #8db0cc 50%, #a0bece 100%); }
+  .street-h { position: absolute; background: #b8c8d0; opacity: 0.6; }
+  .street-v { position: absolute; background: #b8c8d0; opacity: 0.6; }
+  .good .marker-start { top: 40%; left: 50%; transform: translate(-50%, -50%); }
+
+  .explain { font-size: 0.82rem; color: #8899aa; margin-top: 12px; line-height: 1.6; }
+  .code { background: #0f1923; border-radius: 8px; padding: 10px 14px; font-family: monospace; font-size: 0.8rem; color: #00E5A0; margin-top: 16px; white-space: pre; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; }
+  .tag-bad { background: rgba(255,65,84,0.15); color: #FF4154; border: 1px solid rgba(255,65,84,0.3); }
+  .tag-good { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+
+  .offscreen-label { position: absolute; bottom: 8px; right: 8px; font-size: 10px; background: rgba(255,65,84,0.15); color: #FF4154; border: 1px solid rgba(255,65,84,0.3); padding: 2px 8px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<h1>🗺️ למה marker א׳ לא נראה?</h1>
+
+<div class="row">
+
+  <!-- BAD -->
+  <div class="card bad">
+    <span class="tag tag-bad">❌ מצב נוכחי</span>
+    <h2>משתמש בחר "דיזנגוף 1 ת"א"</h2>
+    <div class="map">
+      <div class="trees">🌲🌲🌲🌲</div>
+      <div class="map-label">מפה מוצגת: יער אמציה</div>
+      <!-- marker is off screen -->
+      <div class="marker-off marker-start">
+        <div class="ring">א</div>
+      </div>
+      <div class="arrow-off">→</div>
+      <div class="offscreen-label">marker א׳ מחוץ למסך →</div>
+    </div>
+    <p class="explain">
+      ✅ <strong>startPoint</strong> מוגדר לתל אביב<br>
+      ✅ &lt;Marker&gt; ממוקם בקואורדינטות הנכונות<br>
+      ❌ <strong>המפה לא זזה</strong> — נשארת איפה שהייתה
+    </p>
+  </div>
+
+  <!-- GOOD -->
+  <div class="card good">
+    <span class="tag tag-good">✅ אחרי התיקון</span>
+    <h2>המפה עושה flyTo אוטומטית</h2>
+    <div class="map good-map">
+      <div class="telaviv-bg"></div>
+      <!-- Tel Aviv streets sketch -->
+      <div class="street-h" style="top:35%;left:0;right:0;height:6px;"></div>
+      <div class="street-h" style="top:60%;left:0;right:0;height:4px;"></div>
+      <div class="street-v" style="left:40%;top:0;bottom:0;width:4px;"></div>
+      <div class="street-v" style="left:65%;top:0;bottom:0;width:3px;"></div>
+      <div class="map-label">מפה מוצגת: תל אביב</div>
+      <div class="marker-start" style="position:absolute;top:30%;left:40%;transform:translate(-50%,-50%);">
+        <div class="ring">א</div>
+      </div>
+    </div>
+    <p class="explain">
+      ✅ startPoint מוגדר לתל אביב<br>
+      ✅ &lt;Marker&gt; ממוקם בקואורדינטות הנכונות<br>
+      ✅ <strong>map.flyTo(startPoint)</strong> — המפה זזה לנקודה
+    </p>
+  </div>
+
+</div>
+
+<div class="card" style="width:620px;max-width:90vw;">
+  <span class="tag tag-good">הפתרון — קוד</span>
+  <div class="code">// קומפוננט פנימי בתוך &lt;MapContainer&gt;
+function MapFlyTo({ startPoint, endPoint }) {
+  const map = useMap()   // hook מ-react-leaflet
+
+  useEffect(() => {
+    if (startPoint) map.flyTo([startPoint.lat, startPoint.lng], 15)
+  }, [startPoint])
+
+  useEffect(() => {
+    if (endPoint) map.flyTo([endPoint.lat, endPoint.lng], 15)
+  }, [endPoint])
+
+  return null
+}</div>
+</div>
+
+</body>
+</html>

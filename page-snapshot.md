@@ -1,0 +1,80 @@
+- generic [ref=e7]:
+  - generic [ref=e8]:
+    - img "RunningINWar" [ref=e9]
+    - generic [ref=e13]: GPS...
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]: ✅
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: מוכן לחלוטין!
+          - generic [ref=e20]: 100%
+        - generic [ref=e23]: 6 מקלטים סומנו
+    - button "SOS — מצא מקלט קרוב ממתין למיקום..." [disabled] [ref=e24] [cursor=pointer]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - img [ref=e27]
+          - generic [ref=e29]: SOS — מצא מקלט קרוב
+        - generic [ref=e30]: ממתין למיקום...
+    - generic [ref=e31]:
+      - generic [ref=e33]: מקלטים קרובים
+      - generic [ref=e35]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e36] [cursor=pointer]:
+          - paragraph [ref=e37]: מקלט בניין
+          - generic [ref=e38]: 🏢 מקלט בניין
+        - button [ref=e39] [cursor=pointer]:
+          - img [ref=e40]
+      - generic [ref=e43]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e44] [cursor=pointer]:
+          - paragraph [ref=e45]: מקלט בניין
+          - generic [ref=e46]: 🏢 מקלט בניין
+        - button [ref=e47] [cursor=pointer]:
+          - img [ref=e48]
+      - generic [ref=e51]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e52] [cursor=pointer]:
+          - paragraph [ref=e53]: מקלט בניין
+          - generic [ref=e54]: 🏢 מקלט בניין
+        - button [ref=e55] [cursor=pointer]:
+          - img [ref=e56]
+      - generic [ref=e59]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e60] [cursor=pointer]:
+          - paragraph [ref=e61]: מקלט בניין
+          - generic [ref=e62]: 🏢 מקלט בניין
+        - button [ref=e63] [cursor=pointer]:
+          - img [ref=e64]
+      - generic [ref=e67]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e68] [cursor=pointer]:
+          - paragraph [ref=e69]: מקלט בניין
+          - generic [ref=e70]: 🏢 מקלט בניין
+        - button [ref=e71] [cursor=pointer]:
+          - img [ref=e72]
+      - generic [ref=e75]:
+        - button "מקלט בניין 🏢 מקלט בניין" [ref=e76] [cursor=pointer]:
+          - paragraph [ref=e77]: מקלט בניין
+          - generic [ref=e78]: 🏢 מקלט בניין
+        - button [ref=e79] [cursor=pointer]:
+          - img [ref=e80]
+    - generic [ref=e83]:
+      - button "מפה" [ref=e84] [cursor=pointer]:
+        - img [ref=e85]
+        - text: מפה
+      - button "מסלול" [ref=e87] [cursor=pointer]:
+        - img [ref=e88]
+        - text: מסלול
+  - navigation "ניווט ראשי" [ref=e92]:
+    - link "בית" [ref=e93] [cursor=pointer]:
+      - /url: /
+      - img [ref=e96]
+      - generic [ref=e99]: בית
+    - link "מפה" [ref=e100] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e102]
+      - generic [ref=e104]: מפה
+    - link "מסלול" [ref=e105] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e107]
+      - generic [ref=e111]: מסלול
+    - link "פרופיל" [ref=e112] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e114]
+      - generic [ref=e117]: פרופיל

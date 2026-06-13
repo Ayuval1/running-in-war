@@ -1,0 +1,414 @@
+- generic [active] [ref=e1]:
+  - img "The Butterfly Button" [ref=e2] [cursor=pointer]
+  - link "דלג לתוכן העמוד" [ref=e3] [cursor=pointer]:
+    - /url: /%D7%9E%D7%A7%D7%9C%D7%98%D7%99%D7%9D-%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D/#content
+  - button " תפריט נגישות" [ref=e4] [cursor=pointer]:
+    - generic [ref=e5]:
+      - emphasis [ref=e6]: 
+      - generic [ref=e7]: תפריט נגישות
+  - banner [ref=e8]:
+    - link "לוגו קריית מוצקין" [ref=e10] [cursor=pointer]:
+      - /url: ./
+      - img "לוגו קריית מוצקין" [ref=e11]
+    - generic [ref=e12]:
+      - text:  
+      - generic [ref=e13]:
+        - link "חיפוש" [ref=e14] [cursor=pointer]:
+          - /url: ""
+          - generic [ref=e15]: חיפוש
+        - link "תפריט" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e21]: תפריט
+    - generic [ref=e22]:
+      - link "מרחב אישי לתושב" [ref=e23] [cursor=pointer]:
+        - /url: ./מרחב-אישי-לתושב/
+      - generic:
+        - link "אתר פיקוד העורף":
+          - /url: https://www.oref.org.il/
+          - generic [ref=e24] [cursor=pointer]: אתר פיקוד העורף
+        - link "לעמוד האינסטגרם שלנו":
+          - /url: https://www.instagram.com/kiryatmotzkin/
+          - generic [ref=e25] [cursor=pointer]: לעמוד האינסטגרם שלנו
+        - link "לעמוד הפייסבוק שלנו":
+          - /url: https://www.facebook.com/Kiryat.Motzkin
+          - generic [ref=e26] [cursor=pointer]: לעמוד הפייסבוק שלנו
+      - text: 
+  - generic [ref=e30]:
+    - generic [ref=e32]:
+      - link "תפריט צדדי. לחץ לדילוג על איזור זה" [ref=e33] [cursor=pointer]:
+        - /url: "#"
+      - text:           
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e38]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: אני מעוניין
+            - combobox "אני מעוניין" [ref=e42]:
+              - option "לשלם" [selected]
+              - option "לקבל מידע"
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - generic [ref=e46]: בחר
+                - combobox "בחר" [ref=e47]:
+                  - option "תשלומי ארנונה" [selected]
+                  - option "תשלומי מים וביוב"
+                  - option "תשלום אגרת אשפה"
+                  - option "תשלום אגרת שילוט לוחות מודעות"
+                  - option "תשלום דו\"חות פיקוח וטרינרי"
+                  - option "תשלומי הורים"
+                  - option "קנסות פיקוח עירוני וחניה"
+              - button "בצע " [ref=e48]:
+                - text: בצע
+                - emphasis [ref=e49]: 
+            - text: 
+        - generic [ref=e50]:
+          - list "מיקומך בדפי האתר" [ref=e52]:
+            - listitem [ref=e53]:
+              - link "דף הבית" [ref=e54] [cursor=pointer]:
+                - /url: https://www.kiryat-motzkin.muni.il/
+              - text: 
+            - listitem [ref=e55]:
+              - link "אתר בחירום" [ref=e56] [cursor=pointer]:
+                - /url: ./אתר-בחירום/
+              - text: 
+            - listitem [ref=e57]:
+              - link "מקלטים ציבוריים" [ref=e58] [cursor=pointer]:
+                - /url: ./מקלטים-ציבוריים/
+          - heading "מקלטים ציבוריים" [level=1] [ref=e59]
+        - main [ref=e61]:
+          - generic [ref=e62]:
+            - heading "אגף חירום וביטחון" [level=2] [ref=e63]
+            - paragraph [ref=e64]
+            - paragraph [ref=e65]:
+              - generic [ref=e66]:
+                - link "לחצו כאן להתמצאות ע\"ג המפה העירונית" [ref=e67] [cursor=pointer]:
+                  - /url: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fkiryatmotzkin.maps.arcgis.com%2Fapps%2Finstant%2Fnearby%2Findex.html%3Fappid%3D769bf3d3523b49b59ddd83f70aa1345b%26locale%3Dhe&data=05%7C02%7Cavi-t%40motzkin.org%7C63e3cf9080454ef362d508ddae841a63%7C5638159340fc411180edd3dbbc2faf03%7C1%7C0%7C638858604593040040%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=LE88MEE%2BtLv2FP%2FQB1xfanmxurjJFyHEsXZIJGgWDiM%3D&reserved=0
+                  - strong [ref=e69]: לחצו כאן להתמצאות ע"ג המפה העירונית
+                - strong [ref=e71]
+              - generic [ref=e72]: תודה לאסף רוזנפלד ולליאור אורקין מחברת סיסטמטיקס על הסיוע בהכנת המפה
+            - paragraph [ref=e73]:
+              - strong [ref=e75]: רשימת מקלטים ציבוריים
+            - table [ref=e76]:
+              - rowgroup [ref=e77]:
+                - row "מס' מקלט כתובת + שימוש" [ref=e78]:
+                  - columnheader "מס' מקלט" [ref=e79]:
+                    - paragraph [ref=e80]: מס' מקלט
+                  - columnheader "כתובת + שימוש" [ref=e81]:
+                    - paragraph [ref=e82]: כתובת + שימוש
+              - rowgroup [ref=e83]:
+                - row "1 גושן 1 א (בית כנסת)" [ref=e84]:
+                  - cell "1" [ref=e85]:
+                    - paragraph [ref=e86]: "1"
+                  - cell "גושן 1 א (בית כנסת)" [ref=e87]:
+                    - paragraph [ref=e88]:
+                      - link "גושן 1 א (בית כנסת)" [ref=e89] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/Rqos4GF7MWZvcGvm6
+                - row "2 גושן 2 (ריק)" [ref=e90]:
+                  - cell "2" [ref=e91]:
+                    - paragraph [ref=e92]: "2"
+                  - cell "גושן 2 (ריק)" [ref=e93]:
+                    - paragraph [ref=e94]:
+                      - link "גושן 2 (ריק)" [ref=e95] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/vgD6LikpwBohmpou5
+                - row "3 דבורה 30 (ריק)" [ref=e96]:
+                  - cell "3" [ref=e97]:
+                    - paragraph [ref=e98]: "3"
+                  - cell "דבורה 30 (ריק)" [ref=e99]:
+                    - paragraph [ref=e100]:
+                      - link "דבורה 30 (ריק)" [ref=e101] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/KACtie3JmQTvXxXv5
+                - row "4 כצנלסון 8 (ריק)" [ref=e102]:
+                  - cell "4" [ref=e103]:
+                    - paragraph [ref=e104]: "4"
+                  - cell "כצנלסון 8 (ריק)" [ref=e105]:
+                    - paragraph [ref=e106]:
+                      - link "כצנלסון 8 (ריק)" [ref=e107] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/wg9EKsk58zhtv57X9
+                - row "5 רוקח 12 (מועדון נערות)" [ref=e108]:
+                  - cell "5" [ref=e109]:
+                    - paragraph [ref=e110]: "5"
+                  - cell "רוקח 12 (מועדון נערות)" [ref=e111]:
+                    - paragraph [ref=e112]:
+                      - link "רוקח 12 (מועדון נערות)" [ref=e113] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/JBKB6ohBZN2uyvj89
+                - row "6 ברק 31 (אחדות אולם ספורט)" [ref=e114]:
+                  - cell "6" [ref=e115]:
+                    - paragraph [ref=e116]: "6"
+                  - cell "ברק 31 (אחדות אולם ספורט)" [ref=e117]:
+                    - paragraph [ref=e118]:
+                      - link "ברק 31 (אחדות אולם ספורט)" [ref=e119] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/94U89433kgwWQK357
+                - row "7 קק\"ל 23 ב' (מועדון וטרנים)" [ref=e120]:
+                  - cell "7" [ref=e121]:
+                    - paragraph [ref=e122]: "7"
+                  - cell "קק\"ל 23 ב' (מועדון וטרנים)" [ref=e123]:
+                    - paragraph [ref=e124]:
+                      - link "קק\"ל 23 ב' (מועדון וטרנים)" [ref=e125] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/h5euVyLdYnCUneiD7
+                - row "8 קק\"ל 8 (בית כנסת)" [ref=e126]:
+                  - cell "8" [ref=e127]:
+                    - paragraph [ref=e128]: "8"
+                  - cell "קק\"ל 8 (בית כנסת)" [ref=e129]:
+                    - paragraph [ref=e130]:
+                      - link "קק\"ל 8 (בית כנסת)" [ref=e131] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/nXonUr2Ywi9REooK6
+                - row "9 רנ\"ס 37 (מחסן ביגוד)" [ref=e132]:
+                  - cell "9" [ref=e133]:
+                    - paragraph [ref=e134]: "9"
+                  - cell "רנ\"ס 37 (מחסן ביגוד)" [ref=e135]:
+                    - paragraph [ref=e136]:
+                      - link "רנ\"ס 37 (מחסן ביגוד)" [ref=e137] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/wjaJUDZ7cMLfZAVYA
+                - row "10 נתיב הבנים 9 (מרכז הנוער אלי כהן)" [ref=e138]:
+                  - cell "10" [ref=e139]:
+                    - paragraph [ref=e140]: "10"
+                  - cell "נתיב הבנים 9 (מרכז הנוער אלי כהן)" [ref=e141]:
+                    - paragraph [ref=e142]:
+                      - link "נתיב הבנים 9 (מרכז הנוער אלי כהן)" [ref=e143] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/169j7X1ShhUTKSWT8
+                - row "11 נתיב העלייה 9 (בית כנסת)" [ref=e144]:
+                  - cell "11" [ref=e145]:
+                    - paragraph [ref=e146]: "11"
+                  - cell "נתיב העלייה 9 (בית כנסת)" [ref=e147]:
+                    - paragraph [ref=e148]:
+                      - link "נתיב העלייה 9 (בית כנסת)" [ref=e149] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/8xdQ3ednyaZgoyhf6
+                - row "12 הילדים 22 (ריק)" [ref=e150]:
+                  - cell "12" [ref=e151]:
+                    - paragraph [ref=e152]: "12"
+                  - cell "הילדים 22 (ריק)" [ref=e153]:
+                    - paragraph [ref=e154]:
+                      - link "הילדים 22 (ריק)" [ref=e155] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/PW482Ck2f8Zaqs1G8
+                - row "13 ויצמן 25 (צהרון)" [ref=e156]:
+                  - cell "13" [ref=e157]:
+                    - paragraph [ref=e158]: "13"
+                  - cell "ויצמן 25 (צהרון)" [ref=e159]:
+                    - paragraph [ref=e160]:
+                      - link "ויצמן 25 (צהרון)" [ref=e161] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/EH3y8iZecTFRTy5X9
+                - row "14 ז'בוטינסקי 13 (בני עקיבא)" [ref=e162]:
+                  - cell "14" [ref=e163]:
+                    - paragraph [ref=e164]: "14"
+                  - cell "ז'בוטינסקי 13 (בני עקיבא)" [ref=e165]:
+                    - paragraph [ref=e166]:
+                      - link "ז'בוטינסקי 13 (בני עקיבא)" [ref=e167] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/vY4wW2gGWX5ZQboB6
+                - row "15 אח\"י אילת 15 (האגודה למען החיל)" [ref=e168]:
+                  - cell "15" [ref=e169]:
+                    - paragraph [ref=e170]: "15"
+                  - cell "אח\"י אילת 15 (האגודה למען החיל)" [ref=e171]:
+                    - paragraph [ref=e172]:
+                      - link "אח\"י אילת 15 (האגודה למען החיל)" [ref=e173] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/vcEaSm1Ggjq88WTv8
+                - row "16 ז'בוטינסקי 31 (צהרון)" [ref=e174]:
+                  - cell "16" [ref=e175]:
+                    - paragraph [ref=e176]: "16"
+                  - cell "ז'בוטינסקי 31 (צהרון)" [ref=e177]:
+                    - paragraph [ref=e178]:
+                      - link "ז'בוטינסקי 31 (צהרון)" [ref=e179] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/V9m8Hxrv3erPEzZ18
+                - row "17 טרומפלדור 9 (ריק)" [ref=e180]:
+                  - cell "17" [ref=e181]:
+                    - paragraph [ref=e182]: "17"
+                  - cell "טרומפלדור 9 (ריק)" [ref=e183]:
+                    - paragraph [ref=e184]:
+                      - link "טרומפלדור 9 (ריק)" [ref=e185] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/uieuUtVuBABvD7K37
+                - row "18 שביל כלנית 5 (מועדון לימודי)" [ref=e186]:
+                  - cell "18" [ref=e187]:
+                    - paragraph [ref=e188]: "18"
+                  - cell "שביל כלנית 5 (מועדון לימודי)" [ref=e189]:
+                    - paragraph [ref=e190]:
+                      - link "שביל כלנית 5 (מועדון לימודי)" [ref=e191] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/Weikej2kHpjp4tCG9
+                - row "19 שביל רקפת 7 (מועדון לימודי)" [ref=e192]:
+                  - cell "19" [ref=e193]:
+                    - paragraph [ref=e194]: "19"
+                  - cell "שביל רקפת 7 (מועדון לימודי)" [ref=e195]:
+                    - paragraph [ref=e196]:
+                      - link "שביל רקפת 7 (מועדון לימודי)" [ref=e197] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/X2imQ7ByAWWqPjSt8
+                - row "20 יוספטל 30 (אולפן)" [ref=e198]:
+                  - cell "20" [ref=e199]:
+                    - paragraph [ref=e200]: "20"
+                  - cell "יוספטל 30 (אולפן)" [ref=e201]:
+                    - paragraph [ref=e202]:
+                      - link "יוספטל 30 (אולפן)" [ref=e203] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/AHn6ug3nru55Q7m69
+                - row "21 יוספטל 25 (ריק)" [ref=e204]:
+                  - cell "21" [ref=e205]:
+                    - paragraph [ref=e206]: "21"
+                  - cell "יוספטל 25 (ריק)" [ref=e207]:
+                    - paragraph [ref=e208]:
+                      - link "יוספטל 25 (ריק)" [ref=e209] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/qqhdskS9XGX8TEpRA
+                - row "22 גן העצמאות 2 (בית כנסת)" [ref=e210]:
+                  - cell "22" [ref=e211]:
+                    - paragraph [ref=e212]: "22"
+                  - cell "גן העצמאות 2 (בית כנסת)" [ref=e213]:
+                    - paragraph [ref=e214]:
+                      - link "גן העצמאות 2 (בית כנסת)" [ref=e215] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/XxporJVVKwG7QT3i8
+                - row "23 גן העצמאות 14 (מועדון שחמט)" [ref=e216]:
+                  - cell "23" [ref=e217]:
+                    - paragraph [ref=e218]: "23"
+                  - cell "גן העצמאות 14 (מועדון שחמט)" [ref=e219]:
+                    - paragraph [ref=e220]:
+                      - link "גן העצמאות 14 (מועדון שחמט)" [ref=e221] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/wEmRigRemhiKbrFk9
+                - row "24 שפרינצק 13 (אקי\"ם)" [ref=e222]:
+                  - cell "24" [ref=e223]:
+                    - paragraph [ref=e224]: "24"
+                  - cell "שפרינצק 13 (אקי\"ם)" [ref=e225]:
+                    - paragraph [ref=e226]:
+                      - link "שפרינצק 13 (אקי\"ם)" [ref=e227] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/uUnjf2QZ8VZ4m3qb9
+                - row "25 הרב יוסף לוי 1 (בית הכנסת שלטי גיבורים)" [ref=e228]:
+                  - cell "25" [ref=e229]:
+                    - paragraph [ref=e230]: "25"
+                  - cell "הרב יוסף לוי 1 (בית הכנסת שלטי גיבורים)" [ref=e231]:
+                    - paragraph [ref=e232]:
+                      - link "הרב יוסף לוי 1 (בית הכנסת שלטי גיבורים)" [ref=e233] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/JMALjVREUXZiWvAE7
+                - row "26 דקר 4 (פתחון לב)" [ref=e234]:
+                  - cell "26" [ref=e235]:
+                    - paragraph [ref=e236]: "26"
+                  - cell "דקר 4 (פתחון לב)" [ref=e237]:
+                    - paragraph [ref=e238]:
+                      - link "דקר 4 (פתחון לב)" [ref=e239] [cursor=pointer]:
+                        - /url: https://maps.app.goo.gl/3SeX8VYhn19GajEG8
+                - row [ref=e240]:
+                  - cell [ref=e241]:
+                    - paragraph [ref=e242]
+                  - cell [ref=e243]:
+                    - paragraph [ref=e244]
+      - navigation [ref=e246]:
+        - heading "עוד באתר בחירום" [level=2] [ref=e247]
+        - list [ref=e249]:
+          - menuitem " פורטל אתר בחירום" [ref=e250]:
+            - generic [ref=e251]:
+              - button "" [ref=e252]
+              - link "פורטל אתר בחירום" [ref=e253] [cursor=pointer]:
+                - /url: https://www.oref.org.il/
+                - emphasis
+                - text: פורטל אתר בחירום
+          - menuitem " אתר פיקוד העורף לילדים" [ref=e254]:
+            - generic [ref=e255]:
+              - button "" [ref=e256]
+              - link "אתר פיקוד העורף לילדים" [ref=e257] [cursor=pointer]:
+                - /url: https://kids.gov.il/oref
+                - emphasis
+                - text: אתר פיקוד העורף לילדים
+          - menuitem " מקלטים ציבוריים" [ref=e258]:
+            - generic [ref=e259]:
+              - button "" [ref=e260]
+              - link "מקלטים ציבוריים" [ref=e261] [cursor=pointer]:
+                - /url: ./מקלטים-ציבוריים/
+                - emphasis
+                - text: מקלטים ציבוריים
+          - menuitem " התנדבות לחירום" [ref=e262]:
+            - generic [ref=e263]:
+              - button "" [ref=e264]
+              - link "התנדבות לחירום" [ref=e265] [cursor=pointer]:
+                - /url: ./התנדבות-לחירום/
+                - emphasis
+                - text: התנדבות לחירום
+          - menuitem " משק לשעת חירום" [ref=e266]:
+            - generic [ref=e267]:
+              - button "" [ref=e268]
+              - link "משק לשעת חירום" [ref=e269] [cursor=pointer]:
+                - /url: ./משק-לשעת-חירום/
+                - emphasis
+                - text: משק לשעת חירום
+          - menuitem " רעידת אדמה" [ref=e270]:
+            - generic [ref=e271]:
+              - button "" [ref=e272]
+              - link "רעידת אדמה" [ref=e273] [cursor=pointer]:
+                - /url: ./רעידת-אדמה/
+                - emphasis
+                - text: רעידת אדמה
+          - menuitem " הנחיות התגוננות" [ref=e274]:
+            - generic [ref=e275]:
+              - button "" [ref=e276]
+              - link "הנחיות התגוננות" [ref=e277] [cursor=pointer]:
+                - /url: ./הנחיות-התגוננות/
+                - emphasis
+                - text: הנחיות התגוננות
+          - menuitem " חומרים מסוכנים" [ref=e278]:
+            - generic [ref=e279]:
+              - button "" [ref=e280]
+              - link "חומרים מסוכנים" [ref=e281] [cursor=pointer]:
+                - /url: ./חומרים-מסוכנים/
+                - emphasis
+                - text: חומרים מסוכנים
+          - menuitem " הנחיות התגוננות בעת ירי טילים" [ref=e282]:
+            - generic [ref=e283]:
+              - button "" [ref=e284]
+              - link "הנחיות התגוננות בעת ירי טילים" [ref=e285] [cursor=pointer]:
+                - /url: ./הנחיות-התגוננות-בעת-ירי-טילים/
+                - emphasis
+                - text: הנחיות התגוננות בעת ירי טילים
+          - menuitem " שירותים חיוניים בשעת חירום" [ref=e286]:
+            - generic [ref=e287]:
+              - button "" [ref=e288]
+              - link "שירותים חיוניים בשעת חירום" [ref=e289] [cursor=pointer]:
+                - /url: ./0-1657095244-שירותים-חיוניים-בשעת-חירום/
+                - emphasis
+                - text: שירותים חיוניים בשעת חירום
+          - menuitem " ועדות מל\"ח" [ref=e290]:
+            - generic [ref=e291]:
+              - button "" [ref=e292]
+              - link "ועדות מל\"ח" [ref=e293] [cursor=pointer]:
+                - /url: ./0-1657095311-ועדות-מל-ח/
+                - emphasis
+                - text: ועדות מל"ח
+      - generic [ref=e297]:
+        - heading "שתף את העמוד" [level=2] [ref=e298]
+        - link "הדפס עמוד  " [ref=e299] [cursor=pointer]:
+          - /url: "#"
+          - generic "הדפס עמוד" [ref=e300]:
+            - emphasis [ref=e301]: הדפס עמוד
+            - emphasis [ref=e302]: 
+            - emphasis [ref=e303]: 
+        - link "שתף ב-Whatsapp  " [ref=e304] [cursor=pointer]:
+          - /url: https://api.whatsapp.com/send?text=מקלטים ציבוריים https://www.kiryat-motzkin.muni.il/%D7%9E%D7%A7%D7%9C%D7%98%D7%99%D7%9D-%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D/
+          - generic "שתף ב-Whatsapp" [ref=e305]:
+            - emphasis [ref=e306]: שתף ב-Whatsapp
+            - emphasis [ref=e307]: 
+            - emphasis [ref=e308]: 
+        - link "שתף בפייסבוק  " [ref=e309] [cursor=pointer]:
+          - /url: https://www.facebook.com/sharer/sharer.php?u=https://www.kiryat-motzkin.muni.il/%D7%9E%D7%A7%D7%9C%D7%98%D7%99%D7%9D-%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D/
+          - generic "שתף בפייסבוק" [ref=e310]:
+            - emphasis [ref=e311]: שתף בפייסבוק
+            - emphasis [ref=e312]: 
+            - emphasis [ref=e313]: 
+        - link "שתף בטוויטר  " [ref=e314] [cursor=pointer]:
+          - /url: https://twitter.com/intent/tweet?text=מקלטים ציבוריים https://www.kiryat-motzkin.muni.il/%D7%9E%D7%A7%D7%9C%D7%98%D7%99%D7%9D-%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D/
+          - generic "שתף בטוויטר" [ref=e315]:
+            - emphasis [ref=e316]: שתף בטוויטר
+            - emphasis [ref=e317]: 
+            - emphasis [ref=e318]: 
+        - link "שתף באימייל  " [ref=e319] [cursor=pointer]:
+          - /url: mailto:?subject=מקלטים ציבוריים&body=מקלטים ציבוריים https://www.kiryat-motzkin.muni.il/%D7%9E%D7%A7%D7%9C%D7%98%D7%99%D7%9D-%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D/
+          - generic "שתף באימייל" [ref=e320]:
+            - emphasis [ref=e321]: שתף באימייל
+            - emphasis [ref=e322]: 
+            - emphasis [ref=e323]: 
+  - link "כותרת תחתונה של האתר. לחץ לדילוג על איזור זה" [ref=e324] [cursor=pointer]:
+    - /url: "#"
+  - complementary [ref=e325]:
+    - paragraph [ref=e327]:
+      - link "מפת האתר" [ref=e328] [cursor=pointer]:
+        - /url: ./sitemap/
+      - text: "|"
+      - link "הצהרת נגישות" [ref=e329] [cursor=pointer]:
+        - /url: ./accessibility/
+      - text: "| © כל הזכויות שמורות ל-קריית מוצקין. האתר פותח על ידי"
+      - link "א.ש בינה  נפתח בחלון חדש" [ref=e330] [cursor=pointer]:
+        - /url: http://binaa.co.il
+        - text: א.ש בינה
+        - emphasis [ref=e331]: 
+        - generic [ref=e332]: נפתח בחלון חדש
+  - status [ref=e333]

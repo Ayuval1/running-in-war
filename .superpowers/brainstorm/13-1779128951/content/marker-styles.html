@@ -1,0 +1,272 @@
+<h2>סגנון Markers לנקודות המסלול</h2>
+<p class="subtitle">כל אפשרות מראה את נקודת ההתחלה (A) ונקודת הסיום (B) על המפה. בחר את הסגנון שהכי מתאים לאפליקציה.</p>
+
+<style>
+  .map-preview {
+    background: #0f1923;
+    border-radius: 12px;
+    padding: 28px 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    min-height: 140px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .map-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(30,50,70,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,50,70,0.4) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .marker-pair {
+    display: flex;
+    gap: 60px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+  .marker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .marker-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ─── OPTION A: Pulsing GPS dot ─── */
+  .pulse-a {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #00E5A0;
+    box-shadow: 0 0 0 5px rgba(0,229,160,0.3), 0 0 0 10px rgba(0,229,160,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 900; color: #0f1923;
+  }
+  .pulse-b {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #3B9EFF;
+    box-shadow: 0 0 0 5px rgba(59,158,255,0.3), 0 0 0 10px rgba(59,158,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 900; color: #0f1923;
+  }
+
+  /* ─── OPTION B: Teardrop pin ─── */
+  .pin-a-wrap, .pin-b-wrap {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .pin-a {
+    width: 28px; height: 36px;
+    background: #00E5A0;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    clip-path: polygon(50% 100%, 0% 30%, 15% 0%, 85% 0%, 100% 30%);
+    display: flex; align-items: 40%; justify-content: center;
+    position: relative;
+  }
+  .pin-b {
+    width: 28px; height: 36px;
+    background: #3B9EFF;
+    clip-path: polygon(50% 100%, 0% 30%, 15% 0%, 85% 0%, 100% 30%);
+    position: relative;
+  }
+  .pin-dot-a {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #0f1923;
+    position: absolute;
+    top: 7px; left: 50%; transform: translateX(-50%);
+  }
+  .pin-dot-b {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #0f1923;
+    position: absolute;
+    top: 7px; left: 50%; transform: translateX(-50%);
+  }
+
+  /* ─── OPTION C: Badge pill ─── */
+  .badge-a {
+    background: #00E5A0;
+    color: #0f1923;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 20px;
+    padding: 5px 12px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(0,229,160,0.4);
+    position: relative;
+  }
+  .badge-a::after {
+    content: '';
+    position: absolute;
+    bottom: -7px; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #00E5A0;
+    border-bottom: none;
+    width: 0; height: 0;
+  }
+  .badge-b {
+    background: #3B9EFF;
+    color: #0f1923;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 20px;
+    padding: 5px 12px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(59,158,255,0.4);
+    position: relative;
+  }
+  .badge-b::after {
+    content: '';
+    position: absolute;
+    bottom: -7px; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3B9EFF;
+    border-bottom: none;
+    width: 0; height: 0;
+  }
+
+  /* ─── OPTION D: Circle + arrow combo ─── */
+  .circle-start {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 3px solid #00E5A0;
+    background: rgba(0,229,160,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; color: #00E5A0;
+  }
+  .arrow-end {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .arrow-body {
+    width: 8px; height: 20px;
+    background: #3B9EFF;
+    border-radius: 4px 4px 0 0;
+  }
+  .arrow-head {
+    width: 0; height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 18px solid #3B9EFF;
+    filter: drop-shadow(0 3px 8px rgba(59,158,255,0.5));
+  }
+
+  .option-desc {
+    font-size: 12px;
+    color: #8899aa;
+    margin-top: 4px;
+    text-align: center;
+    line-height: 1.4;
+  }
+</style>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item">
+            <div class="pulse-a">א</div>
+            <span class="marker-label" style="color:#00E5A0">התחלה</span>
+          </div>
+          <div class="marker-item">
+            <div class="pulse-b">ב</div>
+            <span class="marker-label" style="color:#3B9EFF">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Pulse Circle</h3>
+      <p class="option-desc">עיגול עם glow מסביבו. עדין ומודרני. דומה לנקודת GPS של המשתמש.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair">
+          <div class="marker-item" style="margin-bottom:-4px">
+            <div class="pin-a-wrap">
+              <div class="pin-a"><div class="pin-dot-a"></div></div>
+            </div>
+            <span class="marker-label" style="color:#00E5A0;margin-top:6px">התחלה</span>
+          </div>
+          <div class="marker-item" style="margin-bottom:-4px">
+            <div class="pin-b-wrap">
+              <div class="pin-b"><div class="pin-dot-b"></div></div>
+            </div>
+            <span class="marker-label" style="color:#3B9EFF;margin-top:6px">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Teardrop Pin</h3>
+      <p class="option-desc">דמוי פין של Google Maps. מוכר למשתמשים. ירוק להתחלה, כחול לסיום.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:center">
+          <div class="marker-item" style="gap:10px">
+            <div class="badge-a">START א</div>
+            <span class="marker-label" style="color:#00E5A0;margin-top:2px">התחלה</span>
+          </div>
+          <div class="marker-item" style="gap:10px">
+            <div class="badge-b">END ב</div>
+            <span class="marker-label" style="color:#3B9EFF;margin-top:2px">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Badge Pill</h3>
+      <p class="option-desc">תג עגול עם חץ למטה. בולט ומעוצב. מתאים לסגנון הגלאסמורפיזם של האפליקציה.</p>
+    </div>
+  </div>
+
+  <!-- Option D -->
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="map-preview">
+        <div class="marker-pair" style="align-items:center">
+          <div class="marker-item">
+            <div class="circle-start">א</div>
+            <span class="marker-label" style="color:#00E5A0;margin-top:6px">התחלה</span>
+          </div>
+          <div class="marker-item">
+            <div class="arrow-end">
+              <div class="arrow-body"></div>
+              <div class="arrow-head"></div>
+            </div>
+            <span class="marker-label" style="color:#3B9EFF;margin-top:6px">סיום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D — Circle + Arrow</h3>
+      <p class="option-desc">עיגול לנקודת ההתחלה + חץ כלפי מטה לנקודת הסיום. ממש כמו שתיארת — "עיגול להתחלה, חץ לסוף".</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center">לחץ על סגנון לבחירה — אפשר לבחור יותר מאחד</p>

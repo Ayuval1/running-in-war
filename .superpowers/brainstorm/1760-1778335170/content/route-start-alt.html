@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>השוואת עיצובים — נקודת התחלה</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #070D18;
+    color: #E6F4F0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 { font-size: 20px; font-weight: 900; color: #00E5A0; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: #3D7070; margin-bottom: 32px; }
+
+  .compare-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mockup-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .mockup-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3D7070;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .mockup-desc {
+    font-size: 11px;
+    color: #3B9EFF;
+    text-align: center;
+    max-width: 240px;
+  }
+
+  .phone {
+    width: 270px;
+    background: #0A1220;
+    border: 2px solid rgba(26,48,80,0.9);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  .phone.selected-border {
+    border-color: rgba(0,229,160,0.6);
+    box-shadow: 0 0 0 3px rgba(0,229,160,0.2), 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  .panel {
+    background: rgba(7,13,24,0.97);
+    border-bottom: 1px solid rgba(26,48,80,0.8);
+    padding: 14px 12px 12px;
+  }
+  .panel-title {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
+  }
+  .panel-title h2 { font-size: 14px; font-weight: 900; }
+
+  .seg {
+    display: flex; border-radius: 10px; padding: 3px;
+    background: #070D18; margin-bottom: 8px;
+  }
+  .seg-btn {
+    flex: 1; padding: 6px 4px; border-radius: 7px;
+    font-size: 11px; font-weight: 700; text-align: center; color: #3D7070;
+  }
+  .seg-btn.active-green { background: #00E5A0; color: #070D18; }
+  .seg-btn.active-blue  { background: #3B9EFF; color: #070D18; }
+
+  /* ── DESIGN A: "שנה" button (existing proposal) ── */
+  .chip-row {
+    display: flex; align-items: center; gap: 7px;
+    padding: 8px 10px; border-radius: 10px; margin-bottom: 0;
+    font-size: 11px;
+  }
+  .chip-gps {
+    background: rgba(0,229,160,0.06);
+    border: 1px dashed rgba(0,229,160,0.35); color: #00E5A0;
+  }
+  .badge {
+    font-size: 9px; font-weight: 900;
+    padding: 2px 6px; border-radius: 99px; flex-shrink: 0;
+  }
+  .badge-green { background: rgba(0,229,160,0.2); color: #00E5A0; }
+  .badge-blue  { background: rgba(59,158,255,0.2); color: #3B9EFF; }
+  .change-btn {
+    margin-right: auto;
+    font-size: 9px; font-weight: 700;
+    color: #3B9EFF;
+    padding: 2px 7px; border-radius: 6px;
+    background: rgba(59,158,255,0.1);
+    border: 1px solid rgba(59,158,255,0.3);
+  }
+
+  /* ── DESIGN B: direct input (no "שנה") ── */
+  .field-row {
+    display: flex; align-items: center; gap: 7px;
+    padding: 8px 10px; border-radius: 10px; margin-bottom: 0;
+    font-size: 11px;
+  }
+  .field-green {
+    background: rgba(0,229,160,0.07);
+    border: 1px solid rgba(0,229,160,0.3); color: rgba(0,229,160,0.5);
+  }
+  .field-blue {
+    background: rgba(59,158,255,0.07);
+    border: 1px solid rgba(59,158,255,0.3); color: rgba(59,158,255,0.4);
+  }
+  .field-filled-green {
+    background: rgba(0,229,160,0.1);
+    border: 1px solid rgba(0,229,160,0.5); color: #00E5A0;
+  }
+  .field-filled-blue {
+    background: rgba(59,158,255,0.1);
+    border: 1px solid rgba(59,158,255,0.5); color: #3B9EFF;
+  }
+  .search-icon { font-size: 12px; opacity: 0.5; flex-shrink: 0; }
+  .x-btn { margin-right: auto; font-size: 11px; color: #3D7070; }
+
+  .connector {
+    width: 2px; height: 7px;
+    background: rgba(26,48,80,0.8);
+    margin: 0 0 0 13px; margin-bottom: 5px;
+  }
+
+  .map-btn {
+    width: 100%; padding: 6px; border-radius: 8px;
+    font-size: 10px; font-weight: 700; text-align: center;
+    color: #3D7070;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(26,48,80,0.8);
+    margin-bottom: 7px;
+  }
+  .map-btn.green-dashed { color: #00E5A0; border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.04); }
+  .map-btn.blue-dashed  { color: #3B9EFF; border-color: rgba(59,158,255,0.3); background: rgba(59,158,255,0.04); }
+
+  .build-btn {
+    width: 100%; padding: 10px; border-radius: 10px;
+    font-size: 13px; font-weight: 900; text-align: center;
+    background: #00E5A0; color: #070D18;
+  }
+
+  .map-area {
+    height: 140px;
+    background: linear-gradient(135deg, #0D1F35 0%, #0A1628 100%);
+    position: relative; overflow: hidden;
+  }
+  .map-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(26,48,80,0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,48,80,0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .map-pin { position: absolute; font-size: 18px; }
+  .pin-a { bottom: 40%; left: 25%; }
+  .pin-b { top: 25%; right: 25%; }
+
+  /* vs divider */
+  .vs {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: #1A3050;
+    align-self: center; margin-bottom: 40px;
+  }
+
+  /* pros/cons below each */
+  .pros { margin-top: 8px; }
+  .pro-item, .con-item {
+    font-size: 10px; margin-bottom: 3px; display: flex; gap: 5px; align-items: flex-start;
+  }
+  .pro-item { color: #00E5A0; }
+  .con-item { color: #FF4060; }
+
+  /* section label */
+  .state-label {
+    font-size: 9px; font-weight: 900; color: #3D7070;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h1>השוואה — עיצוב שדה א׳</h1>
+<p class="subtitle">שני גישות לבחירת נקודת התחלה במצב א׳→ב׳</p>
+
+<div class="compare-row">
+
+  <!-- ══ OPTION A: Chip + "שנה" button ══ -->
+  <div class="mockup-wrap">
+    <div class="mockup-title">עיצוב A</div>
+    <div class="mockup-desc">Chip עם GPS ברירת מחדל + כפתור "שנה" לעריכה</div>
+    <div class="phone">
+      <div class="panel">
+        <div class="panel-title"><span>↗️</span><h2>תכנון מסלול</h2></div>
+        <div class="seg">
+          <div class="seg-btn">🔄 מהבית</div>
+          <div class="seg-btn active-blue">↔ א׳→ב׳</div>
+        </div>
+        <div class="seg">
+          <div class="seg-btn active-green">🏃 ריצה</div>
+          <div class="seg-btn">🚗 רכב</div>
+        </div>
+
+        <!-- A: chip with change button -->
+        <div class="chip-row chip-gps">
+          <span class="badge badge-green">א׳</span>
+          <span>📍 GPS — מיקומך הנוכחי</span>
+          <span class="change-btn">שנה ▸</span>
+        </div>
+        <div class="connector"></div>
+        <div class="field-row field-blue" style="margin-bottom:6px">
+          <span class="badge badge-blue">ב׳</span>
+          <span class="search-icon">🔍</span>
+          <span>הקלד כתובת יעד...</span>
+        </div>
+        <div class="map-btn blue-dashed">📍 לחץ על המפה לבחירת ב׳</div>
+        <div class="build-btn">↗ חשב מסלול</div>
+      </div>
+      <div class="map-area">
+        <div class="map-grid"></div>
+        <div class="map-pin pin-a">📍</div>
+      </div>
+    </div>
+    <div class="pros">
+      <div class="pro-item">✓ ברירת המחדל (GPS) ברורה מיד</div>
+      <div class="pro-item">✓ פחות עמוס — שדה אחד עד שצריך</div>
+      <div class="con-item">✗ צריך ללחוץ "שנה" לפני שמזינים</div>
+      <div class="con-item">✗ שלב נוסף בפלו</div>
+    </div>
+  </div>
+
+  <div class="vs">VS</div>
+
+  <!-- ══ OPTION B: Direct input like ב׳ ══ -->
+  <div class="mockup-wrap">
+    <div class="mockup-title">עיצוב B ✨</div>
+    <div class="mockup-desc">שדה פתוח ישיר — כמו ב׳, בלי ללחוץ שנה</div>
+    <div class="phone selected-border">
+      <div class="panel">
+        <div class="panel-title"><span>↗️</span><h2>תכנון מסלול</h2></div>
+        <div class="seg">
+          <div class="seg-btn">🔄 מהבית</div>
+          <div class="seg-btn active-blue">↔ א׳→ב׳</div>
+        </div>
+        <div class="seg">
+          <div class="seg-btn active-green">🏃 ריצה</div>
+          <div class="seg-btn">🚗 רכב</div>
+        </div>
+
+        <!-- B: direct input, GPS pre-filled -->
+        <div class="field-row field-filled-green">
+          <span class="badge badge-green">א׳</span>
+          <span class="search-icon">🔍</span>
+          <span style="flex:1">📍 מיקומך הנוכחי</span>
+          <span class="x-btn">✕</span>
+        </div>
+        <div class="map-btn green-dashed" style="margin-top:5px">📍 לחץ על המפה לבחירת א׳</div>
+
+        <div class="connector" style="margin-top:3px"></div>
+
+        <div class="field-row field-blue" style="margin-bottom:6px">
+          <span class="badge badge-blue">ב׳</span>
+          <span class="search-icon">🔍</span>
+          <span>הקלד כתובת יעד...</span>
+        </div>
+        <div class="map-btn blue-dashed">📍 לחץ על המפה לבחירת ב׳</div>
+        <div class="build-btn">↗ חשב מסלול</div>
+      </div>
+      <div class="map-area">
+        <div class="map-grid"></div>
+        <div class="map-pin pin-a">📍</div>
+      </div>
+    </div>
+    <div class="pros">
+      <div class="pro-item">✓ ישיר — אפשר לשנות מיד בלי ללחוץ שנה</div>
+      <div class="pro-item">✓ סימטרי — א׳ וב׳ נראים אותו דבר</div>
+      <div class="pro-item">✓ GPS מוצג כ-placeholder שניתן לדרוס</div>
+      <div class="con-item">✗ קצת יותר עמוס — שני שדות + שני כפתורי מפה</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

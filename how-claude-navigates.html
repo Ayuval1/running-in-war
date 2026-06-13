@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>איך קלוד מנווט בקוד</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #070D18;
+      color: #E6F4F0;
+      font-family: 'Rubik', sans-serif;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+    .page { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+
+    h1 { font-size: 20px; font-weight: 900; text-align: center; }
+    .sub { font-size: 13px; color: #3D7070; text-align: center; margin-top: 4px; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.3);
+      color: #00E5A0;
+      font-size: 14px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content { flex: 1; }
+    .step-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+    .step-desc { font-size: 12px; color: rgba(230,244,240,0.5); line-height: 1.6; }
+    .step-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px; border-radius: 6px;
+      background: rgba(59,158,255,0.12);
+      border: 1px solid rgba(59,158,255,0.3);
+      color: #3B9EFF;
+      margin-top: 6px;
+      font-family: monospace;
+    }
+
+    /* Comparison */
+    .compare { display: flex; gap: 12px; }
+    .compare-box {
+      flex: 1; border-radius: 12px; padding: 16px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .compare-box.bad {
+      background: rgba(255,65,84,0.07);
+      border: 1px solid rgba(255,65,84,0.2);
+    }
+    .compare-box.good {
+      background: rgba(0,229,160,0.07);
+      border: 1px solid rgba(0,229,160,0.2);
+    }
+    .compare-title {
+      font-size: 12px; font-weight: 800;
+    }
+    .compare-box.bad .compare-title { color: #FF4154; }
+    .compare-box.good .compare-title { color: #00E5A0; }
+    .compare-body { font-size: 12px; color: rgba(230,244,240,0.5); line-height: 1.6; }
+
+    .token-bar {
+      background: rgba(255,255,255,0.06);
+      border-radius: 99px; height: 8px; overflow: hidden;
+    }
+    .token-fill {
+      height: 100%; border-radius: 99px;
+      transition: width 1s ease;
+    }
+    .bar-label { font-size: 11px; color: #3D7070; margin-top: 4px; }
+
+    .highlight {
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px; font-weight: 700;
+      color: #00E5A0;
+      text-align: center;
+    }
+
+    .card {
+      background: #0F2035;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px; font-weight: 800;
+    }
+    .card-body { padding: 20px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div>
+    <h1>🔍 איך קלוד מנווט בקוד</h1>
+    <p class="sub">בלי לקרוא הכל — ממוקד, מהיר, חוסך טוקנים</p>
+  </div>
+
+  <!-- Steps -->
+  <div class="card">
+    <div class="card-header">3 צעדים לפני שנוגעים בקוד</div>
+    <div class="card-body">
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">רואה את מבנה התיקיות</div>
+            <div class="step-desc">
+              לא פותח שום קובץ — רק רואה מה קיים:<br>
+              <code style="color:#3B9EFF">hooks/</code>, <code style="color:#3B9EFF">lib/</code>, <code style="color:#3B9EFF">pages/</code>, <code style="color:#3B9EFF">components/</code>
+              <br>כבר יודע בגדול איפה לחפש.
+            </div>
+            <div class="step-tag">Glob</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">מחפש מילת מפתח</div>
+            <div class="step-desc">
+              מחפש את המילה הספציפית בכל הקוד בבת אחת.<br>
+              למשל: "safetyScore" → מוצא בדיוק את הקובץ שמכיל את הלוגיקה.
+            </div>
+            <div class="step-tag">Grep</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">קורא רק את הקובץ הנכון</div>
+            <div class="step-desc">
+              אחרי שיודע בדיוק איפה — קורא רק אותו. לא את כל הפרויקט.
+            </div>
+            <div class="step-tag">Read</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison -->
+  <div class="card">
+    <div class="card-header">השוואה — בלי vs. עם ניווט חכם</div>
+    <div class="card-body">
+      <div class="compare">
+        <div class="compare-box bad">
+          <div class="compare-title">❌ בלי ניווט</div>
+          <div class="compare-body">קורא כל קובץ בפרויקט עד שמוצא</div>
+          <div class="token-bar">
+            <div class="token-fill" style="width:100%; background:#FF4154;"></div>
+          </div>
+          <div class="bar-label">~5,000 טוקנים</div>
+        </div>
+        <div class="compare-box good">
+          <div class="compare-title">✅ עם ניווט</div>
+          <div class="compare-body">Glob → Grep → קובץ אחד</div>
+          <div class="token-bar">
+            <div class="token-fill" style="width:20%; background:#00E5A0;"></div>
+          </div>
+          <div class="bar-label">~1,000 טוקנים</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    חיסכון של ~80% טוקנים — כל שינוי קטן
+  </div>
+
+</div>
+</body>
+</html>

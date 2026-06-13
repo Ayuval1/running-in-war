@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1923; color: #e0e0e0; font-family: Rubik, sans-serif; padding: 20px; }
+  h1 { color: #00E5A0; text-align: center; margin-bottom: 6px; font-size: 1.2rem; }
+  p { color: #8899aa; text-align: center; font-size: 0.85rem; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: #1a2530; border-radius: 12px; overflow: hidden; border: 2px solid transparent; transition: border 0.2s; cursor: pointer; }
+  .card:hover { border-color: #00E5A0; }
+  .card.selected { border-color: #00E5A0; }
+  .map-wrap { position: relative; height: 220px; }
+  .map-wrap .leaflet-container { height: 100%; width: 100%; }
+  .label { padding: 10px 14px; }
+  .zoom-num { font-size: 1.1rem; font-weight: 900; color: #fff; }
+  .zoom-desc { font-size: 0.78rem; color: #8899aa; margin-top: 2px; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; margin-top: 6px; }
+  .tag-current { background: rgba(255,65,84,0.15); color: #FF4154; border: 1px solid rgba(255,65,84,0.3); }
+  .tag-rec { background: rgba(0,229,160,0.12); color: #00E5A0; border: 1px solid rgba(0,229,160,0.3); }
+  .tag-ok { background: rgba(59,158,255,0.12); color: #3B9EFF; border: 1px solid rgba(59,158,255,0.3); }
+  /* marker */
+  .ring { width:36px;height:36px;border-radius:50%;background:rgba(0,229,160,0.18);border:3px solid #00E5A0;box-shadow:0 0 0 5px rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#00E5A0;font-family:Rubik,sans-serif; }
+</style>
+</head>
+<body>
+
+<h1>🔍 השוואת zoom — בחירת כתובת</h1>
+<p>נקודה: דיזנגוף 1, תל אביב. כמה רחוק רואים?</p>
+
+<div class="grid">
+  <div class="card" id="c12">
+    <div class="map-wrap"><div id="m12"></div></div>
+    <div class="label">
+      <div class="zoom-num">Zoom 12</div>
+      <div class="zoom-desc">רדיוס ~8 ק"מ — רואים עיר שלמה</div>
+      <span class="tag tag-ok">רחוק מדי</span>
+    </div>
+  </div>
+  <div class="card" id="c13">
+    <div class="map-wrap"><div id="m13"></div></div>
+    <div class="label">
+      <div class="zoom-num">Zoom 13</div>
+      <div class="zoom-desc">רדיוס ~4 ק"מ — שכונה גדולה</div>
+      <span class="tag tag-rec">✅ מומלץ</span>
+    </div>
+  </div>
+  <div class="card" id="c14">
+    <div class="map-wrap"><div id="m14"></div></div>
+    <div class="label">
+      <div class="zoom-num">Zoom 14</div>
+      <div class="zoom-desc">רדיוס ~2 ק"מ — שכונה קרובה</div>
+      <span class="tag tag-rec">✅ טוב</span>
+    </div>
+  </div>
+  <div class="card" id="c15">
+    <div class="map-wrap"><div id="m15"></div></div>
+    <div class="label">
+      <div class="zoom-num">Zoom 15</div>
+      <div class="zoom-desc">רדיוס ~1 ק"מ — כמה רחובות</div>
+      <span class="tag tag-current">❌ נוכחי — קרוב מדי</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const LAT = 32.0780, LNG = 34.7739
+const TILE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+function makeMarker() {
+  const el = document.createElement('div')
+  el.className = 'ring'
+  el.textContent = 'א'
+  return L.divIcon({ className: '', iconSize: [36,36], iconAnchor: [18,18], html: el.outerHTML })
+}
+
+;[12,13,14,15].forEach(z => {
+  const map = L.map(`m${z}`, { zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, keyboard: false })
+  map.setView([LAT, LNG], z)
+  L.tileLayer(TILE).addTo(map)
+  L.marker([LAT, LNG], { icon: makeMarker() }).addTo(map)
+})
+</script>
+</body>
+</html>

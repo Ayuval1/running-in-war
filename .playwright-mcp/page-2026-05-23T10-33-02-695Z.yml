@@ -1,0 +1,160 @@
+- generic [active] [ref=e1]:
+  - heading "סגנון 3 — 3 וריאציות" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - button "קרית שם מלא" [ref=e4] [cursor=pointer]
+    - button "ק׳ קיצור" [ref=e5] [cursor=pointer]
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - text: 3A
+        - text: פס צד + badge
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - button "🏠 בית" [ref=e11]
+          - button "+ מקלט" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e19]: 🛡
+          - generic [ref=e21]: 🛡
+          - generic [ref=e23]: 🛡
+          - generic [ref=e24]: 3 מקלטים
+          - button "🏙 ערים ▴" [ref=e26]
+          - generic [ref=e27]:
+            - generic [ref=e28]: 🏙 מקלטי ערים
+            - generic [ref=e29] [cursor=pointer]:
+              - generic [ref=e31]: ✓
+              - generic [ref=e33]: קרית ביאליק
+              - generic [ref=e34]: "30"
+            - generic [ref=e35] [cursor=pointer]:
+              - generic [ref=e39]: קרית ים
+              - generic [ref=e40]: "26"
+            - generic [ref=e41] [cursor=pointer]:
+              - generic [ref=e45]: קרית מוצקין
+              - generic [ref=e46]: "40"
+            - generic [ref=e47] [cursor=pointer]:
+              - generic [ref=e51]: קרית חיים
+              - generic [ref=e52]: "20"
+            - generic [ref=e53] [cursor=pointer]:
+              - generic [ref=e57]: קרית אתא
+              - generic [ref=e58]: "75"
+          - generic [ref=e59]:
+            - generic [ref=e63]: ⚠️
+            - generic [ref=e64]: SOS
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]: 🗺️
+            - text: מפה
+          - generic [ref=e68]:
+            - generic [ref=e69]: 🏃
+            - text: מסלול
+          - generic [ref=e70]:
+            - generic [ref=e71]: 👤
+            - text: פרופיל
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - text: 3B
+        - text: שורה זוהרת + מגן
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - button "🏠 בית" [ref=e76]
+          - button "+ מקלט" [ref=e77]
+        - generic [ref=e78]:
+          - generic [ref=e84]: 🛡
+          - generic [ref=e86]: 🛡
+          - generic [ref=e88]: 🛡
+          - generic [ref=e89]: 3 מקלטים
+          - button "🏙 ערים ▴" [ref=e91]
+          - generic [ref=e92]:
+            - generic [ref=e93]: הצג מקלטי עיר
+            - generic [ref=e94] [cursor=pointer]:
+              - generic [ref=e95]: 🛡
+              - generic [ref=e96]:
+                - generic [ref=e97]: קרית ביאליק
+                - generic [ref=e98]: 30 מקלטים פעילים
+            - generic [ref=e99] [cursor=pointer]:
+              - generic [ref=e100]: 🛡
+              - generic [ref=e101]:
+                - generic [ref=e102]: קרית ים
+                - generic [ref=e103]: 26 מקלטים
+            - generic [ref=e104] [cursor=pointer]:
+              - generic [ref=e105]: 🛡
+              - generic [ref=e106]:
+                - generic [ref=e107]: קרית מוצקין
+                - generic [ref=e108]: 40 מקלטים
+            - generic [ref=e109] [cursor=pointer]:
+              - generic [ref=e110]: 🛡
+              - generic [ref=e111]:
+                - generic [ref=e112]: קרית חיים
+                - generic [ref=e113]: 20 מקלטים
+            - generic [ref=e114] [cursor=pointer]:
+              - generic [ref=e115]: 🛡
+              - generic [ref=e116]:
+                - generic [ref=e117]: קרית אתא
+                - generic [ref=e118]: 75 מקלטים
+          - generic [ref=e119]:
+            - generic [ref=e123]: ⚠️
+            - generic [ref=e124]: SOS
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]: 🗺️
+            - text: מפה
+          - generic [ref=e128]:
+            - generic [ref=e129]: 🏃
+            - text: מסלול
+          - generic [ref=e130]:
+            - generic [ref=e131]: 👤
+            - text: פרופיל
+    - generic [ref=e132]:
+      - generic [ref=e133]:
+        - text: 3C
+        - text: מספר בתוך הבועה
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - button "🏠 בית" [ref=e136]
+          - button "+ מקלט" [ref=e137]
+        - generic [ref=e138]:
+          - generic [ref=e144]: 🛡
+          - generic [ref=e146]: 🛡
+          - generic [ref=e148]: 🛡
+          - generic [ref=e149]: 3 מקלטים
+          - button "🏙 ערים ▴" [ref=e151]
+          - generic [ref=e152]:
+            - generic [ref=e153]: 🏙 מקלטי ערים
+            - generic [ref=e154]:
+              - generic [ref=e155] [cursor=pointer]:
+                - generic [ref=e157]: "30"
+                - generic [ref=e158]:
+                  - generic [ref=e159]: קרית ביאליק
+                  - generic [ref=e160]: מקלטים פעילים
+              - generic [ref=e161] [cursor=pointer]:
+                - generic [ref=e163]: "26"
+                - generic [ref=e164]:
+                  - generic [ref=e165]: קרית ים
+                  - generic [ref=e166]: מקלטים
+              - generic [ref=e167] [cursor=pointer]:
+                - generic [ref=e169]: "40"
+                - generic [ref=e170]:
+                  - generic [ref=e171]: קרית מוצקין
+                  - generic [ref=e172]: מקלטים
+              - generic [ref=e173] [cursor=pointer]:
+                - generic [ref=e175]: "20"
+                - generic [ref=e176]:
+                  - generic [ref=e177]: קרית חיים
+                  - generic [ref=e178]: מקלטים
+              - generic [ref=e179] [cursor=pointer]:
+                - generic [ref=e181]: "75"
+                - generic [ref=e182]:
+                  - generic [ref=e183]: קרית אתא
+                  - generic [ref=e184]: מקלטים
+          - generic [ref=e185]:
+            - generic [ref=e189]: ⚠️
+            - generic [ref=e190]: SOS
+        - generic [ref=e191]:
+          - generic [ref=e192]:
+            - generic [ref=e193]: 🗺️
+            - text: מפה
+          - generic [ref=e194]:
+            - generic [ref=e195]: 🏃
+            - text: מסלול
+          - generic [ref=e196]:
+            - generic [ref=e197]: 👤
+            - text: פרופיל

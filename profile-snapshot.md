@@ -1,0 +1,68 @@
+- generic [ref=e3]:
+  - img "RunningINWar" [ref=e5]
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e9]: P
+      - generic [ref=e10]:
+        - paragraph [ref=e11]: Playwright Test
+        - paragraph [ref=e12]: riw.test.playwright@gmail.com
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - img [ref=e15]
+        - paragraph [ref=e18]: מיקום בית
+      - paragraph [ref=e19]: משמש כנקודת התחלה במסלולים
+      - button "השתמש במיקום הנוכחי (GPS)" [ref=e20] [cursor=pointer]:
+        - img [ref=e21]
+        - text: השתמש במיקום הנוכחי (GPS)
+      - generic [ref=e26]: או הקלד כתובת
+      - 'textbox "לדוגמה: \"אפרים 5, תל אביב\"" [ref=e30]'
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - img [ref=e33]
+        - paragraph [ref=e39]: שיתוף מקלטים
+      - paragraph [ref=e40]: שתף מקלטים עם חברים ומשפחה
+      - button "פתח שיתוף" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: פתח שיתוף
+        - img [ref=e43]
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - img [ref=e47]
+        - paragraph [ref=e51]: שפה
+      - paragraph [ref=e52]: Hebrew / English
+      - button "🇮🇱 עברית Switch to English" [ref=e53] [cursor=pointer]:
+        - generic [ref=e54]: 🇮🇱 עברית
+        - generic [ref=e55]: Switch to English
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - img [ref=e58]
+        - paragraph [ref=e61]: שמות ערים
+      - paragraph [ref=e62]: כיצד יוצגו הערים במסנן המפה
+      - generic [ref=e63]:
+        - button "שם מלא קרית ביאליק, קרית ים..." [ref=e64] [cursor=pointer]:
+          - generic [ref=e66]:
+            - paragraph [ref=e67]: שם מלא
+            - paragraph [ref=e68]: קרית ביאליק, קרית ים...
+        - button "קיצור ק׳ ביאליק, ק׳ ים..." [ref=e69] [cursor=pointer]:
+          - generic [ref=e72]:
+            - paragraph [ref=e73]: קיצור
+            - paragraph [ref=e74]: ק׳ ביאליק, ק׳ ים...
+    - button "יציאה מהחשבון" [ref=e75] [cursor=pointer]:
+      - img [ref=e76]
+      - text: יציאה מהחשבון
+  - navigation "ניווט ראשי" [ref=e79]:
+    - link "בית" [ref=e80] [cursor=pointer]:
+      - /url: /
+      - img [ref=e82]
+      - generic [ref=e85]: בית
+    - link "מפה" [ref=e86] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e88]
+      - generic [ref=e90]: מפה
+    - link "מסלול" [ref=e91] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e93]
+      - generic [ref=e97]: מסלול
+    - link "פרופיל" [ref=e98] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e101]
+      - generic [ref=e104]: פרופיל

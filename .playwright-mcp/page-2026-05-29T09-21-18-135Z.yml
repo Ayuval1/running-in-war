@@ -1,0 +1,62 @@
+- generic [ref=e121]:
+  - generic [ref=e122]:
+    - img [ref=e123]
+    - text: GPS לא זמין — מציג מרכז ישראל
+  - generic [ref=e125]:
+    - generic [ref=e126]:
+      - img [ref=e127]
+      - heading "ריצה בזמן מלחמה" [level=1] [ref=e129]
+    - generic [ref=e130]:
+      - button "בית" [ref=e131] [cursor=pointer]:
+        - img [ref=e132]
+        - generic [ref=e135]: בית
+      - button "+ מקלט" [ref=e136] [cursor=pointer]:
+        - img [ref=e137]
+        - text: + מקלט
+  - generic [ref=e140]:
+    - generic:
+      - generic:
+        - button "🏢" [ref=e141] [cursor=pointer]:
+          - generic [ref=e143]: 🏢
+        - button "🏢" [ref=e144] [cursor=pointer]:
+          - generic [ref=e146]: 🏢
+        - button "🏢" [ref=e147] [cursor=pointer]:
+          - generic [ref=e149]: 🏢
+        - button "🏢" [ref=e150] [cursor=pointer]:
+          - generic [ref=e152]: 🏢
+        - button "🏢" [ref=e153] [cursor=pointer]:
+          - generic [ref=e155]: 🏢
+        - button "🏢" [ref=e156] [cursor=pointer]:
+          - generic [ref=e158]: 🏢
+    - generic [ref=e159]:
+      - link "Leaflet" [ref=e160] [cursor=pointer]:
+        - /url: https://leafletjs.com
+        - img [ref=e161]
+        - text: Leaflet
+      - text: "| ©"
+      - link "OpenStreetMap" [ref=e165] [cursor=pointer]:
+        - /url: https://www.openstreetmap.org/copyright
+  - button "כפתור SOS — מצא מקלט קרוב" [ref=e166] [cursor=pointer]:
+    - img [ref=e167]
+    - generic [ref=e169]: SOS
+  - button "6 מקלטים" [ref=e170] [cursor=pointer]
+  - button "ערים" [ref=e171] [cursor=pointer]:
+    - img [ref=e172]
+    - generic [ref=e173]: ערים
+  - navigation "ניווט ראשי" [ref=e174]:
+    - link "בית" [ref=e175] [cursor=pointer]:
+      - /url: /
+      - img [ref=e177]
+      - generic [ref=e180]: בית
+    - link "מפה" [ref=e181] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e184]
+      - generic [ref=e186]: מפה
+    - link "מסלול" [ref=e187] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e189]
+      - generic [ref=e193]: מסלול
+    - link "פרופיל" [ref=e194] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e196]
+      - generic [ref=e199]: פרופיל

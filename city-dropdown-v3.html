@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Dropdown — 3 Variations</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #070D18;
+    --surface: #0C1929;
+    --card:    #0F2035;
+    --border:  #1A3050;
+    --red:     #FF1744;
+    --neon:    #00E5A0;
+    --gold:    #FFB800;
+    --blue:    #3B9EFF;
+    --text:    #E6F4F0;
+    --dim:     #3D7070;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #030810;
+    font-family: 'Rubik', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 60px;
+    gap: 48px;
+  }
+  h1 { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); font-weight: 500; }
+  .toggle-wrap { display:flex; gap:0; background:var(--card); border:1px solid var(--border); border-radius:50px; padding:4px; }
+  .tbtn { padding:7px 22px; border-radius:50px; font:600 13px/1 'Rubik',sans-serif; cursor:pointer; border:none; color:var(--dim); background:transparent; transition:all .2s; }
+  .tbtn.active { background:var(--blue); color:#fff; box-shadow:0 0 0 1px rgba(59,158,255,.4),0 0 18px rgba(59,158,255,.25); }
+  .cn-full { display:none; }
+  .cn-short { display:inline; }
+  body.full .cn-full { display:inline; }
+  body.full .cn-short { display:none; }
+
+  .row { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .label { font-size: 10px; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── PHONE ── */
+  .phone {
+    width: 260px; height: 520px;
+    background: var(--bg);
+    border-radius: 28px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    display: flex; flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  }
+
+  /* header */
+  .header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 9px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .hbtn {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 50px; padding: 5px 10px;
+    font-family: 'Rubik', sans-serif; font-size: 11px; font-weight: 500;
+    color: var(--text); cursor: pointer; display: flex; align-items: center; gap: 4px;
+  }
+  .hbtn.add { background: var(--neon); border-color: var(--neon); color: #070D18; font-weight: 600; box-shadow: 0 0 0 1px rgba(0,229,160,0.3), 0 0 20px rgba(0,229,160,0.15); }
+
+  /* map */
+  .map {
+    flex: 1; position: relative;
+    background: var(--surface); overflow: hidden;
+  }
+  .map::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(rgba(26,48,80,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(26,48,80,0.35) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .road { position: absolute; background: #080F1E; }
+  .rh1 { top: 37%; left: 0; right: 0; height: 6px; }
+  .rh2 { top: 63%; left: 0; right: 0; height: 4px; }
+  .rv1 { top: 0; bottom: 0; left: 32%; width: 5px; }
+  .rv2 { top: 0; bottom: 0; left: 64%; width: 4px; }
+
+  /* shelter markers */
+  .mk {
+    position: absolute;
+    width: 28px; height: 28px; border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  .mk span { transform: rotate(45deg); display: block; }
+  .mk.user { background: var(--neon); box-shadow: 0 0 0 1px rgba(0,229,160,0.4), 0 2px 12px rgba(0,229,160,0.4); }
+  .mk.city { background: var(--blue); box-shadow: 0 0 0 1px rgba(59,158,255,0.4), 0 2px 12px rgba(59,158,255,0.3); }
+
+  /* count badge */
+  .badge {
+    position: absolute; top: 10px; right: 10px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 50px; padding: 5px 10px;
+    font-size: 11px; font-weight: 500; color: var(--text);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .bdot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 6px var(--neon); }
+
+  /* cities trigger btn */
+  .cities-btn {
+    position: absolute; top: 46px; right: 10px;
+    background: rgba(59,158,255,0.1);
+    border: 1px solid var(--blue);
+    border-radius: 50px; padding: 5px 11px;
+    font-family: 'Rubik', sans-serif; font-size: 11px; font-weight: 600;
+    color: var(--blue); cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+    box-shadow: 0 0 0 1px rgba(59,158,255,0.2), 0 0 20px rgba(59,158,255,0.15);
+  }
+
+  /* SOS */
+  .sos {
+    position: absolute; bottom: 14px; right: 10px;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FF4060, #FF1744);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+    box-shadow: 0 0 0 2px rgba(255,23,68,0.3), 0 0 32px rgba(255,23,68,0.4);
+    cursor: pointer;
+  }
+  .sos-icon { font-size: 18px; }
+  .sos-lbl { font-size: 8px; font-weight: 700; letter-spacing: 0.1em; font-family: monospace; }
+  .ring {
+    position: absolute; width: 58px; height: 58px; border-radius: 50%;
+    border: 1.5px solid rgba(255,23,68,0.4);
+    animation: radar 2s infinite ease-out;
+  }
+  .ring:nth-child(2){ animation-delay: .65s; }
+  .ring:nth-child(3){ animation-delay: 1.3s; }
+  @keyframes radar { 0%{ transform:scale(1); opacity:.5; } 100%{ transform:scale(2.6); opacity:0; } }
+
+  /* bottom nav */
+  .nav {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 7px 0 10px; display: flex; justify-content: space-around; flex-shrink: 0;
+  }
+  .ni { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 9px; color: var(--dim); }
+  .ni.on { color: var(--neon); }
+  .ni-icon { font-size: 15px; }
+
+  /* ═══════════════════════════════════════
+     VARIATION 1 — Sleek minimal pill toggle
+     ═══════════════════════════════════════ */
+  .panel-v1 {
+    position: absolute; top: 82px; right: 10px;
+    background: #0B1A2C;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 5px;
+    width: 168px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,158,255,0.08);
+    z-index: 20;
+  }
+  .v1-head {
+    padding: 5px 8px 7px;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--dim); border-bottom: 1px solid var(--border); margin-bottom: 4px;
+  }
+  .v1-row {
+    display: flex; align-items: center;
+    padding: 7px 8px; border-radius: 12px; cursor: pointer; gap: 8px;
+  }
+  .v1-row.on { background: rgba(59,158,255,0.1); }
+  .v1-toggle {
+    width: 36px; height: 20px; border-radius: 50px;
+    background: var(--border); flex-shrink: 0;
+    position: relative; transition: background .2s;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .v1-row.on .v1-toggle { background: var(--blue); box-shadow: 0 0 10px rgba(59,158,255,0.4); }
+  .v1-knob {
+    position: absolute; top: 2px; right: 2px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #E6F4F0; transition: transform .2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  .v1-row.on .v1-knob { transform: translateX(-16px); }
+  .v1-name { font-size: 12px; font-weight: 500; color: var(--dim); flex: 1; }
+  .v1-row.on .v1-name { color: var(--text); }
+  .v1-count { font-size: 10px; color: var(--dim); }
+
+  /* ═══════════════════════════════════════
+     VARIATION 2 — Glowing circle selector
+     ═══════════════════════════════════════ */
+  .panel-v2 {
+    position: absolute; top: 82px; right: 10px;
+    background: rgba(11,22,40,0.96);
+    border: 1px solid rgba(59,158,255,0.2);
+    border-radius: 18px;
+    padding: 6px;
+    width: 160px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,158,255,0.05), 0 0 40px rgba(59,158,255,0.05);
+    z-index: 20;
+  }
+  .v2-head {
+    padding: 5px 9px 7px;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--dim); border-bottom: 1px solid rgba(26,48,80,0.8); margin-bottom: 3px;
+  }
+  .v2-row {
+    display: flex; align-items: center;
+    padding: 7px 9px; border-radius: 12px; cursor: pointer; gap: 9px;
+  }
+  .v2-row.on { background: rgba(59,158,255,0.08); }
+  .v2-circle {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; transition: all .15s;
+  }
+  .v2-row.on .v2-circle {
+    background: var(--blue);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(59,158,255,0.2), 0 0 14px rgba(59,158,255,0.5);
+  }
+  .v2-info { flex: 1; }
+  .v2-name { font-size: 12px; font-weight: 500; color: var(--dim); line-height: 1.2; }
+  .v2-row.on .v2-name { color: var(--text); }
+  .v2-count { font-size: 10px; color: var(--dim); margin-top: 1px; }
+  .v2-row.on .v2-count { color: rgba(59,158,255,0.7); }
+
+  /* ═══════════════════════════════════════
+     VARIATION 3 — Bold card with color badge
+     ═══════════════════════════════════════ */
+  .panel-v3 {
+    position: absolute; top: 82px; right: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 168px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.8);
+    z-index: 20;
+  }
+  .v3-head {
+    background: rgba(59,158,255,0.08);
+    border-bottom: 1px solid rgba(59,158,255,0.15);
+    padding: 7px 12px;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(59,158,255,0.7); font-weight: 600;
+  }
+  .v3-list { padding: 4px; }
+  .v3-row {
+    display: flex; align-items: center;
+    padding: 7px 8px; border-radius: 10px;
+    cursor: pointer; gap: 8px; margin-bottom: 2px;
+    border: 1px solid transparent;
+  }
+  .v3-row.on {
+    background: rgba(59,158,255,0.1);
+    border-color: rgba(59,158,255,0.2);
+  }
+  .v3-dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--border); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; transition: all .15s;
+    position: relative;
+  }
+  .v3-row.on .v3-dot {
+    background: var(--blue);
+    box-shadow: 0 0 0 2px rgba(59,158,255,0.25), 0 0 12px rgba(59,158,255,0.45);
+  }
+  /* Ripple on active */
+  .v3-row.on .v3-dot::after {
+    content: ''; position: absolute; inset: -4px; border-radius: 50%;
+    border: 1px solid rgba(59,158,255,0.3);
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%{ transform:scale(1); opacity:.6; } 100%{ transform:scale(1.5); opacity:0; } }
+  .v3-body { flex: 1; }
+  .v3-name { font-size: 12px; font-weight: 600; color: var(--dim); }
+  .v3-row.on .v3-name { color: var(--text); }
+  .v3-sub { font-size: 10px; color: var(--dim); margin-top: 1px; }
+  .v3-row.on .v3-sub { color: rgba(59,158,255,0.65); }
+  .v3-chk { font-size: 11px; color: var(--blue); opacity: 0; }
+  .v3-row.on .v3-chk { opacity: 1; }
+</style>
+</head>
+<body>
+
+<h1>3 וריאציות — הרשימה שנפתחת</h1>
+
+<div class="toggle-wrap">
+  <button class="tbtn active" onclick="setMode('abbrev')">ק׳ קיצור</button>
+  <button class="tbtn" onclick="setMode('full')">קרית שם מלא</button>
+</div>
+
+<div class="row">
+
+  <!-- VAR 1: Toggle switch -->
+  <div class="col">
+    <div class="label">וריאציה 1 — Toggle</div>
+    <div class="phone">
+      <div class="header">
+        <button class="hbtn">🏠 בית</button>
+        <button class="hbtn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road rh1"></div><div class="road rh2"></div>
+        <div class="road rv1"></div><div class="road rv2"></div>
+        <div class="mk user" style="top:42%;left:30%"><span>🛡</span></div>
+        <div class="mk city" style="top:25%;left:58%"><span>🛡</span></div>
+        <div class="mk city" style="top:55%;left:50%"><span>🛡</span></div>
+        <div class="badge"><div class="bdot"></div>3 מקלטים</div>
+        <button class="cities-btn">🏙 ערים ▴</button>
+        <div class="panel-v1">
+          <div class="v1-head">הצג מקלטי עיר</div>
+          <div class="v1-row on">
+            <div class="v1-toggle"><div class="v1-knob"></div></div>
+            <span class="v1-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</span>
+            <span class="v1-count">30</span>
+          </div>
+          <div class="v1-row">
+            <div class="v1-toggle"><div class="v1-knob"></div></div>
+            <span class="v1-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</span>
+            <span class="v1-count">26</span>
+          </div>
+          <div class="v1-row">
+            <div class="v1-toggle"><div class="v1-knob"></div></div>
+            <span class="v1-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</span>
+            <span class="v1-count">40</span>
+          </div>
+          <div class="v1-row">
+            <div class="v1-toggle"><div class="v1-knob"></div></div>
+            <span class="v1-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</span>
+            <span class="v1-count">20</span>
+          </div>
+          <div class="v1-row">
+            <div class="v1-toggle"><div class="v1-knob"></div></div>
+            <span class="v1-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</span>
+            <span class="v1-count">75</span>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-lbl">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni active"><span class="ni-icon">🗺️</span>מפה</div>
+        <div class="ni on"><span class="ni-icon">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAR 2: Glowing circle -->
+  <div class="col">
+    <div class="label">וריאציה 2 — עיגול עם glow</div>
+    <div class="phone">
+      <div class="header">
+        <button class="hbtn">🏠 בית</button>
+        <button class="hbtn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road rh1"></div><div class="road rh2"></div>
+        <div class="road rv1"></div><div class="road rv2"></div>
+        <div class="mk user" style="top:42%;left:30%"><span>🛡</span></div>
+        <div class="mk city" style="top:25%;left:58%"><span>🛡</span></div>
+        <div class="mk city" style="top:55%;left:50%"><span>🛡</span></div>
+        <div class="badge"><div class="bdot"></div>3 מקלטים</div>
+        <button class="cities-btn">🏙 ערים ▴</button>
+        <div class="panel-v2">
+          <div class="v2-head">הצג מקלטי עיר</div>
+          <div class="v2-row on">
+            <div class="v2-circle">✓</div>
+            <div class="v2-info">
+              <div class="v2-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</div>
+              <div class="v2-count">30 מקלטים</div>
+            </div>
+          </div>
+          <div class="v2-row">
+            <div class="v2-circle"></div>
+            <div class="v2-info">
+              <div class="v2-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</div>
+              <div class="v2-count">26 מקלטים</div>
+            </div>
+          </div>
+          <div class="v2-row">
+            <div class="v2-circle"></div>
+            <div class="v2-info">
+              <div class="v2-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</div>
+              <div class="v2-count">40 מקלטים</div>
+            </div>
+          </div>
+          <div class="v2-row">
+            <div class="v2-circle"></div>
+            <div class="v2-info">
+              <div class="v2-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</div>
+              <div class="v2-count">20 מקלטים</div>
+            </div>
+          </div>
+          <div class="v2-row">
+            <div class="v2-circle"></div>
+            <div class="v2-info">
+              <div class="v2-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</div>
+              <div class="v2-count">75 מקלטים</div>
+            </div>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-lbl">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni"><span class="ni-icon">🗺️</span>מפה</div>
+        <div class="ni on"><span class="ni-icon">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAR 3: Bold card with pulse -->
+  <div class="col">
+    <div class="label">וריאציה 3 — כרטיס + pulse</div>
+    <div class="phone">
+      <div class="header">
+        <button class="hbtn">🏠 בית</button>
+        <button class="hbtn add">+ מקלט</button>
+      </div>
+      <div class="map">
+        <div class="road rh1"></div><div class="road rh2"></div>
+        <div class="road rv1"></div><div class="road rv2"></div>
+        <div class="mk user" style="top:42%;left:30%"><span>🛡</span></div>
+        <div class="mk city" style="top:25%;left:58%"><span>🛡</span></div>
+        <div class="mk city" style="top:55%;left:50%"><span>🛡</span></div>
+        <div class="badge"><div class="bdot"></div>3 מקלטים</div>
+        <button class="cities-btn">🏙 ערים ▴</button>
+        <div class="panel-v3">
+          <div class="v3-head">🏙 מקלטי ערים</div>
+          <div class="v3-list">
+            <div class="v3-row on">
+              <div class="v3-dot">✓</div>
+              <div class="v3-body">
+                <div class="v3-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ביאליק</div>
+                <div class="v3-sub">30 מקלטים פעילים</div>
+              </div>
+              <span class="v3-chk">●</span>
+            </div>
+            <div class="v3-row">
+              <div class="v3-dot"></div>
+              <div class="v3-body">
+                <div class="v3-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> ים</div>
+                <div class="v3-sub">26 מקלטים</div>
+              </div>
+              <span class="v3-chk">●</span>
+            </div>
+            <div class="v3-row">
+              <div class="v3-dot"></div>
+              <div class="v3-body">
+                <div class="v3-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> מוצקין</div>
+                <div class="v3-sub">40 מקלטים</div>
+              </div>
+              <span class="v3-chk">●</span>
+            </div>
+            <div class="v3-row">
+              <div class="v3-dot"></div>
+              <div class="v3-body">
+                <div class="v3-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> חיים</div>
+                <div class="v3-sub">20 מקלטים</div>
+              </div>
+              <span class="v3-chk">●</span>
+            </div>
+            <div class="v3-row">
+              <div class="v3-dot"></div>
+              <div class="v3-body">
+                <div class="v3-name"><span class="cn-full">קרית</span><span class="cn-short">ק׳</span> אתא</div>
+                <div class="v3-sub">75 מקלטים</div>
+              </div>
+              <span class="v3-chk">●</span>
+            </div>
+          </div>
+        </div>
+        <div class="sos">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <span class="sos-icon">⚠️</span>
+          <span class="sos-lbl">SOS</span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="ni"><span class="ni-icon">🗺️</span>מפה</div>
+        <div class="ni on"><span class="ni-icon">🏃</span>מסלול</div>
+        <div class="ni"><span class="ni-icon">👤</span>פרופיל</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function setMode(mode) {
+    document.body.classList.toggle('full', mode === 'full');
+    document.querySelectorAll('.tbtn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.includes(mode === 'full' ? 'קרית' : 'ק׳'));
+    });
+  }
+</script>
+</body>
+</html>

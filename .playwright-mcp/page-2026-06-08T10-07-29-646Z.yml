@@ -1,0 +1,70 @@
+- generic [ref=e118]:
+  - generic [ref=e119]:
+    - img [ref=e120]
+    - heading "פרופיל" [level=1] [ref=e123]
+  - generic [ref=e124]:
+    - generic [ref=e125]:
+      - generic [ref=e127]: P
+      - generic [ref=e128]:
+        - paragraph [ref=e129]: Playwright Test
+        - paragraph [ref=e130]: riw.test.playwright@gmail.com
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - img [ref=e133]
+        - paragraph [ref=e136]: מיקום בית
+      - paragraph [ref=e137]: משמש כנקודת התחלה במסלולים
+      - button "השתמש במיקום הנוכחי (GPS)" [ref=e138] [cursor=pointer]:
+        - img [ref=e139]
+        - text: השתמש במיקום הנוכחי (GPS)
+      - generic [ref=e144]: או הקלד כתובת
+      - 'textbox "לדוגמה: \"אפרים 5, תל אביב\"" [ref=e148]'
+    - generic [ref=e149]:
+      - generic [ref=e150]:
+        - img [ref=e151]
+        - paragraph [ref=e157]: שיתוף מקלטים
+      - paragraph [ref=e158]: שתף מקלטים עם חברים ומשפחה
+      - button "פתח שיתוף" [ref=e159] [cursor=pointer]:
+        - generic [ref=e160]: פתח שיתוף
+        - img [ref=e161]
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - img [ref=e165]
+        - paragraph [ref=e169]: שפה
+      - paragraph [ref=e170]: Hebrew / English
+      - button "🇮🇱 עברית Switch to English" [ref=e171] [cursor=pointer]:
+        - generic [ref=e172]: 🇮🇱 עברית
+        - generic [ref=e173]: Switch to English
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - img [ref=e176]
+        - paragraph [ref=e179]: שמות ערים
+      - paragraph [ref=e180]: כיצד יוצגו הערים במסנן המפה
+      - generic [ref=e181]:
+        - button "שם מלא קרית ביאליק, קרית ים..." [ref=e182] [cursor=pointer]:
+          - generic [ref=e184]:
+            - paragraph [ref=e185]: שם מלא
+            - paragraph [ref=e186]: קרית ביאליק, קרית ים...
+        - button "קיצור ק׳ ביאליק, ק׳ ים..." [ref=e187] [cursor=pointer]:
+          - generic [ref=e190]:
+            - paragraph [ref=e191]: קיצור
+            - paragraph [ref=e192]: ק׳ ביאליק, ק׳ ים...
+    - button "יציאה מהחשבון" [ref=e193] [cursor=pointer]:
+      - img [ref=e194]
+      - text: יציאה מהחשבון
+  - navigation "ניווט ראשי" [ref=e197]:
+    - link "בית" [ref=e198] [cursor=pointer]:
+      - /url: /
+      - img [ref=e200]
+      - generic [ref=e203]: בית
+    - link "מפה" [ref=e204] [cursor=pointer]:
+      - /url: /map
+      - img [ref=e206]
+      - generic [ref=e208]: מפה
+    - link "מסלול" [ref=e209] [cursor=pointer]:
+      - /url: /route
+      - img [ref=e211]
+      - generic [ref=e215]: מסלול
+    - link "פרופיל" [ref=e216] [cursor=pointer]:
+      - /url: /profile
+      - img [ref=e219]
+      - generic [ref=e222]: פרופיל

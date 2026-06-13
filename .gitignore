@@ -1,11 +1,2 @@
+data/index.db
 node_modules/
-.vercel
-.env
-.env.local
-.env.*.local
-.claude/
-.playwright-mcp/
-dist/
-step*.png
-.superpowers/
-scripts/service-account*.json*
