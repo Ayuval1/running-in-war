@@ -1,5 +1,0 @@
-[     251ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
-[     252ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/:0
-[     390ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ https://running-in-war.vercel.app/:0
-[     578ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0
-[    5644ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://running-in-war.vercel.app/api/alerts:0

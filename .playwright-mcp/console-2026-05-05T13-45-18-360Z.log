@@ -1,2 +1,0 @@
-[     113ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://running-in-war.vercel.app/icons/icon-192.png:0
-[     113ms] [WARNING] Error while trying to use the following icon from the Manifest: https://running-in-war.vercel.app/icons/icon-192.png (Download error or resource isn't a valid image) @ https://running-in-war.vercel.app/profile:0

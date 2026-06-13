@@ -1,2 +1,4 @@
 data/index.db
 node_modules/
+.playwright-mcp/
+.vercel/

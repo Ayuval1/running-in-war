@@ -7,15 +7,18 @@ const ROOT = join(fileURLToPath(import.meta.url), '../../../..');
 const db = new DatabaseSync(join(ROOT, 'data/index.db'));
 
 const SCAN_DIRS = [
-  { dir: 'C-core',          category: 'Core' },
-  { dir: 'B-brain',         category: 'Brain' },
-  { dir: 'A-agents',        category: 'Agents' },
-  { dir: 'O-output',        category: 'Output' },
-  { dir: 'M-memory',        category: 'Memory' },
-  { dir: 'app/src/pages',   category: 'page' },
+  { dir: 'C-core',             category: 'Core' },
+  { dir: 'B-brain',            category: 'Brain' },
+  { dir: 'A-agents',           category: 'Agents' },
+  { dir: 'O-output',           category: 'Output' },
+  { dir: 'M-memory',           category: 'Memory' },
+  { dir: 'docs',               category: 'Docs' },
+  { dir: 'dev',                category: 'Dev' },
+  { dir: 'screenshots',        category: 'Screenshots' },
+  { dir: 'app/src/pages',      category: 'page' },
   { dir: 'app/src/components', category: 'component' },
-  { dir: 'app/src/hooks',   category: 'hook' },
-  { dir: 'app/src/lib',     category: 'lib' },
+  { dir: 'app/src/hooks',      category: 'hook' },
+  { dir: 'app/src/lib',        category: 'lib' },
 ];
 
 function walkDir(dir, fileList = []) {
