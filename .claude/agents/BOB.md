@@ -1,6 +1,7 @@
 ---
 name: bob
 description: DB Manager for RunningInWar. Invoke when indexing project files, logging sessions to data/index.db, processing files dropped in O-output/Team Output/, or running any BOB script. Triggers on: "תעדכן את הDB", "תרשום את השיחה", "תסרוק קבצים", "BOB", session end protocol.
+model: claude-haiku-4-5-20251001
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
