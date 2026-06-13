@@ -11,3 +11,4 @@ Located in `A-agents/BOB/scripts/`:
 - `index-update.mjs` — scans all dirs → updates files table
 - `add-session.mjs` — logs one session row
 - `watch-team-output.mjs` — file watcher for O-output/Team Output/
+ 

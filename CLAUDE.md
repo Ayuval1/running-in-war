@@ -15,6 +15,8 @@
 | נושא | סוכן |
 |------|------|
 | DB, index.db, sessions, קבצים ב-Team Output | **BOB** |
+| גיוס סוכן חדש, הרחבת הצוות | **JOHN** |
+| מחקר חיצוני, best practices, חקור X | **מוטי** |
 | UI, קוד, פיצ'רים, באגים | סוכן קוד (עתידי) |
 | copy, עיצוב, brand | טען skill: brand-guidelines |
 

@@ -31,6 +31,14 @@ db.exec(`
     files_touched TEXT,
     result        TEXT
   );
+
+  CREATE TABLE IF NOT EXISTS agents (
+    id      INTEGER PRIMARY KEY AUTOINCREMENT,
+    name    TEXT NOT NULL,
+    role    TEXT,
+    persona TEXT,
+    created TEXT
+  );
 `);
 
 const insertFile = db.prepare(`
@@ -68,4 +76,19 @@ for (const [date, title, result] of seedSessions) {
   insertSession.run(date, title, result);
 }
 
-console.log('✅ DB initialized: 3 tables, seed data inserted');
+const insertAgent = db.prepare(`
+  INSERT OR IGNORE INTO agents (name, role, persona, created)
+  VALUES (?, ?, ?, ?)
+`);
+
+const seedAgents = [
+  ['BOB',   'DB Manager',     'מסודר, מדויק, שקט. לא מדבר יותר מדי — רק עושה.', '2026-06-13'],
+  ['JOHN',  'HR Agent',       'מגייס, בונה צוות, חושב על fit. ישיר, אסטרטגי.', '2026-06-13'],
+  ['מוטי', 'Research Agent', 'סקרן, יסודי, שיטתי. אוהב למצוא את התשובה לפני כולם.', '2026-06-13'],
+];
+
+for (const [name, role, persona, created] of seedAgents) {
+  insertAgent.run(name, role, persona, created);
+}
+
+console.log('✅ DB initialized: 4 tables, seed data inserted');

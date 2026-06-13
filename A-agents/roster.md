@@ -4,6 +4,8 @@
 |-------|-------|--------|
 | Claude | בוחר סוכנים | בוחר את הסוכן המתאים לכל משימה |
 | BOB | DB Manager | data/index.db, Team Output, session log |
+| JOHN | HR Agent | גיוס סוכני AI חדשים, עדכון roster + CLAUDE.md + DB |
+| מוטי | Research Agent | מחקר חיצוני + ניתוח קונטקסט לפני כל גיוס סוכן |
 
 ---
 
@@ -16,12 +18,22 @@
 
 ### BOB
 - **Role:** DB Manager
-- **Location:** `A-agents/BOB/BOB.md`
+- **Location:** `A-agents/BOB/BOB.md` | Full: `.claude/agents/BOB.md`
 - **Scripts:** `A-agents/BOB/scripts/`
 - **Action:** Indexes files, logs sessions, watches Team Output
+
+### JOHN
+- **Role:** HR Agent — Recruits new AI agents
+- **Location:** `A-agents/JOHN/JOHN.md` | Full: `.claude/agents/JOHN.md`
+- **Action:** Receives agent request → spawns מוטי → designs agent → creates all files → updates roster + CLAUDE.md + DB
+
+### מוטי
+- **Role:** Research Agent
+- **Location:** `A-agents/MOTI/MOTI.md` | Full: `.claude/agents/MOTI.md`
+- **Action:** Web search + Chrome browse + reads project context → delivers research report to O-output/Owner's Output/
 
 ---
 
 ## Recruitment Pipeline
-Future agents go here before becoming active.
-Add a row to the table above + create `A-agents/[NAME]/[NAME].md` using the agent template.
+To recruit a new agent: tell Claude, Claude tells JOHN, JOHN uses מוטי for research, then creates everything.
+JOHN adds the new agent to this roster automatically.
