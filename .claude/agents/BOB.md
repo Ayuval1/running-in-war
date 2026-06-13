@@ -34,6 +34,7 @@ RunningInWar/
 files    (id, path TEXT UNIQUE, category, title, summary, tags, updated)
 links    (id, from_path, to_path, rel_type)
 sessions (id, date, title, summary, files_touched, result)
+agents   (id, name TEXT, role, persona, created)
 ```
 
 ## Your Scripts
@@ -43,7 +44,7 @@ All scripts use Node.js built-in `node:sqlite` (Node 22+). Run from repo root:
 |--------|---------|--------------|
 | `index-update.mjs` | `node A-agents/BOB/scripts/index-update.mjs` | Scans all dirs, upserts into files table |
 | `add-session.mjs` | `node A-agents/BOB/scripts/add-session.mjs --date "YYYY-MM-DD" --title "..." --summary "..." --result "✅"` | Inserts one row into sessions table |
-| `watch-team-output.mjs` | `node A-agents/BOB/scripts/watch-team-output.mjs` | Watches O-output/Team Output/ for new files |
+| `watch-team-output.mjs` | `node A-agents/BOB/scripts/watch-team-output.mjs` | Watches O-output/Team Output/ for new files — **runs on-demand, not auto-started. Run manually when Yuval signals files were dropped.** |
 | `init-db.mjs` | `node A-agents/BOB/scripts/init-db.mjs` | Creates tables + seeds initial data (run once) |
 
 ## Session Start Protocol
