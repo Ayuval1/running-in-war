@@ -37,7 +37,7 @@
 | `A-agents/` | סוכנים | roster.md (מי עושה מה) |
 | `B-brain/` | ידע מקצועי | index.md (מפה), product.md (מפרט מוצר) |
 | `C-core/` | זהות המוצר | core-identity.md — **קרא לפני כל copy/UI/product decision** |
-| `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה. **לקח שמתגלה → קרא לBOB מיד, אל תחכה לסוף.** |
+| `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה. כשאחד מהטריגרים מתרחש → קרא לBOB מיד. |
 | `O-output/` | תיבות | Team Output (יובל→סוכנים), Owner's Output (סוכנים→יובל) |
 | `data/` | DB | index.db — SQLite: files, links, agents |
 
@@ -58,6 +58,18 @@
 - Icons: lucide-react בלבד
 - DB: Firebase Firestore + IndexedDB
 - Dark mode only | RTL default | Hebrew first
+
+## טריגרים לקריאה לBOB (מיד, לא בסוף שיחה)
+
+כשאחד מאלה קורה → קרא לBOB עם הלקח:
+- יובל מתקן ("לא", "עצור", "זה לא מה שרציתי", "טעות")
+- תוכנית בוטלה באמצע השיחה
+- משהו עבד טוב במיוחד ("בדיוק זה", "מושלם", "ככה בדיוק")
+- אותה שגיאה חזרה פעמיים
+
+BOB יבדוק כפילות לפני שיכתוב.
+
+---
 
 ## Core Rules
 1. שינוי בינוני ומעלה → אישור לפני יישום
