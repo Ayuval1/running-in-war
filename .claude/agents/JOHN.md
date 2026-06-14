@@ -94,6 +94,14 @@ tools: [tool1, tool2, ...]
 
 **קובץ זה חייב להיות ארוך ומפורט כמו BOB.md. זה ה-brain של הסוכן.**
 
+**חובה בכל סוכן — section "Before Every Task":**
+```markdown
+## Before Every Task
+1. Read `C-core/core-identity.md` — know what the product is
+2. Read `M-memory/learning-log.md` — apply past lessons
+```
+כל סוכן חייב לכלול את זה. אין חריגות.
+
 ### שלב 6 — צור `A-agents/[NAME]/[NAME].md`
 קובץ קצר — תקציר ונקודת כניסה:
 ```markdown

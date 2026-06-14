@@ -39,6 +39,9 @@ Where we capture what works, what doesn't, and patterns we repeat.
 **מה לא עבד:** אין
 **Pattern שנגלה:** Iteration Log = מחליף sessions table. מידע זהה, פורמט שסוכנים קוראים.
 
+### 2026-06-14 — T-tools + Skills Catalog + C-core enforcement
+**מה עשינו:** הרצנו מוטי לסקור את כל הסקילים הקיימים (16 גלובליים + 2 פרויקטיים) — הדו"ח נשמר ב-O-output/Owner's Output/MOTI-research-skills-catalog.md. עדכנו JOHN.md שיחייב "Before Every Task → Read C-core + learning-log" בכל סוכן חדש שהוא יוצר. הגדרנו רעיון T-tools (תיקיה לכלים, workflows, סקילים) שיממש בשיחה הבאה.
+
 ---
 
 *BOB כותב לקובץ זה. שאר הסוכנים מדווחים לBOB.*
