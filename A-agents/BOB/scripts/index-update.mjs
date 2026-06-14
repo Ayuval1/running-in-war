@@ -2,6 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { updateLinks } from './link-update.mjs';
 
 const ROOT = join(fileURLToPath(import.meta.url), '../../../..');
 const db = new DatabaseSync(join(ROOT, 'data/index.db'));
@@ -54,4 +55,5 @@ for (const { dir, category } of SCAN_DIRS) {
   }
 }
 
+updateLinks(db, ROOT);
 console.log(`✅ index-update: ${added} files indexed`);

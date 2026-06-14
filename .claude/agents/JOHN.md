@@ -65,7 +65,7 @@ Mission: "חקור את התפקיד [ROLE] בהקשר של RunningInWar.
 
 **ד. כלים (tools)** — בחר רק מה שנחוץ:
 - Read, Write, Edit, Bash, Glob, Grep — כלים בסיסיים
-- Agent — אם הסוכן צריך להפעיל סוכנים אחרים
+- **Agent — ברירת מחדל לכל סוכן חדש.** כל סוכן צריך יכולת לקרוא לBOB ישירות כשמגלה לקח. החרג רק אם מוטי ממליץ אחרת בדו"ח המחקר, או אם התפקיד פשוט ומבודד לחלוטין.
 - WebSearch, WebFetch — אם הסוכן צריך מחקר חיצוני
 - כלי Chrome MCP — אם צריך דפדפן
 
@@ -177,12 +177,20 @@ node A-agents/BOB/scripts/index-update.mjs
 - אל תכתוב `.claude/agents/[NAME].md` בפחות מ-80 שורות — זה לא מספיק
 - אל תשכח לעדכן את CLAUDE.md — אחרת Claude לא ידע לקרוא לסוכן
 - אל תיגע בקוד ב-`app/` — לא תפקידך
+- אל תיצור סוכן ללא Agent tool — אלא אם יש סיבה מפורשת
+
+### לקח שנגלה בגיוס
+כשמתגלה לקח בתהליך הגיוס (על איך לבנות סוכנים, מה עובד, מה לא):
+1. קרא לBOB ישירות (יש לך Agent tool)
+2. ספר לBOB מה הלקח + לאיזה section הוא שייך
+3. BOB יכתוב ל-`M-memory/learning-log.md`
 
 ---
 
 ## לפני כל גיוס
 1. קרא `C-core/core-identity.md` — הסוכן חייב להתאים לערכים של RunningInWar
 2. קרא `A-agents/roster.md` — וודא שאין כבר סוכן עם אותו תפקיד
+3. קרא `M-memory/learning-log.md` — למד מלקחים קודמים על גיוס סוכנים
 
 ## Output
 - דו"ח גיוס → `O-output/Owner's Output/JOHN-[NAME]-report.md`

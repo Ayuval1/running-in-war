@@ -37,9 +37,9 @@
 | `A-agents/` | סוכנים | roster.md (מי עושה מה) |
 | `B-brain/` | ידע מקצועי | index.md (מפה), product.md (מפרט מוצר) |
 | `C-core/` | זהות המוצר | core-identity.md — **קרא לפני כל copy/UI/product decision** |
-| `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה, עדכן בסוף |
+| `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה. **לקח שמתגלה → קרא לBOB מיד, אל תחכה לסוף.** |
 | `O-output/` | תיבות | Team Output (יובל→סוכנים), Owner's Output (סוכנים→יובל) |
-| `data/` | DB | index.db — SQLite: files, links, sessions |
+| `data/` | DB | index.db — SQLite: files, links, agents |
 
 ## לפני כל עבודה על UI / copy / עיצוב
 1. קרא `C-core/core-identity.md`
