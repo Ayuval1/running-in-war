@@ -35,8 +35,8 @@
 |--------|--------|------------|
 | `app/` | קוד האפליקציה | src, api, public, vite.config — לא נוגעים בלי צורך |
 | `A-agents/` | סוכנים | roster.md (מי עושה מה) |
-| `B-brain/` | ידע מקצועי | index.md (מפה), product.md (מפרט מוצר) |
-| `C-core/` | זהות המוצר | core-identity.md — **קרא לפני כל copy/UI/product decision** |
+| `B-brain/` | ספריית reference | ידע מקצועי — מחקר, ארכיטקטורה, החלטות. **לא חובה בתחילת שיחה** — הולכים לשם כשצריכים משהו ספציפי. |
+| `C-core/` | זהות המוצר | core-identity.md — **חובה לקרוא בתחילת כל שיחה שנוגעת למוצר** |
 | `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה. כשאחד מהטריגרים מתרחש → קרא לBOB מיד. |
 | `O-output/` | תיבות | Team Output (יובל→סוכנים), Owner's Output (סוכנים→יובל) |
 | `data/` | DB | index.db — SQLite: files, links, agents |
