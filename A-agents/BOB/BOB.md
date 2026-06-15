@@ -5,6 +5,9 @@
 ## Summary
 DB Manager for RunningInWar. Indexes files, builds file links graph, writes to learning-log. Only BOB writes to `M-memory/learning-log.md`.
 
+## Skills
+**Uses skill:** `write-to-learning-log` (פרויקט) — טוען בסוף שיחה לכתיבת Iteration Log
+
 ## Scripts
 Located in `A-agents/BOB/scripts/`:
 - `init-db.mjs` — creates DB + seeds (run once)

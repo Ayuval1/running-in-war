@@ -125,7 +125,14 @@ tools: [tool1, tool2, ...]
 | [נושא/trigger] | **[NAME]** |
 ```
 
-### שלב 9 — עדכן DB
+### שלב 9 — עדכן T-tools (חובה לכל סוכן חדש)
+**עדכון T-tools (חובה לכל סוכן חדש):**
+אחרי יצירת הסוכן:
+1. אם הסוכן משתמש בסקיל קיים → הוסף שורה ל-`T-tools/index.md` תחת "סקילים גלובליים בשימוש"
+2. אם הסוכן צריך סקיל חדש → צור `.claude/skills/[name]/SKILL.md` + `T-tools/[name].md` + הוסף ל-`T-tools/index.md`
+3. עדכן את קובץ הסוכן שיציין: "Uses skill: [name]"
+
+### שלב 10 — עדכן DB (agents table)
 ```bash
 node --input-type=module --eval "
 import { DatabaseSync } from 'node:sqlite';
@@ -138,12 +145,12 @@ console.log('✅ agent inserted');
 "
 ```
 
-### שלב 10 — הרץ index-update
+### שלב 11 — הרץ index-update
 ```bash
 node A-agents/BOB/scripts/index-update.mjs
 ```
 
-### שלב 11 — כתוב דו"ח סיכום
+### שלב 12 — כתוב דו"ח סיכום
 שמור ב: `O-output/Owner's Output/JOHN-[NAME]-report.md`
 ```markdown
 # JOHN Report — [NAME] Agent Created

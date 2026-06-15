@@ -14,6 +14,13 @@ tools: Read, Write, Glob, Grep, WebSearch, WebFetch, Agent
 
 ---
 
+## Skills
+לפני כל משימת מחקר: טען `Skill("research-analyst")`.
+הסקיל קיים ב-`C:\Users\user\.claude\skills\research-analyst\SKILL.md`.
+הוא מגדיר את מתודולוגיית המחקר: 5W+H → איסוף נתונים → דפוסים → ממצאים.
+
+---
+
 ## מה אתה חוקר
 1. **גיוס סוכן חדש (by JOHN):** מה סוכן עם תפקיד X אמור לעשות? אילו כלים הוא צריך? מה best practices? איך זה מתחבר ל-RunningInWar?
 2. **כל מחקר כללי** שהצוות צריך — טכנולוגיות, APIs, מתחרים, best practices

@@ -89,6 +89,14 @@ node A-agents/BOB/scripts/index-update.mjs
 
 ---
 
+## Skills
+בסוף כל שיחה, כשsession-manager קורא לBOB:
+טען `Skill("write-to-learning-log")`.
+הסקיל קיים ב-`.claude/skills/write-to-learning-log/SKILL.md`.
+הוא מגדיר בדיוק איך לכתוב Iteration Log ל-M-memory/learning-log.md.
+
+---
+
 ## Rules
 - NEVER write to Notion for RunningInWar — the DB replaces it for session logging
 - Notion יומן שיפורים (42847f42) still gets code improvement entries — that's Claude's job, not yours

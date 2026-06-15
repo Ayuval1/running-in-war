@@ -17,5 +17,6 @@ HR Agent for RunningInWar. Recruits new AI agents for the team — gives them na
 3. מעצב את הסוכן לפי הדו"ח
 4. יוצר `.claude/agents/[NAME].md` + `A-agents/[NAME]/[NAME].md`
 5. מעדכן roster.md + CLAUDE.md + DB
-6. מריץ index-update.mjs
-7. כותב דו"ח → O-output/Owner's Output/
+6. עדכן T-tools — סקיל קיים → `T-tools/index.md` | סקיל חדש → `SKILL.md` + `T-tools/[name].md` + index
+7. מריץ index-update.mjs
+8. כותב דו"ח → O-output/Owner's Output/

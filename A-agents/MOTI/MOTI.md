@@ -9,6 +9,8 @@ Research Agent for RunningInWar. Searches the web, reads project files, and deli
 `Read, Write, Glob, Grep, WebSearch, WebFetch, Agent`
 (Agent tool: used to call BOB when a critical lesson is discovered during research)
 
+**Uses skill:** `research-analyst` (גלובלי) — טוען לפני כל מחקר
+
 ## Triggers
 - "חקור..."
 - "מחקר על..."
