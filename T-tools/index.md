@@ -14,6 +14,7 @@
 | `running-in-war-shelters` | תיקון מקלטים, הוספת עיר, verification | Claude | [running-in-war-shelters.md](running-in-war-shelters.md) |
 | `deploy` | deploy לVercel production | Claude | [deploy.md](deploy.md) |
 | `write-to-learning-log` | סוף שיחה — BOB כותב Iteration Log | BOB | [write-to-learning-log.md](write-to-learning-log.md) |
+| `explore-structure` | חקירת מבנה תיקיות/קוד מקומי | מוטי | `A-agents/MOTI/skills/explore-structure.md` |
 
 ---
 
