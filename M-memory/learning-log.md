@@ -42,6 +42,12 @@ Where we capture what works, what doesn't, and patterns we repeat.
 ### 2026-06-14 — T-tools + Skills Catalog + C-core enforcement
 **מה עשינו:** הרצנו מוטי לסקור את כל הסקילים הקיימים (16 גלובליים + 2 פרויקטיים) — הדו"ח נשמר ב-O-output/Owner's Output/MOTI-research-skills-catalog.md. עדכנו JOHN.md שיחייב "Before Every Task → Read C-core + learning-log" בכל סוכן חדש שהוא יוצר. הגדרנו רעיון T-tools (תיקיה לכלים, workflows, סקילים) שיממש בשיחה הבאה.
 
+### 2026-06-15 — T-tools Implementation + Skills Audit
+**מה עשינו:** נבנה T-tools/ עם index.md + 12 קבצי סיכום per-skill. נוצרו 2 סקילי פרויקט חדשים: deploy (מתוך app/ בלבד), write-to-learning-log (של BOB לסוף שיחה). נמחקו 5 סקילים גלובליים: review, personal-context, israeli-shelter-guide, electron, impeccable. עודכנו סוכנים: MOTI (טוען research-analyst), BOB (טוען write-to-learning-log), JOHN (מוסיף T-tools שורה בכל גיוס). עודכן data/index.db: 4 רשומות חדשות + link מוטי→research-analyst. הכל עלה ל-GitHub, commit ab86a47.
+
+### 2026-06-15 — Wiki Knowledge Graph + Agent Wiring
+**מה עשינו:** הוספנו wiki links system לBOB: buildEntityRegistry, wiki_mention detection (166 links), indexes על DB, wiki-writer.mjs (מוכן לObsidian). עדכנו כל הסוכנים (מוטי, JOHN, BOB) + CLAUDE.md — עכשיו כולם שואלים BOB "מה קשור ל-X?" לפני שמתחילים עבודה.
+
 ---
 
 *BOB כותב לקובץ זה. שאר הסוכנים מדווחים לBOB.*
