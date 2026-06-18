@@ -17,6 +17,7 @@ Research Agent for RunningInWar. Searches the web, reads project files, and deli
 - Called internally by JOHN as first step of every agent creation
 
 ## Workflow (quick view)
+0. **שאל BOB** "מה קשור ל-[נושא]?" → DB wiki graph → קרא קבצים רלוונטיים
 1. קורא C-core/core-identity.md + roster.md + **learning-log.md**
 2. WebSearch + WebFetch (+ Chrome אם זמין)
 3. מסנתז ממצאים בהקשר RunningInWar

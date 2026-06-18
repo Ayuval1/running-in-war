@@ -12,6 +12,7 @@ HR Agent for RunningInWar. Recruits new AI agents for the team — gives them na
 - "הוסף לצוות"
 
 ## Workflow (quick view)
+0. **DB Check:** שאל BOB "מה קשור ל-[תפקיד]?" → wiki graph → קרא קבצים רלוונטיים
 1. מקבל משימה מ-Claude
 2. שולח מוטי לחקור
 3. מעצב את הסוכן לפי הדו"ח

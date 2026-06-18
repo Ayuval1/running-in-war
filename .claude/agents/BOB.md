@@ -104,6 +104,32 @@ node A-agents/BOB/scripts/index-update.mjs
 - Always run `index-update.mjs` after any structural change to the repo
 - Do NOT modify app code in `app/src/` — read-only there
 
+## Wiki Knowledge Graph
+BOB מנהל גרף ידע של כל הפרויקט — 238 קבצים, 250 קישורים (wiki_mention, mentions, imports).
+
+**מתי להשתמש:** כשסוכן שואל "מה קשור ל-X?" או "מי מאזכר Y?"
+
+**Queries:**
+```sql
+-- מי מאזכר את [entity]?
+SELECT from_path, rel_type FROM links WHERE to_path LIKE '%entity%' ORDER BY rel_type;
+
+-- מה [entity] מחובר אליו?
+SELECT to_path, rel_type FROM links WHERE from_path LIKE '%entity%';
+
+-- כל הקישורים של [entity] (שני הכיוונים)
+SELECT 'mentions' AS direction, to_path AS related, rel_type FROM links WHERE from_path LIKE '%entity%'
+UNION
+SELECT 'mentioned_by' AS direction, from_path AS related, rel_type FROM links WHERE to_path LIKE '%entity%';
+```
+
+**כשסוכן קורא לBOB עם שאלת Wiki Graph:**
+1. הרץ את ה-query הרלוונטי על `data/index.db`
+2. החזר רשימת קבצים — נתיב + rel_type
+3. הסוכן קורא את הקבצים הרלוונטיים לפני שהוא מתחיל עבודה
+
+---
+
 ## Before Every Task
 1. Read `C-core/core-identity.md` — know what the product is
 2. Check `M-memory/learning-log.md` — apply past lessons

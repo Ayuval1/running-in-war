@@ -15,6 +15,7 @@
 | נושא | סוכן |
 |------|------|
 | DB, index.db, sessions, קבצים ב-Team Output | **BOB** |
+| "מה קשור ל-X?", "מי מאזכר Y?", גרף ידע | **BOB** |
 | גיוס סוכן חדש, הרחבת הצוות | **JOHN** |
 | מחקר חיצוני, best practices, חקור X | **מוטי** |
 | UI, קוד, פיצ'רים, באגים | סוכן קוד (עתידי) |
@@ -40,7 +41,7 @@
 | `C-core/` | זהות המוצר | core-identity.md — **חובה לקרוא בתחילת כל שיחה שנוגעת למוצר** |
 | `M-memory/` | לקחים | learning-log.md — קרא בתחילת שיחה. כשאחד מהטריגרים מתרחש → קרא לBOB מיד. |
 | `O-output/` | תיבות | Team Output (יובל→סוכנים), Owner's Output (סוכנים→יובל) |
-| `data/` | DB | index.db — SQLite: files, links, agents |
+| `data/` | DB | index.db — SQLite: files, links, agents. 238 קבצים, 250 links (wiki_mention + mentions + imports). שאל BOB: "מה קשור ל-X?" |
 
 ## לפני כל עבודה על UI / copy / עיצוב
 1. קרא `C-core/core-identity.md`
@@ -59,6 +60,10 @@
 - Icons: lucide-react בלבד
 - DB: Firebase Firestore + IndexedDB
 - Dark mode only | RTL default | Hebrew first
+
+## שאל BOB לפני עבודה על נושא חדש
+
+לפני שמתחילים עבודה על נושא X → שאל BOB: "מה קשור ל-X?" → BOB יחזיר קבצים ו-skills רלוונטיים מהDB.
 
 ## טריגרים לקריאה לBOB (מיד, לא בסוף שיחה)
 

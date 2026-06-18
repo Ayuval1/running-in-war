@@ -5,6 +5,8 @@
 ## Summary
 DB Manager for RunningInWar. Indexes files, builds file links graph, writes to learning-log. Only BOB writes to `M-memory/learning-log.md`.
 
+**Wiki Graph:** 238 קבצים, 250 links (wiki_mention + mentions + imports). סוכנים שואלים BOB "מה קשור ל-X?" → BOB מריץ query על links table ומחזיר רשימת קבצים רלוונטיים.
+
 ## Skills
 **Uses skill:** `write-to-learning-log` (פרויקט) — טוען בסוף שיחה לכתיבת Iteration Log
 
