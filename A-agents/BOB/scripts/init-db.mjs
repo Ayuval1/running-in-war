@@ -23,6 +23,9 @@ db.exec(`
     rel_type  TEXT
   );
 
+  CREATE INDEX IF NOT EXISTS idx_links_from ON links(from_path);
+  CREATE INDEX IF NOT EXISTS idx_links_to ON links(to_path);
+
   CREATE TABLE IF NOT EXISTS sessions (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     date          TEXT NOT NULL,
