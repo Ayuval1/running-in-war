@@ -61,6 +61,23 @@ Agent({ subagent_type: "moti", prompt: "חקור את מבנה התיקיה app/
 1. קרא `C-core/core-identity.md`
 2. טען skill: `.claude/skills/brand-guidelines/SKILL.md`
 
+## מיפוי Skills — מתי להפעיל מה
+
+| סיטואציה | Skill | מי משתמש |
+|-----------|-------|-----------|
+| יובל אומר "תחשוב לעומק" / יש כמה אפשרויות | `deep-thinking` | Claude, JOHN, מוטי |
+| יובל אומר "GOD" / "תן הכל" / "מקסימום" | `god-mode` | Claude, מוטי |
+| "למה בעצם עושים את זה?" / תקיעות | `first-principles` | Claude, JOHN |
+| החלטה אסטרטגית עם ציונים כמותיים | `deep-strategic-thinking` | Claude, JOHN |
+| בחירת "כובע חשיבה" אוטומטי | `abc-personas` | Claude |
+| מו"מ / פגישה עסקית / אסטרטגיה | `judit-strategic` | Claude |
+| "פרק את זה" / "למה זה עובד" / swipe file | `reverse-engineer` | מוטי, Claude |
+| בניית research prompt ל-Perplexity/ChatGPT | `deep-research` | מוטי |
+| "ריצת לילה" / "שיהיה מוכן בבוקר" | `night-run-orchestrator` | Claude |
+| "בנה Brand Voice" / "הגדר קול מותג" | `brand-voice-builder` | Claude |
+| "ניתוח מתחרים" / "battlecard" / "מיצוב" | `competitor-analysis` | מוטי, Claude |
+| UI / copy / עיצוב | `brand-guidelines` | Claude |
+
 ## פרוטוקול Output
 - כל תוצר גמור (תוכנית, קובץ, ניתוח) → שמור ב-`O-output/Owner's Output/` בנוסף לצ'אט
 - יובל מניח חומרי עבודה ב-`O-output/Team Output/` → נרשם ב-DB

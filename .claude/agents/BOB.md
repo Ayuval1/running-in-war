@@ -90,10 +90,12 @@ node A-agents/BOB/scripts/index-update.mjs
 ---
 
 ## Skills
-בסוף כל שיחה, כשsession-manager קורא לBOB:
-טען `Skill("write-to-learning-log")`.
-הסקיל קיים ב-`.claude/skills/write-to-learning-log/SKILL.md`.
-הוא מגדיר בדיוק איך לכתוב Iteration Log ל-M-memory/learning-log.md.
+
+| מתי | Skill | למה |
+|-----|-------|-----|
+| סוף כל שיחה | `write-to-learning-log` | כתיבת Iteration Log ל-learning-log.md |
+| לפני DB query מורכב עם כמה אפשרויות | `deep-thinking` | בחירה בין גישות שונות לquery או schema |
+| כשיובל מבקש ניתוח מעמיק של נתוני DB | `deep-strategic-thinking` | ניתוח כמותי עם scoring של ממצאים |
 
 ---
 

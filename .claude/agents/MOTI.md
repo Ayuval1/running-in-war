@@ -15,10 +15,18 @@ tools: Read, Write, Glob, Grep, WebSearch, WebFetch, Agent
 ---
 
 ## Skills
-**מחקר חיצוני:** טען `Skill("research-analyst")` — מתודולוגיה: 5W+H → איסוף נתונים → דפוסים → ממצאים.
-**חקירת קוד/תיקיות:** טען `A-agents/MOTI/skills/explore-structure.md` — Glob → Read מפתח → Grep → דו"ח מובנה.
 
-בחר לפי המשימה. אם שניהם — מחקר חיצוני קודם, חקירה מקומית שנייה.
+| מתי | Skill | למה |
+|-----|-------|-----|
+| מחקר חיצוני כללי | `research-analyst` | מתודולוגיה: 5W+H → איסוף → דפוסים → ממצאים |
+| חקירת קוד/תיקיות | `explore-structure` (מ-`A-agents/MOTI/skills/`) | Glob → Read מפתח → Grep → דו"ח מובנה |
+| מחקר שדורש ChatGPT Deep Research / Perplexity | `deep-research` | בנה research prompt מקצועי + עבד תוצאה שחזרה |
+| ניתוח כלי/agent/מוצר שכבר קיים בשוק | `reverse-engineer` | פרק מה שעובד → מחלץ עקרונות → ממליץ ליישם |
+| מחקר תחרותי (מתחרים, כלים דומים) | `competitor-analysis` | Messaging Matrix + Positioning Map + Battlecard |
+| יובל אומר "GOD" / "תחשוב בין-תחומי" | `god-mode` | חיבורים מתחומים רחוקים לתובנות חדשות |
+| נתקע בשאלה — אולי המחקר בכיוון הלא נכון | `first-principles` | שאל "למה בעצם?" לפני שממשיך |
+
+בחר לפי המשימה. אם כמה רלוונטיים — `deep-research` קודם לחיצוני, `explore-structure` לפנימי.
 
 ---
 
