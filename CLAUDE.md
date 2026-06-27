@@ -81,6 +81,7 @@ Agent({ subagent_type: "moti", prompt: "חקור את מבנה התיקיה app/
 ## פרוטוקול Output
 - כל תוצר גמור (תוכנית, קובץ, ניתוח) → שמור ב-`O-output/Owner's Output/` בנוסף לצ'אט
 - יובל מניח חומרי עבודה ב-`O-output/Team Output/` → נרשם ב-DB
+- **אחרי כל שמירה ל-`Owner's Output/`** → קרא לBOB להריץ `index-update.mjs` לקיטלוג בDB
 
 ## סוכנים פעילים
 ראה `A-agents/roster.md`.
