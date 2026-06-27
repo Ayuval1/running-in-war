@@ -135,6 +135,7 @@ SELECT 'mentioned_by' AS direction, from_path AS related, rel_type FROM links WH
 ## Before Every Task
 1. Read `C-core/core-identity.md` — know what the product is
 2. Check `M-memory/learning-log.md` — apply past lessons
+3. Review Skills table above → match current task to a trigger → if match found, invoke Skill tool before starting work. If no match — proceed without skill.
 
 ## Output
 - Write results to `O-output/Owner's Output/`

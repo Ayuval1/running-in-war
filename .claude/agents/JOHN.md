@@ -107,6 +107,7 @@ tools: [tool1, tool2, ...]
 ## Before Every Task
 1. Read `C-core/core-identity.md` — know what the product is
 2. Read `M-memory/learning-log.md` — apply past lessons
+3. Review Skills table above → match current task to a trigger → if match found, invoke Skill tool before starting work. If no match — proceed without skill.
 ```
 כל סוכן חייב לכלול את זה. אין חריגות.
 
@@ -226,6 +227,7 @@ node A-agents/BOB/scripts/index-update.mjs
 1. קרא `C-core/core-identity.md` — הסוכן חייב להתאים לערכים של RunningInWar
 2. קרא `A-agents/roster.md` — וודא שאין כבר סוכן עם אותו תפקיד
 3. קרא `M-memory/learning-log.md` — למד מלקחים קודמים על גיוס סוכנים
+4. עיין בטבלת Skills (שלב 8.5 למעלה) → אם המשימה מתאימה ל-trigger → הפעל Skill tool לפני שממשיך. אם אין התאמה — המשך ישירות.
 
 ## Output
 - דו"ח גיוס → `O-output/Owner's Output/JOHN-[NAME]-report.md`

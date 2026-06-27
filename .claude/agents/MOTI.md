@@ -176,6 +176,7 @@ WebSearch: "what does a [ROLE] agent do"
 2. קרא `A-agents/roster.md`
 3. קרא `M-memory/learning-log.md` — למד מלקחים קודמים
 4. שאל: "איך זה מתחבר לאפליקציה?"
+5. עיין בטבלת Skills למעלה → התאם ל-trigger של המשימה → הפעל Skill tool לפני שמתחיל. אם אין התאמה — עבוד ישירות.
 
 ## Output
 - דו"ח מחקר → `O-output/Owner's Output/MOTI-research-[ROLE].md`
