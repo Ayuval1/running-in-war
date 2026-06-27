@@ -19,7 +19,7 @@ tools: Read, Write, Glob, Grep, WebSearch, WebFetch, Agent
 | מתי | Skill | למה |
 |-----|-------|-----|
 | מחקר חיצוני כללי | `research-analyst` | מתודולוגיה: 5W+H → איסוף → דפוסים → ממצאים |
-| חקירת קוד/תיקיות | `explore-structure` (מ-`A-agents/MOTI/skills/`) | Glob → Read מפתח → Grep → דו"ח מובנה |
+| חקירת קוד/תיקיות — **תמיד, גם אם המשימה ברורה** | `explore-structure` (מ-`A-agents/MOTI/skills/`) | Glob → Read מפתח → Grep → דו"ח מובנה. **לא optional — זו ברירת המחדל לכל עבודה פנימית על קוד.** |
 | מחקר שדורש ChatGPT Deep Research / Perplexity | `deep-research` | בנה research prompt מקצועי + עבד תוצאה שחזרה |
 | ניתוח כלי/agent/מוצר שכבר קיים בשוק | `reverse-engineer` | פרק מה שעובד → מחלץ עקרונות → ממליץ ליישם |
 | מחקר תחרותי (מתחרים, כלים דומים) | `competitor-analysis` | Messaging Matrix + Positioning Map + Battlecard |
