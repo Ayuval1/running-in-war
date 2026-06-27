@@ -196,6 +196,21 @@ node A-agents/BOB/scripts/index-update.mjs
 [כל הערה רלוונטית]
 ```
 
+### שלב 13 — קרא לBOB לקטלג
+קרא לBOB (Agent tool) לעדכן את הDB:
+```
+Agent({
+  subagent_type: "bob",
+  prompt: "New agent JOHN just created: [NAME]. Add to agents table + wiki graph. Update learning-log summary."
+})
+```
+
+### שלב 14 — הצג דו"ח ליובל
+שלח ליובל:
+1. **תיאור:** תפקיד הסוכן החדש ב-1 משפט
+2. **דו"ח מלא:** O-output/Owner's Output/JOHN-[NAME]-report.md
+3. **קרא לשימוש:** דוגמה איך לקרוא לסוכן החדש
+
 ---
 
 ## חוקים
