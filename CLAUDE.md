@@ -144,6 +144,11 @@ BOB יבדוק כפילות לפני שיכתוב.
 4. תוצר גמור → O-output/Owner's Output/
 5. ספק = שואל
 
+## גיבוי GitHub
+- **Task Scheduler** מריץ גיבוי אוטומטי בכל יום ב-21:00 — זהו המנגנון הראשי
+- Script: `T-tools/scripts/auto-backup.ps1` | Log: `T-tools/scripts/backup-log.txt`
+- בסוף שיחה (כשיובל מסיים) — Claude עושה `commit` ו-`push` כ-best effort שניוני
+
 ## Deploy
 ```bash
 cd app && vercel --prod   # תמיד מתוך app/

@@ -106,6 +106,21 @@ Where we capture what works, what doesn't, and patterns we repeat.
 2. HARD STOP (עצור, דווח, אל תמשיך) עדיף על escape hatch (עשה משהו שונה)
 3. ניתוב + dispatch כלל ראשון בCLAUDE.md = לא דילוגים
 
+### 2026-06-29 — GitHub Backup + CLAUDE.md Routing Fix
+**מה עשינו:**
+- תוקנה שגיאת ניתוב: Claude שלח BARAK לעדכן את CLAUDE.md הגלובלי (`C:\Users\user\.claude\CLAUDE.md`) במקום של הפרויקט (`CLAUDE.md` של RunningInWar) — BARAK הופסק לפני שינוי
+- נוסף קטע "GitHub Backup" ל-`CLAUDE.md` של הפרויקט (לפני `## Deploy` section): 
+  - Task Scheduler ב-21:00 כל יום = מנגנון ראשי לגיבוי ל-GitHub
+  - session-end commit (עם session-manager) = שניוני, מטפל בשינויים נוספים במהלך השיחה
+- עודכן גם `C:\Users\user\.claude\CLAUDE.md` הגלובלי עם אותה philosophy (Task Scheduler כראשי)
+- איזה לקח? CLAUDE.md הגלובלי הוא **read-only** לפרויקט הזה. Claude צריך להשתמש בפרויקט-specific CLAUDE.md בלבד.
+
+**מה עבד:** גילוי מוקדם של ניתוב שגוי (BARAK הוחלה לפני execution)
+
+**מה לא עבד:** אין
+
+**Pattern שנגלה:** כשClaude חוקק משימות עריכה, חייב לבדוק קובץ הקשרי קודם — האם המשימה למקום הנכון (פרויקט vs גלובלי).
+
 ---
 
 *BOB כותב לקובץ זה. שאר הסוכנים מדווחים לBOB.*
