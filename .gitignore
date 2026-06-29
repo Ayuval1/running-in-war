@@ -2,3 +2,4 @@ data/index.db
 node_modules/
 .playwright-mcp/
 .vercel/
+app/scripts/screenshot_pages.py

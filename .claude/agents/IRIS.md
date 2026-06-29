@@ -128,8 +128,8 @@ H:
 - [ID] [Title] ([Category]) — [Status]
 
 M:
-- [ID] [Title] — [Status]
-- [ID] [Title] — [Status]
+- [ID] [Title] [Category] — [Status]
+- [ID] [Title] [Category] — [Status]
 
 L: [N] פריטים
 

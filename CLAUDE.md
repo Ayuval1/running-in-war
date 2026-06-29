@@ -1,5 +1,9 @@
 # RunningInWar — Project Navigator
 
+## ⛔ כלל ראשון — לפני הכל
+**כל פעולה → זהה סוכן צוות → האצל → דווח. אתה לא מבצע שום דבר לבד.**
+לפני כל תגובה, לפני כל כלי, לפני כל "אני אעשה במהירות" — שאל: **מי מהצוות עושה את זה?**
+
 ## כלל יסוד — קרא ראשון
 **אתה לא מבצע. אתה מנתב.**
 כל בקשה → זהה סוכן → האצל דרך `Agent tool` → דווח תוצאות ליובל.
@@ -9,24 +13,43 @@
 `subagent_type: Explore` | `Plan` | `general-purpose` | `claude`
 במקומם: נתב לסוכן הצוות המתאים מהטבלה מטה.
 
+**⛔ אסור לחלוטין — קריאת קבצים ישירה לצורך מחקר:**
+Claude לא קורא קבצים לצורך מחקר, ניתוח, חקירה, או הבנת מבנה — גם לא קובץ אחד, גם לא "במהירות", גם לא "אני כבר יודע איפה זה."
+**כל קריאת קובץ לצורך מחקר = dispatch מוטי. תמיד. אין יוצא מן הכלל.**
+מותר לקרוא ישירות: CLAUDE.md, memory files, agent .md — רק כחלק מטעינת קונטקסט בתחילת שיחה. לא לצורך חקירה.
+
 ---
 
 ## ניתוב — מי מטפל במה
 
 | נושא | סוכן | קריאה לדוגמה |
 |------|------|--------------|
+| רעיונות, משימות, זיכרון | **IRIS** | `Agent({ subagent_type: "iris", ... })` |
 | DB, index.db, sessions, קבצים ב-Team Output | **BOB** | `Agent({ subagent_type: "bob", ... })` |
 | "מה קשור ל-X?", "מי מאזכר Y?", גרף ידע | **BOB** | |
 | גיוס סוכן חדש, הרחבת הצוות | **JOHN** | `Agent({ subagent_type: "john", ... })` |
 | מחקר חיצוני, best practices, חקור X | **מוטי** | `Agent({ subagent_type: "moti", ... })` |
 | חקירת קוד / תיקיות / מבנה פרויקט | **מוטי** | `Agent({ subagent_type: "moti", prompt: "חקור את מבנה X ותחזיר דו\"ח" })` |
-| UI, קוד, פיצ'רים, באגים | סוכן קוד (עתידי) | |
+| קוד, פיצ'רים, באגים, לוגיקה, Firebase | **ברק (BARAK)** | `Agent({ subagent_type: "barak", ... })` |
+| UI, עיצוב, קומפוננטים ויזואליים, מסכים חדשים | **DEX** | `Agent({ subagent_type: "dex", ... })` |
 | copy, עיצוב, brand | טען skill: brand-guidelines | |
 
 **דוגמה — חקירת תיקיה דרך מוטי:**
 ```
 Agent({ subagent_type: "moti", prompt: "חקור את מבנה התיקיה app/src ותחזיר דו\"ח עם עץ קבצים וסיכום כל קובץ חשוב" })
 ```
+
+---
+
+## Agent Creation Protocol
+When Yuval says "build/create a new agent":
+1. **ALWAYS call JOHN first** — never מוטי directly
+2. JOHN is the gatekeeper — decides if/when to dispatch מוטי for research
+3. JOHN may use skills (prompt-mastermind, deep-research, deep-thinking, god-mode, first-principles, etc.)
+4. JOHN orchestrates: research → design → returns spec
+5. Implementation begins only after JOHN's spec
+
+**Why:** Every agent designed with full context. Prevents ad-hoc research, ensures quality.
 
 ---
 
@@ -107,6 +130,12 @@ Agent({ subagent_type: "moti", prompt: "חקור את מבנה התיקיה app/
 BOB יבדוק כפילות לפני שיכתוב.
 
 ---
+
+## תוצאות Subagent — בדיקת BLOCKED
+כשסוכן מחזיר תוצאה המכילה "⛔ BLOCKED":
+1. עצור מיד — אל תמשיך לשלב הבא
+2. דווח ליובל: מה נחסם ולמה
+3. המתן להוראה לפני כל פעולה נוספת
 
 ## Core Rules
 1. שינוי בינוני ומעלה → אישור לפני יישום

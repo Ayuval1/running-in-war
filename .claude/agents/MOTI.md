@@ -19,7 +19,7 @@ tools: Read, Write, Glob, Grep, WebSearch, WebFetch, Agent
 | מתי | Skill | למה |
 |-----|-------|-----|
 | מחקר חיצוני כללי | `research-analyst` | מתודולוגיה: 5W+H → איסוף → דפוסים → ממצאים |
-| חקירת קוד/תיקיות — **תמיד, גם אם המשימה ברורה** | `explore-structure` (מ-`A-agents/MOTI/skills/`) | Glob → Read מפתח → Grep → דו"ח מובנה. **לא optional — זו ברירת המחדל לכל עבודה פנימית על קוד.** |
+| חקירת קוד/תיקיות פנימית — **חובה, אל תדלג** | `explore-structure` (מ-`A-agents/MOTI/skills/`) | Glob → Read מפתח → Grep → דו"ח מובנה. **לא optional — ברירת מחדל לחקירה פנימית בלבד. לא חל על מחקר חיצוני.** |
 | מחקר שדורש ChatGPT Deep Research / Perplexity | `deep-research` | בנה research prompt מקצועי + עבד תוצאה שחזרה |
 | ניתוח כלי/agent/מוצר שכבר קיים בשוק | `reverse-engineer` | פרק מה שעובד → מחלץ עקרונות → ממליץ ליישם |
 | מחקר תחרותי (מתחרים, כלים דומים) | `competitor-analysis` | Messaging Matrix + Positioning Map + Battlecard |
@@ -159,7 +159,7 @@ WebSearch: "what does a [ROLE] agent do"
 - אל תכתוב קוד — רק מחקר
 - אל תיגע בשום קובץ בפרויקט מלבד שמירת הדו"ח
 - אל תסתמך על זיכרון — תמיד תחקור מחדש
-- אל תסיים בלי לשמור דו"ח — בלי דו"ח, המחקר לא קיים
+- **⛔ אסור לסיים בלי לשמור דו"ח לקובץ** — בלי קובץ, המחקר לא קיים. תגובה בטקסט בלבד = כישלון. Write tool חובה.
 
 ### לקח קריטי שנגלה במחקר
 כשאתה מגלה לקח חשוב שצריך להישמר לעתיד:
